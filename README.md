@@ -1,30 +1,42 @@
-# React + TypeScript + Vite
+# Hackathon-OBC
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é parte de um desafio e tem como objetivo criar um sistema de agendamento completo, similar ao Callendary
 
-Currently, two official plugins are available:
+## Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ReactJs
+- shadcn-ui
+- Sass
 
-## Expanding the ESLint configuration
+## Pages
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- [ ] Levantamento de design para utilização (Fontes - Cores - Tamanhos)
+- [ ] Criação de uma página de registro
+- [ ] Criação de uma página de login
+- [ ] Criação de um formulário pedindo dados disponível para agendamento (Dias disponíveis e horários)
+- [ ] Criação de uma landing page (apresentação do nosso produto)
+- [ ] Dashboard
+- [ ] Deve ser possível se cadastrar como uma ORG;
+- [ ] Deve ser possível realizar login como uma ORG;
 
-- Configure the top-level `parserOptions` property like this:
+## Component
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- [ ] Avatar
+- [ ] Calendário
+- [ ] Multi Step
+- [ ] Button (Os tipos dele também sendo passados como variante alterando cor e border ou margem, primary, success, danger )
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Extras
+
+- [ ] Skeleton (Enquanto as informações estão sendo carregadas da API)
+- [x] Apenas para ver como fica quando marcar. kkk
+
+### Este README está sujeito a atualizações conforme o projeto avança e novas funcionalidades são implementadas.
+
+---
+
+made by:
+
+- [Miqueias Martins](https://www.linkedin.com/in/miqu%C3%A9ias-martins-015b40274/)
+- [Renan Souza](https://www.linkedin.com/in/renansilvadev/)
+- [Wesley Ribas](https://www.linkedin.com/in/wesley-ribas-4996ba173/)
