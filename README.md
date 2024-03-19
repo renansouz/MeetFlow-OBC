@@ -35,7 +35,10 @@ Este projeto é parte de um desafio e tem como objetivo criar um sistema de agen
 
 ---
 
-made by:
-- [Miqueias Martins](https://www.linkedin.com/in/miqu%C3%A9ias-martins-015b40274/)
-- [Renan Souza](https://www.linkedin.com/in/renansilvadev/)
-- [Wesley Ribas](https://www.linkedin.com/in/wesley-ribas-4996ba173/)
+## Colaboradores 🤝🤝
+
+| Foto                                                       | Nome                                                 |
+| ---------------------------------------------------------- | ---------------------------------------------------- |
+| <img src="https://github.com/miqueiasmartinsf.png" width="100"> | [Miquéias Martins](https://github.com/miqueiasmartinsf) |
+| <img src="https://github.com/renansouz.png" width="100"> | [Renan Souza](https://github.com/renansouz) |
+| <img src="https://github.com/WesleyR10" width="100"> | [Wesley Ribas](https://github.com/WesleyR10) |
