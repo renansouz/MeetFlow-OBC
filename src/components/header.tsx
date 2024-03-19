@@ -34,12 +34,12 @@ export function Header() {
                                 <NavigationMenuLink
                                     className={navigationMenuTriggerStyle()}
                                 >
-                                    <Link to={"/asd"}>Help</Link>
+                                    <Link to={"/asd"}>Entrar</Link>
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
                             <NavigationMenuItem>
                                 <NavigationMenuLink className="bg-indigo-600 group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-6 py-2">
-                                    <Link to={"/cadastro"}>Help</Link>
+                                    <Link to={"/cadastro"}>Começar</Link>
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
                         </NavigationMenuList>
