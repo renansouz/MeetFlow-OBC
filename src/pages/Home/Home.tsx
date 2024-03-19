@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const Home = () => {
     return (
         <div className="p-0 bg-blue-900">
-            <section className="p-0 w-lvw h-lvh">
+            <section className="p-0 h-lvh">
                 <BackGroundImage>
                     <h1 className="text-7xl text-white">
                         The Next Payment Method

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import pageBackground from "@/public/page-background.jpg";
-import { Link } from "react-router-dom";
 
 export const BackGroundImage = styled.div`
     background-image: linear-gradient(
@@ -11,6 +10,7 @@ export const BackGroundImage = styled.div`
         url(${pageBackground});
     background-size: cover;
     background-repeat: no-repeat;
+    width: 100%;
     height: 100%;
     background-position: center center;
     display: flex;
