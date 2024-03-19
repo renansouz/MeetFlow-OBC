@@ -41,4 +41,4 @@ Este projeto é parte de um desafio e tem como objetivo criar um sistema de agen
 | ---------------------------------------------------------- | ---------------------------------------------------- |
 | <img src="https://github.com/miqueiasmartinsf.png" width="100"> | [Miquéias Martins](https://github.com/miqueiasmartinsf) |
 | <img src="https://github.com/renansouz.png" width="100"> | [Renan Souza](https://github.com/renansouz) |
-| <img src="https://github.com/WesleyR10" width="100"> | [Wesley Ribas](https://github.com/WesleyR10) |
+| <img src="https://github.com/WesleyR10.png" width="100"> | [Wesley Ribas](https://github.com/WesleyR10) |
