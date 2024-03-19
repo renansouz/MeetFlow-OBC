@@ -9,13 +9,25 @@ import {
 } from "@/components/ui/navigation-menu";
 
 import Logo from "@/public/Logo.png";
+import LightLogo from "@/public/Logo-light.png";
+
+import { useTheme } from "@/context/theme-provider";
 
 export function Header() {
+    const { theme } = useTheme();
+
+
+
+
     return (
         <div className="border-b px-28">
-            <div className="flex h-16 items-center gap-6 px-6 justify-between">
+            <div className="flex h-26 items-center gap-6 px-6 justify-between">
                 <Link to={"/"}>
-                    <img src={Logo} alt="" className="h-20" />
+                    <img
+                        src={theme === "dark" ? Logo : LightLogo}
+                        alt=""
+                        className="h-20 img"
+                    />
                 </Link>
                 <div className="flex">
                     <NavigationMenu>
@@ -47,7 +59,7 @@ export function Header() {
                             <NavigationMenuItem>
                                 <NavigationMenuLink
                                     asChild
-                                    className="bg-indigo-600 group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-6 py-2"
+                                    className="bg-indigo-600 group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-6 py-2 text-white"
                                 >
                                     <Link to={"/cadastro"}>Começar</Link>
                                 </NavigationMenuLink>

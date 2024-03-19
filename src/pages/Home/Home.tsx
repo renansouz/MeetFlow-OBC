@@ -6,22 +6,23 @@ export const Home = () => {
         <div className="p-0 bg-blue-900">
             <section className="p-0 h-lvh">
                 <BackGroundImage>
-                    <h1 className="text-7xl text-white">
+                    <h1 className="text-7xl text-white font-lexend-start font-semibold	">
                         The Next Payment Method
                     </h1>
-                    <p>
+                    <p className="font-lexend-start font-extralight text-2xl text-white">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Consequatur labore, quod atque iusto rem, delectus
                         aliquam ipsum.
                     </p>
                     <Link
-                        className="bg-indigo-600 group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-6 py-2"
+                        className="bg-indigo-600  h-10 w-30 items-center justify-center rounded-md bg-background px-6 py-2 text-white"
                         to={"/cadastro"}
                     >
                         Começar
                     </Link>
                 </BackGroundImage>
             </section>
+            <section></section>
         </div>
     );
 };
