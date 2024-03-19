@@ -1,11 +1,14 @@
 import { RouterProvider } from 'react-router-dom'
 
+import { ThemeProvider } from '@/components/theme/theme-provider'
 import { router } from '@/routes'
 
 function App() {
   return (
     <>
-      <RouterProvider router={router}/>
+      <ThemeProvider storageKey='MeetFlow-theme' defaultTheme='dark'>
+        <RouterProvider router={router}/>
+      </ThemeProvider>
     </>
   )
 }
