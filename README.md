@@ -30,3 +30,12 @@ Este projeto é parte de um desafio e tem como objetivo criar um sistema de agen
 
 - [ ] Skeleton (Enquanto as informações estão sendo carregadas da API)
 - [x] Apenas para ver como fica quando marcar. kkk
+
+### Este README está sujeito a atualizações conforme o projeto avança e novas funcionalidades são implementadas.
+
+---
+
+made by:
+- [Miqueias Martins](https://www.linkedin.com/in/miqu%C3%A9ias-martins-015b40274/)
+- [Renan Souza](https://www.linkedin.com/in/renansilvadev/)
+- [Wesley Ribas](https://www.linkedin.com/in/wesley-ribas-4996ba173/)
