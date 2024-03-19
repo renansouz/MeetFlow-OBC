@@ -1,32 +1,30 @@
-# Hackathon-OBC
+# React + TypeScript + Vite
 
-Este projeto é parte de um desafio e tem como objetivo criar um sistema de agendamento completo, similar ao Callendary
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Tecnologias Utilizadas
+Currently, two official plugins are available:
 
-- ReactJs
-- shadcn-ui
-- Sass
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Pages
+## Expanding the ESLint configuration
 
-- [ ] Levantamento de design para utilização (Fontes - Cores - Tamanhos)
-- [ ] Criação de uma página de registro
-- [ ] Criação de uma página de login
-- [ ] Criação de um formulário pedindo dados disponível para agendamento (Dias disponíveis e horários)
-- [ ] Criação de uma landing page (apresentação do nosso produto)
-- [ ] Dashboard
-- [ ] Deve ser possível se cadastrar como uma ORG;
-- [ ] Deve ser possível realizar login como uma ORG;
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-## Component
+- Configure the top-level `parserOptions` property like this:
 
-- [ ] Avatar
-- [ ] Calendário
-- [ ] Multi Step
-- [ ] Button (Os tipos dele também sendo passados como variante alterando cor e border ou margem, primary, success, danger )
+```js
+export default {
+  // other rules...
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+  },
+}
+```
 
-## Extras
-
-- [ ] Skeleton (Enquanto as informações estão sendo carregadas da API)
-- [x] Apenas para ver como fica quando marcar. kkk
+- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
+- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
