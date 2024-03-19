@@ -36,7 +36,6 @@ Este projeto é parte de um desafio e tem como objetivo criar um sistema de agen
 ---
 
 made by:
-
 - [Miqueias Martins](https://www.linkedin.com/in/miqu%C3%A9ias-martins-015b40274/)
 - [Renan Souza](https://www.linkedin.com/in/renansilvadev/)
 - [Wesley Ribas](https://www.linkedin.com/in/wesley-ribas-4996ba173/)
