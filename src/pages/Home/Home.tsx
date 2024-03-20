@@ -17,10 +17,10 @@ export const Home = () => {
                         aliquam ipsum.
                     </p>
                     <Link
-                        className="bg-indigo-600  h-10 w-30 items-center justify-center rounded-md bg-background px-6 py-2 text-white"
+                        className="bg-indigo-600  h-12 w-60 items-center justify-center rounded-md bg-background px-6 py-2 text-white text-2xl"
                         to={"/cadastro"}
                     >
-                        Começar
+                        Comece já
                     </Link>
                 </BackGroundImage>
             </section>
