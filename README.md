@@ -6,7 +6,7 @@ Este projeto é parte de um desafio e tem como objetivo criar um sistema de agen
 
 - ReactJs
 - shadcn-ui
-- Sass
+- Tailwind
 
 ## Pages
 
