@@ -1,4 +1,4 @@
-import { ThemeToggle } from "./theme/theme-toggle";
+import { ThemeToggle } from "../theme/theme-toggle";
 import { Link } from "react-router-dom";
 import {
     NavigationMenu,
@@ -15,9 +15,6 @@ import { useTheme } from "@/context/theme-provider";
 
 export function Header() {
     const { theme } = useTheme();
-
-
-
 
     return (
         <div className="border-b px-28">

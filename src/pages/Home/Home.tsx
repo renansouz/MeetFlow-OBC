@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 export const Home = () => {
     return (
         <div className="p-0 bg-blue-900">
-            <section className="p-0 h-lvh">
+            <section className="p-0 h-lvh text-center">
                 <BackGroundImage>
-                    <h1 className="text-7xl text-white font-lexend-start font-semibold	">
+                    <h1 className="text-7xl text-white font-lexend-start font-semibold text-center">
                         The Next Payment Method
                     </h1>
-                    <p className="font-lexend-start font-extralight text-2xl text-white">
+                    <p className="font-lexend-start font-extralight text-2xl text-white text-center">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Consequatur labore, quod atque iusto rem, delectus
                         aliquam ipsum.
@@ -22,7 +22,10 @@ export const Home = () => {
                     </Link>
                 </BackGroundImage>
             </section>
-            <section></section>
+            <section className="bg-blue-900 min-h1">
+
+
+            </section>
         </div>
     );
 };
