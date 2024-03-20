@@ -1,7 +1,10 @@
-import { BackGroundImage } from "./styles";
-import { Link } from "react-router-dom";
-import { Card } from "./Components/Card";
-import { Star, ShieldCheck, FolderSync } from "lucide-react";
+import { FolderSync,ShieldCheck, Star } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+import { MultiStep } from '@/components/MultiStep';
+
+import { Card } from './Components/Card';
+import { BackGroundImage } from './styles';
 
 export const Home = () => {
     return (
@@ -14,11 +17,13 @@ export const Home = () => {
                     <p className="font-lexend-start font-extralight text-2xl text-white text-center w-1/2">Encontre serviços, agende compromissos e simplifique sua vida com o MeetFlow. A maneira mais fácil de conectar-se com profissionais e organizarsua agenda. Experimente agora!</p>
                     <Link
                         className="bg-indigo-600  h-12 items-center justify-center rounded-md bg-background px-6 py-2 text-white text-2xl"
-                        to={"/cadastro"}
+                        to={'/cadastro'}
                     >
                         CLIQUE AQUI PARA COMEÇAR
                     </Link>
                 </BackGroundImage>
+
+                <MultiStep size={3} text={['123', '456', '789']} currentStep={3}/>
             </section>
             <section className="min-h-screen flex">
                 <div className="w-3/6 flex justify-center items-center text-center flex-col gap-5">

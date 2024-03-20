@@ -1,9 +1,9 @@
-import { useTheme } from "@/context/theme-provider";
-import Logo from "@/public/Logo.png";
-import LightLogo from "@/public/Logo-light.png";
-import { Separator } from "@/components/ui/separator";
+import { Github, Instagram, Twitter, Youtube } from 'lucide-react';
 
-import { Instagram, Github, Twitter, Youtube } from "lucide-react";
+import { Separator } from '@/components/ui/separator';
+import { useTheme } from '@/context/theme-provider';
+import Logo from '@/public/Logo.png';
+import LightLogo from '@/public/Logo-light.png';
 
 export const Footer = () => {
     const { theme } = useTheme();
@@ -18,7 +18,7 @@ export const Footer = () => {
                 <div className="flex justify-center items-start w-full gap-32">
                     <div className="flex flex-col bg-blue w-4/12 justify-center">
                         <img
-                            src={theme === "dark" ? Logo : LightLogo}
+                            src={theme === 'dark' ? Logo : LightLogo}
                             alt=""
                             className="w-full"
                         />
