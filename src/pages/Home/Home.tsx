@@ -20,7 +20,7 @@ export const Home = () => {
                     </Link>
                 </BackGroundImage>
             </section>
-            <section className="min-h-screen flex ">
+            <section className="min-h-screen flex">
                 <div className="w-3/6 flex justify-center items-center text-center flex-col gap-5">
                     <div className="w-9/12 text-left flex flex-col gap-6">
                         <h1 className="text-7xl font-lexend-start font-semibold">
