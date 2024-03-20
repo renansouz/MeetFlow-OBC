@@ -8,12 +8,13 @@ export const Home = () => {
         <div className="p-0">
             <section className="p-0 h-lvh text-center">
                 <BackGroundImage>
-                    <h1 className="text-7xl text-white font-lexend-start font-semibold text-center">The Next Payment Method</h1>
+                    <h1 className="text-7xl text-white font-lexend-start font-semibold text-center">Facilite sua agenda com o MeetFlow</h1>
                     <p className="font-lexend-start font-extralight text-2xl text-white text-center w-1/2">
                         Encontre serviços, agende compromissos e simplifique sua vida com o MeetFlow. A maneira mais fácil de conectar-se com profissionais e organizarsua agenda. Experimente
                         agora!
                     </p>
-                    <Link className="bg-indigo-600  h-12 items-center justify-center rounded-md bg-background px-6 py-2 text-white text-2xl" to={'/cadastro'}>
+
+                    <Link className="bg-indigo-600  h-12 items-center justify-center rounded-md bg-background px-6 py-2 text-white text-2xl" to={'/register'}>
                         CLIQUE AQUI PARA COMEÇAR
                     </Link>
                 </BackGroundImage>

@@ -1,3 +1,4 @@
+
 import { useTheme } from '@/context/theme-provider';
 import OnlyLightLogo from '@/public/only-logo-white.png';
 import OnlyDarkLogo from '@/public/only-logo-black.png';
@@ -5,17 +6,19 @@ import { Separator } from '@/components/ui/separator';
 
 import { Instagram, Github, Twitter, Youtube } from 'lucide-react';
 
+
 export const Footer = () => {
     const { theme } = useTheme();
 
     return (
-        <div className="flex justify-center flex-col items-center py-10 pt-32">
+        <div className="flex justify-center flex-col items-center py-10">
             <Separator orientation="horizontal" className="w-full h-0.5 mb-24" />
             <div className="w-5/6">
                 <div className="flex justify-evenly items-start w-full gap-32 flex-wrap">
                     <div className="flex flex-col bg-blue w-2/12 justify-center items-start">
                         <img src={theme === 'dark' ? OnlyLightLogo : OnlyDarkLogo} alt="" className="w-3/4" />
                         <p className="text-start">Organize. Agende. Conecte-se. MeetFlow.</p>
+
                     </div>
                     <div className="flex flex-col gap-4">
                         <h2 className="text-2xl font-bold mb-2">Recursos</h2>
