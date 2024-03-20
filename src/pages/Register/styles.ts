@@ -14,7 +14,7 @@ export const BackGroundDiv = styled.div`
 `;
 
 export const FormDiv = styled.div`
-    padding: 20px 0px;
+    padding: 30px 0px;
     background-color: white;
     box-shadow: 30px 30px 0px #4338ca;
     width: 70%;

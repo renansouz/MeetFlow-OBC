@@ -4,13 +4,17 @@ import LightLogo from '@/public/Logo-light.png';
 import { BackGroundDiv, FormDiv } from './styles';
 import { useState } from 'react';
 import { MultiStep } from '@/components/multiStep';
+import { Link } from 'react-router-dom';
+
+import { Step1 } from './Step1';
+import { Step2 } from './Step2';
+import { Step3 } from './Step3';
+import { StepNavigator } from './StepNavigator';
 
 export const Register = () => {
     const { theme } = useTheme();
 
-    type passwordAppearenceType = 'password' | 'text';
-    const [passwordAppearence, setPasswordAppearence] = useState<passwordAppearenceType>('password');
-    const handlePasswordAppearence = () => (passwordAppearence === 'password' ? setPasswordAppearence('text') : setPasswordAppearence('password'));
+    const [currentStepState, setCurrentStepState] = useState<number>(1);
 
     return (
         <div className="flex w-full h-screen">
@@ -21,48 +25,13 @@ export const Register = () => {
                 </div>
                 <div className="w-1/2 flex justify-center items-center">
                     <FormDiv>
-                        <MultiStep size={3} currentStep={1} text={['Conta', 'Disponibilidade', 'Serviços']} />
-                        <div className="flex flex-col gap-5 items-start justify-center mt-20 px-10">
-                            <section>
-                                <label htmlFor="" className="block text-black font-bold">
-                                    Nome de Usuário
-                                </label>
-                                <input
-                                    type="text"
-                                    placeholder="Digite seu nome de usuário"
-                                    id="user"
-                                    className="px-4 py-1 text-base rounded-lg border focus:outline focus:outline-0 focus:outline-offset-2 bg-[#ffffff] text-[#444444] focus:outline-[#aaaaaa] border-[#cbcbcb]"
-                                />
-                            </section>
+                        <MultiStep size={3} currentStep={currentStepState} text={['Conta', 'Disponibilidade', 'Serviços']} />
 
-                            <section>
-                                <label htmlFor="" className="block text-black font-bold">
-                                    Endereço de e-mail
-                                </label>
-                                <input
-                                    type="email"
-                                    placeholder="Digite seu e-mail"
-                                    id="email"
-                                    className="px-4 py-1 text-base rounded-lg border focus:outline focus:outline- focus:outline-offset-2 bg-[#ffffff] text-[#444444] focus:outline-[#aaaaaa] border-[#cbcbcb]"
-                                />
-                            </section>
-
-                            <section>
-                                <label htmlFor="" className="block text-black font-bold">
-                                    Senha
-                                </label>
-                                <input
-                                    type={passwordAppearence}
-                                    placeholder="Digite sua senha"
-                                    id="password"
-                                    className="px-4 py-1 text-base rounded-lg border focus:outline focus:outline-0 focus:outline-offset-2 bg-[#ffffff] text-[#444444] focus:outline-[#aaaaaa] border-[#cbcbcb]"
-                                />
-                            </section>
-                            <section className="flex text-black gap-2">
-                                <label htmlFor="">Mostrar senha</label>
-                                <input type="checkbox" name="" id="" onClick={handlePasswordAppearence} />
-                            </section>
-                        </div>
+                        {currentStepState === 1 ? <Step1 setCurrentStepState={setCurrentStepState} currentStepState={currentStepState} /> : null}
+                        {currentStepState === 2 ? <Step2 setCurrentStepState={setCurrentStepState} currentStepState={currentStepState} /> : null}
+                        {currentStepState === 3 ? <Step3 setCurrentStepState={setCurrentStepState} currentStepState={currentStepState} /> : null}
+                        
+                        <StepNavigator currentStepState={currentStepState} setCurrentStepState={setCurrentStepState} />
                     </FormDiv>
                 </div>
             </BackGroundDiv>
