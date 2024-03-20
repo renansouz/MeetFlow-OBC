@@ -20,9 +20,9 @@ export const Home = () => {
             </section>
             <section className="min-h-screen flex">
                 <div className="w-3/6 flex justify-center items-center text-center flex-col gap-5">
-                    <div className="w-9/12 text-left flex flex-col gap-6">
-                        <h1 className="text-7xl font-lexend-start font-semibold">Conheça o MeetFlow:</h1>
-                        <p className="w-10/12 mb-32">
+                    <div className="w-9/12 flex flex-col gap-6 justify-start">
+                        <h1 className="text-6xl font-lexend-start font-semibold text-center">Conheça o MeetFlow:</h1>
+                        <p className="w-full mt-12 text-center">
                             O MeetFlow simplifica o agendamento de compromissos com profissionais. Nossa plataforma intuitiva conecta clientes a uma variedade de serviços, oferecendo uma
                             experiência fácil e conveniente.
                         </p>
