@@ -1,24 +1,29 @@
+import { MultiStepContainer, Step, Steps, Label, DivRepeat } from "./styles"
+
+import { ChevronRight } from "lucide-react"
+
 export interface MultiStepProps {
   size: number
   currentStep?: number
-  text: string
+  text: string[]
 }
 
 export function MultiStep({ size, currentStep = 1, text }: MultiStepProps) {
   return (
-    <div>
-      <div>
+    <MultiStepContainer>
+      <Steps>
         {Array.from({ length: size }, (_, i) => i + 1).map(step => {
           return (
-            <div
-              key={step}
-              className={`h-2 w-2 rounded-full border-2 border-gray-400 ${currentStep >= step ? 'bg-green-500' : 'bg-gray-200'
-                }`}
-            />
+            <>
+                <DivRepeat>
+                    <Step key={step} active={currentStep >= step} stepContent = {step} currentStep={currentStep}/>
+                    <Label active={currentStep >= step}>{text[step - 1]}</Label>
+                                  {step !== size && <ChevronRight className="w-8 h-8 text-black" />}
+                </DivRepeat>
+            </>
           )
         })}
-      </div>
-      <span className="text-xs text-gray-500">{text}</span>
-    </div>
+      </Steps>
+    </MultiStepContainer>
   )
 }
