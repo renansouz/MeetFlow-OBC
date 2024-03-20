@@ -1,5 +1,6 @@
-import { BackGroundImage } from "./styles";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+
+import { BackGroundImage } from './styles';
 
 export const Home = () => {
     return (
@@ -16,7 +17,7 @@ export const Home = () => {
                     </p>
                     <Link
                         className="bg-indigo-600  h-10 w-30 items-center justify-center rounded-md bg-background px-6 py-2 text-white"
-                        to={"/cadastro"}
+                        to={'/cadastro'}
                     >
                         Começar
                     </Link>
