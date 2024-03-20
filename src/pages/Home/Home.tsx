@@ -1,13 +1,10 @@
-<<<<<<< HEAD
+
+
+import { FolderSync, ShieldCheck, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+import { Card } from './Components/Card';
 import { BackGroundImage } from './styles';
-=======
-import { BackGroundImage } from "./styles";
-import { Link } from "react-router-dom";
-import { Card } from "./Components/Card";
-import { Star, ShieldCheck, FolderSync } from "lucide-react";
->>>>>>> 758e1715d8556a96dedadec680f6ce8c2b111990
 
 export const Home = () => {
     return (
@@ -19,13 +16,10 @@ export const Home = () => {
                     </h1>
                     <p className="font-lexend-start font-extralight text-2xl text-white text-center w-1/2">Encontre serviços, agende compromissos e simplifique sua vida com o MeetFlow. A maneira mais fácil de conectar-se com profissionais e organizarsua agenda. Experimente agora!</p>
                     <Link
-<<<<<<< HEAD
-                        className="bg-indigo-600  h-10 w-30 items-center justify-center rounded-md bg-background px-6 py-2 text-white"
-                        to={'/cadastro'}
-=======
+
                         className="bg-indigo-600  h-12 items-center justify-center rounded-md bg-background px-6 py-2 text-white text-2xl"
-                        to={"/cadastro"}
->>>>>>> 758e1715d8556a96dedadec680f6ce8c2b111990
+                        to={'/cadastro'}
+
                     >
                         CLIQUE AQUI PARA COMEÇAR
                     </Link>
