@@ -9,7 +9,11 @@ export const Footer = () => {
     const { theme } = useTheme();
 
     return (
-        <div className="flex justify-center flex-col items-center py-10 h- bg-sky-950 pt-32">
+        <div className="flex justify-center flex-col items-center py-10 h-  pt-32">
+            <Separator
+                    orientation="horizontal"
+                    className="w-full h-0.5 mb-10"
+                />
             <div className="w-5/6">
                 <div className="flex justify-center items-start w-full gap-32">
                     <div className="flex flex-col bg-blue w-4/12 justify-center">
