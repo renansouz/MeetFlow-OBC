@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
   *{
@@ -51,4 +51,4 @@ body::-webkit-scrollbar-thumb:active {
     font: 300 1rem "Lexend Deca", sans-serif;
   }
 
-`
+`;
