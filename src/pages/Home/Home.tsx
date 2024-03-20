@@ -13,6 +13,7 @@ export const Home = () => {
                         Encontre serviços, agende compromissos e simplifique sua vida com o MeetFlow. A maneira mais fácil de conectar-se com profissionais e organizarsua agenda. Experimente
                         agora!
                     </p>
+
                     <Link className="bg-indigo-600  h-12 items-center justify-center rounded-md bg-background px-6 py-2 text-white text-2xl" to={'/register'}>
                         CLIQUE AQUI PARA COMEÇAR
                     </Link>

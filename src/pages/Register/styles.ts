@@ -17,6 +17,6 @@ export const FormDiv = styled.div`
     padding: 20px 0px;
     background-color: white;
     box-shadow: 30px 30px 0px #4338ca;
-    width: 60%;
-    height: 65%;
+    width: 70%;
+    height: 75%;
 `;

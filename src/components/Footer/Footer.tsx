@@ -1,9 +1,11 @@
+
 import { useTheme } from '@/context/theme-provider';
 import OnlyLightLogo from '@/public/only-logo-white.png';
 import OnlyDarkLogo from '@/public/only-logo-black.png';
 import { Separator } from '@/components/ui/separator';
 
 import { Instagram, Github, Twitter, Youtube } from 'lucide-react';
+
 
 export const Footer = () => {
     const { theme } = useTheme();
@@ -16,6 +18,7 @@ export const Footer = () => {
                     <div className="flex flex-col bg-blue w-2/12 justify-center items-start">
                         <img src={theme === 'dark' ? OnlyLightLogo : OnlyDarkLogo} alt="" className="w-3/4" />
                         <p className="text-start">Organize. Agende. Conecte-se. MeetFlow.</p>
+
                     </div>
                     <div className="flex flex-col gap-4">
                         <h2 className="text-2xl font-bold mb-2">Recursos</h2>
