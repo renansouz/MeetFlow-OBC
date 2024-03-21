@@ -1,9 +1,3 @@
-
-
 export const Step3 = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+    return <div></div>;
 };

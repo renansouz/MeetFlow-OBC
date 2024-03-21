@@ -1,7 +1,7 @@
-import { stepProps } from '@/types/StepsTypes';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
 
+import { Button } from '@/components/ui/button';
+import { stepProps } from '@/types/StepsTypes';
 
 export const StepNavigator = ({ setCurrentStepState, currentStepState }: stepProps) => {
     const navigate = useNavigate();
@@ -9,7 +9,7 @@ export const StepNavigator = ({ setCurrentStepState, currentStepState }: stepPro
     const handleStepBack = () => (currentStepState === 1 ? navigate('/') : setCurrentStepState(currentStepState - 1));
 
     return (
-        <div className="w-full flex justify-between px-10 absolute bottom-5 left-0">
+        <div className="absolute bottom-5 left-0 flex w-full justify-between px-10">
             <Button variant={'costumize'} onClick={() => handleStepBack()}>
                 Voltar
             </Button>

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import pageBackground from '@/public/register-background.jpg';
 
 export const BackGroundDiv = styled.div`

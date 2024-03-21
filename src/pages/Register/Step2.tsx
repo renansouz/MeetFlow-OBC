@@ -32,7 +32,7 @@ export const Step2 = () => {
         <div>
             <div className="">
                 <h2 className="text-black">Horários disponíveis</h2>
-                <div className="flex items-center justify-center py-10 mt-20 gap-10">
+                <div className="mt-20 flex items-center justify-center gap-10 py-10">
                     <Select>
                         <SelectTrigger className="w-[180px] bg-white text-black">
                             <SelectValue placeholder="00:00" />

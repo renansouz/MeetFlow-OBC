@@ -5,7 +5,6 @@ import { router } from '@/router';
 
 import { GlobalStyles } from './styles/global';
 
-
 function App() {
     return (
         <>

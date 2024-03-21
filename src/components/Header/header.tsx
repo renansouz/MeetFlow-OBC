@@ -1,32 +1,35 @@
-import { ThemeToggle } from '../theme/theme-toggle';
 import { Link } from 'react-router-dom';
-import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from '@/components/ui/navigation-menu';
 
+import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from '@/components/ui/navigation-menu';
+import { useTheme } from '@/context/theme-provider';
 import Logo from '@/public/Logo.png';
 import LightLogo from '@/public/Logo-light.png';
 
-import { useTheme } from '@/context/theme-provider';
+import { ThemeToggle } from '../theme/theme-toggle';
 
 export function Header() {
     const { theme } = useTheme();
 
     return (
-        <div className="border-b px-28 max-xl:hidden">
-            <div className="flex h-26 items-center gap-6 px-6 justify-between">
+        <div className="border-b px-28 ">
+            <div className="h-26 flex items-center justify-between gap-6 px-6">
                 <Link to={'/'}>
-                    <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="h-20 img" />
+                    <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="h-20 min-w-32" />
                 </Link>
-                <div className="flex">
+                <div className="max-lg:visible lg:hidden">
+                    <p>teste</p>
+                </div>
+                <div className="flex max-lg:hidden">
                     <NavigationMenu>
                         <NavigationMenuList>
                             <NavigationMenuItem>
                                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                                    <Link to={'/'}>Home</Link>
+                                    <Link to={'/'}>Início</Link>
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
                             <NavigationMenuItem>
                                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                                    <Link to={'/about'}>About</Link>
+                                    <Link to={'/about'}>Sobre nós</Link>
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
                             <NavigationMenuItem>
@@ -35,7 +38,7 @@ export function Header() {
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
                             <NavigationMenuItem>
-                                <NavigationMenuLink asChild className="bg-indigo-600 group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-6 py-2 text-white">
+                                <NavigationMenuLink asChild className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background bg-indigo-600 px-6 py-2 text-white">
                                     <Link to={'/register'}>Começar</Link>
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
