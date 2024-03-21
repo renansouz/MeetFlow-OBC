@@ -4,8 +4,6 @@ import LightLogo from '@/public/Logo-light.png';
 import { BackGroundDiv, FormDiv } from './styles';
 import { useState } from 'react';
 import { MultiStep } from '@/components/multiStep';
-import { Link } from 'react-router-dom';
-
 import { Step1 } from './Step1';
 import { Step2 } from './Step2';
 import { Step3 } from './Step3';
@@ -19,7 +17,7 @@ export const Register = () => {
     return (
         <div className="flex w-full h-screen">
             <BackGroundDiv>
-                <div className="flex flex-col gap-20 justify-center items-center w-1/2">
+                <div className="flex flex-col gap-20 justify-center items-center w-1/2 ">
                     <img src={theme === 'dark' ? DarkLogo : LightLogo} alt="" className="w-96" />
                     <h1 className="text-5xl text-center font-semibold">Junte-se à comunidade MeetFlow</h1>
                 </div>
@@ -27,10 +25,10 @@ export const Register = () => {
                     <FormDiv>
                         <MultiStep size={3} currentStep={currentStepState} text={['Conta', 'Disponibilidade', 'Serviços']} />
 
-                        {currentStepState === 1 ? <Step1 setCurrentStepState={setCurrentStepState} currentStepState={currentStepState} /> : null}
-                        {currentStepState === 2 ? <Step2 setCurrentStepState={setCurrentStepState} currentStepState={currentStepState} /> : null}
-                        {currentStepState === 3 ? <Step3 setCurrentStepState={setCurrentStepState} currentStepState={currentStepState} /> : null}
-                        
+                        {currentStepState === 1 ? <Step1/> : null}
+                        {currentStepState === 2 ? <Step2/> : null}
+                        {currentStepState === 3 ? <Step3/> : null}
+
                         <StepNavigator currentStepState={currentStepState} setCurrentStepState={setCurrentStepState} />
                     </FormDiv>
                 </div>

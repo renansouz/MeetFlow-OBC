@@ -1,4 +1,5 @@
+
 export type stepProps = {
-    setCurrentStepState:Function
+    setCurrentStepState:(int:number) => void
     currentStepState:number
 }

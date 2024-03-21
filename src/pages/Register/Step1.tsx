@@ -1,10 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { stepProps } from '@/types/StepsTypes';
-import { StepNavigator } from './StepNavigator';
 
-
-export const Step1 = ({ setCurrentStepState, currentStepState } : stepProps ) => {
+export const Step1 = () => {
 
     type passwordAppearenceType = 'password' | 'text';
     const [passwordAppearence, setPasswordAppearence] = useState<passwordAppearenceType>('password');
