@@ -5,11 +5,12 @@ import { router } from '@/router';
 
 import { GlobalStyles } from './styles/global';
 
+
 function App() {
     return (
         <>
             <ThemeProvider storageKey="MeetFlow-theme" defaultTheme="dark">
-            <GlobalStyles />
+                <GlobalStyles />
                 <RouterProvider router={router} />
             </ThemeProvider>
         </>
