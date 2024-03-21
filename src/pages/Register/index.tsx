@@ -5,10 +5,7 @@ import { useTheme } from '@/context/theme-provider';
 import DarkLogo from '@/public/Logo.png';
 import LightLogo from '@/public/Logo-light.png';
 
-import { Step1 } from './Step1';
-import { Step2 } from './Step2';
-import { Step3 } from './Step3';
-import { StepNavigator } from './StepNavigator';
+import { Step1, Step2, Step3, StepNavigator } from './step';
 import { BackGroundDiv, FormDiv } from './styles';
 
 export const Register = () => {
@@ -19,11 +16,11 @@ export const Register = () => {
     return (
         <div className="flex h-screen w-full">
             <BackGroundDiv>
-                <div className="flex w-1/2 flex-col items-center justify-center gap-20 max-lg:hidden">
+                <div className="flex w-1/2 flex-col items-center justify-center gap-20 ">
                     <img src={theme === 'dark' ? DarkLogo : LightLogo} alt="" className="w-96" />
-                    <h1 className="text-center text-5xl font-semibold max-lg:text-black">Junte-se à comunidade MeetFlow</h1>
+                    <h1 className="text-center text-5xl font-semibold">Junte-se à comunidade MeetFlow</h1>
                 </div>
-                <div className="flex w-1/2 items-center justify-center max-lg:min-w-full">
+                <div className="flex w-1/2 items-center justify-center">
                     <FormDiv>
                         <MultiStep size={3} currentStep={currentStepState} text={['Conta', 'Disponibilidade', 'Serviços']} />
 

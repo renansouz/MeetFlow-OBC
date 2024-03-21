@@ -1,4 +1,4 @@
-import { FolderSync, ShieldCheck, Star } from 'lucide-react';
+import { FolderSync, Share2, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 import { Card } from './Components/Card';
@@ -35,7 +35,7 @@ export const Home = () => {
 
                 <div className="flex w-3/6 flex-col items-center justify-center gap-20 max-xl:mb-20 max-xl:gap-52">
                     <Card Icon={Star} title="Facilidade de Uso" label="Navegue e agende serviços sem complicações." />
-                    <Card Icon={ShieldCheck} title="conexões direta" label="Conecte-se diretamente com profissionais qualificados." />
+                    <Card Icon={Share2} title="conexões direta" label="Conecte-se diretamente com profissionais qualificados." />
                     <Card Icon={FolderSync} title="gerenciamento simples" label="Mantenha sua agenda organizada em um só lugar." />
                 </div>
             </section>

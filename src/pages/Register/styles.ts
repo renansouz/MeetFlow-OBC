@@ -21,4 +21,5 @@ export const FormDiv = styled.div`
     width: 70%;
     height: 75%;
     position: relative;
+    border-radius: 0.7rem;
 `;

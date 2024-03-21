@@ -11,25 +11,22 @@ export function Header() {
     const { theme } = useTheme();
 
     return (
-        <div className="border-b px-28 ">
+        <div className="border-b px-28">
             <div className="h-26 flex items-center justify-between gap-6 px-6">
                 <Link to={'/'}>
-                    <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="h-20 min-w-32" />
+                    <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="img h-20" />
                 </Link>
-                <div className="max-lg:visible lg:hidden">
-                    <p>teste</p>
-                </div>
                 <div className="flex max-lg:hidden">
                     <NavigationMenu>
                         <NavigationMenuList>
                             <NavigationMenuItem>
                                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                                    <Link to={'/'}>Início</Link>
+                                    <Link to={'/'}>Home</Link>
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
                             <NavigationMenuItem>
                                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                                    <Link to={'/about'}>Sobre nós</Link>
+                                    <Link to={'/about'}>About</Link>
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
                             <NavigationMenuItem>
@@ -48,6 +45,18 @@ export function Header() {
                         <ThemeToggle />
                     </div>
                 </div>
+                <button className="group mx-2 block rounded px-4 py-3 hover:bg-gray-200 focus:outline-none lg:hidden">
+                    <div className="mb-2 h-1 w-8 bg-gray-600"></div>
+                    <div className="mb-2 h-1 w-8 bg-gray-600"></div>
+                    <div className="mb-2 h-1 w-8 bg-gray-600"></div>
+                    <div className="absolute -right-full top-0 h-screen w-8/12 border bg-black opacity-0 transition-all duration-300 group-focus:right-0 group-focus:opacity-100">
+                        <ul className="flex w-full cursor-pointer flex-col items-center pt-10 text-base">
+                            <li className="w-full px-6 py-4 hover:bg-gray-200">Home</li>
+                            <li className="w-full px-6 py-4 hover:bg-gray-200">About</li>
+                            <li className="w-full px-6 py-4 hover:bg-gray-200">Menu</li>
+                        </ul>
+                    </div>
+                </button>
             </div>
         </div>
     );
