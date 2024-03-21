@@ -60,15 +60,15 @@ export function Header() {
                                     Início
                                 </Link>
                                 <Separator />
-                                <Link to={'/'} className="w-full rounded-md border-solid p-4 text-center hover:bg-indigo-700">
+                                <Link to={'/about'} className="w-full rounded-md border-solid p-4 text-center hover:bg-indigo-700">
                                     Sobre
                                 </Link>
                                 <Separator />
-                                <Link to={'/'} className="w-full rounded-md border-solid p-4 text-center hover:bg-indigo-700">
+                                <Link to={'/login'} className="w-full rounded-md border-solid p-4 text-center hover:bg-indigo-700">
                                     Entrar
                                 </Link>
                                 <Separator />
-                                <Link to={'/'} className="w-full rounded-md border-solid p-4 text-center hover:bg-indigo-700">
+                                <Link to={'/register'} className="w-full rounded-md border-solid p-4 text-center hover:bg-indigo-700">
                                     Começar
                                 </Link>
                             </div>
