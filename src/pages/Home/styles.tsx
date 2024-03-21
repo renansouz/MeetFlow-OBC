@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import pageBackground from '@/public/page-background.jpg';
 
 export const BackGroundImage = styled.div`
@@ -14,4 +15,5 @@ export const BackGroundImage = styled.div`
     align-items: center;
     justify-content: center;
     z-index: 1;
+    flex-direction: column;
 `;
