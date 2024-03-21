@@ -8,7 +8,7 @@ export const Home = () => {
         <div className="p-0">
             <section className="p-0 h-lvh text-center">
                 <BackGroundImage>
-                    <h1 className="text-7xl text-white font-lexend-start font-semibold text-center">
+                    <h1 className="text-7xl text-white font-lexend-start font-semibold text-center sm:text-2xl">
                         The Next Payment Method
                     </h1>
                     <p className="font-lexend-start font-extralight text-2xl text-white text-center w-1/2">Encontre serviços, agende compromissos e simplifique sua vida com o MeetFlow. A maneira mais fácil de conectar-se com profissionais e organizarsua agenda. Experimente agora!</p>
@@ -19,11 +19,9 @@ export const Home = () => {
                         CLIQUE AQUI PARA COMEÇAR
                     </Link>
                 </BackGroundImage>
-
-                <MultiStep size={3} text={['123', '456', '789']} currentStep={3}/>
             </section>
-            <section className="min-h-screen flex">
-                <div className="w-3/6 flex justify-center items-center text-center flex-col gap-5">
+            <section className="min-h-screen flex sm:flex-col sm:justify-center ">
+                <div className="w-3/6 flex justify-center items-center text-center flex-col gap-5 sm:w">
                     <div className="w-9/12 flex flex-col gap-6 justify-start">
                         <h1 className="text-6xl font-lexend-start font-semibold text-center">Conheça o MeetFlow:</h1>
                         <p className="w-full mt-12 text-center">

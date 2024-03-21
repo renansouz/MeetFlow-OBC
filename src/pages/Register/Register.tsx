@@ -3,7 +3,7 @@ import DarkLogo from '@/public/Logo.png';
 import LightLogo from '@/public/Logo-light.png';
 import { BackGroundDiv, FormDiv } from './styles';
 import { useState } from 'react';
-import { MultiStep } from '@/components/multiStep';
+import { MultiStep } from '@/components/MultiStep';
 import { Link } from 'react-router-dom';
 
 import { Step1 } from './Step1';
