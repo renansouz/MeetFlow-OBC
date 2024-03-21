@@ -32,7 +32,7 @@ export const Step2 = () => {
         <div>
             <div className="">
                 <h2 className="text-black">Horários disponíveis</h2>
-                <div className="flex items-center justify-center py-10 mt-20 gap-10">
+                <div className="flex items-center justify-center py-10 mt-20 gap-10 ">
                     <Select>
                         <SelectTrigger className="w-[180px] bg-white text-black">
                             <SelectValue placeholder="00:00" />
@@ -56,7 +56,7 @@ export const Step2 = () => {
                 </div>
             </div>
             <h2 className="text-black">Dias disponiveis</h2>
-            <div className="flex">
+            <div className="flex justify-center">
                 <div>
                     <input type="checkbox" name="" id="" />
                     <label htmlFor="" className="text-black">
@@ -65,7 +65,9 @@ export const Step2 = () => {
                 </div>
                 <div>
                     <input type="checkbox" name="" id="" />
-                    <label htmlFor="">Segunda-feira</label>
+                    <label htmlFor="" className="text-black">
+                        Segunda-feira
+                    </label>
                 </div>
                 <div>
                     <input type="checkbox" name="" id="" />
