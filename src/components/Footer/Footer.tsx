@@ -19,6 +19,7 @@ export const Footer = () => {
                     <div className="flex flex-col bg-blue w-2/12 justify-center items-start max-xl:items-center max-xl:w-full max-xl:mb-9">
                         <img src={theme === 'dark' ? OnlyLightLogo : OnlyDarkLogo} alt="" className="w-3/4 max-xl:w-20 " />
                         <p className="text-start max-xl:text-sm">Organize. Agende. Conecte-se. MeetFlow.</p>
+
                     </div>
                     <div className="flex flex-col gap-4">
                         <h2 className="text-2xl font-bold mb-2 max-xl:text-sm">Recursos</h2>
@@ -42,9 +43,9 @@ export const Footer = () => {
                     </div>
                 </div>
                 <Separator orientation="horizontal" className="w-full h-0.5 my-10" />
-                <div className="flex justify-between pb-5 max-xl:mx-10 ">
+                <div className="flex justify-between pb-5 max-xl:mx-10 max-sm:flex-col max-sm:items-center">
                     <h1 className='text-sm'>Copyright &copy; 2024 MeetFlow. All Rights Reserved.</h1>
-                    <div className="flex gap-5">
+                    <div className="flex gap-5 max-sm:my-5">
                         <Instagram />
                         <Github />
                         <Twitter />

@@ -4,6 +4,7 @@ import { AppLayout } from './_layouts/AppLayout';
 import { AuthLayout } from './_layouts/auth';
 import { Home } from './pages/Home/Home';
 import { Register } from './pages/Register/Register';
+import { NotFound } from './pages/404';
 
 export const router = createBrowserRouter([
     {
@@ -18,7 +19,7 @@ export const router = createBrowserRouter([
     },
     {
         path: '/',
-        element: <AppLayout />,
+        element: <AuthLayout />,
         children: [
             {
                 path: '/register',
@@ -26,4 +27,8 @@ export const router = createBrowserRouter([
             },
         ],
     },
+    {
+        path:"*",
+        element:<NotFound/>
+    }
 ]);
