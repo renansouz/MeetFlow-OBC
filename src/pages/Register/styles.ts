@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import pageBackground from '@/public/register-background.jpg';
 
 export const BackGroundDiv = styled.div`
@@ -20,5 +21,5 @@ export const FormDiv = styled.div`
     width: 70%;
     height: 75%;
     position: relative;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
 `;

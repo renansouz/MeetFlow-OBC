@@ -15,7 +15,7 @@ const buttonVariants = cva(
                 secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
                 ghost: 'hover:bg-accent hover:text-accent-foreground',
                 link: 'text-primary underline-offset-4 hover:underline',
-                costumize: 'border-solid border-2 border-indigo-700 hover:bg- items-center justify-center rounded-md px-5 py-2 bg-white text-indigo-700 hover:bg-indigo-700 hover:text-white'
+                costumize: 'border-solid border-2 border-indigo-700 hover:bg- items-center justify-center rounded-md px-5 py-2 bg-white text-indigo-700 hover:bg-indigo-700 hover:text-white',
             },
             size: {
                 default: 'h-10 px-4 py-2',
