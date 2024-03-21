@@ -7,6 +7,7 @@ import { Register } from './pages/Register/Register';
 import { NotFound } from './pages/404';
 import { Dashboard } from './pages/Dashboard/Dashboard';
 import { Calendar } from './components/Calendar/Calendar';
+import { Login } from './pages/Login/Login';
 
 export const router = createBrowserRouter([
     {
@@ -26,6 +27,16 @@ export const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register />,
+            },
+        ],
+    },
+    {
+        path: '/',
+        element: <AuthLayout />,
+        children: [
+            {
+                path: '/login',
+                element: <Login />,
             },
         ],
     },

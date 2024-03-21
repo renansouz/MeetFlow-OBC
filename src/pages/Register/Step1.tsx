@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
-export const Step1 = () => {
+import { InputText } from '@/components/Inputs/InputText';
+import { InputPassword } from '@/components/Inputs/InputPassword';
 
+export const Step1 = () => {
     type passwordAppearenceType = 'password' | 'text';
     const [passwordAppearence, setPasswordAppearence] = useState<passwordAppearenceType>('password');
     const handlePasswordAppearence = () => (passwordAppearence === 'password' ? setPasswordAppearence('text') : setPasswordAppearence('password'));
@@ -14,40 +16,25 @@ export const Step1 = () => {
                     <label htmlFor="" className="block text-black font-bold py-1">
                         Nome de Usuário
                     </label>
-                    <input
-                        type="text"
-                        placeholder="Digite seu nome de usuário"
-                        id="user"
-                        className="w-96 px-4 py-1 text-base rounded-lg border focus:outline focus:outline-0 focus:outline-offset-2 bg-[#ffffff] text-[#444444] focus:outline-[#aaaaaa] border-[#cbcbcb]"
-                    />
+                    <InputText placeholder="Digite seu nome de usuário" id="user" />
                 </section>
 
                 <section>
                     <label htmlFor="" className="block text-black font-bold py-1">
                         Endereço de e-mail
                     </label>
-                    <input
-                        type="email"
-                        placeholder="Digite seu e-mail"
-                        id="email"
-                        className="w-96 px-4 py-1 text-base rounded-lg border focus:outline focus:outline- focus:outline-offset-2 bg-[#ffffff] text-[#444444] focus:outline-[#aaaaaa] border-[#cbcbcb]"
-                    />
+                    <InputText placeholder="Digite seu e-mail" id="email" />
                 </section>
 
                 <section>
                     <label htmlFor="" className="block text-black font-bold py-1">
                         Senha
                     </label>
-                    <input
-                        type={passwordAppearence}
-                        placeholder="Digite sua senha"
-                        id="password"
-                        className="w-96 px-4 py-1 text-base rounded-lg border focus:outline focus:outline-0 focus:outline-offset-2 bg-[#ffffff] text-[#444444] focus:outline-[#aaaaaa] border-[#cbcbcb]"
-                    />
+                    <InputPassword passwordAppearence={passwordAppearence} id='password' placeholder='Digite sua senha'/>
                 </section>
                 <section className="flex text-black gap-2">
-                    <label htmlFor="">Mostrar senha</label>
                     <input type="checkbox" name="" id="" onClick={handlePasswordAppearence} />
+                    <label htmlFor="">Mostrar senha</label>
                 </section>
                 <div className="w-full flex justify-center">
                     <p className="text-black">

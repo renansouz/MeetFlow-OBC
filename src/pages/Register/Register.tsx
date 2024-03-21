@@ -9,6 +9,7 @@ import { Step2 } from './Step2';
 import { Step3 } from './Step3';
 import { StepNavigator } from './StepNavigator';
 
+
 export const Register = () => {
     const { theme } = useTheme();
 

@@ -11,14 +11,18 @@ export const BackGroundDiv = styled.div`
     display: flex;
     gap: 50px;
     z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 export const FormDiv = styled.div`
     padding: 30px 0px;
     background-color: white;
     box-shadow: 30px 30px 0px #4338ca;
-    width: 70%;
+    width: 30%;
     height: 75%;
     position: relative;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
+    color: black;
 `;

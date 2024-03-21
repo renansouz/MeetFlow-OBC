@@ -9,6 +9,7 @@ import LightLogo from '@/public/Logo-light.png';
 import { useTheme } from '@/context/theme-provider';
 
 export const Dashboard = () => {
+    
     const { theme } = useTheme();
 
     return (
