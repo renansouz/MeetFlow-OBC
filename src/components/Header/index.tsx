@@ -21,12 +21,12 @@ export function Header() {
                         <NavigationMenuList>
                             <NavigationMenuItem>
                                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                                    <Link to={'/'}>Home</Link>
+                                    <Link to={'/'}>Início</Link>
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
                             <NavigationMenuItem>
                                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                                    <Link to={'/about'}>About</Link>
+                                    <Link to={'/about'}>Sobre</Link>
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
                             <NavigationMenuItem>
@@ -50,14 +50,9 @@ export function Header() {
                     <div className="mb-2 h-1 w-8 bg-gray-600"></div>
                     <div className="mb-2 h-1 w-8 bg-gray-600"></div>
                     <div className="absolute -right-full top-0 h-screen w-8/12 border bg-black opacity-0 transition-all duration-300 group-focus:right-0 group-focus:opacity-100">
-                        <ul className="flex w-full cursor-pointer flex-col items-center pt-10 text-base">
-                            <li className="w-full px-6 py-4 hover:bg-gray-200">Home</li>
-                            <li className="w-full px-6 py-4 hover:bg-gray-200">About</li>
-                            <li className="w-full px-6 py-4 hover:bg-gray-200">Menu</li>
-                        </ul>
                     </div>
                 </button>
             </div>
         </div>
-    );
+    );''
 }
