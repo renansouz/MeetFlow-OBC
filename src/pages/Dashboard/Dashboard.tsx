@@ -1,29 +1,39 @@
 import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarShortcut, MenubarTrigger } from '@/components/ui/menubar';
 import { Separator } from '@/components/ui/separator';
-
 import { Calendar } from '@/components/Calendar/Calendar';
+import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
+import { Link } from 'react-router-dom';
+
+import Logo from '@/public/Logo.png';
+import LightLogo from '@/public/Logo-light.png';
+import { useTheme } from '@/context/theme-provider';
 
 export const Dashboard = () => {
+    const { theme } = useTheme();
+
     return (
         <>
             <div className="overflow-hidden rounded-[0.5rem] border bg-background shadow-md md:shadow-xl">
                 <div className="hidden md:block">
-                    <Menubar>
+                    <Menubar className="justify-between h-16">
+                        <Link to={'/'}>
+                            <img src={theme === 'dark' ? Logo : LightLogo} className="h-20" alt="" />
+                        </Link>
                         <MenubarMenu>
-                            <MenubarTrigger>Music</MenubarTrigger>
-                            <MenubarTrigger>File</MenubarTrigger>
-                            <MenubarTrigger>Edit</MenubarTrigger>
-                            <MenubarTrigger>View</MenubarTrigger>
-                            <MenubarTrigger>Account</MenubarTrigger>
+                            <MenubarTrigger>
+                                <Avatar>
+                                    <AvatarImage className="w-10 rounded-full" src="https://github.com/miqueiasmartinsf.png" />
+                                    <AvatarFallback>CN</AvatarFallback>
+                                </Avatar>
+                            </MenubarTrigger>
                             <MenubarContent>
-                                <MenubarItem>
-                                    New Tab <MenubarShortcut>⌘T</MenubarShortcut>
-                                </MenubarItem>
-                                <MenubarItem>New Window</MenubarItem>
+                                <MenubarItem>Ver perfil</MenubarItem>
                                 <MenubarSeparator />
-                                <MenubarItem>Share</MenubarItem>
+                                <MenubarItem>Editar</MenubarItem>
                                 <MenubarSeparator />
-                                <MenubarItem>Print</MenubarItem>
+                                <Link to={'/'}>
+                                    <MenubarItem>Sair</MenubarItem>
+                                </Link>
                             </MenubarContent>
                         </MenubarMenu>
                     </Menubar>
@@ -189,10 +199,9 @@ export const Dashboard = () => {
                                             </div>
 
                                             <Separator />
-                                            <div className='flex justify-center items-center'>
-                                                <Calendar/>
+                                            <div className="flex justify-center items-center">
+                                                <Calendar />
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
