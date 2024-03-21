@@ -11,7 +11,7 @@ export function Header() {
     const { theme } = useTheme();
 
     return (
-        <div className="border-b px-28">
+        <div className="border-b px-28 max-xl:hidden">
             <div className="flex h-26 items-center gap-6 px-6 justify-between">
                 <Link to={'/'}>
                     <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="h-20 img" />
