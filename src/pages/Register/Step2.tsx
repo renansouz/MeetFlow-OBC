@@ -10,7 +10,6 @@ export const Step2 = () => {
         '05:00',
         '06:00',
         '07:00',
-        '07:00',
         '09:00',
         '10:00',
         '11:00',
@@ -30,9 +29,9 @@ export const Step2 = () => {
 
     return (
         <div>
-            <div className="">
-                <h2 className="text-black">Horários disponíveis</h2>
-                <div className="flex items-center justify-center py-10 mt-20 gap-10 ">
+            <div className="flex flex-col justify-center items-center">
+                <h2 className="text-black mt-20">Horários disponíveis</h2>
+                <div className="flex items-center justify-center py-10 gap-10 ">
                     <Select>
                         <SelectTrigger className="w-[180px] bg-white text-black">
                             <SelectValue placeholder="00:00" />
@@ -55,49 +54,51 @@ export const Step2 = () => {
                     </Select>
                 </div>
             </div>
-            <h2 className="text-black">Dias disponiveis</h2>
-            <div className="flex justify-center">
-                <div>
-                    <input type="checkbox" name="" id="" />
-                    <label htmlFor="" className="text-black">
-                        Domingo
-                    </label>
-                </div>
-                <div>
-                    <input type="checkbox" name="" id="" />
-                    <label htmlFor="" className="text-black">
-                        Segunda-feira
-                    </label>
-                </div>
-                <div>
-                    <input type="checkbox" name="" id="" />
-                    <label htmlFor="" className="text-black">
-                        Terça-feira
-                    </label>
-                </div>
-                <div>
-                    <input type="checkbox" name="" id="" />
-                    <label htmlFor="" className="text-black">
-                        Quarta-feira
-                    </label>
-                </div>
-                <div>
-                    <input type="checkbox" name="" id="" />
-                    <label htmlFor="" className="text-black">
-                        Quinta-feira
-                    </label>
-                </div>
-                <div>
-                    <input type="checkbox" name="" id="" />
-                    <label htmlFor="" className="text-black">
-                        Sexta-feira
-                    </label>
-                </div>
-                <div>
-                    <input type="checkbox" name="" id="" />
-                    <label htmlFor="" className="text-black">
-                        Sábado
-                    </label>
+            <div>
+                <h2 className="text-black text-center">Dias disponiveis</h2>
+                <div className="flex justify-center mt-5 gap-7">
+                    <div className="flex flex-col items-center justify-center gap-2">
+                        <input type="checkbox" name="" id="" />
+                        <label htmlFor="" className="text-black block">
+                            Domingo
+                        </label>
+                    </div>
+                    <div className="flex flex-col items-center justify-center gap-2">
+                        <input type="checkbox" name="" id="" />
+                        <label htmlFor="" className="text-black block">
+                            Segunda
+                        </label>
+                    </div>
+                    <div className="flex flex-col items-center justify-center gap-2">
+                        <input type="checkbox" name="" id="" />
+                        <label htmlFor="" className="text-black block">
+                            Terça
+                        </label>
+                    </div>
+                    <div className="flex flex-col items-center justify-center gap-2">
+                        <input type="checkbox" name="" id="" />
+                        <label htmlFor="" className="text-black block">
+                            Quarta
+                        </label>
+                    </div>
+                    <div className="flex flex-col items-center justify-center gap-2">
+                        <input type="checkbox" name="" id="" />
+                        <label htmlFor="" className="text-black block">
+                            Quinta
+                        </label>
+                    </div>
+                    <div className="flex flex-col items-center justify-center gap-2">
+                        <input type="checkbox" name="" id="" />
+                        <label htmlFor="" className="text-black block">
+                            Sexta
+                        </label>
+                    </div>
+                    <div className="flex flex-col items-center justify-center gap-2">
+                        <input type="checkbox" name="" id="" />
+                        <label htmlFor="" className="text-black block">
+                            Sábado
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>

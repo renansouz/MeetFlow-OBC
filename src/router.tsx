@@ -6,6 +6,7 @@ import { Home } from './pages/Home/Home';
 import { Register } from './pages/Register/Register';
 import { NotFound } from './pages/404';
 import { Dashboard } from './pages/Dashboard/Dashboard';
+import { Calendar } from './components/Calendar/Calendar';
 
 export const router = createBrowserRouter([
     {

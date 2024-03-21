@@ -1,7 +1,7 @@
 import { BackGroundImage } from './styles';
 import { Link } from 'react-router-dom';
 import { Card } from './Components/Card';
-import { Star, ShieldCheck, FolderSync } from 'lucide-react';
+import { Star, Share2, FolderSync } from 'lucide-react';
 
 export const Home = () => {
     return (
@@ -32,7 +32,7 @@ export const Home = () => {
 
                 <div className="w-3/6 flex justify-center items-center flex-col gap-20 max-xl:gap-52 max-xl:mb-20">
                     <Card Icon={Star} title="Facilidade de Uso" label="Navegue e agende serviços sem complicações." />
-                    <Card Icon={ShieldCheck} title="conexões direta" label="Conecte-se diretamente com profissionais qualificados." />
+                    <Card Icon={Share2} title="conexões direta" label="Conecte-se diretamente com profissionais qualificados." />
                     <Card Icon={FolderSync} title="gerenciamento simples" label="Mantenha sua agenda organizada em um só lugar." />
                 </div>
             </section>

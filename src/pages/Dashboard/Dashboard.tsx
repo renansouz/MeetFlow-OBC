@@ -1,6 +1,8 @@
 import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarShortcut, MenubarTrigger } from '@/components/ui/menubar';
 import { Separator } from '@/components/ui/separator';
 
+import { Calendar } from '@/components/Calendar/Calendar';
+
 export const Dashboard = () => {
     return (
         <>
@@ -187,6 +189,10 @@ export const Dashboard = () => {
                                             </div>
 
                                             <Separator />
+                                            <div className='flex justify-center items-center'>
+                                                <Calendar/>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
