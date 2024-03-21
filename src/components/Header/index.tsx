@@ -49,10 +49,10 @@ export function Header() {
                     <div className="mb-2 h-1 w-8 bg-gray-600"></div>
                     <div className="mb-2 h-1 w-8 bg-gray-600"></div>
                     <div className="mb-2 h-1 w-8 bg-gray-600"></div>
-                    <div className="absolute -right-full top-0 h-screen w-8/12 border bg-black opacity-0 transition-all duration-300 group-focus:right-0 group-focus:opacity-100">
-                    </div>
+                    <div className="absolute -right-full top-0 h-screen w-8/12 border bg-black opacity-0 transition-all duration-300 group-focus:right-0 group-focus:opacity-100"></div>
                 </button>
             </div>
         </div>
-    );''
+    );
+    ('');
 }

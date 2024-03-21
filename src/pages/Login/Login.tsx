@@ -15,10 +15,10 @@ export const Login = () => {
     const handlePasswordAppearence = () => (passswordAppearenceState === 'password' ? setpasswordAppearenceState('text') : setpasswordAppearenceState('password'));
 
     return (
-        <div className="h-screen">
+        <div className="h-screen ">
             <BackGroundDiv>
                 <FormDiv>
-                    <div className="flex flex-col items-center justify-center">
+                    <div className="flex flex-col items-center justify-center ">
                         <Link to={'/'}>
                             <img src={LightLogo} alt="" className="w-96" />
                         </Link>
@@ -41,7 +41,7 @@ export const Login = () => {
                             <input type="checkbox" name="" id="" onClick={handlePasswordAppearence} />
                             <label htmlFor="">Mostrar senha</label>
                         </section>
-                        <Button className="mt-5 w-96">Entrar</Button>
+                        <Button className="max-sm:96 mt-0 w-64 sm:w-96">Entrar</Button>
                         <p className="text-black">
                             Não possui uma conta?{' '}
                             <Link to={'/register'} className="text-blue-700 hover:underline">

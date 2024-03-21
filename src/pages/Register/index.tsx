@@ -14,13 +14,13 @@ export const Register = () => {
     const [currentStepState, setCurrentStepState] = useState<number>(1);
 
     return (
-        <div className="flex h-screen w-full">
+        <div className="flex h-screen w-full ">
             <BackGroundDiv>
-                <div className="flex w-1/2 flex-col items-center justify-center gap-20 ">
+                <div className="flex w-1/2 flex-col items-center justify-center gap-20  max-xl:hidden">
                     <img src={theme === 'dark' ? DarkLogo : LightLogo} alt="" className="w-96" />
                     <h1 className="text-center text-5xl font-semibold">Junte-se à comunidade MeetFlow</h1>
                 </div>
-                <div className="flex w-1/2 items-center justify-center">
+                <div className="flex w-1/2 items-center justify-center max-xl:w-screen">
                     <FormDiv>
                         <MultiStep size={3} currentStep={currentStepState} text={['Conta', 'Disponibilidade', 'Serviços']} />
 

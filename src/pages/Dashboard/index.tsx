@@ -1,13 +1,13 @@
-import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarShortcut, MenubarTrigger } from '@/components/ui/menubar';
-import { Separator } from '@/components/ui/separator';
-import { Calendar } from '@/components/Calendar';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Link } from 'react-router-dom';
 
+import { Calendar } from '@/components/Calendar';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
+import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarShortcut, MenubarTrigger } from '@/components/ui/menubar';
+import { Separator } from '@/components/ui/separator';
+import { useTheme } from '@/context/theme-provider';
 import Logo from '@/public/Logo.png';
 import LightLogo from '@/public/Logo-light.png';
-import { useTheme } from '@/context/theme-provider';
-import { Button } from '@/components/ui/button';
 
 export const Dashboard = () => {
     const { theme } = useTheme();
@@ -87,7 +87,9 @@ export const Dashboard = () => {
                                                 <div data-radix-scroll-area-viewport="" className="h-full w-full rounded-[inherit]">
                                                     <div className="min-width:100%;display:table">
                                                         <div className="space-y-1 p-2">
-                                                            <Button variant={'ghost'} className=''>Recentely Played asd</Button>
+                                                            <Button variant={'ghost'} className="">
+                                                                Recentely Played asd
+                                                            </Button>
                                                             <button className="inline-flex h-9 w-full items-center justify-start whitespace-nowrap rounded-md px-4 py-2 text-sm font-normal transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50">
                                                                 Recently Played
                                                             </button>

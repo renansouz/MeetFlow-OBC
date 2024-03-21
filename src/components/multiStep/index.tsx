@@ -10,20 +10,22 @@ export interface MultiStepProps {
 
 export function MultiStep({ size, currentStep = 1, text }: MultiStepProps) {
     return (
-        <MultiStepContainer>
-            <Steps>
-                {Array.from({ length: size }, (_, i) => i + 1).map((step) => {
-                    return (
-                        <>
-                            <DivRepeat>
-                                <Step key={step} active={currentStep >= step} stepContent={step} currentStep={currentStep} />
-                                <Label active={currentStep >= step}>{text[step - 1]}</Label>
-                                {step !== size && <ChevronRight className="h-8 w-8 text-black" />}
-                            </DivRepeat>
-                        </>
-                    );
-                })}
-            </Steps>
-        </MultiStepContainer>
+        <div className="max-md:pt-40 ">
+            <MultiStepContainer>
+                <Steps>
+                    {Array.from({ length: size }, (_, i) => i + 1).map((step) => {
+                        return (
+                            <>
+                                <DivRepeat>
+                                    <Step key={step} active={currentStep >= step} stepContent={step} currentStep={currentStep} />
+                                    <Label active={currentStep >= step}>{text[step - 1]}</Label>
+                                    {step !== size && <ChevronRight className="h-8 w-8 text-black" />}
+                                </DivRepeat>
+                            </>
+                        );
+                    })}
+                </Steps>
+            </MultiStepContainer>
+        </div>
     );
 }
