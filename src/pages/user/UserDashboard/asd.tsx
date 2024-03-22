@@ -1,11 +1,10 @@
-import { Separator } from '@/components/ui/separator';
 import Logo from '@/public/Logo.png';
 import LightLogo from '@/public/Logo-light.png';
 import { Link } from 'react-router-dom';
 import { useTheme } from '@/context/theme-provider';
 import { Button } from '@/components/ui/button';
 import { Home, Layers, Users, User, LifeBuoy, Settings } from 'lucide-react';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarShortcut, MenubarTrigger } from '@/components/ui/menubar';
 
 export const UserDashboard = () => {
     const { theme } = useTheme();
@@ -44,25 +43,26 @@ export const UserDashboard = () => {
                             <LifeBuoy />
                             <p>Suporte</p>
                         </Button>
-                        <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
-                                <Button variant={'ghost'} className="flex items-center justify-start gap-3 px-10">
-                                    <Settings className="text-violet-700 " />
-                                    <p className="text-violet-700">Configurações</p>
-                                </Button>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent align="end">
-                                <DropdownMenuItem>Theme</DropdownMenuItem>
-                                <Separator orientation="horizontal" />
-                                <DropdownMenuItem>Others</DropdownMenuItem>
-                                <DropdownMenuItem>Theme</DropdownMenuItem>
-                                <Separator orientation="horizontal" />
-                                <DropdownMenuItem>Others</DropdownMenuItem>
-                                <DropdownMenuItem>Theme</DropdownMenuItem>
-                                <Separator orientation="horizontal" />
-                                <DropdownMenuItem>Others</DropdownMenuItem>
-                            </DropdownMenuContent>
-                        </DropdownMenu>
+                        <Menubar className="w-full border-none">
+                            <MenubarMenu>
+                                <MenubarTrigger className="hover  flex w-full border-none bg-white">
+                                    <Button variant={'ghost'} className=" ">
+                                        <Settings className="text-violet-700 " />
+                                        <p className="text-violet-700">Configurações</p>
+                                    </Button>
+                                </MenubarTrigger>
+                                <MenubarContent>
+                                    <MenubarItem>
+                                        New Tab <MenubarShortcut>⌘T</MenubarShortcut>
+                                    </MenubarItem>
+                                    <MenubarItem>New Window</MenubarItem>
+                                    <MenubarSeparator />
+                                    <MenubarItem>Share</MenubarItem>
+                                    <MenubarSeparator />
+                                    <MenubarItem>Print</MenubarItem>
+                                </MenubarContent>
+                            </MenubarMenu>
+                        </Menubar>
                     </div>
                 </aside>
                 <div></div>
