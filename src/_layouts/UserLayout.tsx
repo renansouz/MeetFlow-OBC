@@ -1,12 +1,12 @@
 import { Outlet } from 'react-router-dom';
 
 import { Footer } from '@/components/Footer';
-import { NotAuthenticated } from '@/components/Header/NotAuthenticated';
+import { Authenticated } from '@/components/Header/Authenticated';
 
 export function AppLayout() {
     return (
         <div className="flex min-h-screen flex-col antialiased">
-            <NotAuthenticated />
+            <Authenticated />
 
             <div className="">
                 <Outlet />

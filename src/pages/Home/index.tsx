@@ -17,23 +17,23 @@ export const Home = () => {
                         Conectando você aos melhores profissionais, sem complicações.
                     </p>
                     <Link className="h-16 items-center justify-center rounded-md bg-background bg-indigo-600 px-12 py-2 pt-3 text-3xl text-white" to={'/register'}>
-                        Agende agora!
+                        Agendar agora!
                     </Link>
-                    <div className="absolute bottom-0 left-0 right-0 p-4 text-center text-white">
-                        <div className="flex justify-between">
-                            <div className="ml-52">
+                    <div className="mt-20 flex items-center p-4 text-center text-white">
+                        <div className="flex justify-between gap-10">
+                            <div className="flex items-center">
                                 <span className="mr-2 text-4xl font-semibold">3000+</span>
-                                <p className="inline-block">usuários</p>
+                                <p className="inline-block text-2xl">usuários</p>
                             </div>
                             <Tally1 className="h-9 w-9" />
-                            <div>
+                            <div className="flex items-center">
                                 <span className="mr-2 text-4xl font-semibold">2300+</span>
-                                <p className="inline-block">profissionais</p>
+                                <p className="inline-block text-2xl">profissionais</p>
                             </div>
                             <Tally1 className="h-9 w-9" />
-                            <div className="mr-52">
+                            <div className="flex items-center">
                                 <span className="mr-2 text-4xl font-semibold">98%</span>
-                                <p className="inline-block">de satisfação do cliente</p>
+                                <p className="inline-block text-2xl">de satisfação do cliente</p>
                             </div>
                         </div>
                     </div>

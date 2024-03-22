@@ -26,12 +26,14 @@ export const UserProfile = () => {
                             </div>
                             <Button>Alterar foto</Button>
                             <AlertDialog>
-                                <AlertDialogTrigger>Apagar foto</AlertDialogTrigger>
+                                <AlertDialogTrigger>
+                                    <Button variant={'destructive'}>Apagar foto</Button>
+                                </AlertDialogTrigger>
                                 <AlertDialogContent>
                                     <AlertDialogHeader>
                                         <AlertDialogTitle>Você tem certeza?</AlertDialogTitle>
                                         <AlertDialogDescription>
-                                        Essa ação não pode ser desfeita. Isso excluirá permanentemente sua conta e removerá seus dados de nossos servidores.
+                                            Essa ação não pode ser desfeita. Isso excluirá permanentemente sua conta e removerá seus dados de nossos servidores.
                                         </AlertDialogDescription>
                                     </AlertDialogHeader>
                                     <AlertDialogFooter>
