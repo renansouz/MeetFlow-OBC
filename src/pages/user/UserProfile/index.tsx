@@ -15,7 +15,7 @@ import {
 export const UserProfile = () => {
     return (
         <div className="flex min-h-screen w-full items-center justify-center">
-            <div className="h-full w-4/6 rounded-lg  border border-2 border-indigo-700 p-10">
+            <div className="h-full w-4/6 rounded-lg  border  border-indigo-700 p-10">
                 <h1 className="text-left text-4xl font-semibold">Meu perfil</h1>
                 <Separator orientation="horizontal" className="my-10 h-0.5 w-full bg-slate-400" />
                 <div className="mt-20  items-center gap-10">
