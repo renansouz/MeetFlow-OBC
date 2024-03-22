@@ -36,10 +36,12 @@ export const UserDashboard = () => {
                         </div>
                     </div>
                     <div className=" flex w-full flex-col gap-5 ">
-                        <Button variant={'ghost'} className="flex items-center justify-start gap-3 px-10">
-                            <User />
-                            <p>Fazer um conta</p>
-                        </Button>
+                        <Link to={'/register'}>
+                            <Button variant={'ghost'} className="flex w-full items-center justify-start gap-3 px-10">
+                                <User />
+                                <p>Fazer um conta</p>
+                            </Button>
+                        </Link>
                         <Button variant={'ghost'} className="flex items-center justify-start gap-3 px-10">
                             <LifeBuoy />
                             <p>Suporte</p>
@@ -55,9 +57,11 @@ export const UserDashboard = () => {
                                 <DropdownMenuItem>Theme</DropdownMenuItem>
                                 <Separator orientation="horizontal" />
                                 <DropdownMenuItem>Others</DropdownMenuItem>
+                                <Separator orientation="horizontal" />
                                 <DropdownMenuItem>Theme</DropdownMenuItem>
                                 <Separator orientation="horizontal" />
                                 <DropdownMenuItem>Others</DropdownMenuItem>
+                                <Separator orientation="horizontal" />
                                 <DropdownMenuItem>Theme</DropdownMenuItem>
                                 <Separator orientation="horizontal" />
                                 <DropdownMenuItem>Others</DropdownMenuItem>
