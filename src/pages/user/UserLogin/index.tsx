@@ -4,13 +4,14 @@ import { Link } from 'react-router-dom';
 import { InputPassword } from '@/components/Inputs/InputPassword';
 import { InputText } from '@/components/Inputs/InputText';
 import { Button } from '@/components/ui/button';
+import DarkLogo from '@/public/Logo.png';
 import LightLogo from '@/public/Logo-light.png';
 
 import { BackGroundDiv, FormDiv } from './styles';
 
 type passwordAppearenceType = 'text' | 'password';
 
-export const Login = () => {
+export const UserLogin = () => {
     const [passswordAppearenceState, setpasswordAppearenceState] = useState<passwordAppearenceType>('password');
     const handlePasswordAppearence = () => (passswordAppearenceState === 'password' ? setpasswordAppearenceState('text') : setpasswordAppearenceState('password'));
 

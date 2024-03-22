@@ -7,8 +7,7 @@ import LightLogo from '@/public/Logo-light.png';
 
 import { Step1, Step2, Step3, StepNavigator } from './step';
 import { BackGroundDiv, FormDiv } from './styles';
-
-export const Register = () => {
+export const ProfessionalRegister = () => {
     const { theme } = useTheme();
 
     const [currentStepState, setCurrentStepState] = useState<number>(1);
