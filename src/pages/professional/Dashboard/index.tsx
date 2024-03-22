@@ -1,4 +1,4 @@
-import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarShortcut, MenubarTrigger } from '@/components/ui/menubar';
+import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarTrigger } from '@/components/ui/menubar';
 import { Separator } from '@/components/ui/separator';
 import { Calendar } from '@/components/Calendar';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -38,7 +38,6 @@ export const Dashboard = () => {
                             </MenubarContent>
                         </MenubarMenu>
                     </Menubar>
-
                     <div className="border-t">
                         <div className="bg-background">
                             <div className="grid lg:grid-cols-5">
@@ -47,47 +46,47 @@ export const Dashboard = () => {
                                         <div className="px-3 py-2">
                                             <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">Discover</h2>
                                             <div className="space-y-1">
-                                                <button className="inline-flex h-9 w-full items-center justify-start whitespace-nowrap rounded-md bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground shadow-sm transition-colors hover:bg-secondary/80 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50">
-                                                    Listen Now{' '}
-                                                </button>
-                                                <button className="inline-flex h-9 w-full items-center justify-start whitespace-nowrap rounded-md bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground shadow-sm transition-colors hover:bg-secondary/80 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50">
-                                                    Browse{' '}
-                                                </button>
-                                                <button className="inline-flex h-9 w-full items-center justify-start whitespace-nowrap rounded-md bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground shadow-sm transition-colors hover:bg-secondary/80 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50">
-                                                    Radio{' '}
-                                                </button>
+                                                <Button variant={'ghost'} className="flex w-full justify-start">
+                                                    Listen Now
+                                                </Button>
+                                                <Button variant={'ghost'} className="flex w-full justify-start">
+                                                    Browse
+                                                </Button>
+                                                <Button variant={'ghost'} className="flex w-full justify-start">
+                                                    Listen Now
+                                                </Button>
                                             </div>
                                         </div>
-
+                                        
                                         <div className="px-3 py-2">
                                             <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">Library</h2>
                                             <div className="space-y-1">
-                                                <button className="inline-flex h-9 w-full items-center justify-start whitespace-nowrap rounded-md bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground shadow-sm transition-colors hover:bg-secondary/80 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50">
+                                                <Button variant={'ghost'} className="flex w-full justify-start">
                                                     Playlist
-                                                </button>
-                                                <button className="inline-flex h-9 w-full items-center justify-start whitespace-nowrap rounded-md bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground shadow-sm transition-colors hover:bg-secondary/80 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50">
-                                                    Songs{' '}
-                                                </button>
-                                                <button className="inline-flex h-9 w-full items-center justify-start whitespace-nowrap rounded-md bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground shadow-sm transition-colors hover:bg-secondary/80 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50">
-                                                    Made for You{' '}
-                                                </button>
-                                                <button className="inline-flex h-9 w-full items-center justify-start whitespace-nowrap rounded-md bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground shadow-sm transition-colors hover:bg-secondary/80 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50">
-                                                    Artists{' '}
-                                                </button>
-                                                <button className="inline-flex h-9 w-full items-center justify-start whitespace-nowrap rounded-md bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground shadow-sm transition-colors hover:bg-secondary/80 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50">
-                                                    Albums{' '}
-                                                </button>
+                                                </Button>
+                                                <Button variant={'ghost'} className="flex w-full justify-start">
+                                                    Songs
+                                                </Button>
+                                                <Button variant={'ghost'} className="flex w-full justify-start">
+                                                    Made for You
+                                                </Button>
+                                                <Button variant={'ghost'} className="flex w-full justify-start">
+                                                    Artists
+                                                </Button>
+                                                <Button variant={'ghost'} className="flex w-full justify-start">
+                                                    Albums
+                                                </Button>
                                             </div>
                                         </div>
-
                                         <div className="py-2">
                                             <h2 className="relative px-7 text-lg font-semibold tracking-tight">Playlists</h2>
-
                                             <div dir="ltr" className="relative h-[300px] overflow-hidden px-1">
                                                 <div data-radix-scroll-area-viewport="" className="h-full w-full rounded-[inherit]">
                                                     <div className="min-width:100%;display:table">
                                                         <div className="space-y-1 p-2">
-                                                            <Button variant={'ghost'} className=''>Recentely Played asd</Button>
+                                                            <Button variant={'ghost'} className="">
+                                                                Recentely Played asd
+                                                            </Button>
                                                             <button className="inline-flex h-9 w-full items-center justify-start whitespace-nowrap rounded-md px-4 py-2 text-sm font-normal transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50">
                                                                 Recently Played
                                                             </button>
