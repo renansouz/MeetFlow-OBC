@@ -10,8 +10,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useAuth } from '@/context/auth-provider';
 
 export const Authenticated = () => {
-
-    const { setAuth } = useAuth()
+    const { setAuth } = useAuth();
 
     const logout = () => {
         setAuth(false);
@@ -57,7 +56,9 @@ export const Authenticated = () => {
                             </Avatar>
                         </MenubarTrigger>
                         <MenubarContent>
-                            <MenubarItem>Ver perfil</MenubarItem>
+                            <Link to={'/profile'}>
+                                <MenubarItem>Ver perfil</MenubarItem>
+                            </Link>
                             <MenubarSeparator />
                             <MenubarItem>Editar</MenubarItem>
                             <MenubarSeparator />
