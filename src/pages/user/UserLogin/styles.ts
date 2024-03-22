@@ -21,9 +21,19 @@ export const FormDiv = styled.div`
     padding: 30px 0px;
     background-color: white;
     box-shadow: 30px 30px 0px #4338ca;
-    width: 30%;
+    width: 40%;
     height: 75%;
     position: relative;
     border-radius: 0.5rem;
     color: black;
+    @media not all and (min-width: 1280px) {
+        width: 90%;
+    }
+    @media not all and (min-width: 768px) {
+        width: 100%;
+        height: 100%;
+        box-shadow: none;
+        font-size: 0.8rem;
+        padding-bottom: 40rem;
+    }
 `;

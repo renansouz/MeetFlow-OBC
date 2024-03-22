@@ -1,17 +1,15 @@
-import { Link } from 'react-router-dom';
-
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { InputPassword } from '@/components/Inputs/InputPassword';
 import { InputText } from '@/components/Inputs/InputText';
+import { ThemeToggle } from '@/components/theme/theme-toggle';
 import { Button } from '@/components/ui/button';
-
-import LightLogo from '@/public/Logo-light.png';
+import { useTheme } from '@/context/theme-provider';
 import DarkLogo from '@/public/Logo.png';
+import LightLogo from '@/public/Logo-light.png';
 
 import { BackGroundDiv, FormDiv } from './styles';
-import { ThemeToggle } from '@/components/theme/theme-toggle';
-import { useTheme } from '@/context/theme-provider';
 
 type passwordAppearenceType = 'text' | 'password';
 

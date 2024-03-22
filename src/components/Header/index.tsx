@@ -1,15 +1,14 @@
+import { Menu } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from '@/components/ui/navigation-menu';
+import { Separator } from '@/components/ui/separator';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useTheme } from '@/context/theme-provider';
 import Logo from '@/public/Logo.png';
 import LightLogo from '@/public/Logo-light.png';
 
 import { ThemeToggle } from '../theme/theme-toggle';
-
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
-import { Separator } from '@/components/ui/separator';
-import { Menu } from 'lucide-react';
 
 export function Header() {
     const { theme } = useTheme();
@@ -18,7 +17,7 @@ export function Header() {
         <div className="relative border-b px-28">
             <div className="h-26 flex items-center justify-between gap-6 px-6">
                 <Link to={'/'}>
-                    <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="img h-20" />
+                    <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="img h-28" />
                 </Link>
                 <div className="flex max-lg:hidden">
                     <NavigationMenu>
@@ -30,17 +29,17 @@ export function Header() {
                             </NavigationMenuItem>
                             <NavigationMenuItem>
                                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                                    <Link to={'/about'}>Sobre</Link>
+                                    <Link to={'/about'}>Sobre Nós</Link>
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
                             <NavigationMenuItem>
                                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                                    <Link to={'/login'}>Entrar</Link>
+                                    <Link to={'/login'}>Área do Profissional</Link>
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
                             <NavigationMenuItem>
                                 <NavigationMenuLink asChild className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background bg-indigo-600 px-6 py-2 text-white">
-                                    <Link to={'/register'}>Começar</Link>
+                                    <Link to={'/register'}>Agende Agora!</Link>
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
                         </NavigationMenuList>
@@ -61,15 +60,15 @@ export function Header() {
                                 </Link>
                                 <Separator />
                                 <Link to={'/about'} className="w-full rounded-md border-solid p-4 text-center hover:bg-indigo-700">
-                                    Sobre
+                                    Sobre nós
                                 </Link>
                                 <Separator />
                                 <Link to={'/login'} className="w-full rounded-md border-solid p-4 text-center hover:bg-indigo-700">
-                                    Entrar
+                                    Área do Profissional
                                 </Link>
                                 <Separator />
                                 <Link to={'/register'} className="w-full rounded-md border-solid p-4 text-center hover:bg-indigo-700">
-                                    Começar
+                                    Agende Agora!
                                 </Link>
                             </div>
                         </SheetContent>

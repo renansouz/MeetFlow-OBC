@@ -1,13 +1,13 @@
-import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarTrigger } from '@/components/ui/menubar';
-import { Separator } from '@/components/ui/separator';
-import { Calendar } from '@/components/Calendar';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Link } from 'react-router-dom';
 
+import { Calendar } from '@/components/Calendar';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
+import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarTrigger } from '@/components/ui/menubar';
+import { Separator } from '@/components/ui/separator';
+import { useTheme } from '@/context/theme-provider';
 import Logo from '@/public/Logo.png';
 import LightLogo from '@/public/Logo-light.png';
-import { useTheme } from '@/context/theme-provider';
-import { Button } from '@/components/ui/button';
 
 export const Dashboard = () => {
     const { theme } = useTheme();
@@ -57,7 +57,7 @@ export const Dashboard = () => {
                                                 </Button>
                                             </div>
                                         </div>
-                                        
+
                                         <div className="px-3 py-2">
                                             <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">Library</h2>
                                             <div className="space-y-1">
