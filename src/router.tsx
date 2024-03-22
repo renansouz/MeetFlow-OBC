@@ -26,7 +26,7 @@ export const router = createBrowserRouter([
         element: <AppLayout />,
         children: [
             {
-                path: '/profile/:id',
+                path: '/profile',
                 element: <UserProfile />,
             },
         ],
