@@ -52,9 +52,9 @@ export const UserRegister = () => {
                             </section>
                             <Button className="mt-5 w-96">Entrar</Button>
                             <p>
-                                Não possui uma conta?{' '}
-                                <Link to={'/register'} className="text-blue-700 hover:underline">
-                                    Cadastre-se
+                                Já possui uma conta?{' '}
+                                <Link to={'/login'} className="text-blue-700 hover:underline">
+                                    Entrar
                                 </Link>
                             </p>
                         </div>
@@ -63,8 +63,8 @@ export const UserRegister = () => {
             </div>
             <div className="flex h-screen w-1/2 items-center justify-center">
                 <BackGroundDiv>
-                    <h1 className="text-center font-lexend-start text-7xl font-semibold text-white max-xl:text-5xl max-sm:text-4xl">Facilite sua agenda com o MeetFlow</h1>
-                    <p className="w-2/3 text-center">
+                    <h1 className="p-4 text-center font-lexend-start text-7xl font-semibold text-white max-xl:text-5xl max-sm:text-4xl">Facilite sua agenda com o MeetFlow</h1>
+                    <p className="w-2/3 text-center text-white">
                         Encontre serviços, agende compromissos e simplifique sua vida com o MeetFlow. A maneira mais fácil de conectar-se com profissionais e organizarsua agenda. Experimente
                         agora!
                     </p>

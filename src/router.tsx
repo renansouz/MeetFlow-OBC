@@ -8,6 +8,7 @@ import { Home } from './pages/Home';
 import { UserLogin } from './pages/user/UserLogin';
 import { UserRegister } from './pages/user/UserRegister';
 import { ProfessionalRegister } from "./pages/professional/ProfessionalRegister";
+import { UserProfile } from './pages/user/UserProfile';
 
 export const router = createBrowserRouter([
     {
@@ -17,6 +18,16 @@ export const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home />,
+            },
+        ],
+    },
+    {
+        path: '/',
+        element: <AppLayout />,
+        children: [
+            {
+                path: '/profile/:id',
+                element: <UserProfile />,
             },
         ],
     },
