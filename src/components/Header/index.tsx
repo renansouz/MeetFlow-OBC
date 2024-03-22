@@ -7,11 +7,15 @@ import LightLogo from '@/public/Logo-light.png';
 
 import { ThemeToggle } from '../theme/theme-toggle';
 
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import { Separator } from '@/components/ui/separator';
+import { Menu } from 'lucide-react';
+
 export function Header() {
     const { theme } = useTheme();
 
     return (
-        <div className="border-b px-28">
+        <div className="relative border-b px-28">
             <div className="h-26 flex items-center justify-between gap-6 px-6">
                 <Link to={'/'}>
                     <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="img h-20" />
@@ -45,14 +49,33 @@ export function Header() {
                         <ThemeToggle />
                     </div>
                 </div>
-                <button className="group mx-2 block rounded px-4 py-3 hover:bg-gray-200 focus:outline-none lg:hidden">
-                    <div className="mb-2 h-1 w-8 bg-gray-600"></div>
-                    <div className="mb-2 h-1 w-8 bg-gray-600"></div>
-                    <div className="mb-2 h-1 w-8 bg-gray-600"></div>
-                    <div className="absolute -right-full top-0 h-screen w-8/12 border bg-black opacity-0 transition-all duration-300 group-focus:right-0 group-focus:opacity-100">
-                    </div>
-                </button>
+                <div className="lg:hidden">
+                    <Sheet>
+                        <SheetTrigger>
+                            <Menu />
+                        </SheetTrigger>
+                        <SheetContent className="absolute">
+                            <div className="mt-20 flex flex-col items-center ">
+                                <Link to={'/'} className="w-full rounded-md border-solid p-4 text-center hover:bg-indigo-700">
+                                    Início
+                                </Link>
+                                <Separator />
+                                <Link to={'/about'} className="w-full rounded-md border-solid p-4 text-center hover:bg-indigo-700">
+                                    Sobre
+                                </Link>
+                                <Separator />
+                                <Link to={'/login'} className="w-full rounded-md border-solid p-4 text-center hover:bg-indigo-700">
+                                    Entrar
+                                </Link>
+                                <Separator />
+                                <Link to={'/register'} className="w-full rounded-md border-solid p-4 text-center hover:bg-indigo-700">
+                                    Começar
+                                </Link>
+                            </div>
+                        </SheetContent>
+                    </Sheet>
+                </div>
             </div>
         </div>
-    );''
+    );
 }
