@@ -18,8 +18,8 @@ export const Home = () => {
                     <Link className="h-16 items-center justify-center rounded-md bg-background bg-indigo-600 px-12 py-2 pt-3 text-3xl text-white" to={'/register'}>
                         Agende agora!
                     </Link>
-                    <div className="absolute bottom-0 left-0 right-0 p-4 text-center text-white">
-                        <div className="flex justify-between">
+                    <div className="absolute bottom-0 left-0 right-0 mb-7 p-4 text-center text-white">
+                        <div className="flex justify-between max-lg:hidden">
                             <div className="ml-52">
                                 <span className="mr-2 text-4xl font-semibold">3000+</span>
                                 <p className="inline-block">usuários</p>
