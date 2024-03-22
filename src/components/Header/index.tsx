@@ -17,7 +17,7 @@ export function Header() {
         <div className="relative border-b px-28">
             <div className="h-26 flex items-center justify-between gap-6 px-6">
                 <Link to={'/'}>
-                    <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="img h-20" />
+                    <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="img h-28" />
                 </Link>
                 <div className="flex max-lg:hidden">
                     <NavigationMenu>

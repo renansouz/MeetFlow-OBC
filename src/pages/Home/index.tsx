@@ -1,3 +1,4 @@
+import { Tally1 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 import Profissional from '@/public/AreaProfissional.png';
@@ -14,12 +15,27 @@ export const Home = () => {
                     <p className="max-xl:text-md w-1/2 text-center font-lexend-start text-xl  font-extralight text-white max-sm:text-sm">
                         Conectando você aos melhores profissionais, sem complicações.
                     </p>
-                    <Link
-                        className="max-xl:text-md h-12 items-center justify-center rounded-md bg-background bg-indigo-600 px-6 py-2 text-3xl text-white max-xl:h-12 max-sm:h-8 max-sm:text-sm"
-                        to={'/register'}
-                    >
+                    <Link className="h-16 items-center justify-center rounded-md bg-background bg-indigo-600 px-12 py-2 pt-3 text-3xl text-white" to={'/register'}>
                         Agende agora!
                     </Link>
+                    <div className="absolute bottom-0 left-0 right-0 p-4 text-center text-white">
+                        <div className="flex justify-between">
+                            <div className="ml-52">
+                                <span className="mr-2 text-4xl font-semibold">3000+</span>
+                                <p className="inline-block">usuários</p>
+                            </div>
+                            <Tally1 className="h-9 w-9" />
+                            <div>
+                                <span className="mr-2 text-4xl font-semibold">2300+</span>
+                                <p className="inline-block">profissionais</p>
+                            </div>
+                            <Tally1 className="h-9 w-9" />
+                            <div className="mr-52">
+                                <span className="mr-2 text-4xl font-semibold">98%</span>
+                                <p className="inline-block">de satisfação do cliente</p>
+                            </div>
+                        </div>
+                    </div>
                 </BackGroundImage>
             </section>
             <section className="flex h-screen max-xl:flex-col max-xl:items-center max-xl:justify-center">
