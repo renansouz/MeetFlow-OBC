@@ -23,7 +23,7 @@ export const UserLogin = () => {
                         <Link to={'/'}>
                             <img src={LightLogo} alt="" className="w-96" />
                         </Link>
-                        <h2 className=" text-2xl">Seja bem vindo!</h2>
+                        <h2 className=" text-2xl">Entrar na sua conta!</h2>
                     </div>
                     <div className="flex flex-col items-center justify-center gap-8 py-10">
                         <section>

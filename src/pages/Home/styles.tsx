@@ -7,7 +7,7 @@ export const BackGroundImage = styled.div`
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
-    height: 95%;
+    height: 89%;
     background-position: center center;
     display: flex;
     flex-direction: column;
