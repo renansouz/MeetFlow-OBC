@@ -10,20 +10,20 @@ export const BackGroundDiv = styled.div`
     height: 100%;
     background-position: center center;
     display: flex;
-    gap: 50px;
-    z-index: 1;
-    display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    gap: 50px;
+    z-index: 1;
 `;
 
 export const FormDiv = styled.div`
     padding: 30px 0px;
-    background-color: white;
-    box-shadow: 30px 30px 0px #4338ca;
-    width: 30%;
-    height: 75%;
+    width: 100%;
+    height: 100%;
     position: relative;
     border-radius: 0.5rem;
-    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;

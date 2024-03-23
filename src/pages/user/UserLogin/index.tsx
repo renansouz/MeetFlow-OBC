@@ -4,25 +4,26 @@ import { Link } from 'react-router-dom';
 import { InputPassword } from '@/components/Inputs/InputPassword';
 import { InputText } from '@/components/Inputs/InputText';
 import { Button } from '@/components/ui/button';
+import DarkLogo from '@/public/Logo.png';
 import LightLogo from '@/public/Logo-light.png';
 
 import { BackGroundDiv, FormDiv } from './styles';
 
 type passwordAppearenceType = 'text' | 'password';
 
-export const Login = () => {
+export const UserLogin = () => {
     const [passswordAppearenceState, setpasswordAppearenceState] = useState<passwordAppearenceType>('password');
     const handlePasswordAppearence = () => (passswordAppearenceState === 'password' ? setpasswordAppearenceState('text') : setpasswordAppearenceState('password'));
 
     return (
-        <div className="h-screen">
+        <div className="h-screen ">
             <BackGroundDiv>
                 <FormDiv>
-                    <div className="flex flex-col items-center justify-center">
+                    <div className="flex flex-col items-center justify-center ">
                         <Link to={'/'}>
                             <img src={LightLogo} alt="" className="w-96" />
                         </Link>
-                        <h2 className=" text-2xl">Seja bem vindo!</h2>
+                        <h2 className=" text-2xl">Entrar na sua conta!</h2>
                     </div>
                     <div className="flex flex-col items-center justify-center gap-8 py-10">
                         <section>
@@ -41,7 +42,7 @@ export const Login = () => {
                             <input type="checkbox" name="" id="" onClick={handlePasswordAppearence} />
                             <label htmlFor="">Mostrar senha</label>
                         </section>
-                        <Button className="mt-5 w-96">Entrar</Button>
+                        <Button className="max-sm:96 mt-0 w-64 sm:w-96">Entrar</Button>
                         <p className="text-black">
                             Não possui uma conta?{' '}
                             <Link to={'/register'} className="text-blue-700 hover:underline">

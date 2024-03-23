@@ -9,7 +9,7 @@ export const StepNavigator = ({ setCurrentStepState, currentStepState }: stepPro
     const handleStepBack = () => (currentStepState === 1 ? navigate('/') : setCurrentStepState(currentStepState - 1));
 
     return (
-        <div className="absolute bottom-5 left-0 flex w-full justify-between px-10">
+        <div className="flex justify-center gap-48 py-10">
             <Button variant={'costumize'} onClick={() => handleStepBack()}>
                 Voltar
             </Button>

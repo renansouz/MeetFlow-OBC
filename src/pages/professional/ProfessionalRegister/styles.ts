@@ -22,4 +22,23 @@ export const FormDiv = styled.div`
     height: 75%;
     position: relative;
     border-radius: 0.5rem;
+    @media not all and (min-width: 768px) {
+        width: 100%;
+        height: 100%;
+        box-shadow: none;
+        font-size: 0.8rem;
+    }
+    @media (min-width: 769px) and (max-width: 1023px) {
+        height: 65%;
+    }
+    @media (min-width: 1280px) {
+        width: 85%;
+        margin: 2rem;
+        margin-right: 4rem;
+    }
+    @media (min-width: 1537px) {
+        width: 65%;
+        margin: 2rem;
+        margin-right: 4rem;
+    }
 `;
