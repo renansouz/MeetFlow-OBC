@@ -17,13 +17,13 @@ export const BackGroundDiv = styled.div`
     z-index: 1;
 `;
 
-export const FormDiv = styled.div`
+export const FormDiv = styled.form`
     padding: 30px 0px;
     width: 100%;
     height: 100%;
-    position: relative;
     border-radius: 0.5rem;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 `;

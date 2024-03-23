@@ -2,11 +2,16 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import { AppLayout } from './_layouts/AppLayout';
 import { AuthLayout } from './_layouts/auth';
+import { ProfessionalDashboardLayout } from './_layouts/ProfessionalDashboardLayout';
+import { UserDashboardLayout } from './_layouts/UserDashboardLayout';
 import { NotFound } from './pages/404';
-import { Dashboard } from './pages/Dashboard';
 import { Home } from './pages/Home';
-import { Login } from './pages/Login/Login';
-import { Register } from './pages/Register';
+import { ProfessionalDashboard } from './pages/professional/ProfessionalDashboard';
+import { ProfessionalRegister } from './pages/professional/ProfessionalRegister';
+import { UserDashboard } from './pages/user/UserDashboard';
+import { UserLogin } from './pages/user/UserLogin';
+import { UserProfile } from './pages/user/UserProfile';
+import { UserRegister } from './pages/user/UserRegister';
 
 export const router = createBrowserRouter([
     {
@@ -30,24 +35,24 @@ export const router = createBrowserRouter([
         ],
     },
     {
-        path:'/',
-        element:<UserDashboardLayout/>,
+        path: '/',
+        element: <UserDashboardLayout />,
         children: [
             {
-                path:'/user/dashboard',
-                element:<UserDashboard/>
-            }
-        ]
+                path: '/user/dashboard',
+                element: <UserDashboard />,
+            },
+        ],
     },
     {
-        path:'/',
-        element:<ProfessionalDashboardLayout/>,
+        path: '/',
+        element: <ProfessionalDashboardLayout />,
         children: [
             {
-                path:'/professional/dashboard',
-                element:<ProfessionalDashboard/>
-            }
-        ]
+                path: '/professional/dashboard',
+                element: <ProfessionalDashboard />,
+            },
+        ],
     },
     {
         path: '/',
@@ -75,13 +80,9 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/login',
-                element: <Login />,
+                element: <UserLogin />,
             },
         ],
-    },
-    {
-        path: '/dashboard',
-        element: <Dashboard />,
     },
     {
         path: '*',
