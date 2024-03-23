@@ -1,11 +1,12 @@
-import { Separator } from '@/components/ui/separator';
-import Logo from '@/public/Logo.png';
-import LightLogo from '@/public/Logo-light.png';
+import { Home, Layers, LifeBuoy, Settings, User, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useTheme } from '@/context/theme-provider';
+
 import { Button } from '@/components/ui/button';
-import { Home, Layers, Users, User, LifeBuoy, Settings } from 'lucide-react';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { Separator } from '@/components/ui/separator';
+import { useTheme } from '@/context/theme-provider';
+import Logo from '@/public/img/Logo.png';
+import LightLogo from '@/public/img/Logo-light.png';
 
 export const UserDashboard = () => {
     const { theme } = useTheme();

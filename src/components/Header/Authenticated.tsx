@@ -8,8 +8,8 @@ import { Separator } from '@/components/ui/separator';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useAuth } from '@/context/auth-provider';
 import { useTheme } from '@/context/theme-provider';
-import Logo from '@/public/Logo.png';
-import LightLogo from '@/public/Logo-light.png';
+import Logo from '@/public/img/Logo.png';
+import LightLogo from '@/public/img/Logo-light.png';
 
 import { ThemeToggle } from '../theme/theme-toggle';
 

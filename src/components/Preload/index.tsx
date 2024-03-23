@@ -1,4 +1,4 @@
-import logo from '../../public/faviconMeetFlow.png';
+import logo from '../../public/img/faviconMeetFlow.png';
 
 const Preloader: React.FC = () => {
     return (
