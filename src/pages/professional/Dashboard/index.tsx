@@ -67,9 +67,11 @@ export const Dashboard = () => {
                                 <DropdownMenuItem>Others</DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>
-                        <div className="mt-10 flex items-center justify-center gap-3">
-                            <p className="text-xl">Sair</p>
-                            <LogOut />
+                        <div className='mt-10 flex items-center justify-center gap-3'>
+                            <Button variant={'ghost'}>
+                                <p className="text-xl ">Sair</p>
+                                <LogOut />
+                            </Button>
                         </div>
                     </div>
                 </aside>
