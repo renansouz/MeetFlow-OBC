@@ -1,27 +1,40 @@
 import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarShortcut, MenubarTrigger } from '@/components/ui/menubar';
 import { Separator } from '@/components/ui/separator';
+import { Calendar } from '@/components/Calendar';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Link } from 'react-router-dom';
 
-export const Home = () => {
+import Logo from '@/public/Logo.png';
+import LightLogo from '@/public/Logo-light.png';
+import { useTheme } from '@/context/theme-provider';
+import { Button } from '@/components/ui/button';
+
+export const Dashboard = () => {
+    const { theme } = useTheme();
+
     return (
         <>
             <div className="overflow-hidden rounded-[0.5rem] border bg-background shadow-md md:shadow-xl">
                 <div className="hidden md:block">
-                    <Menubar>
+                    <Menubar className="h-16 justify-between">
+                        <Link to={'/'}>
+                            <img src={theme === 'dark' ? Logo : LightLogo} className="h-20" alt="" />
+                        </Link>
                         <MenubarMenu>
-                            <MenubarTrigger>Music</MenubarTrigger>
-                            <MenubarTrigger>File</MenubarTrigger>
-                            <MenubarTrigger>Edit</MenubarTrigger>
-                            <MenubarTrigger>View</MenubarTrigger>
-                            <MenubarTrigger>Account</MenubarTrigger>
+                            <MenubarTrigger>
+                                <Avatar>
+                                    <AvatarImage className="w-10 rounded-full" src="https://github.com/miqueiasmartinsf.png" />
+                                    <AvatarFallback>CN</AvatarFallback>
+                                </Avatar>
+                            </MenubarTrigger>
                             <MenubarContent>
-                                <MenubarItem>
-                                    New Tab <MenubarShortcut>⌘T</MenubarShortcut>
-                                </MenubarItem>
-                                <MenubarItem>New Window</MenubarItem>
+                                <MenubarItem>Ver perfil</MenubarItem>
                                 <MenubarSeparator />
-                                <MenubarItem>Share</MenubarItem>
+                                <MenubarItem>Editar</MenubarItem>
                                 <MenubarSeparator />
-                                <MenubarItem>Print</MenubarItem>
+                                <Link to={'/'}>
+                                    <MenubarItem>Sair</MenubarItem>
+                                </Link>
                             </MenubarContent>
                         </MenubarMenu>
                     </Menubar>
@@ -74,9 +87,7 @@ export const Home = () => {
                                                 <div data-radix-scroll-area-viewport="" className="h-full w-full rounded-[inherit]">
                                                     <div className="min-width:100%;display:table">
                                                         <div className="space-y-1 p-2">
-                                                            <button className="inline-flex h-9 w-full items-center justify-start whitespace-nowrap rounded-md px-4 py-2 text-sm font-normal transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50">
-                                                                Recently Added
-                                                            </button>
+                                                            <Button variant={'ghost'} className=''>Recentely Played asd</Button>
                                                             <button className="inline-flex h-9 w-full items-center justify-start whitespace-nowrap rounded-md px-4 py-2 text-sm font-normal transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50">
                                                                 Recently Played
                                                             </button>
@@ -187,6 +198,9 @@ export const Home = () => {
                                             </div>
 
                                             <Separator />
+                                            <div className="flex items-center justify-center">
+                                                <Calendar />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

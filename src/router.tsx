@@ -2,9 +2,9 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import { AppLayout } from './_layouts/AppLayout';
 import { AuthLayout } from './_layouts/auth';
-import { NotFound } from './pages/404';
 import { Home } from './pages/Home/Home';
-import { Register } from './pages/Register/Register';
+import { Register } from './pages/Register';
+import { NotFound } from './pages/404';
 
 export const router = createBrowserRouter([
     {
@@ -28,7 +28,7 @@ export const router = createBrowserRouter([
         ],
     },
     {
-        path: '*',
-        element: <NotFound />,
-    },
+        path:"*",
+        element:<NotFound/>
+    }
 ]);

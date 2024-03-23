@@ -1,21 +1,20 @@
+import { ThemeToggle } from '../theme/theme-toggle';
 import { Link } from 'react-router-dom';
-
-import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarShortcut, MenubarTrigger } from '@/components/ui/menubar';
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from '@/components/ui/navigation-menu';
-import { useTheme } from '@/context/theme-provider';
+
 import Logo from '@/public/Logo.png';
 import LightLogo from '@/public/Logo-light.png';
 
-import { ThemeToggle } from '../theme/theme-toggle';
+import { useTheme } from '@/context/theme-provider';
 
 export function Header() {
     const { theme } = useTheme();
 
     return (
         <div className="border-b px-28 max-xl:hidden">
-            <div className="h-26 flex items-center justify-between gap-6 px-6">
+            <div className="flex h-26 items-center gap-6 px-6 justify-between">
                 <Link to={'/'}>
-                    <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="img h-20" />
+                    <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="h-20 img" />
                 </Link>
                 <div className="flex">
                     <NavigationMenu>
@@ -36,7 +35,7 @@ export function Header() {
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
                             <NavigationMenuItem>
-                                <NavigationMenuLink asChild className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background bg-indigo-600 px-6 py-2 text-white">
+                                <NavigationMenuLink asChild className="bg-indigo-600 group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-6 py-2 text-white">
                                     <Link to={'/register'}>Começar</Link>
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
@@ -45,21 +44,6 @@ export function Header() {
                     <div className="ml-10">
                         <ThemeToggle />
                     </div>
-                    <Menubar>
-                        <MenubarMenu>
-                            <MenubarTrigger>File</MenubarTrigger>
-                            <MenubarContent>
-                                <MenubarItem>
-                                    New Tab <MenubarShortcut>⌘T</MenubarShortcut>
-                                </MenubarItem>
-                                <MenubarItem>New Window</MenubarItem>
-                                <MenubarSeparator />
-                                <MenubarItem>Share</MenubarItem>
-                                <MenubarSeparator />
-                                <MenubarItem>Print</MenubarItem>
-                            </MenubarContent>
-                        </MenubarMenu>
-                    </Menubar>
                 </div>
             </div>
         </div>
