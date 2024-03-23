@@ -4,12 +4,14 @@ import { AppLayout } from './_layouts/AppLayout';
 import { AuthLayout } from './_layouts/auth';
 import { NotFound } from './pages/404';
 import { Home } from './pages/Home';
-import { Dashboard } from './pages/professional/Dashboard';
 import { ProfessionalRegister } from './pages/professional/ProfessionalRegister';
 import { UserLogin } from './pages/user/UserLogin';
 import { UserProfile } from './pages/user/UserProfile';
 import { UserRegister } from './pages/user/UserRegister';
 import { UserDashboard } from './pages/user/UserDashboard';
+import { UserDashboardLayout } from './_layouts/UserDashboardLayout';
+import { ProfessionalDashboardLayout } from './_layouts/ProfessionalDashboardLayout';
+import { ProfessionalDashboard } from './pages/professional/ProfessionalDashboard';
 
 
 export const router = createBrowserRouter([
@@ -34,8 +36,24 @@ export const router = createBrowserRouter([
         ],
     },
     {
-        path:'/user/dashboard',
-        element:<UserDashboard/>
+        path:'/',
+        element:<UserDashboardLayout/>,
+        children: [
+            {
+                path:'/user/dashboard',
+                element:<UserDashboard/>
+            }
+        ]
+    },
+    {
+        path:'/',
+        element:<ProfessionalDashboardLayout/>,
+        children: [
+            {
+                path:'/professional/dashboard',
+                element:<ProfessionalDashboard/>
+            }
+        ]
     },
     {
         path: '/',
@@ -66,10 +84,6 @@ export const router = createBrowserRouter([
                 element: <UserLogin />,
             },
         ],
-    },
-    {
-        path: '/dashboard',
-        element: <Dashboard />,
     },
     {
         path: '*',

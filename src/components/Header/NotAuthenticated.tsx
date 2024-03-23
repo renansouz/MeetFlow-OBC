@@ -1,8 +1,5 @@
 import { Menu } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarTrigger } from '@/components/ui/menubar';
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from '@/components/ui/navigation-menu';
 import { Separator } from '@/components/ui/separator';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -13,9 +10,9 @@ import LightLogo from '@/public/Logo-light.png';
 
 import { ThemeToggle } from '../theme/theme-toggle';
 export const NotAuthenticated = () => {
-    const { setAuth } = useAuth();
+
+    //const { setAuth, isAuth } = useAuth();
     const { theme } = useTheme();
-    const { isAuth } = useAuth();
 
     return (
         <div className="relative border-b px-28">

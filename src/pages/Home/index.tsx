@@ -93,7 +93,7 @@ export const Home = () => {
                 <h1 className="text-center text-6xl font-semibold">Dúvidas Frequentes</h1>
                 <p className="mt-8">Veja as respostas para as perguntas mais frequentes </p>
                 <div className="mt-20 w-4/6">
-                    <Accordion type="single" collapsible>
+                    <Accordion type="single" collapsible className=''>
                         <AccordionItem value="item-1">
                             <AccordionTrigger>Como posso agendar um serviço sem criar uma conta?</AccordionTrigger>
                             <AccordionContent>
