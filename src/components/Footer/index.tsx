@@ -9,13 +9,13 @@ export const Footer = () => {
     const { theme } = useTheme();
 
     return (
-        <div className="flex flex-col items-center justify-center py-10  ">
+        <div className="mt-10 flex flex-col items-center justify-center bg-[#0b0a0c81] pb-10">
             <Separator orientation="horizontal" className="mb-24 h-0.5 w-full max-xl:mb-7" />
             <div className="w-5/6 max-xl:w-full">
                 <div className="flex w-full flex-wrap items-start justify-evenly gap-32 max-xl:gap-0 max-xl:text-xs ">
-                    <div className="bg-blue flex w-2/12 flex-col items-start justify-center max-xl:mb-9 max-xl:w-full max-xl:items-center">
-                        <img src={theme === 'dark' ? OnlyLightLogo : OnlyDarkLogo} alt="" className="w-3/4 max-xl:w-20 " />
-                        <p className="text-start max-xl:text-sm">Organize. Agende. Conecte-se. MeetFlow.</p>
+                    <div className="bg-blue flex w-2/12 flex-col items-center justify-center max-xl:mb-9 max-xl:w-full max-xl:items-center">
+                        <img src={theme === 'dark' ? OnlyLightLogo : OnlyDarkLogo} alt="" className="w-3/4 text-center max-xl:w-20 " />
+                        <p className="text-center max-xl:text-sm">Organize. Agende. Conecte-se. MeetFlow.</p>
                     </div>
                     <div className="flex flex-col gap-4">
                         <h2 className="mb-2 text-2xl font-bold max-xl:text-sm">Recursos</h2>
