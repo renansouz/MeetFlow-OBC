@@ -9,6 +9,8 @@ import { ProfessionalRegister } from './pages/professional/ProfessionalRegister'
 import { UserLogin } from './pages/user/UserLogin';
 import { UserProfile } from './pages/user/UserProfile';
 import { UserRegister } from './pages/user/UserRegister';
+import { UserDashboard } from './pages/user/UserDashboard';
+
 
 export const router = createBrowserRouter([
     {
@@ -26,10 +28,14 @@ export const router = createBrowserRouter([
         element: <AppLayout />,
         children: [
             {
-                path: '/profile',
+                path: '/user/profile',
                 element: <UserProfile />,
             },
         ],
+    },
+    {
+        path:'/user/dashboard',
+        element:<UserDashboard/>
     },
     {
         path: '/',

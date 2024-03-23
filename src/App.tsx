@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { RouterProvider } from 'react-router-dom';
 
 import { ThemeProvider } from '@/context/theme-provider';
+import { AuthContextProvider } from './context/auth-provider';
 import { router } from '@/router';
 
 import Preloader from './components/Preload';
@@ -13,7 +14,7 @@ function App() {
     useEffect(() => {
         setTimeout(() => {
             setLoading(false);
-        }, 2000);
+        }, 1500);
     }, []);
 
     return (
@@ -21,10 +22,12 @@ function App() {
             {loading ? (
                 <Preloader />
             ) : (
-                <ThemeProvider storageKey="MeetFlow-theme" defaultTheme="dark">
-                    <GlobalStyles />
-                    <RouterProvider router={router} />
-                </ThemeProvider>
+                <AuthContextProvider>
+                    <ThemeProvider storageKey="MeetFlow-theme" defaultTheme="dark">
+                        <GlobalStyles />
+                        <RouterProvider router={router} />
+                    </ThemeProvider>
+                </AuthContextProvider>
             )}
         </>
     );

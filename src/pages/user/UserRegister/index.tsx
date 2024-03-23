@@ -21,7 +21,7 @@ export const UserRegister = () => {
 
     return (
         <div className="flex items-center justify-center">
-            <div className="h-screen w-1/2">
+            <div className="h-screen w-1/2 ">
                 <FormDiv>
                     <div className="relative">
                         <ThemeToggle />
@@ -29,7 +29,7 @@ export const UserRegister = () => {
                             <Link to={'/'}>
                                 <img src={theme === 'dark' ? DarkLogo : LightLogo} alt="" className="w-96" />
                             </Link>
-                            <h2 className=" text-2xl">Seja bem vindo!</h2>
+                            <h2 className=" text-2xl">Criar uma conta!</h2>
                         </div>
                         <div className="flex flex-col items-center justify-center gap-8 py-10">
                             <section>
@@ -48,7 +48,7 @@ export const UserRegister = () => {
                                 <input type="checkbox" name="" id="" onClick={handlePasswordAppearence} />
                                 <label htmlFor="">Mostrar senha</label>
                             </section>
-                            <Button className="mt-5 w-96">Entrar</Button>
+                            <Button className="mt-5 w-96 max-sm:w-64">Entrar</Button>
                             <p>
                                 Já possui uma conta?{' '}
                                 <Link to={'/login'} className="text-blue-700 hover:underline">
@@ -59,7 +59,7 @@ export const UserRegister = () => {
                     </div>
                 </FormDiv>
             </div>
-            <div className="flex h-screen w-1/2 items-center justify-center">
+            <div className="flex h-screen w-1/2 items-center justify-center max-lg:hidden">
                 <BackGroundDiv>
                     <h1 className="p-4 text-center font-lexend-start text-7xl font-semibold text-white max-xl:text-5xl max-sm:text-4xl">Facilite sua agenda com o MeetFlow</h1>
                     <p className="w-2/3 text-center text-white">
