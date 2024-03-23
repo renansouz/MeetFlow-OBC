@@ -14,28 +14,26 @@ export const Home = () => {
         <div className="p-0">
             <section className="h-lvh p-0 text-center">
                 <BackGroundImage>
-                    <h1 className="text-center font-lexend-start text-6xl font-semibold text-white max-xl:text-5xl max-sm:text-4xl ">Agende serviços com facilidade e praticidade</h1>
-                    <p className="max-xl:text-md w-1/2 text-center font-lexend-start text-xl  font-extralight text-white max-sm:text-sm">
-                        Conectando você aos melhores profissionais, sem complicações.
-                    </p>
-                    <Link className="h-16 items-center justify-center rounded-md bg-background bg-indigo-600 px-12 py-2 pt-3 text-3xl text-white" to={'/register'}>
+                    <h1 className="text-whit mt-48 text-center font-lexend-start text-6xl font-semibold max-xl:mt-0 max-xl:text-5xl ">Agende serviços com facilidade e praticidade</h1>
+                    <p className="max-xl:text-md w-1/2 text-center font-lexend-start text-xl font-extralight text-white">Conectando você aos melhores profissionais, sem complicações.</p>
+                    <Link className="h-16 items-center justify-center rounded-md bg-background bg-indigo-600 px-12 py-2 pt-3 text-3xl text-white  max-xl:text-2xl" to={'/register'}>
                         Agendar agora!
                     </Link>
-                    <div className="mt-20 flex items-center p-4 text-center text-white">
-                        <div className="flex justify-between gap-10">
+                    <div className="mt-36 flex items-center p-4 text-center text-white max-xl:hidden">
+                        <div className="flex justify-between gap-20">
                             <div className="flex items-center">
-                                <span className="mr-2 text-4xl font-semibold">3000+</span>
-                                <p className="inline-block text-2xl">usuários</p>
+                                <span className="mr-2 bg-gradient-to-r from-indigo-50 to-slate-500 bg-clip-text font-semibold text-transparent max-xl:text-4xl xl:text-5xl">3000+</span>
+                                <p className="inline-block xl:text-2xl">usuários</p>
                             </div>
-                            <Tally1 className="h-9 w-9" />
+                            <Tally1 className="h-20 w-9" />
                             <div className="flex items-center">
-                                <span className="mr-2 text-4xl font-semibold">2300+</span>
-                                <p className="inline-block text-2xl">profissionais</p>
+                                <span className="mr-2 bg-gradient-to-r from-indigo-50 to-slate-500 bg-clip-text font-semibold text-transparent max-xl:text-4xl xl:text-5xl">98%</span>
+                                <p className="inline-block xl:text-2xl">de satisfação do cliente</p>
                             </div>
-                            <Tally1 className="h-9 w-9" />
+                            <Tally1 className="h-20 w-9" />
                             <div className="flex items-center">
-                                <span className="mr-2 text-4xl font-semibold">98%</span>
-                                <p className="inline-block text-2xl">de satisfação do cliente</p>
+                                <span className="mr-2 bg-gradient-to-r from-indigo-50 to-slate-500 bg-clip-text font-semibold text-transparent max-xl:text-4xl xl:text-5xl">2300+</span>
+                                <p className="inline-block xl:text-2xl">profissionais</p>
                             </div>
                         </div>
                     </div>
