@@ -29,7 +29,7 @@ export const UserRegister = () => {
                             <Link to={'/'}>
                                 <img src={theme === 'dark' ? DarkLogo : LightLogo} alt="" className="w-96" />
                             </Link>
-                            <h2 className=" text-2xl">Seja bem vindo!</h2>
+                            <h2 className=" text-2xl">Criar uma conta!</h2>
                         </div>
                         <div className="flex flex-col items-center justify-center gap-8 py-10">
                             <section>
