@@ -17,6 +17,7 @@ export const BackGroundImage = styled.div`
     justify-content: center;
     z-index: 1;
     flex-direction: column;
+    position: relative;
 `;
 
 export const SobreImage = styled.div`

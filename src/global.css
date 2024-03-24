@@ -58,11 +58,4 @@
     body {
         @apply bg-background text-foreground;
     }
-    h1 {
-        font-weight: 600;
-    }
-    p,
-    span {
-        font-weight: 400;
-    }
 }

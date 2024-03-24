@@ -17,7 +17,7 @@ export const NotAuthenticated = () => {
     const { isAuth } = useAuth();
 
     return (
-        <div className="relative w-screen border-b bg-slate-950">
+        <div className="relative w-screen border-b bg-background">
             <div className="flex max-h-24 items-center justify-between gap-6 px-6">
                 <Link to={'/'}>
                     <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="max-h-28" />
