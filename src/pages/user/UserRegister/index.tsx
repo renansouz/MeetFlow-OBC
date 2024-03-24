@@ -6,8 +6,8 @@ import { InputText } from '@/components/Inputs/InputText';
 import { ThemeToggle } from '@/components/theme/theme-toggle';
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/context/theme-provider';
-import DarkLogo from '@/public/img/Logo.png';
-import LightLogo from '@/public/img/Logo-light.png';
+import DarkLogo from '@/public/img/Logo.svg';
+import LightLogo from '@/public/img/Logo-light.svg';
 
 import { BackGroundDiv, FormDiv } from './styles';
 

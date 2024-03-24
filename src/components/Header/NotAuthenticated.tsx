@@ -1,15 +1,13 @@
 import { Menu } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarTrigger } from '@/components/ui/menubar';
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from '@/components/ui/navigation-menu';
 import { Separator } from '@/components/ui/separator';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useAuth } from '@/context/auth-provider';
 import { useTheme } from '@/context/theme-provider';
-import Logo from '@/public/img/Logo.png';
-import LightLogo from '@/public/img/Logo-light.png';
+import Logo from '@/public/img/Logo.svg';
+import LightLogo from '@/public/img/Logo-light.svg';
 
 import { ThemeToggle } from '../theme/theme-toggle';
 
@@ -35,7 +33,7 @@ export const NotAuthenticated = () => {
                                 </NavigationMenuItem>
                                 <NavigationMenuItem>
                                     <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                                        <Link to={'/about'}>Sobre Nós</Link>
+                                        <Link to={'/about'}>Sobre</Link>
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
                                 <NavigationMenuItem>
@@ -75,7 +73,7 @@ export const NotAuthenticated = () => {
                                     </Link>
                                     <Separator />
                                     <Link to={'/about'} className="w-full rounded-md border-solid p-4 text-center hover:bg-accent ">
-                                        Sobre nós
+                                        Sobre
                                     </Link>
                                     <Separator />
                                     <Link to={'/login'} className="w-full rounded-md border-solid p-4 text-center hover:bg-accent ">

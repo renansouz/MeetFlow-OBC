@@ -1,5 +1,5 @@
-import { Button } from '@/components/ui/button';
 import { Separator } from '@radix-ui/react-separator';
+
 import {
     AlertDialog,
     AlertDialogAction,
@@ -11,6 +11,7 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
+import { Button } from '@/components/ui/button';
 
 export const UserProfile = () => {
     return (

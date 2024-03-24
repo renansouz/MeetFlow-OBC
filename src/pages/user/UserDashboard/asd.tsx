@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarShortcut, MenubarTrigger } from '@/components/ui/menubar';
 import { useTheme } from '@/context/theme-provider';
-import Logo from '@/public/img/Logo.png';
-import LightLogo from '@/public/img/Logo-light.png';
+import Logo from '@/public/img/Logo.svg';
+import LightLogo from '@/public/img/Logo-light.svg';
 
 export const UserDashboard = () => {
     const { theme } = useTheme();
