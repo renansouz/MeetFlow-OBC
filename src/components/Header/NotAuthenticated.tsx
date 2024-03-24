@@ -17,7 +17,7 @@ export const NotAuthenticated = () => {
     const { isAuth } = useAuth();
 
     return (
-        <div className="relative w-screen border-b ">
+        <div className="relative w-screen border-b bg-slate-950">
             <div className="flex max-h-24 items-center justify-between gap-6 px-6">
                 <Link to={'/'}>
                     <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="max-h-28" />
@@ -66,7 +66,7 @@ export const NotAuthenticated = () => {
                             <SheetTrigger>
                                 <Menu className="h-10 w-10" />
                             </SheetTrigger>
-                            <SheetContent className="absolute">
+                            <SheetContent className="fixed">
                                 <div className="mt-20 flex flex-col items-center ">
                                     <Link to={'/'} className="w-full rounded-md border-solid p-4 text-center hover:bg-accent">
                                         Início

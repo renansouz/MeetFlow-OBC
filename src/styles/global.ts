@@ -48,7 +48,7 @@ body::-webkit-scrollbar-thumb:active {
 }
 
   body, input, textarea, button {
-    font: 300 1rem "Lexend Deca", sans-serif;
+    font: 300 1rem "Poppins", sans-serif;
   }
 
 `;
