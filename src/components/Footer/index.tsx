@@ -8,7 +8,7 @@ export const Footer = () => {
     const { theme } = useTheme();
 
     return (
-        <div className="flex flex-col items-center justify-center bg-[#0b0a0c81] pb-10">
+        <div className="flex flex-col items-center justify-center pb-10">
             <Separator orientation="horizontal" className="mb-24 h-0.5 w-full max-xl:mb-7" />
             <div className="w-5/6 max-xl:w-full">
                 <div className="flex w-full flex-wrap items-start justify-evenly gap-32 max-xl:gap-0 max-xl:text-xs lg:text-base">
@@ -40,7 +40,7 @@ export const Footer = () => {
                 <Separator orientation="horizontal" className="w-full h-0.5 my-10" />
                 <div className="flex justify-between pb-5 max-xl:mx-10 max-sm:flex-col max-sm:items-center">
                     <p className="text-sm">Copyright &copy; 2024 MeetFlow. All Rights Reserved.</p>
-                    <h1 className='text-sm'>Copyright &copy; 2024 MeetFlow. All Rights Reserved.</h1>
+                    <h1 className="text-sm">Copyright &copy; 2024 MeetFlow. All Rights Reserved.</h1>
                     <div className="flex gap-5 max-sm:my-5">
                         <Instagram />
                         <Github />

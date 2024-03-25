@@ -19,17 +19,23 @@ export const UserAside = () => {
                     </Link>
                 </div>
                 <div className="flex flex-col gap-5">
-                    <Button variant={'ghost'} className="flex items-center justify-start gap-3 px-10">
-                        <Home />
-                        <p>Serviços</p>
+                    <Button variant={'ghost'} className="flex items-center justify-start gap-3 px-10" asChild>
+                        <Link to={'/dashboard/services'}>
+                            <Home />
+                            <p>Serviços</p>
+                        </Link>
                     </Button>
-                    <Button variant={'ghost'} className="flex items-center justify-start gap-3 px-10">
-                        <Layers />
-                        <p>Meus agendamentos</p>
+                    <Button variant={'ghost'} className="flex items-center justify-start gap-3 px-10" asChild>
+                        <Link to={'/dashboard/myschedules'}>
+                            <Layers />
+                            <p>Meus agendamentos</p>
+                        </Link>
                     </Button>
-                    <Button variant={'ghost'} className="flex items-center justify-start gap-3 px-10">
-                        <Users />
-                        <p>Grupos</p>
+                    <Button variant={'ghost'} className="flex items-center justify-start gap-3 px-10" asChild>
+                        <Link to={'/dashboard/mygroups'}>
+                            <Users />
+                            <p>Grupos</p>
+                        </Link>
                     </Button>
                 </div>
             </div>
