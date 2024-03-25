@@ -48,7 +48,7 @@ export const NotAuthenticated = () => {
                                         asChild
                                         className="group ml-10 inline-flex h-10 w-max items-center justify-center rounded-md bg-background bg-indigo-600 px-6 py-2 text-white"
                                     >
-                                        <Link to={'/register'}>Agende Agora!</Link>
+                                        <Link to={'/register'}>Agendar</Link>
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
                                 <NavigationMenuItem></NavigationMenuItem>

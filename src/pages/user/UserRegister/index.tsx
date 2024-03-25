@@ -47,7 +47,7 @@ export const UserRegister = () => {
                 <FormDiv onSubmit={handleSubmit(handleSignUp)}>
                     <div className="flex flex-col items-center justify-center gap-5">
                         <div className="flex justify-start w-full">
-                            <ThemeToggle />
+                            <ThemeToggle/>
                         </div>
                         <Link to={'/'}>
                             <img src={theme === 'dark' ? LightLogo : DarkLogo} alt="" className="w-full" />

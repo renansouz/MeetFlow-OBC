@@ -8,6 +8,7 @@ import { Home, Layers, Users, User, LifeBuoy, Settings } from 'lucide-react';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 
 export const UserAside = () => {
+
     const { theme } = useTheme();
 
     return (
@@ -58,7 +59,7 @@ export const UserAside = () => {
                         </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
-                        <DropdownMenuItem>Theme</DropdownMenuItem>
+                        <DropdownMenuItem>lorem</DropdownMenuItem>
                         <Separator orientation="horizontal" />
                         <DropdownMenuItem>Others</DropdownMenuItem>
                         <Separator orientation="horizontal" />
@@ -68,7 +69,9 @@ export const UserAside = () => {
                         <Separator orientation="horizontal" />
                         <DropdownMenuItem>Theme</DropdownMenuItem>
                         <Separator orientation="horizontal" />
-                        <DropdownMenuItem>Others</DropdownMenuItem>
+                        <DropdownMenuItem>
+                            <ThemeToggle/>
+                        </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
             </div>
