@@ -54,26 +54,26 @@ export const UserRegister = () => {
                         </Link>
                         <h2 className=" text-2xl">Criar uma conta!</h2>
                     </div>
-                    <div className="flex flex-col items-center justify-center gap-8 py-10">
+                    <div className="flex flex-col items-center justify-center gap-5 py-10">
                         <section>
                             <label htmlFor="" className="block py-2 font-bold ">
                                 Endereço de e-mail
                             </label>
-                            <Input icon={<User />} placeholder="Digite seu email" id="email" {...register('email')} />
+                            <Input placeholder="Digite seu email" id="email" {...register('email')} />
                             {errors.email && <p>{errors.email.message}</p>}
                         </section>
                         <section>
                             <label htmlFor="" className="block py-2 font-bold ">
                                 Senha
                             </label>
-                            <Input icon={<Lock />} placeholder="Digite sua senha" id="password" {...register('password')} />
+                            <Input placeholder="Digite sua senha" id="password" {...register('password')} />
                             {errors.password && <p>{errors.password.message}</p>}
                         </section>
                         <section>
                             <label htmlFor="" className="block py-2 font-bold ">
                                 Confirme sua senhna
                             </label>
-                            <Input icon={<Lock />} placeholder="Digite sua senha novamente" id="confirmpPassword" {...register('confirmPassword')} />
+                            <Input placeholder="Digite sua senha novamente" id="confirmpPassword" {...register('confirmPassword')} />
                             {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
                         </section>
                         <section className="flex gap-2 ">
