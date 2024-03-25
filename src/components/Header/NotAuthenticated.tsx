@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from '@/components/ui/navigation-menu';
 import { Separator } from '@/components/ui/separator';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-//import { useAuth } from '@/context/auth-provider';
 import { useTheme } from '@/context/theme-provider';
 import Logo from '@/public/img/Logo.svg';
 import LightLogo from '@/public/img/Logo-light.svg';
@@ -16,7 +15,7 @@ export const NotAuthenticated = () => {
     const { theme } = useTheme();
 
     return (
-        <div className="relative w-screen border-b bg-background">
+        <div className="relative border-b bg-background">
             <div className="flex max-h-24 items-center justify-between gap-6 px-6">
                 <Link to={'/'}>
                     <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="max-h-28" />
@@ -50,7 +49,7 @@ export const NotAuthenticated = () => {
                                         asChild
                                         className="group ml-10 inline-flex h-10 w-max items-center justify-center rounded-md bg-background bg-indigo-600 px-6 py-2 text-white"
                                     >
-                                        <Link to={'/register'}>Agende Agora!</Link>
+                                        <Link to={'/register'}>Agendar</Link>
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
                                 <NavigationMenuItem></NavigationMenuItem>
