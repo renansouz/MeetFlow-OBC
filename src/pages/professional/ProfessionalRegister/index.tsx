@@ -7,6 +7,7 @@ import LightLogo from '@/public/img/Logo-light.svg';
 
 import { Step1, Step2, Step3, StepNavigator } from './step';
 import { BackGroundDiv, FormDiv } from './styles';
+
 export const ProfessionalRegister = () => {
     const { theme } = useTheme();
 
@@ -19,6 +20,7 @@ export const ProfessionalRegister = () => {
                     <img src={theme === 'dark' ? DarkLogo : LightLogo} alt="" className="w-96" />
                     <h1 className="text-center text-5xl font-semibold">Junte-se à comunidade MeetFlow</h1>
                 </div>
+
                 <div className="flex w-1/2 items-center justify-center max-xl:w-screen">
                     <FormDiv>
                         <MultiStep size={3} currentStep={currentStepState} text={['Conta', 'Disponibilidade', 'Serviços']} />

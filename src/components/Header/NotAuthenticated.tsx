@@ -1,6 +1,5 @@
 import { Menu } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from '@/components/ui/navigation-menu';
 import { Separator } from '@/components/ui/separator';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -12,9 +11,9 @@ import LightLogo from '@/public/img/Logo-light.svg';
 import { ThemeToggle } from '../theme/theme-toggle';
 
 export const NotAuthenticated = () => {
-    const { setAuth } = useAuth();
+
+    //const { setAuth, isAuth } = useAuth();
     const { theme } = useTheme();
-    const { isAuth } = useAuth();
 
     return (
         <div className="relative w-screen border-b bg-background">

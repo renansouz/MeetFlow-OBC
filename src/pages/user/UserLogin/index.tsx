@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { InputPassword } from '@/components/Inputs/InputPassword';
-import { InputText } from '@/components/Inputs/InputText';
+import { Input } from '@/components/Input';
+import { InputPassword } from '@/components/Input/InputPassword';
 import { Button } from '@/components/ui/button';
 import DarkLogo from '@/public/img/Logo.svg';
 import LightLogo from '@/public/img/Logo-light.svg';
@@ -30,13 +30,13 @@ export const UserLogin = () => {
                             <label htmlFor="" className="block py-2 font-bold text-black">
                                 Endereço de e-mail
                             </label>
-                            <InputText placeholder="Digite seu email" id="email" />
+                            <Input placeholder="Digite seu email" id="email" />
                         </section>
                         <section>
                             <label htmlFor="" className="block py-2 font-bold text-black">
                                 Senha
                             </label>
-                            <InputPassword placeholder="Digite sua senha" id="password" passwordAppearence={passswordAppearenceState} />
+                            <Input placeholder="Digite sua senha" id="password" />
                         </section>
                         <section className="flex gap-2 text-black">
                             <input type="checkbox" name="" id="" onClick={handlePasswordAppearence} />

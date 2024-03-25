@@ -14,7 +14,7 @@ export const Home = () => {
                         <h1 className="max-sm:text-3x font-poppins-start-start text-center text-6xl font-semibold text-white max-xl:text-5xl max-sm:text-3xl">
                             Agende serviços com facilidade e praticidade
                         </h1>
-                        <p className="mb-20 mt-3 w-1/2 text-center font-poppins-start text-2xl font-light text-white max-lg:text-base max-sm:mb-10 max-sm:text-lg">
+                        <p className="mb-20 mt-3 w-1/2 pt-6 text-center font-poppins-start text-2xl font-light text-white max-lg:text-base max-sm:mb-10 max-sm:text-lg">
                             Conectando você aos melhores profissionais, sem complicações.
                         </p>
                         <Link
