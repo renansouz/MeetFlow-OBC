@@ -5,10 +5,8 @@ import { InputText } from '@/components/Inputs/InputText';
 import { ThemeToggle } from '@/components/theme/theme-toggle';
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/context/theme-provider';
-
-
-import DarkLogo from '@/public/img/Logo.png';
-import LightLogo from '@/public/img/Logo-light.png';
+import DarkLogo from '@/public/img/Logo.svg';
+import LightLogo from '@/public/img/Logo-light.svg';
 import { BackGroundDiv, FormDiv } from './styles';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -85,7 +83,7 @@ export const UserRegister = () => {
             </div>
             <div className="flex h-screen w-1/2 items-center justify-center max-lg:hidden">
                 <BackGroundDiv>
-                    <h1 className="p-4 text-center font-lexend-start text-7xl font-semibold text-white max-xl:text-5xl max-sm:text-4xl">Facilite sua agenda com o MeetFlow</h1>
+                    <h1 className="font-poppins-start p-4 text-center text-7xl font-semibold text-white max-xl:text-5xl max-sm:text-4xl">Facilite sua agenda com o MeetFlow</h1>
                     <p className="w-2/3 text-center text-white">
                         Encontre serviços, agende compromissos e simplifique sua vida com o MeetFlow. A maneira mais fácil de conectar-se com profissionais e organizarsua agenda. Experimente
                         agora!

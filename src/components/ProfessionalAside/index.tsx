@@ -1,6 +1,6 @@
 import { Separator } from '@/components/ui/separator';
-import Logo from '@/public/img/Logo.png';
-import LightLogo from '@/public/img/Logo-light.png';
+import Logo from '@/public/img/Logo.svg';
+import LightLogo from '@/public/img/Logo-light.svg';
 import { Link } from 'react-router-dom';
 import { useTheme } from '@/context/theme-provider';
 import { Button } from '@/components/ui/button';
