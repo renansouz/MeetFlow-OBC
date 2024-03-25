@@ -11,12 +11,11 @@ import LightLogo from '@/public/img/Logo-light.svg';
 import { ThemeToggle } from '../theme/theme-toggle';
 
 export const NotAuthenticated = () => {
-
     //const { setAuth, isAuth } = useAuth();
     const { theme } = useTheme();
 
     return (
-        <div className="relative w-screen border-b bg-background">
+        <div className="relative  border-b bg-background">
             <div className="flex max-h-24 items-center justify-between gap-6 px-6">
                 <Link to={'/'}>
                     <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="max-h-28" />

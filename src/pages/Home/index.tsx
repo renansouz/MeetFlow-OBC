@@ -8,7 +8,7 @@ import { BackGroundImage, ProfessionalImage, SobreImage } from './styles';
 export const Home = () => {
     return (
         <div className="p-0">
-            <section className="h-screen min-h-lvh w-screen p-0 text-center">
+            <section className="h-screen min-h-lvh  p-0 text-center">
                 <BackGroundImage>
                     <div className="flex h-full flex-col items-center justify-center">
                         <h1 className="max-sm:text-3x font-poppins-start-start text-center text-6xl font-semibold text-white max-xl:text-5xl max-sm:text-3xl">
@@ -48,8 +48,7 @@ export const Home = () => {
                     </div>
                 </BackGroundImage>
             </section>
-
-            <section className="flex h-screen w-screen items-center gap-40 max-xl:grid max-xl:h-auto max-xl:place-items-center max-sm:my-14 lg:my-36 xl:m-0 2xl:m-0 2xl:p-0">
+            <section className="flex h-screen  items-center gap-40 max-xl:grid max-xl:h-auto max-xl:place-items-center max-sm:my-14 lg:my-36 xl:m-0 2xl:m-0 2xl:p-0">
                 <div className="ml-[12%] flex flex-col items-center max-xl:ml-0">
                     <SobreImage />
                 </div>
@@ -66,7 +65,7 @@ export const Home = () => {
                     </div>
                 </div>
             </section>
-            <section className="flex h-screen w-screen items-center gap-40 bg-secondary bg-opacity-100 max-xl:mb-[10%] max-xl:grid max-xl:h-auto max-xl:place-items-center max-lg:mb-0 max-sm:mb-14 xl:m-0 2xl:m-0 2xl:p-0">
+            <section className="flex h-screen  items-center gap-40 bg-secondary bg-opacity-100 max-xl:mb-[10%] max-xl:grid max-xl:h-auto max-xl:place-items-center max-lg:mb-0 max-sm:mb-14 xl:m-0 2xl:m-0 2xl:p-0">
                 <div className="flex w-3/6 flex-col items-center justify-center text-center">
                     <div className="ml-52 flex flex-col justify-start gap-6 max-xl:ml-0 max-xl:items-center ">
                         <h1 className="text-left text-6xl font-semibold max-xl:w-lvw max-xl:text-center max-lg:text-5xl max-sm:text-4xl md:text-4xl lg:text-5xl">
@@ -84,7 +83,7 @@ export const Home = () => {
                     <ProfessionalImage />
                 </div>
             </section>
-            <section className="my-40 flex min-h-lvh w-screen flex-col items-center justify-center">
+            <section className="my-40 flex min-h-lvh  flex-col items-center justify-center">
                 <h1 className="text-center text-6xl font-semibold max-xl:text-5xl max-sm:text-2xl">Dúvidas Frequentes</h1>
                 <p className="my-6 mb-10 text-center text-xl font-extralight max-xl:text-lg max-sm:text-base">Veja as respostas para as perguntas mais frequentes </p>
                 <div className=" max-h-[80%] w-[90%] max-sm:mb-[10%] max-sm:h-full sm:h-full xl:w-[70%] 2xl:w-[70rem]">

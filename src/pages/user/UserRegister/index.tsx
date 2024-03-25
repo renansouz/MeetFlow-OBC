@@ -45,10 +45,12 @@ export const UserRegister = () => {
         <div className="flex items-center justify-center">
             <div className="h-screen w-1/2 ">
                 <FormDiv onSubmit={handleSubmit(handleSignUp)}>
-                    <ThemeToggle />
-                    <div className="flex flex-col items-center justify-center">
+                    <div className="flex flex-col items-center justify-center gap-5">
+                        <div className="flex justify-start w-full">
+                            <ThemeToggle />
+                        </div>
                         <Link to={'/'}>
-                            <img src={theme === 'dark' ? DarkLogo : LightLogo} alt="" className="w-80" />
+                            <img src={theme === 'dark' ? LightLogo : DarkLogo} alt="" className="w-full" />
                         </Link>
                         <h2 className=" text-2xl">Criar uma conta!</h2>
                     </div>
@@ -82,7 +84,7 @@ export const UserRegister = () => {
                             Entrar
                         </Button>
                     </div>
-                    <div>
+                    <div className="flex gap-2">
                         <p>Já possui uma conta? </p>
                         <Link to={'/login'} className="text-blue-700 hover:underline">
                             Entrar
