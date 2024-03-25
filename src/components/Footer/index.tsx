@@ -1,9 +1,8 @@
-import { Github, Instagram, Twitter, Youtube } from 'lucide-react';
-
-import { Separator } from '@/components/ui/separator';
 import { useTheme } from '@/context/theme-provider';
 import OnlyDarkLogo from '@/public/img/only-logo-black.svg';
 import OnlyLightLogo from '@/public/img/only-logo-white.svg';
+import { Separator } from '@/components/ui/separator';
+import { Instagram, Github, Twitter, Youtube } from 'lucide-react';
 
 export const Footer = () => {
     const { theme } = useTheme();
@@ -38,9 +37,10 @@ export const Footer = () => {
                         <a href="#">Ajuda</a>
                     </div>
                 </div>
-                <Separator orientation="horizontal" className="my-10 h-0.5 w-full" />
+                <Separator orientation="horizontal" className="w-full h-0.5 my-10" />
                 <div className="flex justify-between pb-5 max-xl:mx-10 max-sm:flex-col max-sm:items-center">
                     <p className="text-sm">Copyright &copy; 2024 MeetFlow. All Rights Reserved.</p>
+                    <h1 className='text-sm'>Copyright &copy; 2024 MeetFlow. All Rights Reserved.</h1>
                     <div className="flex gap-5 max-sm:my-5">
                         <Instagram />
                         <Github />
