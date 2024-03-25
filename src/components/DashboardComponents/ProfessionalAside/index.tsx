@@ -1,16 +1,15 @@
+import { Home, Layers, LifeBuoy, LogOut, Plus, Settings, Users } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+import { Button } from '@/components/ui/button';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Separator } from '@/components/ui/separator';
+import { useTheme } from '@/context/theme-provider';
 import Logo from '@/public/img/Logo.svg';
 import LightLogo from '@/public/img/Logo-light.svg';
-import { Link } from 'react-router-dom';
-import { useTheme } from '@/context/theme-provider';
-import { Button } from '@/components/ui/button';
-import { Home, Layers, Users, User, LifeBuoy, Settings, LogOut, Plus } from 'lucide-react';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-
 
 export const ProfessionalAside = () => {
-
-    const {theme} = useTheme();
+    const { theme } = useTheme();
 
     return (
         <aside className="flex  h-screen w-2/12 flex-col justify-between border-r-2 pb-8 pt-2">

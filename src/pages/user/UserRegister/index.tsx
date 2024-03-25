@@ -56,24 +56,24 @@ export const UserRegister = () => {
                     </div>
                     <div className="flex flex-col items-center justify-center gap-5 py-10">
                         <section>
-                            <label htmlFor="" className="block py-2 font-bold ">
+                            <label htmlFor="" className="block py-2 font-bold" id="email">
                                 Endereço de e-mail
                             </label>
                             <Input placeholder="Digite seu email" id="email" {...register('email')} />
                             {errors.email && <p>{errors.email.message}</p>}
                         </section>
                         <section>
-                            <label htmlFor="" className="block py-2 font-bold ">
+                            <label htmlFor="" className="block py-2 font-bold" id="password">
                                 Senha
                             </label>
                             <Input placeholder="Digite sua senha" id="password" {...register('password')} />
                             {errors.password && <p>{errors.password.message}</p>}
                         </section>
                         <section>
-                            <label htmlFor="" className="block py-2 font-bold ">
+                            <label htmlFor="" className="block py-2 font-bold" id="confirmPassword">
                                 Confirme sua senhna
                             </label>
-                            <Input placeholder="Digite sua senha novamente" id="confirmpPassword" {...register('confirmPassword')} />
+                            <Input placeholder="Digite sua senha novamente" id="confirmPassword" {...register('confirmPassword')} />
                             {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
                         </section>
                         <section className="flex gap-2 ">
@@ -94,7 +94,6 @@ export const UserRegister = () => {
             </div>
             <div className="flex h-screen w-1/2 items-center justify-center max-lg:hidden">
                 <BackGroundDiv>
-
                     <h1 className="p-4 text-center font-poppins-start text-7xl font-semibold text-white max-xl:text-5xl max-sm:text-4xl">Facilite sua agenda com o MeetFlow</h1>
 
                     <p className="w-2/3 text-center text-white">

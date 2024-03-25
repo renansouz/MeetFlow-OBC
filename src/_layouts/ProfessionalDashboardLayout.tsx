@@ -4,7 +4,7 @@ import { ProfessionalAside } from "@/components/DashboardComponents/Professional
 export const ProfessionalDashboardLayout = () => {
     return (
         <div className="flex">
-            <ProfessionalAside/>
+            <ProfessionalAside />
             <div className="">
                 <Outlet />
             </div>

@@ -8,7 +8,6 @@ import { Home, Layers, Users, User, LifeBuoy, Settings } from 'lucide-react';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 
 export const UserAside = () => {
-
     const { theme } = useTheme();
 
     return (
@@ -20,23 +19,17 @@ export const UserAside = () => {
                     </Link>
                 </div>
                 <div className="flex flex-col gap-5">
-                    <Button variant={'ghost'} className="flex items-center justify-start gap-3 px-10" asChild>
-                        <Link to={'/dashboard/services'}>
-                            <Home />
-                            <p>Serviços</p>
-                        </Link>
+                    <Button variant={'ghost'} className="flex items-center justify-start gap-3 px-10">
+                        <Home />
+                        <p>Serviços</p>
                     </Button>
-                    <Button variant={'ghost'} className="flex items-center justify-start gap-3 px-10" asChild>
-                        <Link to={'/dashboard/myschedules'}>
-                            <Layers />
-                            <p>Meus agendamentos</p>
-                        </Link>
+                    <Button variant={'ghost'} className="flex items-center justify-start gap-3 px-10">
+                        <Layers />
+                        <p>Meus agendamentos</p>
                     </Button>
-                    <Button variant={'ghost'} className="flex items-center justify-start gap-3 px-10" asChild>
-                        <Link to={'/dashboard/mygroups'}>
-                            <Users />
-                            <p>Grupos</p>
-                        </Link>
+                    <Button variant={'ghost'} className="flex items-center justify-start gap-3 px-10">
+                        <Users />
+                        <p>Grupos</p>
                     </Button>
                 </div>
             </div>
@@ -59,18 +52,17 @@ export const UserAside = () => {
                         </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
-                        <DropdownMenuItem>lorem</DropdownMenuItem>
-                        <Separator orientation="horizontal" />
-                        <DropdownMenuItem>Others</DropdownMenuItem>
-                        <Separator orientation="horizontal" />
                         <DropdownMenuItem>Theme</DropdownMenuItem>
                         <Separator orientation="horizontal" />
                         <DropdownMenuItem>Others</DropdownMenuItem>
                         <Separator orientation="horizontal" />
                         <DropdownMenuItem>Theme</DropdownMenuItem>
                         <Separator orientation="horizontal" />
-                        <DropdownMenuItem>
-                        </DropdownMenuItem>
+                        <DropdownMenuItem>Others</DropdownMenuItem>
+                        <Separator orientation="horizontal" />
+                        <DropdownMenuItem>Theme</DropdownMenuItem>
+                        <Separator orientation="horizontal" />
+                        <DropdownMenuItem>Others</DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
             </div>
