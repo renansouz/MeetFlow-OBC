@@ -1,6 +1,7 @@
-import { Header } from '../components/Header';
 import { Search } from '@/components/Search';
-import { Card } from './Card';
+
+import { Header } from '../components/Header';
+import { CardProfessional } from './Card';
 
 export type CardData = {
     profile_pic: string;
@@ -24,8 +25,8 @@ export const Services = () => {
     ];
 
     const cardMock: CardData[] = [
-        { profile_pic: 'https://randomuser.me/api/portraits/women/18.jpg', name: 'Ruby Baker', description: 'ruby.baker@example.com', categorie: '(537) 570-7776' },
-        { profile_pic: 'https://randomuser.me/api/portraits/men/3.jpg', name: 'Wyatt Peterson', description: 'wyatt.peterson@example.com', categorie: '(579) 237-0338' },
+        { profile_pic: 'https://randomuser.me/api/portraits/women/18.jpg', name: 'Ruby Baker', description: 'amo animais', categorie: '(537) 570-7776' },
+        { profile_pic: 'https://randomuser.me/api/portraits/men/3.jpg', name: 'Wyatt Peterson', description: 'amo anime', categorie: '(579) 237-0338' },
         { profile_pic: 'https://randomuser.me/api/portraits/men/45.jpg', name: 'Rafael Burton', description: 'rafael.burton@example.com', categorie: '(509) 635-3757' },
         { profile_pic: 'https://randomuser.me/api/portraits/women/3.jpg', name: 'Hannah Murray', description: 'hannah.murray@example.com', categorie: '(784) 292-7570' },
         { profile_pic: 'https://randomuser.me/api/portraits/women/22.jpg', name: 'Esther Rice', description: 'esther.rice@example.com', categorie: '(509) 805-8485' },
@@ -43,27 +44,29 @@ export const Services = () => {
             <Header title="Serviços" />
             <div>
                 <div className="flex items-center flex-col gap-5">
-                    <h2 className="text-center text-2xl">Profissionais</h2>
+                    <h2 className="text-center text-3xl">Profissionais</h2>
                     <Search placeholder="Busque por um serviço ou profissional" />
+                </div>
+                <div className="flex flex-wrap items-center gap-10 mt-10 justify-center">
+                    {categoriesMock.map((categorie) => {
+                        return (
+                            <div className="flex items-center gap-2">
+                                <input type="checkbox" name="" id={categorie.title} />
+                                <label htmlFor="" id={categorie.title}>
+                                    {categorie.title}
+                                </label>
+                            </div>
+                        );
+                    })}
                 </div>
                 <div className="flex items-start">
                     <div className="flex flex-wrap w-11/12 ps-28 py-16 gap-10">
                         {cardMock.map((user) => (
-                            <Card profile_pic={user.profile_pic} name={user.name} categorie={user.categorie} description={user.description} />
+                            <CardProfessional profile_pic={user.profile_pic} name={user.name} categorie={user.categorie} description={user.description} />
                         ))}
                     </div>
                     <div className="flex flex-col w-1/12 items-start gap-2">
                         <p></p>
-                        {categoriesMock.map((categorie) => {
-                            return (
-                                <div className="flex items-center gap-2">
-                                    <input type="checkbox" name="" id="" />
-                                    <label htmlFor="" className="">
-                                        {categorie.title}
-                                    </label>
-                                </div>
-                            );
-                        })}
                     </div>
                 </div>
             </div>
