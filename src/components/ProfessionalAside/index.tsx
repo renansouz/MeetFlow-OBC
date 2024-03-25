@@ -1,6 +1,6 @@
 import { Separator } from '@/components/ui/separator';
-import Logo from '@/public/Logo.png';
-import LightLogo from '@/public/Logo-light.png';
+import Logo from '@/public/img/Logo.png';
+import LightLogo from '@/public/img/Logo-light.png';
 import { Link } from 'react-router-dom';
 import { useTheme } from '@/context/theme-provider';
 import { Button } from '@/components/ui/button';
@@ -11,7 +11,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 export const ProfessionalAside = () => {
 
     const {theme} = useTheme();
-    
+
     return (
         <aside className="flex  h-screen w-2/12 flex-col justify-between border-r-2 pb-8 pt-2">
             <div className="flex flex-col gap-14">

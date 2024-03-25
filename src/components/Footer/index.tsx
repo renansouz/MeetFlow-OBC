@@ -2,8 +2,8 @@ import { Github, Instagram, Twitter, Youtube } from 'lucide-react';
 
 import { Separator } from '@/components/ui/separator';
 import { useTheme } from '@/context/theme-provider';
-import OnlyDarkLogo from '@/public/only-logo-black.png';
-import OnlyLightLogo from '@/public/only-logo-white.png';
+import OnlyDarkLogo from '@/public/img/only-logo-black.png';
+import OnlyLightLogo from '@/public/img/only-logo-white.png';
 
 export const Footer = () => {
     const { theme } = useTheme();

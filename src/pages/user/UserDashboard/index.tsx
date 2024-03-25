@@ -1,5 +1,3 @@
-import { useTheme } from '@/context/theme-provider';
-
 
 export const UserDashboard = () => {
 

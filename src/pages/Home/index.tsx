@@ -3,8 +3,8 @@ import { FolderSync, Share2, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import Profissional from '@/public/AreaProfissional.png';
-import Conheca from '@/public/ConheçaMeetFlow.png';
+import Profissional from '@/public/img/AreaProfissional.png';
+import Conheca from '@/public/img/ConheçaMeetFlow.png';
 
 import { Card } from './Components/Card';
 import { BackGroundImage } from './styles';
@@ -56,6 +56,7 @@ export const Home = () => {
                     <Card Icon={FolderSync} title="gerenciamento simples" label="Mantenha sua agenda organizada em um só lugar." />
                 </div>
             </section>
+
             <section className="flex h-screen max-xl:flex-col max-xl:items-center max-xl:justify-center">
                 <div className="flex w-3/6 flex-col items-center justify-center gap-20 max-xl:mb-20 max-xl:gap-52">
                     <img src={Conheca} alt="Imagem ilustrativa" className="w-2/3 rounded-3xl" />
@@ -91,39 +92,39 @@ export const Home = () => {
             </section>
             <section className="flex h-screen flex-col items-center py-32 max-xl:justify-center ">
                 <h1 className="text-center text-6xl font-semibold">Dúvidas Frequentes</h1>
-                <p className="mt-8">Veja as respostas para as perguntas mais frequentes </p>
-                <div className="mt-20 w-4/6">
-                    <Accordion type="single" collapsible className=''>
-                        <AccordionItem value="item-1">
-                            <AccordionTrigger>Como posso agendar um serviço sem criar uma conta?</AccordionTrigger>
-                            <AccordionContent>
+                <p className="my-6 mb-10 text-xl font-extralight">Veja as respostas para as perguntas mais frequentes </p>
+                <div className="mb-20 w-4/6">
+                    <Accordion type="single" collapsible>
+                        <AccordionItem className="py-5" value="item-1">
+                            <AccordionTrigger className="text-2xl font-normal text-indigo-200">Como posso agendar um serviço sem criar uma conta?</AccordionTrigger>
+                            <AccordionContent className="text-xl font-extralight">
                                 Você pode agendar um serviço sem criar uma conta preenchendo um formulário simples com seu email, telefone e mensagem para o profissional
                             </AccordionContent>
                         </AccordionItem>
-                        <AccordionItem value="item-2">
-                            <AccordionTrigger>Quais são as vantagens de criar uma conta na MeetFlow?</AccordionTrigger>
-                            <AccordionContent>
+                        <AccordionItem className="py-5" value="item-2">
+                            <AccordionTrigger className="text-2xl font-normal text-indigo-200">Quais são as vantagens de criar uma conta na MeetFlow?</AccordionTrigger>
+                            <AccordionContent className="text-xl font-extralight">
                                 Ao criar uma conta, você terá acesso a recursos adicionais, como histórico de agendamentos, perfis de profissionais favoritos e comunicação direta com os
                                 prestadores de serviço.
                             </AccordionContent>
                         </AccordionItem>
-                        <AccordionItem value="item-3">
-                            <AccordionTrigger>Posso cancelar ou reagendar um agendamento?</AccordionTrigger>
-                            <AccordionContent>
+                        <AccordionItem className="py-5" value="item-3">
+                            <AccordionTrigger className="text-2xl font-normal text-indigo-200">Posso cancelar ou reagendar um agendamento?</AccordionTrigger>
+                            <AccordionContent className="text-xl font-extralight">
                                 Sim, você pode cancelar ou reagendar um agendamento a qualquer momento, basta acessar sua conta e selecionar a opção desejada no seu histórico de
                                 agendamentos.
                             </AccordionContent>
                         </AccordionItem>
-                        <AccordionItem value="item-4">
-                            <AccordionTrigger>"Como sei se um profissional é confiável?</AccordionTrigger>
-                            <AccordionContent>
+                        <AccordionItem className="py-5" value="item-4">
+                            <AccordionTrigger className="text-2xl font-normal text-indigo-200">Como sei se um profissional é confiável?</AccordionTrigger>
+                            <AccordionContent className="text-xl font-extralight">
                                 Todos os profissionais listados na MeetFlow passam por um processo de verificação rigoroso para garantir sua confiabilidade. Além disso, os clientes podem
                                 deixar avaliações e comentários sobre suas experiências.
                             </AccordionContent>
                         </AccordionItem>
-                        <AccordionItem value="item-5">
-                            <AccordionTrigger>Existe alguma taxa para usar a plataforma?</AccordionTrigger>
-                            <AccordionContent>
+                        <AccordionItem className="py-5" value="item-5">
+                            <AccordionTrigger className="text-2xl font-normal text-indigo-200">Existe alguma taxa para usar a plataforma?</AccordionTrigger>
+                            <AccordionContent className="text-xl font-extralight">
                                 Não, o uso da plataforma MeetFlow é totalmente gratuito para os clientes. Os profissionais pagam uma pequena taxa de transação ao utilizar alguns recursos
                                 avançados.
                             </AccordionContent>

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import pageBackground from '@/public/page-background.jpg';
+import pageBackground from '@/public/img/page-background.jpg';
 
 export const BackGroundImage = styled.div`
     background-image: linear-gradient(140deg, rgba(0, 0, 1, 0.8) 40%, rgba(26, 30, 95, 0.8)), url(${pageBackground});
