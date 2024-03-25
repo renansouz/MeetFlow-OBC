@@ -70,7 +70,6 @@ export const UserAside = () => {
                         <DropdownMenuItem>Theme</DropdownMenuItem>
                         <Separator orientation="horizontal" />
                         <DropdownMenuItem>
-                            <ThemeToggle/>
                         </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
