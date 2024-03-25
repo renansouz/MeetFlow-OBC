@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from '@/components/ui/navigation-menu';
 import { Separator } from '@/components/ui/separator';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { useAuth } from '@/context/auth-provider';
 import { useTheme } from '@/context/theme-provider';
 import Logo from '@/public/img/Logo.svg';
 import LightLogo from '@/public/img/Logo-light.svg';
@@ -15,7 +14,7 @@ export const NotAuthenticated = () => {
     const { theme } = useTheme();
 
     return (
-        <div className="relative  border-b bg-background">
+        <div className="relative border-b bg-background">
             <div className="flex max-h-24 items-center justify-between gap-6 px-6">
                 <Link to={'/'}>
                     <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="max-h-28" />
