@@ -60,7 +60,7 @@ export const Home = () => {
                             Nosso objetivo é simplificar o agendamento de serviços, oferecendo uma plataforma intuitiva e acessível para clientes e profissionais. Encontre o serviço ideal
                             para suas necessidades.
                         </p>
-                        <div className="group inline-flex h-14 w-80 items-center justify-center rounded-md bg-background bg-indigo-700 px-6 py-2 text-2xl text-white max-sm:text-xl">
+                        <div className="group inline-flex h-14 w-80 items-center justify-center rounded-md bg-background bg-indigo-700 px-6 py-2 text-2xl text-white max-lg:mb-10 max-sm:text-xl">
                             <Link to={'#'}>Encontre um serviço</Link>
                         </div>
                     </div>
@@ -87,7 +87,7 @@ export const Home = () => {
             <section className="my-40 flex min-h-lvh w-screen flex-col items-center justify-center">
                 <h1 className="text-center text-6xl font-semibold max-xl:text-5xl max-sm:text-2xl">Dúvidas Frequentes</h1>
                 <p className="my-6 mb-10 text-center text-xl font-extralight max-xl:text-lg max-sm:text-base">Veja as respostas para as perguntas mais frequentes </p>
-                <div className=" max-h-[80%] w-[90%] max-sm:mb-[10%] max-sm:h-full sm:h-full xl:w-[70%] 2xl:w-[70rem]">
+                <div className=" max-h-[80%] w-[90%] max-sm:mb-[10%] max-sm:h-full sm:h-full xl:w-[70%]">
                     <Accordion type="single" collapsible>
                         <AccordionItem className="py-5" value="item-1">
                             <AccordionTrigger className="sm:text- text-2xl font-normal text-indigo-200 max-xl:text-xl max-sm:text-base lg:text-xl">

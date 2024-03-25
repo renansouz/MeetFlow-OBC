@@ -61,7 +61,7 @@ export const UserRegister = () => {
             </div>
             <div className="flex h-screen w-1/2 items-center justify-center max-lg:hidden">
                 <BackGroundDiv>
-                    <h1 className="font-poppins-start p-4 text-center text-7xl font-semibold text-white max-xl:text-5xl max-sm:text-4xl">Facilite sua agenda com o MeetFlow</h1>
+                    <h1 className="p-4 text-center font-poppins-start text-7xl font-semibold text-white max-xl:text-5xl max-sm:text-4xl">Facilite sua agenda com o MeetFlow</h1>
                     <p className="w-2/3 text-center text-white">
                         Encontre serviços, agende compromissos e simplifique sua vida com o MeetFlow. A maneira mais fácil de conectar-se com profissionais e organizarsua agenda. Experimente
                         agora!
