@@ -1,5 +1,5 @@
-import { Outlet } from "react-router";
-import { ProfessionalAside } from "@/components/DashboardComponents/ProfessionalAside";
+import { Outlet } from 'react-router';
+import { ProfessionalAside } from '@/components/DashboardComponents/ProfessionalAside';
 
 export const ProfessionalDashboardLayout = () => {
     return (

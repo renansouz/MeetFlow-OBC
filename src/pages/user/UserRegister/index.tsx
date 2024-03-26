@@ -1,5 +1,4 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Lock, User } from 'lucide-react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
@@ -47,7 +46,7 @@ export const UserRegister = () => {
                 <FormDiv onSubmit={handleSubmit(handleSignUp)}>
                     <div className="flex flex-col items-center justify-center gap-5">
                         <div className="flex justify-start w-full">
-                            <ThemeToggle/>
+                            <ThemeToggle />
                         </div>
                         <Link to={'/'}>
                             <img src={theme === 'dark' ? LightLogo : DarkLogo} alt="" className="w-full" />
