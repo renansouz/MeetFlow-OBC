@@ -10,7 +10,7 @@ import LightLogo from '@/public/img/Logo-light.svg';
 
 import { ThemeToggle } from '../theme/theme-toggle';
 
-export const NotAuthenticated = () => {
+export const Header = () => {
     //const { setAuth, isAuth } = useAuth();
     const { theme } = useTheme();
 
