@@ -16,8 +16,8 @@ export const UserAside = () => {
 
     return (
         <>
-            <aside className="flex h-screen w-auto flex-col border-r-2 py-8 items-center justify-between max-lg:px-4 max-lg:py-4 max-sm:border-0">
-                <div className="flex flex-col gap-y-10 max-lg:gap-0 max-sm:hidden">
+            <aside className=" flex h-screen w-auto flex-col border-r-2 py-8 items-center justify-between max-lg:px-4 max-lg:py-4 max-sm:border-0">
+                <div className=" flex flex-col gap-y-10 max-lg:gap-0 max-sm:hidden">
                     <div className="flex flex-col gap-y-1">
                         <Link to={'/'}>
                             <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="max-lg:hidden h-20 mb-14" />
@@ -30,7 +30,7 @@ export const UserAside = () => {
                                 <TooltipTrigger>
                                     <AsideItem link="/" title="Serviços" icon={Home} />
                                 </TooltipTrigger>
-                                <TooltipContent>
+                                <TooltipContent side="right">
                                     <p>Serviços</p>
                                 </TooltipContent>
                             </Tooltip>
@@ -41,7 +41,7 @@ export const UserAside = () => {
                                 <TooltipTrigger>
                                     <AsideItem link="/register" title="Meus Agendamentos" icon={Layers} />
                                 </TooltipTrigger>
-                                <TooltipContent>
+                                <TooltipContent side="right">
                                     <p>Meus Agendamentos</p>
                                 </TooltipContent>
                             </Tooltip>
@@ -52,20 +52,20 @@ export const UserAside = () => {
                                 <TooltipTrigger>
                                     <AsideItem link="/error" title="Grupos" icon={Users} />
                                 </TooltipTrigger>
-                                <TooltipContent>
+                                <TooltipContent side="right">
                                     <p>Grupos</p>
                                 </TooltipContent>
                             </Tooltip>
                         </TooltipProvider>
                     </div>
                 </div>
-                <div className="flex flex-col gap-y-1 max-lg:gap-0 w-full max-sm:hidden">
+                <div className="mt-[10%] flex flex-col gap-y-1 max-lg:gap-0 w-full max-sm:hidden">
                     <TooltipProvider>
                         <Tooltip>
                             <TooltipTrigger>
                                 <AsideItem link="/" title="fazer uma conta" icon={User} />
                             </TooltipTrigger>
-                            <TooltipContent>
+                            <TooltipContent side="right">
                                 <p>Fazer uma conta</p>
                             </TooltipContent>
                         </Tooltip>
@@ -76,7 +76,7 @@ export const UserAside = () => {
                             <TooltipTrigger>
                                 <AsideItem link="/register" title="Suporte" icon={LifeBuoy} />
                             </TooltipTrigger>
-                            <TooltipContent>
+                            <TooltipContent side="right">
                                 <p>Suporte</p>
                             </TooltipContent>
                         </Tooltip>
@@ -90,7 +90,7 @@ export const UserAside = () => {
                                     <p className="text-violet-700 max-lg:hidden">Configurações</p>
                                 </Button>
                             </TooltipTrigger>
-                            <TooltipContent>
+                            <TooltipContent side="right">
                                 <p>Configurações</p>
                             </TooltipContent>
                         </Tooltip>

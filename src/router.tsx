@@ -10,6 +10,7 @@ import { Home } from './pages/Home';
 import { ProfessionalDashboard } from './pages/professional/ProfessionalDashboard';
 import { ProfessionalRegister } from './pages/professional/ProfessionalRegister';
 import { UserDashboard } from './pages/user/UserDashboard';
+import { ProfessionalProfile } from './pages/user/UserDashboard/pages/ProfessionalProfile';
 import { Services } from './pages/user/UserDashboard/pages/Services';
 import { UserLogin } from './pages/user/UserLogin';
 import { UserProfile } from './pages/user/UserProfile';
@@ -78,6 +79,12 @@ const dashBoardRoutes: RouteObject[] = [
                 element: <ProfessionalDashboard />,
             },
         ],
+    },
+
+    {
+        path: '/',
+        element: <UserDashboardLayout />,
+        children: [{ path: '/dashboard/profile', element: <ProfessionalProfile /> }],
     },
 ];
 
