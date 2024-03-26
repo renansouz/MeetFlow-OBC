@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router';
 
-import { UserAside } from '@/components/DashboardComponents/UserAside';
+import { UserAside } from '@/pages/user/UserDashboard/pages/components/UserAside';
 
 export const UserDashboardLayout = () => {
     return (
