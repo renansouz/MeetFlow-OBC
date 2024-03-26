@@ -6,7 +6,7 @@ import { ProfessionalDashboardLayout } from './_layouts/ProfessionalDashboardLay
 import { UserDashboardLayout } from './_layouts/UserDashboardLayout';
 import { NotFound } from './pages/404';
 import { Home } from './pages/Home';
-import { ProfessionalDashboard } from './pages/professional/ProfessionalDashboard';
+import { ProfessionalDashboard } from './pages/professional/Dashboard';
 import { ProfessionalRegister } from './pages/professional/ProfessionalRegister';
 import { UserDashboard } from './pages/user/UserDashboard';
 import { UserLogin } from './pages/user/UserLogin';
