@@ -10,24 +10,30 @@ import { CardData } from '.';
 
 export const CardProfessional = ({ profile_pic, description, name, categorie }: CardData) => {
     return (
-        <Card className="shadow-2xl w-72   rounded-md flex flex-col items-center gap-y-12 bg-slate-900 ">
+        <Card className="shadow-2xl w-64 rounded-md flex flex-col items-center gap-y-12 bg-slate-900">
             <CardHeader className="bg-indigo-500 h-20 rounded-tl-md rounded-tr-md w-full items-center">
                 <Avatar>
-                    <AvatarImage src={profile_pic} className="rounded-full w-24 " />
+                    <AvatarImage src={profile_pic} className="rounded-full w-24" />
                     <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
             </CardHeader>
-            <CardContent className="text-center">
-                <h2 className="text-center ">{name}</h2>
-                <p className="font-light">{description}</p>
-                <p className="my-6 ">{categorie}</p>
-                <Button asChild className="text-lg font-light" variant={'default'}>
-                    <Link to={''} className="px-6 ">
+            <div className="flex-col text-center">
+                <CardContent className="flex flex-col items-center">
+                    <h2 className="text-center font-bold whitespace-nowrap overflow-hidden overflow-ellipsis max-w-full" style={{ maxWidth: '200px' }}>
+                        {name}
+                    </h2>
+                    <span className="font-light whitespace-nowrap overflow-hidden overflow-ellipsis max-w-full" style={{ maxWidth: '200px' }}>
+                        {description}
+                    </span>
+                    <span className="mt-6 ">{categorie}</span>
+                </CardContent>
+                <Button asChild className="text-lg font-light mb-10" variant={'default'}>
+                    <Link to={''} className="px-6">
                         <LucideCalendarPlus className="w-5 h-5 mr-3" />
                         Agendar
                     </Link>
                 </Button>
-            </CardContent>
+            </div>
         </Card>
     );
 };
