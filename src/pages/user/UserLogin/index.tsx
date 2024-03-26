@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 import { Input } from '@/components/Input';
 import { InputPassword } from '@/components/Input/InputPassword';
 import { Button } from '@/components/ui/button';
+import { useTheme } from '@/context/theme-provider';
 import DarkLogo from '@/public/img/Logo.svg';
 import LightLogo from '@/public/img/Logo-light.svg';
+
 import { BackGroundDiv, FormDiv } from './styles';
-import { useTheme } from '@/context/theme-provider';
 
 type passwordAppearenceType = 'text' | 'password';
 

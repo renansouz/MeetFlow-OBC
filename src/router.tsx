@@ -1,4 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
+import { RouteObject } from 'react-router-dom';
 
 import { AppLayout } from './_layouts/AppLayout';
 import { AuthLayout } from './_layouts/auth';
@@ -9,11 +10,10 @@ import { Home } from './pages/Home';
 import { ProfessionalDashboard } from './pages/professional/ProfessionalDashboard';
 import { ProfessionalRegister } from './pages/professional/ProfessionalRegister';
 import { UserDashboard } from './pages/user/UserDashboard';
+import { Services } from './pages/user/UserDashboard/pages/Services';
 import { UserLogin } from './pages/user/UserLogin';
 import { UserProfile } from './pages/user/UserProfile';
 import { UserRegister } from './pages/user/UserRegister';
-import { RouteObject } from 'react-router-dom';
-import { Services } from './pages/user/UserDashboard/pages/Services';
 
 const authRoutes: RouteObject[] = [
     {
@@ -62,7 +62,7 @@ const dashBoardRoutes: RouteObject[] = [
     {
         path: '/',
         element: <UserDashboardLayout />,
-        children: [{ path: '/dashboard/services', element: <Services/> }],
+        children: [{ path: '/dashboard/services', element: <Services /> }],
     },
     {
         path: '/',
