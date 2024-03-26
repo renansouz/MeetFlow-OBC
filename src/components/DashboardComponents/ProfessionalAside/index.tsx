@@ -1,11 +1,12 @@
+import { Home, Layers, LifeBuoy, Settings, User, Users } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+import { Button } from '@/components/ui/button';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Separator } from '@/components/ui/separator';
+import { useTheme } from '@/context/theme-provider';
 import Logo from '@/public/Logo.png';
 import LightLogo from '@/public/Logo-light.png';
-import { Link } from 'react-router-dom';
-import { useTheme } from '@/context/theme-provider';
-import { Button } from '@/components/ui/button';
-import { Home, Layers, Users, User, LifeBuoy, Settings } from 'lucide-react';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 
 export const UserAside = () => {
     const { theme } = useTheme();
