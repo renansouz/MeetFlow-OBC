@@ -23,11 +23,11 @@ export const CardProfessional = ({ profile_pic, description, name, categorie }: 
                 <p className="my-6 ">{categorie}</p>
                 <Button asChild className="text-lg font-light" variant={'default'}>
                     <Link to={''} className="px-6 ">
+                        <LucideCalendarPlus className="w-5 h-5 mr-3" />
                         Agendar
                     </Link>
                 </Button>
             </CardContent>
-            <LucideCalendarPlus />
         </Card>
     );
 };
