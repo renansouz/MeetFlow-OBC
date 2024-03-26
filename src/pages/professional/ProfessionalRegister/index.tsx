@@ -2,8 +2,8 @@ import { useState } from 'react';
 
 import { MultiStep } from '@/components/multiStep';
 import { useTheme } from '@/context/theme-provider';
-import DarkLogo from '@/public/Logo.png';
-import LightLogo from '@/public/Logo-light.png';
+import DarkLogo from '@/public/img/Logo.svg';
+import LightLogo from '@/public/img/Logo-light.svg';
 
 import { Step1, Step2, Step3, StepNavigator } from './step';
 import { BackGroundDiv, FormDiv } from './styles';

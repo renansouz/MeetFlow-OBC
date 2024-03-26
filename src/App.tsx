@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { RouterProvider } from 'react-router-dom';
 
 import { ThemeProvider } from '@/context/theme-provider';
-import { AuthContextProvider } from './context/auth-provider';
 import { router } from '@/router';
 
 import Preloader from './components/Preload';
+import { AuthContextProvider } from './context/auth-provider';
 import { GlobalStyles } from './styles/global';
 
 function App() {

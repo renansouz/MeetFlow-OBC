@@ -48,7 +48,7 @@ module.exports = {
                 },
             },
             fontFamily: {
-                'lexend-start': ['Lexend Deca', 'monospoco'],
+                'poppins-start': ['Poppins', 'monospoco'],
             },
             borderRadius: {
                 lg: 'var(--radius)',

@@ -1,11 +1,11 @@
-import { ThemeToggle } from '../theme/theme-toggle';
 import { Link } from 'react-router-dom';
-import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from '@/components/ui/navigation-menu';
 
+import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from '@/components/ui/navigation-menu';
+import { useTheme } from '@/context/theme-provider';
 import Logo from '@/public/Logo.png';
 import LightLogo from '@/public/Logo-light.png';
 
-import { useTheme } from '@/context/theme-provider';
+import { ThemeToggle } from '../theme/theme-toggle';
 
 export function Header() {
     const { theme } = useTheme();
