@@ -20,7 +20,7 @@ export const UserAside = () => {
                 <div className=" flex flex-col gap-y-10 max-lg:gap-0 max-sm:hidden">
                     <div className="flex flex-col gap-y-1">
                         <Link to={'/'}>
-                            <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="max-lg:hidden h-20 mb-14" />
+                            <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="max-lg:hidden h-20 mb-0" />
                         </Link>
                         <Link to={'/'}>
                             <img src={theme === 'dark' ? LogoMenor : LightLogo} alt="" className="lg:hidden img h-11 items-center mb-10" />
