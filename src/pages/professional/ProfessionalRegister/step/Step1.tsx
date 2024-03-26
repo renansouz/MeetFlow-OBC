@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { InputPassword } from '@/components/Inputs/InputPassword';
-import { InputText } from '@/components/Inputs/InputText';
+import { Input } from '@/components/Input';
+import { InputPassword } from '@/components/Input/InputPassword';
 
 export const Step1 = () => {
     type passwordAppearenceType = 'password' | 'text';
@@ -16,7 +16,7 @@ export const Step1 = () => {
                     <label htmlFor="" className="block py-1 font-bold text-black">
                         Nome de Usuário
                     </label>
-                    <InputText placeholder="Digite seu nome de usuário" id="user" />
+                    <Input placeholder="Digite seu nome de usuário" id="user" />
                 </section>
 
                 <section>
@@ -24,7 +24,7 @@ export const Step1 = () => {
                         Endereço de e-mail
                     </label>
 
-                    <InputText placeholder="Digite seu e-mail" id="email" />
+                    <Input placeholder="Digite seu e-mail" id="email" />
                 </section>
 
                 <section>

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import pageBackground from '@/public/register-background.jpg';
+import pageBackground from '@/public/img/register-background.svg';
 
 export const BackGroundDiv = styled.div`
     background-image: linear-gradient(140deg, rgba(0, 0, 1, 0.8) 40%, rgba(26, 30, 95, 0.8)), url(${pageBackground});
@@ -17,13 +17,13 @@ export const BackGroundDiv = styled.div`
     z-index: 1;
 `;
 
-export const FormDiv = styled.div`
+export const FormDiv = styled.form`
     padding: 30px 0px;
     width: 100%;
     height: 100%;
-    position: relative;
     border-radius: 0.5rem;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 `;
