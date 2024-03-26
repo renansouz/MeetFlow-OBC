@@ -51,7 +51,12 @@ export const Services = () => {
                     {categoriesMock.map((categorie) => {
                         return (
                             <div className="flex items-center gap-2">
-                                <input type="checkbox" name="" id={categorie.title} />
+                                <input
+                                    type="checkbox"
+                                    className="appearance-none h-6 w-6 border-2 border-indigo-800 checked:bg-indigo-600 checked:border-indigo-800 rounded-md"
+                                    name=""
+                                    id={categorie.title}
+                                />
                                 <label htmlFor="" id={categorie.title}>
                                     {categorie.title}
                                 </label>
