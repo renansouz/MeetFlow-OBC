@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 
 import { Footer } from '@/components/Footer';
-import { NotAuthenticated } from '@/components/Header/NotAuthenticated';
+import { Header } from '@/pages/user/UserDashboard/pages/components/Header';
 
 export function AppLayout() {
     return (
