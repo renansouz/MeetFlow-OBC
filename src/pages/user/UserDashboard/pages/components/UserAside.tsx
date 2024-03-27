@@ -1,16 +1,17 @@
 import { Home, Layers, LifeBuoy, Menu, Settings, User, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useTheme } from '@/context/theme-provider';
 import Logo from '@/public/img/Logo.svg';
 import LightLogo from '@/public/img/Logo-light.svg';
 import LogoMenor from '@/public/img/only-logo-white.svg';
-
 import { AsideItem } from './AsideItem';
+import { useAuth } from '@/context/auth-provider';
+import { UserMenu } from './UserMenu';
 
 export const UserAside = () => {
+    const { isAuth } = useAuth();
     const { theme } = useTheme();
 
     return (
@@ -30,8 +31,12 @@ export const UserAside = () => {
                     </div>
                 </div>
                 <div className="flex flex-col gap-y-1 max-lg:gap-0 w-full max-sm:hidden">
-                    <AsideItem link="/" title="fazer uma conta" icon={User} />
+                    {!isAuth && <AsideItem link="/" title="fazer uma conta" icon={User} />}
+
                     <AsideItem link="/register" title="Suporte" icon={LifeBuoy} />
+
+                    {isAuth && <UserMenu />}
+
                     <Button variant={'ghost'} className="h-11 flex items-center justify-start gap-3 px-10 py-7 max-lg:px-0 max-lg:justify-center">
                         <Settings className="text-violet-700" />
                         <p className="text-violet-700 max-lg:hidden">Configurações</p>

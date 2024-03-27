@@ -14,6 +14,7 @@ import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import { AxiosError } from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '@/context/auth-provider';
 
 type passwordAppearenceType = 'text' | 'password';
 
@@ -25,13 +26,13 @@ const createUserSchema = z.object({
 type LoginFormData = z.infer<typeof createUserSchema>;
 
 export const UserLogin = () => {
+    const { setAuth } = useAuth();
 
     const { theme } = useTheme();
     const navigate = useNavigate();
 
     const [passswordAppearenceState, setpasswordAppearenceState] = useState<passwordAppearenceType>('password');
     const handlePasswordAppearence = () => (passswordAppearenceState === 'password' ? setpasswordAppearenceState('text') : setpasswordAppearenceState('password'));
-
 
     const {
         register,
@@ -42,10 +43,10 @@ export const UserLogin = () => {
     const handleLogin = async (userData: LoginFormData) => {
         try {
             let res = await axios.post(`${import.meta.env.VITE_BASE_URL}/auth/login`, userData);
-            const { accessToken } = res.data;
-            sessionStorage.setItem('accessToken',accessToken);
-            sessionStorage.setItem('auth','true');
-            navigate("/dashboard/services");
+            const { refreshToken } = res.data;
+            sessionStorage.setItem('refreshToken', refreshToken);
+            setAuth(true);
+            navigate('/dashboard/services');
         } catch (error) {
             if (error instanceof AxiosError) {
                 toast.error(error.response?.data.message);
