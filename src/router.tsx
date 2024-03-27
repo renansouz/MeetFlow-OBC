@@ -8,8 +8,10 @@ import { UserDashboardLayout } from './_layouts/UserDashboardLayout';
 import { NotFound } from './pages/404';
 import { Home } from './pages/Home';
 import { ProfessionalDashboard } from './pages/professional/ProfessionalDashboard';
+import { ProfessionalOwnProfile } from './pages/professional/ProfessionalOwnProfile';
 import { ProfessionalRegister } from './pages/professional/ProfessionalRegister';
 import { UserDashboard } from './pages/user/UserDashboard';
+import { MySchedules } from './pages/user/UserDashboard/pages/MySchedule';
 import { Services } from './pages/user/UserDashboard/pages/ProfessionalCard';
 import { ProfessionalProfile } from './pages/user/UserDashboard/pages/ProfessionalProfile';
 import { UserLogin } from './pages/user/UserLogin';
@@ -68,7 +70,12 @@ const dashBoardRoutes: RouteObject[] = [
     {
         path: '/',
         element: <UserDashboardLayout />,
-        children: [{ path: '/dashboard/myschedules', element: <div>schedules</div> }],
+        children: [{ path: '/dashboard/myschedules', element: <MySchedules /> }],
+    },
+    {
+        path: '/',
+        element: <UserDashboardLayout />,
+        children: [{ path: '/dashboard/profile', element: <ProfessionalProfile /> }],
     },
     {
         path: '/',
@@ -80,11 +87,15 @@ const dashBoardRoutes: RouteObject[] = [
             },
         ],
     },
-
     {
         path: '/',
-        element: <UserDashboardLayout />,
-        children: [{ path: '/dashboard/profile', element: <ProfessionalProfile /> }],
+        element: <ProfessionalDashboardLayout />,
+        children: [
+            {
+                path: '/professional/profile',
+                element: <ProfessionalOwnProfile />,
+            },
+        ],
     },
 ];
 

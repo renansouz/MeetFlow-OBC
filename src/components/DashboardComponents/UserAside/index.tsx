@@ -28,7 +28,7 @@ export const UserAside = () => {
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger>
-                                    <AsideItem link="/" title="Serviços" icon={Home} />
+                                    <AsideItem link="/dashboard/services" title="Serviços" icon={Home} />
                                 </TooltipTrigger>
                                 <TooltipContent side="right">
                                     <p>Serviços</p>
@@ -39,7 +39,7 @@ export const UserAside = () => {
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger>
-                                    <AsideItem link="/register" title="Meus Agendamentos" icon={Layers} />
+                                    <AsideItem link="/dashboard/myschedules" title="Meus Agendamentos" icon={Layers} />
                                 </TooltipTrigger>
                                 <TooltipContent side="right">
                                     <p>Meus Agendamentos</p>
@@ -63,7 +63,7 @@ export const UserAside = () => {
                     <TooltipProvider>
                         <Tooltip>
                             <TooltipTrigger>
-                                <AsideItem link="/" title="fazer uma conta" icon={User} />
+                                <AsideItem link="" title="fazer uma conta" icon={User} />
                             </TooltipTrigger>
                             <TooltipContent side="right">
                                 <p>Fazer uma conta</p>
@@ -74,7 +74,7 @@ export const UserAside = () => {
                     <TooltipProvider>
                         <Tooltip>
                             <TooltipTrigger>
-                                <AsideItem link="/register" title="Suporte" icon={LifeBuoy} />
+                                <AsideItem link="" title="Suporte" icon={LifeBuoy} />
                             </TooltipTrigger>
                             <TooltipContent side="right">
                                 <p>Suporte</p>

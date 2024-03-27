@@ -1,4 +1,4 @@
-import { Home, Layers, LifeBuoy, LogOut, Menu, Plus, Settings, User, Users } from 'lucide-react';
+import { Calendar, Home, Layers, LifeBuoy, LogOut, Menu, Plus, Settings, User, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 import { Button } from '@/components/ui/button';
@@ -69,10 +69,10 @@ export const ProfessionalAside = () => {
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger>
-                                    <AsideItem link="/" title="Serviços" icon={Home} />
+                                    <AsideItem link="/professional/profile" title="Perfil" icon={User} />
                                 </TooltipTrigger>
                                 <TooltipContent side="right">
-                                    <p>Serviços</p>
+                                    <p>Perfil</p>
                                 </TooltipContent>
                             </Tooltip>
                         </TooltipProvider>
@@ -80,7 +80,7 @@ export const ProfessionalAside = () => {
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger>
-                                    <AsideItem link="/register" title="Meus Agendamentos" icon={Layers} />
+                                    <AsideItem link="/register" title="Meus Agendamentos" icon={Home} />
                                 </TooltipTrigger>
                                 <TooltipContent side="right">
                                     <p>Meus Agendamentos</p>
@@ -91,10 +91,10 @@ export const ProfessionalAside = () => {
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger>
-                                    <AsideItem link="/error" title="Grupos" icon={Users} />
+                                    <AsideItem link="/error" title="Meus calendário" icon={Calendar} />
                                 </TooltipTrigger>
                                 <TooltipContent side="right">
-                                    <p>Grupos</p>
+                                    <p>Meu calendário</p>
                                 </TooltipContent>
                             </Tooltip>
                         </TooltipProvider>
