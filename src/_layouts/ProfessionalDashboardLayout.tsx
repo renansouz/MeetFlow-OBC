@@ -7,9 +7,9 @@ export const ProfessionalDashboardLayout = () => {
     const backgroundToggle = theme === 'dark' ? 'bg-[#09090B]' : 'bg-[#fff]';
 
     return (
-        <div className={`flex ${backgroundToggle}`}>
+        <div className={'flex'}>
             <ProfessionalAside />
-            <div className="">
+            <div className={`w-full h-screen overflow-hidden overflow-y-scroll ${backgroundToggle}`}>
                 <Outlet />
             </div>
         </div>

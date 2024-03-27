@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router';
-import { UserAside } from '@/pages/user/UserDashboard/pages/components/UserAside';
+import { ClientAside } from '@/pages/user/ClientDashboard/pages/components/ClientAside';
 import { useTheme } from '@/context/theme-provider';
 
 
@@ -8,7 +8,7 @@ export const UserDashboardLayout = () => {
     const backgroundToggle = theme === 'dark' ? 'bg-[#09090B]' : 'bg-[#fff]';
     return (
         <div className="flex">
-            <UserAside />
+            <ClientAside />
 
             <div className={`w-full h-screen overflow-hidden overflow-y-scroll ${backgroundToggle}`}>
                 <Outlet />
