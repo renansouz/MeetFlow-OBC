@@ -2,7 +2,10 @@ import { Home, Layers, LifeBuoy, LogOut, Menu, Plus, Settings, User, Users } fro
 import { Link } from 'react-router-dom';
 
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Textarea } from '@/components/ui/textarea';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { useTheme } from '@/context/theme-provider';
 import Logo from '@/public/img/logo.svg';
@@ -24,10 +27,44 @@ export const ProfessionalAside = () => {
                         <Link to={'/'}>
                             <img src={theme === 'dark' ? LogoMenor : LightLogo} alt="" className="lg:hidden img h-11 items-center mb-10" />
                         </Link>
-                        <Button className="mb-5 max-lg:px-0 bg-indigo-700 mx-2 px-5 hover:bg-indigo-800 flex w-11/12 items-center justify-center rounded-full">
-                            <Plus />
-                            <p className="max-lg:hidden">Create</p>
-                        </Button>
+
+                        <Dialog>
+                            <DialogTrigger>
+                                <Button className="mb-5 max-lg:px-0 bg-indigo-700 mx-2 px-5 hover:bg-indigo-800 flex w-11/12 items-center justify-center rounded-full">
+                                    <Plus />
+                                    <p className="max-lg:hidden">Create</p>
+                                </Button>
+                            </DialogTrigger>
+                            <DialogContent className="p-6 ">
+                                <DialogHeader className="gap-3">
+                                    <DialogTitle>Crie um novo serviço</DialogTitle>
+                                    <DialogDescription className="mb-10">
+                                        Preencha todos os campos abaixo para criar um novo serviço. Clique em 'Salvar' quando estiver pronto.
+                                    </DialogDescription>
+                                    <div className="flex gap-6 justify-between">
+                                        <span>Nome:</span>
+                                        <Input className="w-80" placeholder="Insira o nome do serviço" />
+                                    </div>
+                                    <div className="flex gap-6 justify-between">
+                                        <span>Descrinção:</span>
+                                        <Textarea className="w-80 resize-none row-span-3" placeholder="Insira uma descrinção para este serviço" />
+                                    </div>
+                                    <div className="flex gap-6 justify-between">
+                                        <span>Duração:</span>
+                                        <Input className="w-80" placeholder="Inisra a duração deste serviço" />
+                                    </div>
+                                    <div className="flex gap-6 justify-between">
+                                        <span>Preço:</span>
+                                        <Input className="w-80" placeholder="adicione um valor para este serviço" />
+                                    </div>
+                                    <div className="flex justify-end">
+                                        <Button type="submit" className=" w-32 justify-center items-center flex bg-indigo-700 hover:bg-indigo-800">
+                                            Salvar
+                                        </Button>
+                                    </div>
+                                </DialogHeader>
+                            </DialogContent>
+                        </Dialog>
 
                         <TooltipProvider>
                             <Tooltip>
