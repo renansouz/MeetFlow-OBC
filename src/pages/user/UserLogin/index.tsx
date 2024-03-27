@@ -3,9 +3,6 @@ import { Link } from 'react-router-dom';
 import { Input } from '@/components/Input';
 import { InputPassword } from '@/components/Input/InputPassword';
 import { Button } from '@/components/ui/button';
-import DarkLogo from '@/public/img/Logo.svg';
-import LightLogo from '@/public/img/Logo-light.svg';
-import { BackGroundDiv, FormDiv } from './styles';
 import { useTheme } from '@/context/theme-provider';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
@@ -15,6 +12,10 @@ import { toast, ToastContainer } from 'react-toastify';
 import { AxiosError } from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/context/auth-provider';
+import DarkLogo from '@/public/img/Logo.svg';
+import LightLogo from '@/public/img/Logo-light.svg';
+import { BackGroundDiv, FormDiv } from './styles';
+
 
 type passwordAppearenceType = 'text' | 'password';
 

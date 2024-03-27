@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import professionalImage from '@/public/img/AreaProfissional.svg';
-import sobreImage from '@/public/img/ConhecaMeetFlow.svg';
+import professionalImage from '@/public/img/area-profissional.svg';
 import pageBackground from '@/public/img/page-background.svg';
+import sobreImage from '@/public/img/sobre-nos.svg';
 
 export const BackGroundImage = styled.div`
     background-image: linear-gradient(140deg, rgba(0, 0, 1, 0.8) 40%, rgba(26, 30, 95, 0.8)), url(${pageBackground});

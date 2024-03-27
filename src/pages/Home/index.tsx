@@ -18,7 +18,7 @@ export const Home = () => {
                             Conectando você aos melhores profissionais, sem complicações.
                         </p>
                         <Link
-                            className="h-14 items-center justify-center rounded-md bg-background bg-indigo-600 px-12 py-2 pt-3 text-2xl text-white max-sm:h-12 max-sm:px-10 max-sm:py-2 max-sm:text-xl"
+                            className="h-14 items-center justify-center rounded-md bg-indigo-600 px-12 py-2 pt-3 text-2xl text-white max-sm:h-12 max-sm:px-10 max-sm:py-2 max-sm:text-xl"
                             to={'/register'}
                         >
                             Agendar agora!
@@ -55,26 +55,26 @@ export const Home = () => {
                 <div className="flex w-3/6 flex-col items-center justify-center gap-5 text-center">
                     <div className="mr-52 flex flex-col justify-start gap-6 max-xl:mr-0 max-xl:items-center">
                         <h1 className="text-left text-6xl font-semibold max-xl:w-lvw max-xl:text-center max-lg:text-5xl max-sm:text-4xl md:text-4xl lg:text-5xl ">Conheça o MeetFlow:</h1>
-                        <p className="max-xl:mx-440 mt-10 w-full text-left text-2xl font-thin max-xl:px-56 max-xl:text-center max-lg:px-[5%] max-sm:mt-0 max-sm:text-base">
+                        <p className="max-xl:mx-440 mt-10 w-full text-left text-2xl font-extralight max-xl:px-56 max-xl:text-center max-lg:px-[5%] max-sm:mt-0 max-sm:text-base">
                             Nosso objetivo é simplificar o agendamento de serviços, oferecendo uma plataforma intuitiva e acessível para clientes e profissionais. Encontre o serviço ideal
                             para suas necessidades.
                         </p>
-                        <div className="group inline-flex h-14 w-80 items-center justify-center rounded-md bg-background bg-indigo-700 px-6 py-2 text-2xl text-white max-lg:mb-10 max-sm:text-xl">
+                        <div className="group inline-flex h-14 w-80 items-center justify-center rounded-md bg-indigo-700 px-6 py-2 text-2xl text-white max-lg:mb-10 max-sm:text-xl">
                             <Link to={'#'}>Encontre um serviço</Link>
                         </div>
                     </div>
                 </div>
             </section>
-            <section className="flex h-screen  items-center gap-40 bg-secondary bg-opacity-100 max-xl:mb-[10%] max-xl:grid max-xl:h-auto max-xl:place-items-center max-lg:mb-0 max-sm:mb-14 xl:m-0 2xl:m-0 2xl:p-0">
+            <section className="flex h-screen  items-center gap-40 max-lg:bg-secondary bg-opacity-100 max-xl:mb-[10%] max-xl:grid max-xl:h-auto max-xl:place-items-center max-lg:mb-0 max-sm:mb-14 xl:m-0 2xl:m-0 2xl:p-0">
                 <div className="flex w-3/6 flex-col items-center justify-center text-center">
                     <div className="ml-52 flex flex-col justify-start gap-6 max-xl:ml-0 max-xl:items-center ">
                         <h1 className="text-left text-6xl font-semibold max-xl:w-lvw max-xl:text-center max-lg:text-5xl max-sm:text-4xl md:text-4xl lg:text-5xl">
                             Seja um Profissional MeetFlow
                         </h1>
-                        <p className="mt-10 w-full text-left text-2xl font-thin max-xl:px-56 max-xl:text-center max-lg:px-[5%] max-sm:mt-0 max-sm:text-base">
+                        <p className="mt-10 w-full text-left text-2xl font-extralight max-xl:px-56 max-xl:text-center max-lg:px-[5%] max-sm:mt-0 max-sm:text-base">
                             Se você é um profissional em busca de mais oportunidades, junte-se à nossa comunidade. Aumente sua visibilidade e simplifique seu agendamento
                         </p>
-                        <div className="group inline-flex h-14 w-80 items-center justify-center rounded-md bg-background bg-indigo-700 px-6 py-2 text-2xl text-white max-xl:mb-[20%] max-sm:text-xl">
+                        <div className="group inline-flex h-14 w-80 items-center justify-center rounded-md bg-indigo-700 px-6 py-2 text-2xl text-white max-xl:mb-[20%] max-sm:text-xl">
                             <Link to={'#'}>Comece agora</Link>
                         </div>
                     </div>

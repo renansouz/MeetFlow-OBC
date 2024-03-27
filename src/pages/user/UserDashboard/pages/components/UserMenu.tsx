@@ -42,9 +42,7 @@ export const UserMenu = () => {
             <DropdownMenuContent>
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>Profile</DropdownMenuItem>
-                <DropdownMenuItem>Billing</DropdownMenuItem>
-                <DropdownMenuItem>Team</DropdownMenuItem>
+                <DropdownMenuItem>Editar perfil</DropdownMenuItem>
                 <Button variant={'ghost'} asChild>
                     <AlertDialogContainer triger="Sair" alertMessage="Deseja realmente sair?" description="Você será redirecionado para o início" callback={logOut} />
                 </Button>

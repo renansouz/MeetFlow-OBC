@@ -45,10 +45,7 @@ export const Header = () => {
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
                                 <NavigationMenuItem>
-                                    <NavigationMenuLink
-                                        asChild
-                                        className="group ml-10 inline-flex h-10 w-max items-center justify-center rounded-md bg-background bg-indigo-600 px-6 py-2 text-white"
-                                    >
+                                    <NavigationMenuLink asChild className="group ml-10 inline-flex h-10 w-max items-center justify-center rounded-md bg-indigo-600 px-6 py-2 text-white">
                                         <Link to={'/register'}>Agendar</Link>
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
@@ -78,7 +75,7 @@ export const Header = () => {
                                         Área do Profissional
                                     </Link>
                                     <Separator />
-                                    <Link to={'/dashboard/services'} className="mt-10 w-full rounded-md border-solid bg-indigo-700 p-4 text-center hover:bg-indigo-800 ">
+                                    <Link to={'/register'} className="mt-10 w-full rounded-md border-solid bg-indigo-700 p-4 text-center hover:bg-indigo-800 ">
                                         Agende Agora!
                                     </Link>
                                 </div>

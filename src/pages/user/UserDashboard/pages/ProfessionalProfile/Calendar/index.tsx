@@ -26,15 +26,8 @@ interface CalendarProps {
     onDateSelected: (date: Date) => void;
 }
 
-interface CalendarProps {
-    selectedDate: Date | null;
-    onDateSelected: (date: Date) => void;
-}
-
-export function Calendar() {
+export function CalendarProfessional({ selectedDate, onDateSelected }: CalendarProps) {
     const [blockedDates, setBlockedDates] = useState<BlockedDates>({ blockedWeekDays: [1, 2], blockedDates: [1, 2] });
-
-    const onDateSelected = (date: Date) => {};
 
     // Referente aos meses do ano
     const [currentDate, setCurrentDate] = useState(() => {
@@ -150,15 +143,14 @@ export function Calendar() {
     return (
         <CalendarContainer>
             <CalendarHeader>
-                <CalendarTitle>
-                    {currentMonth} <span>{currentYear}</span>
-                </CalendarTitle>
-
                 <CalendarActions>
                     <button onClick={handlePreviousMonth} title="Previous month">
                         <ChevronLeft />
                     </button>
-                    <button onClick={handleNextMonth} title="Next month">
+                    <CalendarTitle>
+                        {currentMonth} <span>{currentYear}</span>
+                    </CalendarTitle>
+                    <button onClick={handleNextMonth} title="Next month" className="border-2">
                         <ChevronRight />
                     </button>
                 </CalendarActions>
