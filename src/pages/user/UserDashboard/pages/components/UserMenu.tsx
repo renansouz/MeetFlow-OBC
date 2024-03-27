@@ -3,25 +3,40 @@ import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useLogOut } from '@/hooks/useLogOut';
 import { useEffect } from 'react';
-import { getUserData } from '@/utils/getUserData';
-import { useAuth } from '@/context/auth-provider';
-import { useUserData } from '@/hooks/useUserData';
+import { AlertDialogContainer } from './AlertDialogContainer';
+import { useState } from 'react';
+import { UserType } from '@/types/userType';
+import { userAPI } from '@/api/userAPI';
 
 export const UserMenu = () => {
-    
+    const [userData, setUserData] = useState<UserType | undefined>();
+
+    console.log(userData);
+
     const logOut = useLogOut();
 
-    useUserData();
+    useEffect(() => {
+        const getUserData = async () => {
+            const res = await userAPI.fetchUserData();
+            const { user } = await res;
+            setUserData(user);
+        };
+
+        getUserData();
+    }, []);
 
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <Button variant={'ghost'} className="h-11 flex items-center justify-start gap-3 px-10 py-7 max-lg:px-0 max-lg:justify-center">
                     <Avatar>
-                        <AvatarImage src="https://github.com/miqueiasmartinsf.png" className="w-10" />
-                        <AvatarFallback>CN</AvatarFallback>
+                        <AvatarImage src={userData?.photoUrl} className="w-10" />
+                        <AvatarFallback>{userData?.name.slice(0, 1)}</AvatarFallback>
                     </Avatar>
-                    Usuário padrão
+                    <div className="flex flex-col justify-start">
+                        {userData && <h2 className="text-left">{userData.name}</h2>}
+                        {userData && <p className="text-left text-xs text-slate-400">{userData.email}</p>}
+                    </div>
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
@@ -30,9 +45,9 @@ export const UserMenu = () => {
                 <DropdownMenuItem>Profile</DropdownMenuItem>
                 <DropdownMenuItem>Billing</DropdownMenuItem>
                 <DropdownMenuItem>Team</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => logOut()}>
-                    <p className="text-red-600">Sair</p>
-                </DropdownMenuItem>
+                <Button variant={'ghost'} asChild>
+                    <AlertDialogContainer triger="Sair" alertMessage="Deseja realmente sair?" description="Você será redirecionado para o início" callback={logOut} />
+                </Button>
             </DropdownMenuContent>
         </DropdownMenu>
     );
