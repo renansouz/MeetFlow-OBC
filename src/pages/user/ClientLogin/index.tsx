@@ -26,7 +26,7 @@ const createUserSchema = z.object({
 
 type LoginFormData = z.infer<typeof createUserSchema>;
 
-export const UserLogin = () => {
+export const ClientLogin = () => {
     const { setAuth } = useAuth();
 
     const { theme } = useTheme();

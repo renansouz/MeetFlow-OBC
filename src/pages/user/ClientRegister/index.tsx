@@ -25,7 +25,7 @@ const createUserSchema = z.object({
 
 type RegisterFormData = z.infer<typeof createUserSchema>;
 
-export const UserRegister = () => {
+export const ClientRegister = () => {
     const { theme } = useTheme();
 
     async function handleSignUp(userData: RegisterFormData) {

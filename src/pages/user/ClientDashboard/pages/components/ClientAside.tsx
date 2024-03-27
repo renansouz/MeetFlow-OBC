@@ -9,10 +9,10 @@ import LightLogo from '@/public/img/Logo-light.svg';
 import LogoMenor from '@/public/img/only-logo-white.svg';
 import { AsideItem } from './AsideItem';
 import { useAuth } from '@/context/auth-provider';
-import { UserMenu } from './UserMenu';
+import { ClientMenu } from './ClientMenu';
 import { AlertDialogContainer } from './AlertDialogContainer';
 
-export const UserAside = () => {
+export const ClientAside = () => {
     const { isAuth } = useAuth();
     const { theme } = useTheme();
 
@@ -90,7 +90,7 @@ export const UserAside = () => {
                             <Tooltip>
                                 <TooltipTrigger>
                                     <Button variant={'ghost'} className="h-11 flex items-center justify-start gap-3 px-10 py-7 max-lg:px-0 max-lg:justify-center" asChild>
-                                        <UserMenu />
+                                        <ClientMenu />
                                     </Button>
                                 </TooltipTrigger>
                                 <TooltipContent side="right">

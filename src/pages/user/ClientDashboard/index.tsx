@@ -1,4 +1,4 @@
-export const UserDashboard = () => {
+export const ClientDashboard = () => {
     return (
         <div>
             <div className="flex">

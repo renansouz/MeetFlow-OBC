@@ -31,7 +31,7 @@ export const Step1 = () => {
                     <label htmlFor="" className="block py-1 font-bold text-black">
                         Senha
                     </label>
-                    <InputPassword passwordAppearence={passwordAppearence} id="password" placeholder="Digite sua senha" />
+                    <Input id="password" placeholder="Digite sua senha" />
                 </section>
                 <section className="flex gap-2 text-black">
                     <input type="checkbox" name="" id="" onClick={handlePasswordAppearence} />

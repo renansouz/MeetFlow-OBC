@@ -56,7 +56,7 @@ export const Step2 = () => {
             </div>
             <div>
                 <h2 className="text-center text-black">Dias disponiveis</h2>
-                <div className="mt-5 flex justify-center gap-7">
+                <div className="mt-5 flex justify-center gap-5 flex-wrap">
                     <div className="flex flex-col items-center justify-center gap-2">
                         <input type="checkbox" name="" id="" />
                         <label htmlFor="" className="block text-black">

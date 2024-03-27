@@ -13,7 +13,7 @@ import {
 } from '@/components/ui/alert-dialog';
 import { Button } from '@/components/ui/button';
 
-export const UserProfile = () => {
+export const ClientProfile = () => {
     return (
         <div className="flex min-h-screen w-full items-center justify-center">
             <div className="h-full w-4/6 rounded-lg  border  border-indigo-700 p-10">

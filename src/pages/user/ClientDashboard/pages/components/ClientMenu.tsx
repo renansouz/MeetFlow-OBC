@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { UserType } from '@/types/userType';
 import { userAPI } from '@/api/userAPI';
 
-export const UserMenu = () => {
+export const ClientMenu = () => {
     const [userData, setUserData] = useState<UserType | undefined>();
 
     console.log(userData);
@@ -18,7 +18,7 @@ export const UserMenu = () => {
     useEffect(() => {
         const getUserData = async () => {
             const res = await userAPI.fetchUserData();
-            const { user } = await res;
+            const { user } = await res; 
             setUserData(user);
         };
 

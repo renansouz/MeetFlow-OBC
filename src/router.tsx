@@ -9,13 +9,13 @@ import { Home } from './pages/Home';
 import { ProfessionalDashboard } from './pages/professional/Dashboard';
 import { ProfessionalOwnProfile } from './pages/professional/ProfessionalOwnProfile';
 import { ProfessionalRegister } from './pages/professional/ProfessionalRegister';
-import { UserDashboard } from './pages/user/UserDashboard';
-import { MySchedules } from './pages/user/UserDashboard/pages/MySchedule';
-import { Services } from './pages/user/UserDashboard/pages/ProfessionalCard';
-import { ProfessionalProfile } from './pages/user/UserDashboard/pages/ProfessionalProfile';
-import { UserLogin } from './pages/user/UserLogin';
-import { UserProfile } from './pages/user/UserProfile';
-import { UserRegister } from './pages/user/UserRegister';
+import { ClientDashboard } from './pages/user/ClientDashboard';
+import { MySchedules } from './pages/user/ClientDashboard/pages/MySchedule';
+import { Services } from './pages/user/ClientDashboard/pages/ProfessionalCard';
+import { ProfessionalProfile } from './pages/user/ClientDashboard/pages/ProfessionalProfile';
+import { ClientLogin } from './pages/user/ClientLogin';
+import { ClientProfile } from './pages/user/ClientProfile';
+import { ClientRegister } from './pages/user/ClientRegister';
 
 const authRoutes: RouteObject[] = [
     {
@@ -34,7 +34,7 @@ const authRoutes: RouteObject[] = [
         children: [
             {
                 path: '/register',
-                element: <UserRegister />,
+                element: <ClientRegister />,
             },
         ],
     },
@@ -44,7 +44,7 @@ const authRoutes: RouteObject[] = [
         children: [
             {
                 path: '/login',
-                element: <UserLogin />,
+                element: <ClientLogin />,
             },
         ],
     },
@@ -57,7 +57,7 @@ const dashBoardRoutes: RouteObject[] = [
         children: [
             {
                 path: '/dashboard',
-                element: <UserDashboard />,
+                element: <ClientDashboard />,
             },
         ],
     },
@@ -114,8 +114,8 @@ const appRoutes: RouteObject[] = [
         element: <AppLayout />,
         children: [
             {
-                path: '/user/profile',
-                element: <UserProfile />,
+                path: '/client/profile',
+                element: <ClientProfile />,
             },
         ],
     },
