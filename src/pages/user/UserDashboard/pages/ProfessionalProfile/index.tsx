@@ -3,9 +3,10 @@ import dayjs from 'dayjs';
 import { useState } from 'react';
 
 import { AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { CalendarProfessional } from '@/pages/user/UserDashboard/pages/ProfessionalProfile/Calendar';
 
+import { ProfessionalService } from './ProfessionalService';
 import { Container, TimePicker, TimePickerHeader, TimePickerItem, TimePickerList } from './styles';
 
 interface Availability {
@@ -42,15 +43,19 @@ export function ProfessionalProfile() {
                         <AvatarFallback className="ml-5 border-4 border-slate-950 rounded-full w-36">CN</AvatarFallback>
                     </Avatar>
                 </CardHeader>
-                <CardContent className="flex flex-col mt-20 w-full gap-y-2 ml-5">
-                    <CardTitle className="text-left font-bold " style={{ maxWidth: '600px' }}>
+                <CardContent className="flex flex-col mt-20 w-full gap-y-2 border-b-2">
+                    <CardTitle className="text-left font-bold ml-6 " style={{ maxWidth: '600px' }}>
                         RENAN DE SOUZA SILVA
                     </CardTitle>
-                    <CardDescription className="font-light w-full">Olá me chamo Renan, caso queira aprender tailwind, agende uma reunião comigo!</CardDescription>
-                    <span className="font-bold mt-3 ml-1 text-indigo-300">+ 10 agendamentos</span>
-                    <span>{}</span>
+                    <CardDescription className="font-light w-full ml-6">Olá me chamo Renan, caso queira aprender tailwind, agende uma reunião comigo!</CardDescription>
+                    <span className="font-bold mt-3 ml-5 text-indigo-300">+ 10 agendamentos</span>
                 </CardContent>
-                <hr />
+
+                {/* SERVIÇOS */}
+                <ProfessionalService />
+                <ProfessionalService />
+                <ProfessionalService />
+                {/* CALENDARIO PRONTO
                 <h2 className="mt-10 flex justify-center items-center text-2xl max-lg:text-xl max-md:text-lg max-md:mx-10 mb-10 font-light">Escolha uma data para agendar com Renan</h2>
 
                 <Container isTimePickerOpen={isDateSelected}>
@@ -69,7 +74,7 @@ export function ProfessionalProfile() {
                             </TimePickerList>
                         </TimePicker>
                     )}
-                </Container>
+                </Container> */}
             </Card>
         </>
     );
