@@ -6,8 +6,8 @@ import { Button } from '@/components/ui/button';
 import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarTrigger } from '@/components/ui/menubar';
 import { Separator } from '@/components/ui/separator';
 import { useTheme } from '@/context/theme-provider';
-import Logo from '@/public/img/Logo.svg';
-import LightLogo from '@/public/img/Logo-light.svg';
+import Logo from '@/public/img/logo.svg';
+import LightLogo from '@/public/img/logo-light.svg';
 
 export const Dashboard = () => {
     const { theme } = useTheme();

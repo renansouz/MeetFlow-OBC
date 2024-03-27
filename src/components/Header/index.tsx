@@ -5,8 +5,8 @@ import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuL
 import { Separator } from '@/components/ui/separator';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useTheme } from '@/context/theme-provider';
-import Logo from '@/public/img/Logo.svg';
-import LightLogo from '@/public/img/Logo-light.svg';
+import Logo from '@/public/img/logo.svg';
+import LightLogo from '@/public/img/logo-light.svg';
 
 import { ThemeToggle } from '../theme/theme-toggle';
 
