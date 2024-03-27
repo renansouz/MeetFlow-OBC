@@ -83,37 +83,6 @@ export function ProfessionalProfile() {
                             <DollarSign className="text-indigo-300" /> R$100,00
                         </Card>
                     </div>
-
-                    <Dialog>
-                        <DialogTrigger className="px-6 h-11 flex justify-center items-center bg-indigo-700 hover:bg-indigo-800 rounded-lg">
-                            <LucideCalendarPlus className="w-5 h-5 mr-3" />
-                            <span className="font-light text-xl">Agendar</span>
-                        </DialogTrigger>
-                        <DialogContent className="w-max[90rem]">
-                            <DialogHeader className="flex flex-col ">
-                                <DialogTitle>Agendamento</DialogTitle>
-                                <DialogDescription>Escolha uma data para agendar com Renan</DialogDescription>
-                                <Container className="max-w-5" isTimePickerOpen={isDateSelected}>
-                                    <CalendarProfessional selectedDate={selectedDate} onDateSelected={setSelectedDate} />
-                                    {isDateSelected && (
-                                        <TimePicker>
-                                            <TimePickerHeader>
-                                                {weekDay} <span>{describedDate}</span>
-                                            </TimePickerHeader>
-                                            <TimePickerList>
-                                                {availability.possibleTimes.map((hour) => (
-                                                    <TimePickerItem key={hour} onClick={() => handleSelectTime(hour)} disabled={!availability.availableTimes.includes(hour)}>
-                                                        {String(hour).padStart(2, '0')}:00h
-                                                    </TimePickerItem>
-                                                ))}
-                                            </TimePickerList>
-                                            <Button className="p-2 m-5 flex ml-[32%]">Pagar agora</Button>
-                                        </TimePicker>
-                                    )}
-                                </Container>
-                            </DialogHeader>
-                        </DialogContent>
-                    </Dialog>
                 </CardContent>
             </Card>
             <ProfessionalService />
@@ -135,6 +104,7 @@ export function ProfessionalProfile() {
                                     </TimePickerItem>
                                 ))}
                             </TimePickerList>
+                            <Button className="p-2 m-5 flex ml-[32%]">Pagar agora</Button>
                         </TimePicker>
                     )}
                 </Container> */}
