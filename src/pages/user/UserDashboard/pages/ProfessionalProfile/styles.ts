@@ -1,36 +1,26 @@
 import styled from 'styled-components';
 
 export const Container = styled.div<{ isTimePickerOpen: boolean }>`
+    display: flex;
+    flex-direction: row;
+    align-items: ${(props) => (props.isTimePickerOpen ? 'flex-start' : 'center')};
     margin: 6px auto 0;
     padding: 0;
-    display: grid;
-    position: relative;
-
-    grid-template-columns: ${(props) => (props.isTimePickerOpen ? '1fr 280px' : '1fr')};
-    width: ${(props) => (props.isTimePickerOpen ? 'auto' : '540px')};
-
-    @media (max-width: 900px) {
-        grid-template-columns: 1fr;
-        width: auto;
-    }
+    max-width: 70rem;
+    width: 100%;
 `;
 
 export const TimePicker = styled.div`
-    border-left: 1px solid #777777;
     padding: 6px 6px 0;
     overflow-y: scroll;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    width: 280px;
+    width: 40%;
 `;
 
 export const TimePickerHeader = styled.p`
     font-weight: 500;
 
     span {
-        color: #cccccc;
+        color: #f1f5f9;
     }
 `;
 
@@ -39,24 +29,19 @@ export const TimePickerList = styled.div`
     display: grid;
     grid-template-columns: 1fr;
     gap: 2px;
-
-    @media (max-width: 900px) {
-        grid-template-columns: 2fr;
-    }
 `;
 
 export const TimePickerItem = styled.button`
     border: 0;
-    background-color: #777777;
+    background-color: #64748b;
     padding: 2px 0;
     cursor: pointer;
     color: #ffffff;
     border-radius: 3px;
-    font-size: 0.875rem;
+    font-size: 1.25rem;
     line-height: 1.5;
-
-    &:last-child {
-        margin-bottom: 6px;
+    @media (max-width: 1040px) {
+        font-size: 1rem;
     }
 
     &:disabled {
@@ -66,10 +51,11 @@ export const TimePickerItem = styled.button`
     }
 
     &:not(:disabled):hover {
-        background: #666666;
+        background: #4338ca;
     }
 
     &:focus {
-        box-shadow: 0 0 0 2px #ffffff;
+        background: #4338ca;
+        box-shadow: 0 0 0 2px #3730a3;
     }
 `;

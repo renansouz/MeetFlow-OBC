@@ -16,7 +16,7 @@ export const UserAside = () => {
 
     return (
         <>
-            <aside className=" flex h-screen w-auto flex-col border-r-2 py-8 items-center justify-between max-lg:px-4 max-lg:py-4 max-sm:border-0">
+            <aside className=" flex h-screen w-auto flex-col border-r-2 py-8 items-center justify-between max-lg:px-4 max-lg:py-4 bg-slate bg-slate-950 max-sm:border-0 max-sm:px-0 ">
                 <div className=" flex flex-col gap-y-10 max-lg:gap-0 max-sm:hidden">
                     <div className="flex flex-col gap-y-1">
                         <Link to={'/'}>
@@ -97,7 +97,7 @@ export const UserAside = () => {
                     </TooltipProvider>
                 </div>
             </aside>
-            <div className="items-center top-2 left-2 sm:hidden mt-5">
+            <div className="items-center top-1 left-2 sm:hidden h-10 absolute bg-secondary rounded-md">
                 <Sheet>
                     <SheetTrigger>
                         <Menu className="h-10 w-10" />

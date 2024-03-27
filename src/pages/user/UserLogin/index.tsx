@@ -21,7 +21,7 @@ export const UserLogin = () => {
     return (
         <div className="h-screen ">
             <BackGroundDiv>
-                <div className="bg-background px-10 py-10 rounded-lg">
+                <div className="bg-foreground px-10 py-10 rounded-lg">
                     <div className=" flex flex-col items-center justify-center ">
                         <Link to={'/'}>
                             <img src={theme === 'dark' ? DarkLogo : LightLogo} alt="" className="w-96" />

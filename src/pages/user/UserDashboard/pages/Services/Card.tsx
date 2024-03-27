@@ -10,8 +10,8 @@ import { CardData } from '.';
 
 export const CardProfessional = ({ profile_pic, description, name, categorie }: CardData) => {
     return (
-        <Card className="shadow-2xl w-64 rounded-md flex flex-col items-center gap-y-12 bg-slate-900">
-            <CardHeader className="bg-indigo-500 h-20 rounded-tl-md rounded-tr-md w-full items-center">
+        <Card className="shadow-2xl w-64 rounded-md flex flex-col items-center gap-y-12 bg-slate-950">
+            <CardHeader className="bg-indigo-300 h-20 rounded-tl-md rounded-tr-md w-full items-center">
                 <Avatar>
                     <AvatarImage src={profile_pic} className="rounded-full w-24" />
                     <AvatarFallback>CN</AvatarFallback>
@@ -27,7 +27,7 @@ export const CardProfessional = ({ profile_pic, description, name, categorie }: 
                     </span>
                     <span className="mt-6 ">{categorie}</span>
                 </CardContent>
-                <Button asChild className="text-lg font-light mb-10" variant={'default'}>
+                <Button asChild className="text-lg font-light mb-10 bg-indigo-700" variant={'default'}>
                     <Link to={''} className="px-6">
                         <LucideCalendarPlus className="w-5 h-5 mr-3" />
                         Agendar

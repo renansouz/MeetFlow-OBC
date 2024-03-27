@@ -35,21 +35,24 @@ export function ProfessionalProfile() {
     }
     return (
         <>
-            <Card className="w-[80%] ml-28 my-16 pb-10">
-                <CardHeader className="bg-indigo-300 h-32 rounded-tl-md rounded-tr-md w-full pt-14">
+            <Card className="w-[70%] max-xl:h-[120%] h-[72rem] min-w-[20rem] ml-[6%] my-16 pb-10 max-xl:w-full max-xl:m-0">
+                <CardHeader className="bg-indigo-300 h-32 rounded-tl-md rounded-tr-md w-full pt-14 max-lg:rounded-none">
                     <Avatar>
                         <AvatarImage src="https://github.com/renansouz.png" className="ml-5 border-4 border-slate-950 rounded-full w-36" />
-                        <AvatarFallback>CN</AvatarFallback>
+                        <AvatarFallback className="ml-5 border-4 border-slate-950 rounded-full w-36">CN</AvatarFallback>
                     </Avatar>
                 </CardHeader>
                 <CardContent className="flex flex-col mt-20 w-full gap-y-2 ml-5">
-                    <CardTitle className="text-left font-bold " style={{ maxWidth: '200px' }}>
-                        RENAN DE SOUZA
+                    <CardTitle className="text-left font-bold " style={{ maxWidth: '600px' }}>
+                        RENAN DE SOUZA SILVA
                     </CardTitle>
                     <CardDescription className="font-light w-full">Olá me chamo Renan, caso queira aprender tailwind, agende uma reunião comigo!</CardDescription>
-                    <span>+ 10 agendamentos</span>
-                    <span className="mt-6 ">{}</span>
+                    <span className="font-bold mt-3 ml-1 text-indigo-300">+ 10 agendamentos</span>
+                    <span>{}</span>
                 </CardContent>
+                <hr />
+                <h2 className="mt-10 flex justify-center items-center text-2xl max-lg:text-xl max-md:text-lg max-md:mx-10 mb-10 font-light">Escolha uma data para agendar com Renan</h2>
+
                 <Container isTimePickerOpen={isDateSelected}>
                     <CalendarProfessional selectedDate={selectedDate} onDateSelected={setSelectedDate} />
                     {isDateSelected && (
@@ -57,7 +60,6 @@ export function ProfessionalProfile() {
                             <TimePickerHeader>
                                 {weekDay} <span>{describedDate}</span>
                             </TimePickerHeader>
-
                             <TimePickerList>
                                 {availability.possibleTimes.map((hour) => (
                                     <TimePickerItem key={hour} onClick={() => handleSelectTime(hour)} disabled={!availability.availableTimes.includes(hour)}>

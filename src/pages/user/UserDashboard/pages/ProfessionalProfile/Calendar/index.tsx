@@ -145,13 +145,13 @@ export function CalendarProfessional({ selectedDate, onDateSelected }: CalendarP
             <CalendarHeader>
                 <CalendarActions>
                     <button onClick={handlePreviousMonth} title="Previous month">
-                        <ChevronLeft className="w-16 h-16" />
+                        <ChevronLeft />
                     </button>
                     <CalendarTitle>
                         {currentMonth} <span>{currentYear}</span>
                     </CalendarTitle>
-                    <button onClick={handleNextMonth} title="Next month">
-                        <ChevronRight className="w-16 h-16" />
+                    <button onClick={handleNextMonth} title="Next month" className="border-2">
+                        <ChevronRight />
                     </button>
                 </CalendarActions>
             </CalendarHeader>
