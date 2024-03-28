@@ -5,7 +5,7 @@ import { ClientAside } from '@/pages/user/ClientDashboard/pages/components/Clien
 
 export const UserDashboardLayout = () => {
     const { theme } = useTheme();
-    const backgroundToggle = theme === 'dark' ? 'bg-background' : 'bg-[#fff]';
+    const backgroundToggle = theme === 'dark' ? 'bg-slate-900' : 'bg-[#fff]';
     return (
         <div className="flex">
             <ClientAside />

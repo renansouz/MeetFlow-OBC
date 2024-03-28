@@ -8,8 +8,9 @@ import { AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { CalendarProfessional } from '@/pages/user/ClientDashboard/pages/ProfessionalProfile/Calendar';
+import { Skeleton } from '@/components/ui/skeleton';
 
+import { CalendarProfessional } from './Calendar';
 import { ProfessionalService } from './ProfessionalService';
 import { Container, TimePicker, TimePickerHeader, TimePickerItem, TimePickerList } from './styles';
 
@@ -39,9 +40,10 @@ export function ProfessionalProfile() {
         onSelectDateTime(dateWithTime);
     }
     return (
-        <Card className="w-[70%] min-w-[20rem] ml-[6%] my-16 pb-10 max-xl:w-full max-xl:m-0">
+        <Card className="w-[70%] min-w-[20rem] ml-[6%] my-16 pb-10 max-xl:w-full max-xl:m-0 bg-background">
             <CardHeader className="bg-indigo-300 h-32 rounded-tl-md rounded-tr-md w-full pt-14 max-lg:rounded-none">
                 <Avatar>
+                    <Skeleton className="w-[100px] h-[20px] rounded-full" />
                     <AvatarImage src="https://github.com/renansouz.png" className="ml-5 border-4 border-background rounded-full w-36" />
                     <AvatarFallback className="ml-5 border-4 border-background rounded-full w-36">CN</AvatarFallback>
                 </Avatar>
@@ -54,8 +56,8 @@ export function ProfessionalProfile() {
                 <span className="font-bold mt-3 ml-5 text-indigo-600/90">+ 10 agendamentos</span>
             </CardContent>
             {/* SERVIÇOS */}
-            {/* <ProfessionalService /> */}
-            CALENDARIO PRONTO
+            <ProfessionalService />
+            {/* calendário */}
             <h2 className="mt-10 flex justify-center items-center text-2xl max-lg:text-xl max-md:text-lg max-md:mx-10 mb-10 font-light">Escolha uma data para agendar com Renan</h2>
             <Container isTimePickerOpen={isDateSelected}>
                 <CalendarProfessional selectedDate={selectedDate} onDateSelected={setSelectedDate} />
