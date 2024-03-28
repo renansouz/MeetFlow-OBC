@@ -26,26 +26,9 @@ export const SobreImage = styled.div`
     width: 100vh;
     background-size: cover;
 
-    @media not all and (min-width: 1450px) {
-        height: 30rem;
-        width: 25rem;
-    }
-    @media not all and (min-width: 1280px) {
-        background-size: cover;
-        height: 35rem;
-        width: 40rem;
-        margin-bottom: -8rem;
-    }
-    @media not all and (min-width: 768px) {
-        height: 30rem;
-        width: 35rem;
-    }
-    @media not all and (min-width: 640px) {
-        width: 20rem;
-        height: 25rem;
-        padding-left: 10;
-        margin-left: 3%;
-        margin-right: 3%;
+    @media (max-width: 1279px) {
+        background-image: linear-gradient(to right, rgba(3, 3, 36, 0.2) 20%, rgba(3, 7, 18, 0.4)), url(${sobreImage});
+        border-radius: 20px;
     }
 `;
 
@@ -54,25 +37,9 @@ export const ProfessionalImage = styled.div`
     height: 80vh;
     width: 100vh;
     background-size: cover;
-    @media not all and (min-width: 1450px) {
-        height: 30rem;
-        width: 25rem;
-    }
-    @media not all and (min-width: 1280px) {
-        background-size: cover;
-        height: 35rem;
-        width: 40rem;
-        margin-bottom: -8rem;
-    }
-    @media not all and (min-width: 768px) {
-        height: 30rem;
-        width: 35rem;
-    }
-    @media not all and (min-width: 640px) {
-        width: 20rem;
-        height: 25rem;
-        padding-left: 10;
-        margin-left: 3%;
-        margin-right: 3%;
+
+    @media (max-width: 1279px) {
+        background-image: linear-gradient(to right, rgba(3, 3, 36, 0.2) 20%, rgba(3, 7, 18, 0.4)), url(${professionalImage});
+        border-radius: 20px;
     }
 `;

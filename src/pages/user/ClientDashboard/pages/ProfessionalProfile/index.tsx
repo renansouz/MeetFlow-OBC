@@ -1,12 +1,12 @@
 import { Avatar } from '@radix-ui/react-avatar';
 import dayjs from 'dayjs';
-import { DollarSign, Hourglass, LucideCalendarPlus, Star } from 'lucide-react';
+import { BriefcaseBusiness, CalendarCheck2, ContactRound, DollarSign, HourglassIcon } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { CalendarProfessional } from '@/pages/user/ClientDashboard/pages/ProfessionalProfile/Calendar';
 
@@ -79,28 +79,33 @@ export function ProfessionalProfile() {
                                 <DialogHeader className="gap-1">
                                     <DialogTitle className="text-xl font-bold">Confirmação de Agendamento</DialogTitle>
                                     <DialogDescription className="border-b-2 pb-5">Por favor, confirme os detalhes do seu agendamento antes de prosseguir.</DialogDescription>
-                                    <div className="text-lg flex flex-col">
-                                        <div className="flex justify-between">
-                                            <span className="w-1/2 font-bold">Profissional:</span>
-                                            <span className="w-1/2">Renan</span>
+                                    <DialogHeader className="text-lg flex flex-col m-6 gap-4 py-5">
+                                        <div className="flex justify-between gap-4 border-b-2 pb-4">
+                                            <ContactRound className="text-indigo-100" />
+                                            <span className="w-1/2 text-xl font-bold">Profissional:</span>
+                                            <span className="w-1/2 text-xl">Renan</span>
                                         </div>
-                                        <div className="flex justify-between">
-                                            <span className="w-1/2 font-bold">Serviço:</span>
-                                            <span className="w-1/2">Tailwind</span>
+                                        <div className="flex justify-between gap-4 border-b-2 pb-4">
+                                            <BriefcaseBusiness className="text-indigo-100" />
+                                            <span className="w-1/2 text-xl font-bold">Serviço:</span>
+                                            <span className="w-1/2 text-xl">Tailwind</span>
                                         </div>
-                                        <div className="flex justify-between">
-                                            <span className="w-1/2 font-bold">Duração:</span>
-                                            <span className="w-1/2">2 Horas</span>
+                                        <div className="flex justify-between gap-4 border-b-2 pb-4">
+                                            <HourglassIcon className="text-indigo-100" />
+                                            <span className="w-1/2 text-xl font-bold">Duração:</span>
+                                            <span className="w-1/2 text-xl">2 Horas</span>
                                         </div>
-                                        <div className="flex justify-between">
-                                            <span className="w-1/2 font-bold">Data e Hora:</span>
-                                            <span className="w-1/2">11/04/2024 ás 11:11</span>
+                                        <div className="flex justify-between gap-4 border-b-2 pb-4">
+                                            <CalendarCheck2 className="text-indigo-100" />
+                                            <span className="w-1/2 text-xl font-bold">Data e Hora:</span>
+                                            <span className="w-1/2 text-xl">11/04/2024 ás 11:11</span>
                                         </div>
-                                        <div className="flex justify-between">
-                                            <span className="w-1/2 font-bold">Valor:</span>
-                                            <span className="w-1/2">R$100</span>
+                                        <div className="flex justify-between gap-4 border-b-2 pb-4">
+                                            <DollarSign className="text-indigo-100" />
+                                            <span className="w-1/2 text-xl font-bold">Valor:</span>
+                                            <span className="w-1/2 text-xl">R$100</span>
                                         </div>
-                                    </div>
+                                    </DialogHeader>
                                     <div className="flex justify-between m-10">
                                         <Button variant={'destructive'}>Não confirmar</Button>
                                         <Button variant={'success'}>confirmar</Button>

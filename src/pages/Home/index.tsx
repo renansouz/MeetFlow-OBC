@@ -37,12 +37,15 @@ export const Home = () => {
 
                                 <div className="flex flex-col justify-center items-center gap-6 mt-10">
                                     <Link
-                                        className="item-center justify-center  flex p-4 w-full text-xl border-2 border-indigo-800 bg-indigo-400 text-background hover:bg-indigo-500 rounded-2xl "
+                                        className="item-center justify-center  flex p-4 w-full text-xl border-2 border-indigo-800 bg-indigo-900 bg-opacity-20 hover:bg-indigo-500 hover:bg-opacity-30 rounded-2xl "
                                         to={'/login'}
                                     >
                                         <span className="font-medium">Fazer LogIn</span>
                                     </Link>
-                                    <Link to={'/dashboard'} className=" item-center hover:text-indigo-600 text-indigo-200 hover:underline justify-center flex p-4 w-full font-medium">
+                                    <Link
+                                        to={'/dashboard/services'}
+                                        className=" item-center hover:text-indigo-600 text-indigo-200 hover:underline justify-center flex p-4 w-full font-medium"
+                                    >
                                         <span>Entrar sem Login</span>
                                     </Link>
                                 </div>
@@ -85,12 +88,15 @@ export const Home = () => {
                             para suas necessidades.
                         </p>
                         <div className="group inline-flex h-14 w-80 items-center justify-center rounded-md bg-indigo-700 px-6 py-2 text-2xl text-white max-lg:mb-10 max-sm:text-xl">
-                            <Link to={'#'}>Encontre um serviço</Link>
+                            <Link to={'/dashboard/services'}>Encontre um serviço</Link>
                         </div>
                     </div>
                 </div>
             </section>
-            <section className="flex h-screen  items-center gap-40 max-lg:bg-secondary bg-opacity-100 max-xl:mb-[10%] max-xl:grid max-xl:h-auto max-xl:place-items-center max-lg:mb-0 max-sm:mb-14 xl:m-0 2xl:m-0 2xl:p-0">
+            <section
+                id="profisssional"
+                className="flex h-screen  items-center gap-40 max-lg:bg-secondary bg-opacity-100 max-xl:mb-[10%] max-xl:grid max-xl:h-auto max-xl:place-items-center max-lg:mb-0 max-sm:mb-14 xl:m-0 2xl:m-0 2xl:p-0"
+            >
                 <div className="flex w-3/6 flex-col items-center justify-center text-center">
                     <div className="ml-52 flex flex-col justify-start gap-6 max-xl:ml-0 max-xl:items-center ">
                         <h1 className="text-left text-6xl font-semibold max-xl:w-lvw max-xl:text-center max-lg:text-5xl max-sm:text-4xl md:text-4xl lg:text-5xl">
@@ -100,7 +106,7 @@ export const Home = () => {
                             Se você é um profissional em busca de mais oportunidades, junte-se à nossa comunidade. Aumente sua visibilidade e simplifique seu agendamento
                         </p>
                         <div className="group inline-flex h-14 w-80 items-center justify-center rounded-md bg-indigo-700 px-6 py-2 text-2xl text-white max-xl:mb-[20%] max-sm:text-xl">
-                            <Link to={'#'}>Comece agora</Link>
+                            <Link to={'/register'}>Comece agora</Link>
                         </div>
                     </div>
                 </div>
