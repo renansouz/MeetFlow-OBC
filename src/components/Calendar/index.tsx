@@ -31,10 +31,8 @@ interface CalendarProps {
     onDateSelected: (date: Date) => void;
 }
 
-export function Calendar() {
+export function Calendar({ selectedDate, onDateSelected }: CalendarProps) {
     const [blockedDates, setBlockedDates] = useState<BlockedDates>({ blockedWeekDays: [1, 2], blockedDates: [1, 2] });
-
-    const onDateSelected = (date: Date) => {};
 
     // Referente aos meses do ano
     const [currentDate, setCurrentDate] = useState(() => {

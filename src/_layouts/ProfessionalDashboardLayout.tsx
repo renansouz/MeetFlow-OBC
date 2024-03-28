@@ -1,11 +1,11 @@
 import { Outlet } from 'react-router';
 
-import { UserAside } from '@/components/DashboardComponents/ProfessionalAside';
+import { ProfessionalAside } from '@/components/DashboardComponents/ProfessionalAside';
 
 export const ProfessionalDashboardLayout = () => {
     return (
         <div className="flex">
-            <UserAside />
+            <ProfessionalAside />
             <div className="">
                 <Outlet />
             </div>

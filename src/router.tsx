@@ -7,6 +7,7 @@ import { ProfessionalDashboardLayout } from './_layouts/ProfessionalDashboardLay
 import { UserDashboardLayout } from './_layouts/UserDashboardLayout';
 import { NotFound } from './pages/404';
 import { Home } from './pages/Home';
+import { DashboardCalendar } from './pages/professional/Dashboard';
 import { ProfessionalDashboard } from './pages/professional/ProfessionalDashboard';
 import { ProfessionalRegister } from './pages/professional/ProfessionalRegister';
 import { UserDashboard } from './pages/user/UserDashboard';
@@ -55,7 +56,7 @@ const dashBoardRoutes: RouteObject[] = [
         children: [
             {
                 path: '/dashboard',
-                element: <UserDashboard />,
+                element: <DashboardCalendar />,
             },
         ],
     },

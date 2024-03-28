@@ -30,7 +30,7 @@ export const UserAside = () => {
                                 <TooltipTrigger>
                                     <AsideItem link="/" title="Serviços" icon={Home} />
                                 </TooltipTrigger>
-                                <TooltipContent>
+                                <TooltipContent side="right">
                                     <p>Serviços</p>
                                 </TooltipContent>
                             </Tooltip>
