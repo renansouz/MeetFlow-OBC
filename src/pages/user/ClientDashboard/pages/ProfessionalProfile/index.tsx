@@ -8,7 +8,7 @@ import { AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { CalendarProfessional } from '@/pages/user/UserDashboard/pages/ProfessionalProfile/Calendar';
+import { CalendarProfessional } from '@/pages/user/ClientDashboard/pages/ProfessionalProfile/Calendar';
 
 import { ProfessionalService } from './ProfessionalService';
 import { Container, TimePicker, TimePickerHeader, TimePickerItem, TimePickerList } from './styles';
@@ -53,61 +53,64 @@ export function ProfessionalProfile() {
                 <CardDescription className="font-light w-full ml-6">Olá me chamo Renan, caso queira aprender tailwind, agende uma reunião comigo!</CardDescription>
                 <span className="font-bold mt-3 ml-5 text-indigo-300">+ 10 agendamentos</span>
             </CardContent>
-
             {/* SERVIÇOS */}
-            <Card className="bg-slate-900 p-3 m-10">
-                <CardHeader>
-                    <div className="flex justify-between items-center flex-row">
-                        <div className="flex">
-                            <CardTitle>Responsividade em Tailwind</CardTitle>
-                        </div>
-                        <div className="flex">
-                            <Star className="text-yellow-500" />
-                            <Star className="text-yellow-500" />
-                            <Star className="text-yellow-500" />
-                            <Star className="text-yellow-500" />
-                            <Star className="text-yellow-500" />
-                            <span className="font-extralight">(10)</span>
-                        </div>
-                    </div>
-                    <CardDescription className="w-[80%]">
-                        especialista em Tailwind. Entre em contato para agendar sua primeira aula e leve seus projetos web para o próximo nível
-                    </CardDescription>
-                </CardHeader>
-                <CardContent className="flex justify-between mt-10">
-                    <div className="flex gap-3">
-                        <Card className="border-slate-600 border-2 px-4 py-3 flex items-center justify-center rounded-full gap-2">
-                            <Hourglass className="text-indigo-300" />2 horas
-                        </Card>
-                        <Card className="border-slate-600 border-2 px-4 py-3 flex items-center justify-center rounded-full gap-2">
-                            <DollarSign className="text-indigo-300" /> R$100,00
-                        </Card>
-                    </div>
-                </CardContent>
-            </Card>
-            <ProfessionalService />
-
-            {/* CALENDARIO PRONTO
-                <h2 className="mt-10 flex justify-center items-center text-2xl max-lg:text-xl max-md:text-lg max-md:mx-10 mb-10 font-light">Escolha uma data para agendar com Renan</h2>
-
-                <Container isTimePickerOpen={isDateSelected}>
-                    <CalendarProfessional selectedDate={selectedDate} onDateSelected={setSelectedDate} />
-                    {isDateSelected && (
-                        <TimePicker>
-                            <TimePickerHeader>
-                                {weekDay} <span>{describedDate}</span>
-                            </TimePickerHeader>
-                            <TimePickerList>
-                                {availability.possibleTimes.map((hour) => (
-                                    <TimePickerItem key={hour} onClick={() => handleSelectTime(hour)} disabled={!availability.availableTimes.includes(hour)}>
-                                        {String(hour).padStart(2, '0')}:00h
-                                    </TimePickerItem>
-                                ))}
-                            </TimePickerList>
-                            <Button className="p-2 m-5 flex ml-[32%]">Pagar agora</Button>
-                        </TimePicker>
-                    )}
-                </Container> */}
+            {/* <ProfessionalService /> */}
+            CALENDARIO PRONTO
+            <h2 className="mt-10 flex justify-center items-center text-2xl max-lg:text-xl max-md:text-lg max-md:mx-10 mb-10 font-light">Escolha uma data para agendar com Renan</h2>
+            <Container isTimePickerOpen={isDateSelected}>
+                <CalendarProfessional selectedDate={selectedDate} onDateSelected={setSelectedDate} />
+                {isDateSelected && (
+                    <TimePicker>
+                        <TimePickerHeader>
+                            {weekDay} <span>{describedDate}</span>
+                        </TimePickerHeader>
+                        <TimePickerList>
+                            {availability.possibleTimes.map((hour) => (
+                                <TimePickerItem key={hour} onClick={() => handleSelectTime(hour)} disabled={!availability.availableTimes.includes(hour)}>
+                                    {String(hour).padStart(2, '0')}:00h
+                                </TimePickerItem>
+                            ))}
+                        </TimePickerList>
+                        <Dialog>
+                            <DialogTrigger>
+                                <Button className="p-2 flex w-full">Solicitar Agendamento</Button>
+                            </DialogTrigger>
+                            <DialogContent>
+                                <DialogHeader className="gap-1">
+                                    <DialogTitle className="text-xl font-bold">Confirmação de Agendamento</DialogTitle>
+                                    <DialogDescription className="border-b-2 pb-5">Por favor, confirme os detalhes do seu agendamento antes de prosseguir.</DialogDescription>
+                                    <div className="text-lg flex flex-col">
+                                        <div className="flex justify-between">
+                                            <span className="w-1/2 font-bold">Profissional:</span>
+                                            <span className="w-1/2">Renan</span>
+                                        </div>
+                                        <div className="flex justify-between">
+                                            <span className="w-1/2 font-bold">Serviço:</span>
+                                            <span className="w-1/2">Tailwind</span>
+                                        </div>
+                                        <div className="flex justify-between">
+                                            <span className="w-1/2 font-bold">Duração:</span>
+                                            <span className="w-1/2">2 Horas</span>
+                                        </div>
+                                        <div className="flex justify-between">
+                                            <span className="w-1/2 font-bold">Data e Hora:</span>
+                                            <span className="w-1/2">11/04/2024 ás 11:11</span>
+                                        </div>
+                                        <div className="flex justify-between">
+                                            <span className="w-1/2 font-bold">Valor:</span>
+                                            <span className="w-1/2">R$100</span>
+                                        </div>
+                                    </div>
+                                    <div className="flex justify-between m-10">
+                                        <Button variant={'destructive'}>Não confirmar</Button>
+                                        <Button variant={'success'}>confirmar</Button>
+                                    </div>
+                                </DialogHeader>
+                            </DialogContent>
+                        </Dialog>
+                    </TimePicker>
+                )}
+            </Container>
         </Card>
     );
 }

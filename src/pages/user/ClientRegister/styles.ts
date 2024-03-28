@@ -6,8 +6,11 @@ export const BackGroundDiv = styled.div`
     background-image: linear-gradient(140deg, rgba(0, 0, 1, 0.8) 40%, rgba(26, 30, 95, 0.8)), url(${pageBackground});
     background-size: cover;
     background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
+    width: 50%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
     background-position: center center;
     display: flex;
     justify-content: center;
@@ -18,7 +21,7 @@ export const BackGroundDiv = styled.div`
 `;
 
 export const FormDiv = styled.form`
-    padding: 30px 0px;
+    padding: 5rem 0;
     width: 100%;
     height: 100%;
     border-radius: 0.5rem;

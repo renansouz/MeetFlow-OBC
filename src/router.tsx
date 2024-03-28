@@ -1,7 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { RouteObject } from 'react-router-dom';
+
 import { AppLayout } from './_layouts/AppLayout';
-import { AuthLayout } from './_layouts/auth';
+import { AuthLayout } from './_layouts/Auth';
 import { ProfessionalDashboardLayout } from './_layouts/ProfessionalDashboardLayout';
 import { UserDashboardLayout } from './_layouts/UserDashboardLayout';
 import { NotFound } from './pages/404';
@@ -14,7 +15,6 @@ import { MySchedules } from './pages/user/ClientDashboard/pages/MySchedule';
 import { Services } from './pages/user/ClientDashboard/pages/ProfessionalCard';
 import { ProfessionalProfile } from './pages/user/ClientDashboard/pages/ProfessionalProfile';
 import { ClientLogin } from './pages/user/ClientLogin';
-import { ClientProfile } from './pages/user/ClientProfile';
 import { ClientRegister } from './pages/user/ClientRegister';
 
 const authRoutes: RouteObject[] = [
@@ -106,16 +106,6 @@ const appRoutes: RouteObject[] = [
             {
                 path: '/',
                 element: <Home />,
-            },
-        ],
-    },
-    {
-        path: '/',
-        element: <AppLayout />,
-        children: [
-            {
-                path: '/client/profile',
-                element: <ClientProfile />,
             },
         ],
     },

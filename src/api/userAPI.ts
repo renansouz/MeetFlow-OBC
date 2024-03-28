@@ -1,6 +1,7 @@
-import { UserType } from '@/types/userType';
 import axios from 'axios';
 import { AxiosError } from 'axios';
+
+import { UserType } from '@/types/userType';
 
 const refreshtoken = sessionStorage.getItem('refreshToken');
 

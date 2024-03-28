@@ -1,16 +1,18 @@
 import { Home, Layers, LifeBuoy, Menu, Settings, User, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
+
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { useTheme } from '@/context/theme-provider';
-import Logo from '@/public/img/Logo.svg';
-import LightLogo from '@/public/img/Logo-light.svg';
-import LogoMenor from '@/public/img/only-logo-white.svg';
-import { AsideItem } from './AsideItem';
 import { useAuth } from '@/context/auth-provider';
-import { ClientMenu } from './ClientMenu';
+import { useTheme } from '@/context/theme-provider';
+import Logo from '@/public/img/logo.svg';
+import LightLogo from '@/public/img/logo-light.svg';
+import LogoMenor from '@/public/img/only-logo-white.svg';
+
 import { AlertDialogContainer } from './AlertDialogContainer';
+import { AsideItem } from './AsideItem';
+import { ClientMenu } from './ClientMenu';
 
 export const ClientAside = () => {
     const { isAuth } = useAuth();
