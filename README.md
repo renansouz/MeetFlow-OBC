@@ -5,6 +5,7 @@ Este projeto é parte de um desafio e tem como objetivo criar um sistema de agen
 ## Tecnologias Utilizadas
 
 - ReactJs
+-Typescript
 - shadcn-ui
 - Tailwind
 
