@@ -48,10 +48,11 @@ body::-webkit-scrollbar-thumb:active {
 }
 
   body, input, textarea, button {
-    font: 1rem "Poppins", sans-serif;
+    font: 1rem "Space Grotestk", sans-serif;
   }
 
-  h1 {
+  h1, h2 {
+        font-family: 'Poppins', sans-serif;
         font-weight: 600;
     }
     p,

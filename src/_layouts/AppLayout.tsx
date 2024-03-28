@@ -1,12 +1,16 @@
 import { Outlet } from 'react-router-dom';
 
 import { Footer } from '@/components/Footer';
-import { NotAuthenticated } from '@/components/Header/NotAuthenticated';
+import { Header } from '@/components/Header';
+import { useTheme } from '@/context/theme-provider';
 
 export function AppLayout() {
+    const { theme } = useTheme();
+    const backgroundToggle = theme === 'dark' ? 'bg-slate-950' : 'bg-[#fff]';
+
     return (
-        <div className="flex min-h-screen flex-col antialiased">
-            <NotAuthenticated />
+        <div className={`flex min-h-screen flex-col antialiased ${backgroundToggle}`}>
+            <Header />
 
             <div className="">
                 <Outlet />

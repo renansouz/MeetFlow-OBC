@@ -48,7 +48,7 @@ module.exports = {
                 },
             },
             fontFamily: {
-                'poppins-start': ['Poppins', 'monospoco'],
+                'poppins-start': ['Space Grotesk', 'monospoco'],
             },
             borderRadius: {
                 lg: 'var(--radius)',

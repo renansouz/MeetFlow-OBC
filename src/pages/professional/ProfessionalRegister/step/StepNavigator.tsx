@@ -9,11 +9,12 @@ export const StepNavigator = ({ setCurrentStepState, currentStepState }: stepPro
     const handleStepBack = () => (currentStepState === 1 ? navigate('/') : setCurrentStepState(currentStepState - 1));
 
     return (
-        <div className="flex justify-center gap-48 py-10">
+        <div className="flex justify-center gap-48 py-16">
             <Button variant={'costumize'} onClick={() => handleStepBack()}>
                 Voltar
             </Button>
-            <Button onClick={() => setCurrentStepState(currentStepState + 1)}>Continuar</Button>
+
+            {currentStepState === 3 ? <Button onClick={() => {}}>Criar conta</Button> : <Button onClick={() => setCurrentStepState(currentStepState + 1)}>Continuar</Button>}
         </div>
     );
 };
