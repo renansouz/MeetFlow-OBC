@@ -1,10 +1,8 @@
-import { Avatar } from '@radix-ui/react-avatar';
 import dayjs from 'dayjs';
 import { BriefcaseBusiness, CalendarCheck2, ContactRound, DollarSign, HourglassIcon } from 'lucide-react';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
-import { AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
@@ -20,6 +18,16 @@ interface Availability {
 }
 
 export function ProfessionalProfile() {
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setLoading(false);
+        }, 3000); // Tempo em milissegundos (3 segundos, por exemplo)
+
+        return () => clearTimeout(timeout);
+    }, []);
+
     const [selectedDate, setSelectedDate] = useState<Date | null>(null);
     const [availability, setAvailability] = useState<Availability>({
         possibleTimes: [9, 10, 11, 14, 15, 16, 17], // Horários disponíveis fictícios
@@ -40,13 +48,16 @@ export function ProfessionalProfile() {
         onSelectDateTime(dateWithTime);
     }
     return (
-        <Card className="w-[70%] min-w-[20rem] ml-[6%] my-16 pb-10 max-xl:w-full max-xl:m-0 bg-background">
+        <Card className="w-[70%] min-w-[20rem] ml-[6%] my-16 pb-10 max-xl:w-full max-xl:m-0">
             <CardHeader className="bg-indigo-300 h-32 rounded-tl-md rounded-tr-md w-full pt-14 max-lg:rounded-none">
-                <Avatar>
-                    <Skeleton className="w-[100px] h-[20px] rounded-full" />
-                    <AvatarImage src="https://github.com/renansouz.png" className="ml-5 border-4 border-background rounded-full w-36" />
-                    <AvatarFallback className="ml-5 border-4 border-background rounded-full w-36">CN</AvatarFallback>
-                </Avatar>
+                {loading ? (
+                    <Skeleton className="w-36 rounded-full h-36" />
+                ) : (
+                    <Avatar className="w-36 rounded-full h-36">
+                        <AvatarImage src="https://github.com/renansouz.png" className="ml-5 border-4 border-background rounded-full w-36" />
+                        <AvatarFallback className="ml-5 border-4 border-background rounded-full w-36">CN</AvatarFallback>
+                    </Avatar>
+                )}
             </CardHeader>
             <CardContent className="flex flex-col mt-20 w-full gap-y-2 border-b-2">
                 <CardTitle className="text-left font-bold ml-6 " style={{ maxWidth: '600px' }}>

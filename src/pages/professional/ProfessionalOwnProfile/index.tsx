@@ -39,7 +39,7 @@ export function ProfessionalOwnProfile() {
         }, 2000);
     }
     return (
-        <Card className="ml-[5%] mr-[15%] my-16 ">
+        <Card className="ml-[5%] mr-[15%] my-16">
             <CardHeader>
                 <Card>
                     <CardHeader className="bg-indigo-300 h-32 rounded-tl-md rounded-tr-md  pt-14 max-lg:rounded-none">

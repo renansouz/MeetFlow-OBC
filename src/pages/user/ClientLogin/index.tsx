@@ -57,8 +57,8 @@ export const ClientLogin = () => {
     };
 
     return (
-        <div className="flex h-screen max-xl:justify-center max-xl:items-center">
-            <div className="bg-background px-10 w-2/6 m-10 mt-[6%] max-sm:w-full max-sm:h-full max-sm:border-0 max-xl:min-w-[30rem] max-xl:flex max-xl:flex-col max-xl:justify-center max-xl:items-center max-xl:border-2 max-xl:rounded-xl max-xl:p-0  max-xl:m-0">
+        <div className="flex bg-card h-screen max-xl:justify-center max-xl:items-center">
+            <div className="px-10 w-2/6 m-10 mt-[6%] max-sm:w-full max-sm:h-full max-sm:border-0 max-xl:min-w-[30rem] max-xl:flex max-xl:flex-col max-xl:justify-center max-xl:items-center max-xl:border-2 max-xl:rounded-xl max-xl:p-0  max-xl:m-0">
                 <ToastContainer position="bottom-right" theme={theme} />
                 <div className=" flex flex-col items-center justify-center max-sm:mr-5">
                     <Link to={'/'}>

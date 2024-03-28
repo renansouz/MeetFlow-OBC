@@ -52,36 +52,14 @@ export const Home = () => {
                             </DialogContent>
                         </Dialog>
                     </div>
-                    <div className="absolute bottom-5 hidden w-[80%] justify-center">
-                        <div className="flex w-screen justify-between">
-                            <div className="flex flex-col items-center">
-                                <span className="bg-gradient-to-r from-indigo-50 to-slate-500 bg-clip-text font-semibold text-transparent max-xl:text-5xl xl:text-5xl">3000+</span>
-                                <p className="inline-block max-lg:text-2xl">usuários</p>
-                            </div>
-                            <div className="flex flex-col items-center">
-                                <Tally1 className="h-20 w-9" />
-                            </div>
-                            <div className="flex flex-col items-center">
-                                <span className="bg-gradient-to-r from-indigo-50 to-slate-500 bg-clip-text font-semibold text-transparent max-xl:text-5xl xl:text-5xl">98%</span>
-                                <p className="inline-block max-lg:text-2xl">de satisfação do cliente</p>
-                            </div>
-                            <div className="flex flex-col items-center">
-                                <Tally1 className="h-20 w-9" />
-                            </div>
-                            <div className="flex flex-col items-center">
-                                <span className="bg-gradient-to-r from-indigo-50 to-slate-500 bg-clip-text font-semibold text-transparent max-xl:text-5xl xl:text-5xl">2300+</span>
-                                <p className="inline-block max-lg:text-2xl">profissionais</p>
-                            </div>
-                        </div>
-                    </div>
                 </BackGroundImage>
             </section>
-            <section className="flex h-screen  items-center gap-40 max-xl:grid max-xl:h-auto max-xl:place-items-center max-sm:my-14 lg:my-36 xl:m-0 2xl:m-0 2xl:p-0">
-                <div className=" flex flex-col items-center max-xl:ml-0">
+            <section className="flex h-screen items-center justify-center gap-40 max-xl:grid max-xl:h-auto max-xl:place-items-center max-sm:my-14 lg:my-36 xl:m-0 2xl:m-0 2xl:p-0">
+                <div className="w-full flex flex-col items-center max-xl:ml-0 ml-[10%]">
                     <SobreImage />
                 </div>
-                <div className="flex w-3/6 flex-col items-center justify-center gap-5 text-center">
-                    <div className="mr-52 flex flex-col justify-start gap-6 max-xl:mr-0 max-xl:items-center">
+                <div className="w-full flex flex-col items-center justify-center gap-5 text-center">
+                    <div className="mr-[20%] flex flex-col justify-start gap-6 max-xl:mr-0 max-xl:items-center">
                         <h1 className="text-left text-6xl font-semibold max-xl:w-lvw max-xl:text-center max-lg:text-5xl max-sm:text-4xl md:text-4xl lg:text-5xl ">Conheça o MeetFlow:</h1>
                         <p className="max-xl:mx-440 mt-10 w-full text-left text-2xl font-extralight max-xl:px-56 max-xl:text-center max-lg:px-[5%] max-sm:mt-0 max-sm:text-base">
                             Nosso objetivo é simplificar o agendamento de serviços, oferecendo uma plataforma intuitiva e acessível para clientes e profissionais. Encontre o serviço ideal
@@ -93,15 +71,10 @@ export const Home = () => {
                     </div>
                 </div>
             </section>
-            <section
-                id="profisssional"
-                className="flex h-screen  items-center gap-40 max-lg:bg-secondary bg-opacity-100 max-xl:mb-[10%] max-xl:grid max-xl:h-auto max-xl:place-items-center max-lg:mb-0 max-sm:mb-14 xl:m-0 2xl:m-0 2xl:p-0"
-            >
-                <div className="flex w-3/6 flex-col items-center justify-center text-center">
-                    <div className="ml-52 flex flex-col justify-start gap-6 max-xl:ml-0 max-xl:items-center ">
-                        <h1 className="text-left text-6xl font-semibold max-xl:w-lvw max-xl:text-center max-lg:text-5xl max-sm:text-4xl md:text-4xl lg:text-5xl">
-                            Seja um Profissional MeetFlow
-                        </h1>
+            <section className="flex h-screen justify-center items-center gap-40 bg-card max-xl:mb-[10%] max-xl:grid max-xl:h-auto max-xl:place-items-center max-lg:mb-0 max-sm:mb-14 xl:m-0 2xl:m-0 2xl:p-0">
+                <div className="flex w-full flex-col items-center justify-center text-center">
+                    <div className="ml-[20%] flex flex-col justify-start gap-6 max-xl:ml-0 max-xl:items-center ">
+                        <h1 className="text-left font-semibold max-xl:w-lvw max-xl:text-center max-lg:text-4xl max-sm:text-3xl md:text-3xl lg:text-5xl">Seja um Profissional MeetFlow</h1>
                         <p className="mt-10 w-full text-left text-2xl font-extralight max-xl:px-56 max-xl:text-center max-lg:px-[5%] max-sm:mt-0 max-sm:text-base">
                             Se você é um profissional em busca de mais oportunidades, junte-se à nossa comunidade. Aumente sua visibilidade e simplifique seu agendamento
                         </p>
@@ -110,7 +83,7 @@ export const Home = () => {
                         </div>
                     </div>
                 </div>
-                <div className=" flex flex-col items-center max-xl:order-first max-xl:ml-0 max-xl:mt-[10%] ">
+                <div className="w-full flex flex-col mr-[10%] max-xl:mr-0 items-center max-xl:order-first max-xl:ml-0 max-xl:mt-[10%] ">
                     <ProfessionalImage />
                 </div>
             </section>

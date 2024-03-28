@@ -10,7 +10,7 @@ import { CardData } from '.';
 
 export const CardProfessional = ({ profile_pic, description, name, categorie }: CardData) => {
     return (
-        <Card className="shadow-2xl w-64 rounded-md flex flex-col items-center gap-y-12 bg-background">
+        <Card className="shadow-2xl w-64 rounded-md flex flex-col items-center gap-y-12">
             <CardHeader className="bg-indigo-300 h-20 rounded-tl-md rounded-tr-md w-full items-center">
                 <Avatar>
                     <AvatarImage src={profile_pic} className="rounded-full w-24" />
