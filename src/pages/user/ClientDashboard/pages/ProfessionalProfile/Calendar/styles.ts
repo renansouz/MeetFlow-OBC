@@ -64,7 +64,7 @@ export const CalendarTitle = styled.span`
 
 export const CalendarBody = styled.table`
     width: 100%;
-    font-family: 'poppins', inherit;
+    font-family: 'Space Grotesk', inherit;
     border-spacing: 0.25rem;
     table-layout: fixed;
 

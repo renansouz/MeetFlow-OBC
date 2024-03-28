@@ -1,11 +1,11 @@
 import { Outlet } from 'react-router';
-import { ClientAside } from '@/pages/user/ClientDashboard/pages/components/ClientAside';
-import { useTheme } from '@/context/theme-provider';
 
+import { useTheme } from '@/context/theme-provider';
+import { ClientAside } from '@/pages/user/ClientDashboard/pages/components/ClientAside';
 
 export const UserDashboardLayout = () => {
     const { theme } = useTheme();
-    const backgroundToggle = theme === 'dark' ? 'bg-[#09090B]' : 'bg-[#fff]';
+    const backgroundToggle = theme === 'dark' ? 'bg-background' : 'bg-[#fff]';
     return (
         <div className="flex">
             <ClientAside />

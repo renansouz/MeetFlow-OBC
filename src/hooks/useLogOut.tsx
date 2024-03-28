@@ -1,8 +1,8 @@
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "@/context/auth-provider";
+import { useNavigate } from 'react-router-dom';
+
+import { useAuth } from '@/context/auth-provider';
 
 export const useLogOut = () => {
-
     const { isAuth, setAuth } = useAuth();
     const navigate = useNavigate();
 
@@ -14,6 +14,5 @@ export const useLogOut = () => {
         }
     };
 
-
-    return logOut
-}
+    return logOut;
+};

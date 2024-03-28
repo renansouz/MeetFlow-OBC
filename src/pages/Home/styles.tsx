@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-import professionalImage from '@/public/img/area-profissional.svg';
+import professionalImage from '@/public/img/area-profissional.jpg';
 import pageBackground from '@/public/img/page-background.svg';
-import sobreImage from '@/public/img/sobre-nos.svg';
+import sobreImage from '@/public/img/sobre-nos.jpg';
 
 export const BackGroundImage = styled.div`
-    background-image: linear-gradient(140deg, rgba(0, 0, 1, 0.8) 40%, rgba(26, 30, 95, 0.8)), url(${pageBackground});
+    background-image: linear-gradient(140deg, rgba(0, 0, 1, 0.8) 40%, rgba(26, 30, 95, 0.8) 95%), url(${pageBackground});
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
@@ -21,11 +21,11 @@ export const BackGroundImage = styled.div`
 `;
 
 export const SobreImage = styled.div`
-    background-image: linear-gradient(140deg, rgba(3, 3, 36, 0.247) 40%, rgba(26, 30, 95, 0.726)), url(${sobreImage});
-    height: 38rem;
-    width: 33rem;
-    border-radius: 20px;
+    background-image: linear-gradient(to right, rgba(3, 3, 36, 0) 20%, rgba(3, 7, 18, 100) 90%), url(${sobreImage});
+    height: 80vh;
+    width: 100vh;
     background-size: cover;
+
     @media not all and (min-width: 1450px) {
         height: 30rem;
         width: 25rem;
@@ -50,10 +50,9 @@ export const SobreImage = styled.div`
 `;
 
 export const ProfessionalImage = styled.div`
-    background-image: linear-gradient(140deg, rgba(3, 3, 36, 0.247) 40%, rgba(26, 30, 95, 0.726)), url(${professionalImage});
-    height: 38rem;
-    width: 33rem;
-    border-radius: 20px;
+    background-image: linear-gradient(to left, rgba(3, 3, 36, 21%) 33%, rgba(3, 7, 18, 100) 90%), url(${professionalImage});
+    height: 80vh;
+    width: 100vh;
     background-size: cover;
     @media not all and (min-width: 1450px) {
         height: 30rem;

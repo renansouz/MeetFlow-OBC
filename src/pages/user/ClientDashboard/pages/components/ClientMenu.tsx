@@ -1,12 +1,14 @@
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-import { Button } from '@/components/ui/button';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { useLogOut } from '@/hooks/useLogOut';
 import { useEffect } from 'react';
-import { AlertDialogContainer } from './AlertDialogContainer';
 import { useState } from 'react';
-import { UserType } from '@/types/userType';
+
 import { userAPI } from '@/api/userAPI';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { useLogOut } from '@/hooks/useLogOut';
+import { UserType } from '@/types/userType';
+
+import { AlertDialogContainer } from './AlertDialogContainer';
 
 export const ClientMenu = () => {
     const [userData, setUserData] = useState<UserType | undefined>();
@@ -18,7 +20,7 @@ export const ClientMenu = () => {
     useEffect(() => {
         const getUserData = async () => {
             const res = await userAPI.fetchUserData();
-            const { user } = await res; 
+            const { user } = await res;
             setUserData(user);
         };
 
