@@ -8,8 +8,8 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Textarea } from '@/components/ui/textarea';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { useTheme } from '@/context/theme-provider';
-import Logo from '@/public/img/logo.svg';
-import LightLogo from '@/public/img/logo-light.svg';
+import Logo from '@/public/img/Logo.svg';
+import LightLogo from '@/public/img/Logo-light.svg';
 import LogoMenor from '@/public/img/only-logo-white.svg';
 
 import { AsideItem } from './asideItem';

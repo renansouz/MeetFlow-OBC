@@ -1,34 +1,28 @@
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Button } from '@/components/ui/button';
+import { dayHours } from '@/utils/dayHours';
+import { useState } from 'react';
 
-export const Step2 = () => {
-    const dayHours: string[] = [
-        '00:00',
-        '01:00',
-        '02:00',
-        '03:00',
-        '04:00',
-        '05:00',
-        '06:00',
-        '07:00',
-        '09:00',
-        '10:00',
-        '11:00',
-        '12:00',
-        '13:00',
-        '14:00',
-        '15:00',
-        '16:00',
-        '17:00',
-        '18:00',
-        '19:00',
-        '20:00',
-        '21:00',
-        '22:00',
-        '23:00',
-    ];
+
+
+
+
+
+type stepProps = {
+    currentStepState: number;
+    setCurrentStepState: (int: number) => void;
+};
+
+export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
+
+    const[startTime,setStartTime] = useState<string>();
+    const[endTime,setEndTime] = useState<string>();
+
+
+
 
     return (
-        <div>
+        <form>
             <div className="flex flex-col items-center justify-center">
                 <h2 className="mt-20 text-black">Horários disponíveis</h2>
                 <div className="flex items-center justify-center gap-10 py-10 ">
@@ -42,6 +36,9 @@ export const Step2 = () => {
                             ))}
                         </SelectContent>
                     </Select>
+                    <div>
+                        <p className="text-black">até</p>
+                    </div>
                     <Select>
                         <SelectTrigger className="w-[180px] bg-white text-black">
                             <SelectValue placeholder="00:00" />
@@ -100,7 +97,15 @@ export const Step2 = () => {
                         </label>
                     </div>
                 </div>
+                {startTime}
+                {endTime}
+                <div className="flex justify-center mt-20  gap-40 absolute bottom-10 w-full">
+                    <Button variant={'costumize'} onClick={() => setCurrentStepState(currentStepState - 1)}>
+                        Voltar
+                    </Button>
+                    <Button type="submit">Continuar</Button>
+                </div>
             </div>
-        </div>
+        </form>
     );
 };

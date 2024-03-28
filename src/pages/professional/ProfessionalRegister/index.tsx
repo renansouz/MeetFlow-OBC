@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
-import { MultiStep } from '@/components/MultiStep';
+import { MultiStep } from '@/components/multiStep';
 import { useTheme } from '@/context/theme-provider';
-import DarkLogo from '@/public/img/logo.svg';
-import LightLogo from '@/public/img/logo-light.svg';
+import DarkLogo from '@/public/img/Logo.svg';
+import LightLogo from '@/public/img/Logo-light.svg';
 
-import { Step1, Step2, Step3, StepNavigator } from './step';
+import { Step1, Step2, Step3 } from './step';
 import { BackGroundDiv, FormDiv } from './styles';
 
 export const ProfessionalRegister = () => {
@@ -25,11 +25,9 @@ export const ProfessionalRegister = () => {
                     <FormDiv>
                         <MultiStep size={3} currentStep={currentStepState} text={['Conta', 'Disponibilidade', 'Serviços']} />
 
-                        {currentStepState === 1 ? <Step1 /> : null}
-                        {currentStepState === 2 ? <Step2 /> : null}
-                        {currentStepState === 3 ? <Step3 /> : null}
-
-                        <StepNavigator currentStepState={currentStepState} setCurrentStepState={setCurrentStepState} />
+                        {currentStepState === 1 ? <Step1 setCurrentStepState={setCurrentStepState} currentStepState={currentStepState} /> : null}
+                        {currentStepState === 2 ? <Step2 setCurrentStepState={setCurrentStepState} currentStepState={currentStepState} /> : null}
+                        {currentStepState === 3 ? <Step3 setCurrentStepState={setCurrentStepState} currentStepState={currentStepState} /> : null}
                     </FormDiv>
                 </div>
             </BackGroundDiv>
