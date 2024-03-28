@@ -30,7 +30,7 @@ Este projeto é parte de um desafio e tem como objetivo criar um sistema de agen
 ## Extras
 
 - [ ] Skeleton (Enquanto as informações estão sendo carregadas da API)
-- [x] Apenas para ver como fica quando marcar. kkk
+- [x] Apenas para ver como fica quando marcar. 
 
 ### Este README está sujeito a atualizações conforme o projeto avança e novas funcionalidades são implementadas.
 
