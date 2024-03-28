@@ -11,7 +11,7 @@ import { BackGroundDiv, FormDiv } from './styles';
 export const ProfessionalRegister = () => {
     const { theme } = useTheme();
 
-    const [currentStepState, setCurrentStepState] = useState<number>(1);
+    const [currentStepState, setCurrentStepState] = useState<number>(2);
 
     return (
         <div className="flex h-screen w-full ">

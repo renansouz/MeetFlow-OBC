@@ -1,4 +1,5 @@
 export type ScheduleType = {
+    name:string,
     days1: {
         monday: boolean;
         sunday1: boolean;

@@ -2,11 +2,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Button } from '@/components/ui/button';
 import { dayHours } from '@/utils/dayHours';
 import { useState } from 'react';
-
-
-
-
-
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { professionalAPI } from '@/api/professionalAPI';
 
 type stepProps = {
     currentStepState: number;
@@ -15,14 +14,47 @@ type stepProps = {
 
 export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
 
-    const[startTime,setStartTime] = useState<string>();
-    const[endTime,setEndTime] = useState<string>();
+    const createScheduleSchema = z.object({
+        name: z.string(),
+        days: z.object({
+            monday1: z.boolean(),
+            tuesday1: z.boolean(),
+            wensday1: z.boolean(),
+            thursday1: z.boolean(),
+            friday1: z.boolean(),
+            saturday1: z.boolean(),
+            sunday1: z.boolean(),
+        }),
+        hourStart1: z.string(),
+        hourEnd1: z.string(),
+        hourLunchStart1: z.string(),
+        hourLunchEnd1: z.string(),
+    });
 
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors, isSubmitting },
+    } = useForm<ScheduleFormData>({ resolver: zodResolver(createScheduleSchema) });
+
+    type ScheduleFormData = z.infer<typeof createScheduleSchema>;
+
+
+    const createNewSchedule = async(scheduleData:ScheduleFormData) => {
+
+        try{
+            const res = await professionalAPI.createSchedule(scheduleData)
+
+        }catch(error){
+            console.log(error);
+        }
+    }
 
 
 
     return (
-        <form>
+        <form onSubmit={handleSubmit(createNewSchedule)}>
             <div className="flex flex-col items-center justify-center">
                 <h2 className="mt-20 text-black">Horários disponíveis</h2>
                 <div className="flex items-center justify-center gap-10 py-10 ">
@@ -32,7 +64,9 @@ export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
                         </SelectTrigger>
                         <SelectContent className="w-[180px] bg-white text-black">
                             {dayHours.map((day) => (
-                                <SelectItem value={day}>{day}</SelectItem>
+                                <SelectItem value={day} {...register('hourStart1')}>
+                                    {day}
+                                </SelectItem>
                             ))}
                         </SelectContent>
                     </Select>
@@ -45,7 +79,9 @@ export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
                         </SelectTrigger>
                         <SelectContent className="w-[180px] bg-white text-black">
                             {dayHours.map((day) => (
-                                <SelectItem value={day}>{day}</SelectItem>
+                                <SelectItem value={day} {...register('hourEnd1')}>
+                                    {day}
+                                </SelectItem>
                             ))}
                         </SelectContent>
                     </Select>
@@ -55,50 +91,48 @@ export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
                 <h2 className="text-center text-black">Dias disponiveis</h2>
                 <div className="mt-5 flex justify-center gap-5 flex-wrap">
                     <div className="flex flex-col items-center justify-center gap-2">
-                        <input type="checkbox" name="" id="" />
+                        <input type="checkbox" id="" {...register('days.sunday1')} />
                         <label htmlFor="" className="block text-black">
                             Domingo
                         </label>
                     </div>
                     <div className="flex flex-col items-center justify-center gap-2">
-                        <input type="checkbox" name="" id="" />
+                        <input type="checkbox" id="" {...register('days.monday1')} />
                         <label htmlFor="" className="block text-black">
                             Segunda
                         </label>
                     </div>
                     <div className="flex flex-col items-center justify-center gap-2">
-                        <input type="checkbox" name="" id="" />
+                        <input type="checkbox" id="" {...register('days.tuesday1')} />
                         <label htmlFor="" className="block text-black">
                             Terça
                         </label>
                     </div>
                     <div className="flex flex-col items-center justify-center gap-2">
-                        <input type="checkbox" name="" id="" />
+                        <input type="checkbox" id="" {...register('days.wensday1')} />
                         <label htmlFor="" className="block text-black">
                             Quarta
                         </label>
                     </div>
                     <div className="flex flex-col items-center justify-center gap-2">
-                        <input type="checkbox" name="" id="" />
+                        <input type="checkbox" id="" {...register('days.thursday1')} />
                         <label htmlFor="" className="block text-black">
                             Quinta
                         </label>
                     </div>
                     <div className="flex flex-col items-center justify-center gap-2">
-                        <input type="checkbox" name="" id="" />
+                        <input type="checkbox" id="" {...register('days.friday1')} />
                         <label htmlFor="" className="block text-black">
                             Sexta
                         </label>
                     </div>
                     <div className="flex flex-col items-center justify-center gap-2">
-                        <input type="checkbox" name="" id="" />
+                        <input type="checkbox" id="" {...register('days.saturday1')} />
                         <label htmlFor="" className="block text-black">
                             Sábado
                         </label>
                     </div>
                 </div>
-                {startTime}
-                {endTime}
                 <div className="flex justify-center mt-20  gap-40 absolute bottom-10 w-full">
                     <Button variant={'costumize'} onClick={() => setCurrentStepState(currentStepState - 1)}>
                         Voltar
