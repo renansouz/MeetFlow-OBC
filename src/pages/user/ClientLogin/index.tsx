@@ -72,7 +72,7 @@ export const ClientLogin = () => {
                             Endereço de e-mail
                         </label>
                         <div className="max-sm:w-[20rem] flex mx-1 w-80 items-center gap-2 rounded-lg border border-indigo-300 px-4 py-2 shadow-sm">
-                            <User className="text-indigo-300" />
+                            <User className="text-foreground" />
                             <Input className="flex-1 border-0 bg-transparent p-0 text-zinc-900 placeholder-zinc-600" placeholder="Digite seu email" id="email" {...register('email')} />
                         </div>
                         {errors.email && <p className="text-red-500 py-2">{errors.email.message}</p>}
@@ -81,8 +81,8 @@ export const ClientLogin = () => {
                         <label htmlFor="" className="block py-2 font-bold ">
                             Senha
                         </label>
-                        <div className="max-sm:w-[20rem] flex mx-1 w-80 items-center gap-2 rounded-lg border border-indigo-300 px-3 py-2 shadow-sm">
-                            <Lock className="text-indigo-300" />
+                        <div className="max-sm:w-[20rem] flex mx-1 w-80 items-center gap-2 rounded-lg border border-foreground px-3 py-2 shadow-sm">
+                            <Lock className="text-foreground" />
                             <Input className="flex-1 border-0 bg-transparent p-0 text-zinc-900 placeholder-zinc-600" placeholder="Digite sua senha" id="password" {...register('password')} />
                         </div>
                         {errors.password && <p className="text-red-500 py-2">{errors.password.message}</p>}

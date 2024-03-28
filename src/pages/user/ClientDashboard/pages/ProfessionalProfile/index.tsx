@@ -42,8 +42,8 @@ export function ProfessionalProfile() {
         <Card className="w-[70%] min-w-[20rem] ml-[6%] my-16 pb-10 max-xl:w-full max-xl:m-0">
             <CardHeader className="bg-indigo-300 h-32 rounded-tl-md rounded-tr-md w-full pt-14 max-lg:rounded-none">
                 <Avatar>
-                    <AvatarImage src="https://github.com/renansouz.png" className="ml-5 border-4 border-slate-950 rounded-full w-36" />
-                    <AvatarFallback className="ml-5 border-4 border-slate-950 rounded-full w-36">CN</AvatarFallback>
+                    <AvatarImage src="https://github.com/renansouz.png" className="ml-5 border-4 border-background rounded-full w-36" />
+                    <AvatarFallback className="ml-5 border-4 border-background rounded-full w-36">CN</AvatarFallback>
                 </Avatar>
             </CardHeader>
             <CardContent className="flex flex-col mt-20 w-full gap-y-2 border-b-2">
@@ -51,7 +51,7 @@ export function ProfessionalProfile() {
                     RENAN DE SOUZA SILVA
                 </CardTitle>
                 <CardDescription className="font-light w-full ml-6">Olá me chamo Renan, caso queira aprender tailwind, agende uma reunião comigo!</CardDescription>
-                <span className="font-bold mt-3 ml-5 text-indigo-300">+ 10 agendamentos</span>
+                <span className="font-bold mt-3 ml-5 text-indigo-600/90">+ 10 agendamentos</span>
             </CardContent>
             {/* SERVIÇOS */}
             {/* <ProfessionalService /> */}
@@ -81,27 +81,27 @@ export function ProfessionalProfile() {
                                     <DialogDescription className="border-b-2 pb-5">Por favor, confirme os detalhes do seu agendamento antes de prosseguir.</DialogDescription>
                                     <DialogHeader className="text-lg flex flex-col m-6 gap-4 py-5">
                                         <div className="flex justify-between gap-4 border-b-2 pb-4">
-                                            <ContactRound className="text-indigo-100" />
+                                            <ContactRound className="text-foreground" />
                                             <span className="w-1/2 text-xl font-bold">Profissional:</span>
                                             <span className="w-1/2 text-xl">Renan</span>
                                         </div>
                                         <div className="flex justify-between gap-4 border-b-2 pb-4">
-                                            <BriefcaseBusiness className="text-indigo-100" />
+                                            <BriefcaseBusiness className="text-foreground" />
                                             <span className="w-1/2 text-xl font-bold">Serviço:</span>
                                             <span className="w-1/2 text-xl">Tailwind</span>
                                         </div>
                                         <div className="flex justify-between gap-4 border-b-2 pb-4">
-                                            <HourglassIcon className="text-indigo-100" />
+                                            <HourglassIcon className="text-foreground" />
                                             <span className="w-1/2 text-xl font-bold">Duração:</span>
                                             <span className="w-1/2 text-xl">2 Horas</span>
                                         </div>
                                         <div className="flex justify-between gap-4 border-b-2 pb-4">
-                                            <CalendarCheck2 className="text-indigo-100" />
+                                            <CalendarCheck2 className="text-foreground" />
                                             <span className="w-1/2 text-xl font-bold">Data e Hora:</span>
                                             <span className="w-1/2 text-xl">11/04/2024 ás 11:11</span>
                                         </div>
                                         <div className="flex justify-between gap-4 border-b-2 pb-4">
-                                            <DollarSign className="text-indigo-100" />
+                                            <DollarSign className="text-foreground" />
                                             <span className="w-1/2 text-xl font-bold">Valor:</span>
                                             <span className="w-1/2 text-xl">R$100</span>
                                         </div>

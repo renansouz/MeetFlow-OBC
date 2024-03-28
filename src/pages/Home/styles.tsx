@@ -27,7 +27,7 @@ export const SobreImage = styled.div`
     background-size: cover;
 
     @media (max-width: 1279px) {
-        background-image: linear-gradient(to right, rgba(3, 3, 36, 0.2) 20%, rgba(3, 7, 18, 0.4)), url(${sobreImage});
+        background-image: linear-gradient(to right, rgba(3, 3, 36, 0.2) 20%, rgba(3, 7, 18, 100)), url(${sobreImage});
         border-radius: 20px;
     }
 `;
@@ -39,7 +39,7 @@ export const ProfessionalImage = styled.div`
     background-size: cover;
 
     @media (max-width: 1279px) {
-        background-image: linear-gradient(to right, rgba(3, 3, 36, 0.2) 20%, rgba(3, 7, 18, 0.4)), url(${professionalImage});
+        background-image: linear-gradient(to right, rgba(3, 3, 36, 0.2) 20%, rgba(3, 7, 18, 100)), url(${professionalImage});
         border-radius: 20px;
     }
 `;

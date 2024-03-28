@@ -76,7 +76,7 @@ export const Header = () => {
                                             </Link>
                                             <Link
                                                 to={'/dashboard/services'}
-                                                className=" item-center hover:text-indigo-600 text-indigo-200 hover:underline justify-center flex p-4 w-full font-medium"
+                                                className=" item-center hover:text-indigo-600 text-foreground hover:underline justify-center flex p-4 w-full font-medium"
                                             >
                                                 <span>Entrar sem Login</span>
                                             </Link>

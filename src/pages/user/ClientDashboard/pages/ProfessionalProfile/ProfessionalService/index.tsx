@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 
 export const ProfessionalService = () => {
     return (
-        <Card className="bg-slate-900 p-3 m-10">
+        <Card className="bg-background p-3 m-10">
             <CardHeader>
                 <div className="flex justify-between items-center flex-row">
                     <div className="flex">
@@ -25,11 +25,11 @@ export const ProfessionalService = () => {
             </CardHeader>
             <CardContent className="flex justify-between mt-10">
                 <div className="flex gap-3">
-                    <Card className="border-slate-600 border-2 px-4 py-3 flex items-center justify-center rounded-full gap-2">
-                        <Hourglass className="text-indigo-300" />2 horas
+                    <Card className="border-border border-2 px-4 py-3 flex items-center justify-center rounded-full gap-2">
+                        <Hourglass className="text-foreground" />2 horas
                     </Card>
-                    <Card className="border-slate-600 border-2 px-4 py-3 flex items-center justify-center rounded-full gap-2">
-                        <DollarSign className="text-indigo-300" /> R$100,00
+                    <Card className="border-border border-2 px-4 py-3 flex items-center justify-center rounded-full gap-2">
+                        <DollarSign className="text-foreground" /> R$100,00
                     </Card>
                 </div>
 

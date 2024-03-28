@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 
 export const ServicesCard = () => {
     return (
-        <Card className="bg-slate-900 p-3 m-10">
+        <Card className="bg-background p-3 m-10">
             <CardHeader>
                 <div className="flex justify-between items-center flex-row">
                     <div className="flex">
@@ -21,17 +21,17 @@ export const ServicesCard = () => {
                         <span className="font-extralight">(10)</span>
                     </div>
                 </div>
-                <CardDescription className="w-[80%] text-base text-indigo-100">Agendamento com: Renan de Souza Silva</CardDescription>
+                <CardDescription className="w-[80%] text-base text-foreground">Agendamento com: Renan de Souza Silva</CardDescription>
                 <CardDescription className="w-[80%]">especialista em Tailwind. Entre em contato para agendar sua primeira aula e leve seus projetos web para o próximo nível</CardDescription>
             </CardHeader>
             <CardContent className="flex justify-between mt-10">
                 <div className="flex gap-3">
-                    <Card className="border-slate-600 border-2 px-4 py-3 flex items-center justify-center rounded-full gap-2">
-                        <Hourglass className="text-indigo-300" />2 horas
+                    <Card className="border-border border-2 px-4 py-3 flex items-center justify-center rounded-full gap-2">
+                        <Hourglass className="text-indigo-500" />2 horas
                     </Card>
-                    <Card className="border-slate-600 border-2 px-4 py-3  flex items-center justify-center rounded-full gap-3">
-                        <CalendarDays className="text-indigo-300" />
-                        11 de abril de 2024 <Clock className="text-indigo-300" /> 11:00h
+                    <Card className="border-border border-2 px-4 py-3  flex items-center justify-center rounded-full gap-3">
+                        <CalendarDays className="text-indigo-500" />
+                        11 de abril de 2024 <Clock className="text-indigo-500" /> 11:00h
                     </Card>
                 </div>
                 <Button asChild className="text-lg font-light bg-indigo-700 hover:bg-indigo-800" variant={'default'}>

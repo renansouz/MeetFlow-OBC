@@ -44,8 +44,8 @@ export function ProfessionalOwnProfile() {
                 <Card>
                     <CardHeader className="bg-indigo-300 h-32 rounded-tl-md rounded-tr-md  pt-14 max-lg:rounded-none">
                         <Avatar>
-                            <AvatarImage src="https://github.com/renansouz.png" className="ml-5 border-4 border-slate-950 rounded-full w-36" />
-                            <AvatarFallback className="ml-5 border-4 border-slate-950 rounded-full w-36">CN</AvatarFallback>
+                            <AvatarImage src="https://github.com/renansouz.png" className="ml-5 border-4 border-background rounded-full w-36" />
+                            <AvatarFallback className="ml-5 border-4 border-background rounded-full w-36">CN</AvatarFallback>
                         </Avatar>
                     </CardHeader>
                     <CardContent className="flex flex-col mt-20  gap-y-2">
@@ -55,13 +55,13 @@ export function ProfessionalOwnProfile() {
                                     RENAN DE SOUZA SILVA
                                 </CardTitle>
                                 <CardDescription className="font-light  ml-6">Olá me chamo Renan, caso queira aprender tailwind, agende uma reunião comigo!</CardDescription>
-                                <span className="font-bold mt-3 ml-5 text-indigo-300">+ 10 agendamentos</span>
+                                <span className="font-bold mt-3 ml-5 text-indigo-600/90">+ 10 agendamentos</span>
                             </div>
                             <div>
                                 <Dialog>
                                     <DialogTrigger className="flex">
                                         <div className="hover:bg-indigo-500 w-10 h-10 rounded-full flex justify-center items-center">
-                                            <Pencil className=" text-indigo-300 flex" />
+                                            <Pencil className=" text-indigo-600/90 flex" />
                                         </div>
                                     </DialogTrigger>
                                     <DialogContent>
@@ -80,7 +80,7 @@ export function ProfessionalOwnProfile() {
                                                                 <FormLabel>Nome</FormLabel>
                                                                 <FormControl>
                                                                     <Input
-                                                                        className="bg-slate-950 border-2 rounded-md p-2 w-full border-slate-600 focus:border-slate-300"
+                                                                        className="bg-background border-2 rounded-md p-2 w-full border-border focus:border-slate-300"
                                                                         placeholder="Editar nome"
                                                                         {...field}
                                                                     />
@@ -97,7 +97,7 @@ export function ProfessionalOwnProfile() {
                                                                 <FormLabel>Título</FormLabel>
                                                                 <FormControl>
                                                                     <Textarea
-                                                                        className="bg-slate-950 border-2 rounded-md p-2 w-full border-slate-600 focus:border-slate-300"
+                                                                        className="bg-background border-2 rounded-md p-2 w-full border-border focus:border-slate-300"
                                                                         placeholder="Editar Título"
                                                                         {...field}
                                                                     />
@@ -114,7 +114,7 @@ export function ProfessionalOwnProfile() {
                                                                 <FormLabel>Email</FormLabel>
                                                                 <FormControl>
                                                                     <Input
-                                                                        className="bg-slate-950 border-2 rounded-md p-2 w-full border-slate-600 focus:border-slate-300"
+                                                                        className="bg-background border-2 rounded-md p-2 w-full border-border focus:border-slate-300"
                                                                         type="email"
                                                                         placeholder="Mudar e-mail"
                                                                         {...field}
@@ -132,7 +132,7 @@ export function ProfessionalOwnProfile() {
                                                                 <FormLabel>Password</FormLabel>
                                                                 <FormControl>
                                                                     <Input
-                                                                        className="bg-slate-950 border-2 rounded-md p-2 w-full border-slate-600 focus:border-slate-300"
+                                                                        className="bg-background border-2 rounded-md p-2 w-full border-border focus:border-slate-300"
                                                                         type="password"
                                                                         placeholder="Inserir nova senha"
                                                                         {...field}
@@ -150,7 +150,7 @@ export function ProfessionalOwnProfile() {
                                                                 <FormLabel>Photo</FormLabel>
                                                                 <FormControl>
                                                                     <Input
-                                                                        className="bg-slate-950 border-2 rounded-md p-2 w-full border-slate-600 focus:border-slate-300"
+                                                                        className="bg-background border-2 rounded-md p-2 w-full border-border focus:border-slate-300"
                                                                         type="file"
                                                                         {...field}
                                                                     />

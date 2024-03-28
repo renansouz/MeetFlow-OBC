@@ -10,7 +10,6 @@ import Logo from '@/public/img/logo.svg';
 import LightLogo from '@/public/img/logo-light.svg';
 import LogoMenor from '@/public/img/only-logo-white.svg';
 
-import { AlertDialogContainer } from './AlertDialogContainer';
 import { AsideItem } from './AsideItem';
 import { ClientMenu } from './ClientMenu';
 
@@ -20,7 +19,7 @@ export const ClientAside = () => {
 
     return (
         <>
-            <aside className=" flex h-screen w-auto flex-col border-r-2 py-8 items-center justify-between max-lg:px-4 max-lg:py-4 bg-slate bg-slate-950 max-sm:border-0 max-sm:px-0 ">
+            <aside className=" flex h-screen w-auto flex-col border-r-2 py-8 items-center justify-between max-lg:px-4 max-lg:py-4 bg-slate bg-background max-sm:border-0 max-sm:px-0 ">
                 <div className=" flex flex-col gap-y-10 max-lg:gap-0 max-sm:hidden">
                     <div className="flex flex-col gap-y-1">
                         <Link to={'/'}>
