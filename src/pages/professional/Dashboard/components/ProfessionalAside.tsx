@@ -42,7 +42,7 @@ export const ProfessionalAside = () => {
         register,
         handleSubmit,
         reset,
-        formState: { errors, isSubmitting },
+        formState: { errors },
     } = useForm<LoginFormData>({ resolver: zodResolver(createUserSchema) });
 
     const handleCreateService = async (userData: LoginFormData) => {
@@ -134,29 +134,6 @@ export const ProfessionalAside = () => {
                                             Continuar
                                         </Button>
                                     </div>
-
-                                    {/* <div className="flex justify-between gap-6">
-                                        <span>preço:</span>
-                                        <Input className="w-80" placeholder="Insira o nome do serviço" />
-                                    </div>
-                                    <div className="flex justify-between gap-6">
-                                        <span>Descrinção:</span>
-                                        <Textarea className="row-span-3 w-80 resize-none" placeholder="Insira uma descrinção para este serviço" />
-                                    </div>
-                                    <div className="flex justify-between gap-6">
-                                        <span>Duração:</span>
-                                        <Input className="w-80" placeholder="Inisra a duração deste serviço" />
-                                    </div>
-                                    <div className="flex justify-between gap-6">
-                                        <span>Preço:</span>
-                                        <Input className="w-80" placeholder="adicione um valor para este serviço" />
-                                    </div>
-                                    <div className="flex justify-end">
-                                        <Button type="submit" className=" flex w-32 items-center justify-center bg-indigo-700 hover:bg-indigo-800">
-                                            Salvar
-                                        </Button>
-                                    </div>
-                                    */}
                                 </form>
                             </DialogContent>
                         </Dialog>

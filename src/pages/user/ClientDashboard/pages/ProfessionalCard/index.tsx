@@ -70,12 +70,12 @@ export const Services = () => {
         <div className="w-full">
             <Header title="Serviços" />
             <div>
-                <div className="flex items-center flex-col gap-5">
-                    {loading ? <Skeleton className="w-48 h-8 rounded-md z-0 gap-y-12" /> : <h2 className="text-center text-3xl">Profissionais</h2>}
+                <div className="flex flex-col items-center gap-5">
+                    {loading ? <Skeleton className="z-0 h-8 w-48 gap-y-12 rounded-md" /> : <h2 className="text-center text-3xl">Profissionais</h2>}
 
                     <Search placeholder="Busque por um serviço ou profissional" />
                 </div>
-                <div className="flex flex-wrap items-center gap-10 mt-10 justify-center">
+                <div className="mt-10 flex flex-wrap items-center justify-center gap-10">
                     {categoriesMock.map((categorie) => {
                         return (
                             <div className="flex items-center gap-2">
@@ -84,14 +84,14 @@ export const Services = () => {
                                 ) : (
                                     <input
                                         type="radio"
-                                        className="appearance-none h-6 w-6 border-2 border-indigo-800 checked:bg-indigo-600 checked:border-indigo-800 rounded-md"
+                                        className="h-6 w-6 appearance-none rounded-md border-2 border-indigo-800 checked:border-indigo-800 checked:bg-indigo-600"
                                         name="category"
                                         id={categorie.title}
                                     />
                                 )}
 
                                 {loading ? (
-                                    <Skeleton className="w-20 h-6 rounded-md z-0 gap-y-12" />
+                                    <Skeleton className="z-0 h-6 w-20 gap-y-12 rounded-md" />
                                 ) : (
                                     <label htmlFor="" id={categorie.title}>
                                         {categorie.title}
@@ -102,12 +102,12 @@ export const Services = () => {
                     })}
                 </div>
                 <div className="flex">
-                    <div className="flex flex-wrap py-16 gap-10 justify-center">
+                    <div className="flex flex-wrap justify-center gap-10 py-16">
                         {cardMock.map((user) => (
                             <CardProfessional profile_pic={user.profile_pic} name={user.name} categorie={user.categorie} description={user.description} />
                         ))}
                     </div>
-                    <div className="flex flex-col w-1/12 items-start gap-2">
+                    <div className="flex w-1/12 flex-col items-start gap-2">
                         <p></p>
                     </div>
                 </div>

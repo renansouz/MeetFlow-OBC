@@ -59,25 +59,25 @@ export const Header = () => {
                                             </NavigationMenuLink>
                                         </NavigationMenuItem>
                                     </DialogTrigger>
-                                    <DialogContent className="p-12 gap-6">
+                                    <DialogContent className="gap-6 p-12">
                                         <DialogHeader className="flex">
-                                            <DialogTitle className="text-2xl items-center justify-center text-center font-bold mb-2">Seja bem-vindo ao MeetFLow!</DialogTitle>
+                                            <DialogTitle className="mb-2 items-center justify-center text-center text-2xl font-bold">Seja bem-vindo ao MeetFLow!</DialogTitle>
                                             <DialogDescription className="text-center">
                                                 Estamos felizes por você estar aqui. Para desfrutar ao máximo de nossos serviços, recomendamos criar uma conta. Se preferir, vocês também pode
                                                 entrar sem fazer login.
                                             </DialogDescription>
                                         </DialogHeader>
 
-                                        <div className="flex flex-col justify-center items-center gap-6 mt-10">
+                                        <div className="mt-10 flex flex-col items-center justify-center gap-6">
                                             <Link
-                                                className="item-center justify-center  flex p-4 w-full text-xl border-2 border-indigo-800 bg-indigo-400 text-background hover:bg-indigo-500 rounded-2xl "
+                                                className="item-center flex  w-full justify-center rounded-2xl border-2 border-indigo-800 bg-indigo-400 p-4 text-xl text-background hover:bg-indigo-500 "
                                                 to={'/login'}
                                             >
                                                 <span className="font-medium">Fazer LogIn</span>
                                             </Link>
                                             <Link
                                                 to={'/dashboard/services'}
-                                                className=" item-center hover:text-indigo-600 text-foreground hover:underline justify-center flex p-4 w-full font-medium"
+                                                className=" item-center flex w-full justify-center p-4 font-medium text-foreground hover:text-indigo-600 hover:underline"
                                             >
                                                 <span>Entrar sem Login</span>
                                             </Link>

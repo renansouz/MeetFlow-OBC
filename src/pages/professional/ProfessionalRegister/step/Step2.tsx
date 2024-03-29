@@ -84,7 +84,7 @@ export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
             </div>
             <div>
                 <h2 className="text-center text-black">Dias disponiveis</h2>
-                <div className="mt-5 flex justify-center gap-5 flex-wrap">
+                <div className="mt-5 flex flex-wrap justify-center gap-5">
                     <div className="flex flex-col items-center justify-center gap-2">
                         <input type="checkbox" id="" {...register('days.sunday1')} />
                         <label htmlFor="" className="block text-black">
@@ -128,7 +128,7 @@ export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
                         </label>
                     </div>
                 </div>
-                <div className="flex justify-center mt-20  gap-40 absolute bottom-10 w-full">
+                <div className="absolute bottom-10 mt-20  flex w-full justify-center gap-40">
                     <Button variant={'costumize'} onClick={() => setCurrentStepState(currentStepState - 1)}>
                         Voltar
                     </Button>

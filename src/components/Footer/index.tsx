@@ -38,7 +38,7 @@ export const Footer = () => {
                         <a href="#">Ajuda</a>
                     </div>
                 </div>
-                <Separator orientation="horizontal" className="w-full h-0.5 my-10" />
+                <Separator orientation="horizontal" className="my-10 h-0.5 w-full" />
                 <div className="flex justify-between pb-5 max-xl:mx-10 max-sm:flex-col max-sm:items-center">
                     <p className="text-sm">Copyright &copy; 2024 MeetFlow. All Rights Reserved.</p>
                     <div className="flex gap-5 max-sm:my-5">

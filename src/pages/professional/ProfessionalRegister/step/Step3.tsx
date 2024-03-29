@@ -28,13 +28,13 @@ export const Step3 = ({ setCurrentStepState, currentStepState }: stepProps) => {
                     </SelectContent>
                 </Select>
             </div>
-            <div className="mt-20 flex flex-col gap-5 items-start">
+            <div className="mt-20 flex flex-col items-start gap-5">
                 <label htmlFor="" className="block text-black">
                     Escreva uma breve descrição do seu serviço
                 </label>
                 <Input placeholder="Digite aqui..." />
             </div>
-            <div className="flex justify-center mt-20  gap-40 absolute bottom-10">
+            <div className="absolute bottom-10 mt-20  flex justify-center gap-40">
                 <Button variant={'costumize'} onClick={() => setCurrentStepState(currentStepState - 1)}>
                     Voltar
                 </Button>
