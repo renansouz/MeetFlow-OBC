@@ -5,8 +5,8 @@ import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuL
 import { Separator } from '@/components/ui/separator';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useTheme } from '@/context/theme-provider';
-import Logo from '@/public/img/logo.svg';
-import LightLogo from '@/public/img/logo-light.svg';
+import Logo from '@/public/img/Logo.svg';
+import LightLogo from '@/public/img/Logo-light.svg';
 
 import { ThemeToggle } from '../theme/theme-toggle';
 import { Button } from '../ui/button';
@@ -117,7 +117,7 @@ export const Header = () => {
                                     </Link>
                                     <Separator />
                                     <Select>
-                                        <SelectTrigger className="flex w-full justify-center rounded-none border-x-0">
+                                        <SelectTrigger className="flex w-full justify-center rounded-none border-x-0 py-7 hover:bg-accent">
                                             <SelectValue placeholder="Tema" />
                                         </SelectTrigger>
                                         <SelectContent className="flex flex-col">
@@ -126,7 +126,7 @@ export const Header = () => {
                                                 onClick={() => setTheme('light')}
                                                 value={'light'}
                                             >
-                                                Claro
+                                                <span>Claro</span>
                                                 <ChevronDown />
                                             </Button>
                                             <Button
@@ -139,6 +139,13 @@ export const Header = () => {
                                             </Button>
                                         </SelectContent>
                                     </Select>
+                                    <Separator />
+
+                                    <Link to={'/login'} className="w-full rounded-md border-solid p-4 text-center hover:bg-accent">
+                                        <span className="hover:text-indigo-600 hover:underline">Entrar</span>
+                                    </Link>
+                                    <Separator />
+                                    <Separator />
 
                                     <Button asChild>
                                         <Link to={'/register'} className="mt-10 w-full rounded-md border-solid bg-indigo-700 p-4 text-center hover:bg-indigo-800 ">

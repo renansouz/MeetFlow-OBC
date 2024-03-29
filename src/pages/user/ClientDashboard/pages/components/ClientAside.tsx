@@ -8,8 +8,8 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { useAuth } from '@/context/auth-provider';
 import { useTheme } from '@/context/theme-provider';
-import Logo from '@/public/img/logo.svg';
-import LightLogo from '@/public/img/logo-light.svg';
+import Logo from '@/public/img/Logo.svg';
+import LightLogo from '@/public/img/Logo-light.svg';
 import LogoMenor from '@/public/img/only-logo-white.svg';
 
 import { AsideItem } from './AsideItem';
@@ -87,7 +87,7 @@ export const ClientAside = () => {
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger>
-                                    <AsideItem link="" title="fazer uma conta" icon={User} />
+                                    <AsideItem link="/register" title="fazer uma conta" icon={User} />
                                 </TooltipTrigger>
                                 <TooltipContent side="right">
                                     <p>Fazer uma conta</p>
@@ -95,18 +95,58 @@ export const ClientAside = () => {
                             </Tooltip>
                         </TooltipProvider>
                     )}
+                    <Dialog>
+                        <DialogTrigger>
+                            <TooltipProvider>
+                                <Tooltip>
+                                    <TooltipTrigger asChild>
+                                        <Button variant={'ghost'} className="flex h-11 w-full items-center justify-start gap-3 px-10 py-7 max-lg:justify-center max-lg:px-0">
+                                            <LifeBuoy />
+                                            <p className=" max-lg:hidden">suporte</p>
+                                        </Button>
+                                    </TooltipTrigger>
+                                    <TooltipContent side="right">
+                                        <p>Suporte</p>
+                                    </TooltipContent>
+                                </Tooltip>
+                            </TooltipProvider>
+                        </DialogTrigger>
+                        <DialogContent>
+                            <DialogHeader>
+                                <DialogTitle className="tex-xl text-primary">Bem-vindo ao Suporte MeetFlow!</DialogTitle>
+                                <DialogDescription className="pb-3 text-base">
+                                    Estamos aqui para ajudar você a aproveitar ao máximo a plataforma MeetFlow. Se surgirem dúvidas ou problemas, nossa equipe está pronta para auxiliar.
+                                </DialogDescription>
+                            </DialogHeader>
+                            <div className="flex flex-col gap-3">
+                                <div className="flex flex-col gap-2">
+                                    <h2 className="text-xl text-primary">Como Podemos Ajudar?</h2>
+                                    <p>
+                                        <span className="text-gray-500">FAQ:</span> Encontre respostas rápidas para suas perguntas mais comuns.
+                                    </p>
+                                    <p>
+                                        <span className="text-gray-500">Tutoriais e Guias:</span> Explore nossos guias passo a passo para dominar a plataforma.
+                                    </p>
+                                    <p>
+                                        <span className="text-gray-500">Suporte Direto: </span>Entre em contato conosco para assistência personalizada.
+                                    </p>
+                                </div>
+                                <div className="flex flex-col gap-2">
+                                    <h2 className="text-xl text-primary">Entre em Contato</h2>
+                                    <p>
+                                        <span className="text-gray-500">E-mail:</span> Envie suas dúvidas para support@meetflow.com.
+                                    </p>
+                                    <p>
+                                        <span className="text-gray-500">Telefone: </span> Ligue para (+55) 9945-6162 durante o horário comercial.
+                                    </p>
+                                    <h2 className="text-xl text-primary">Nosso Compromisso</h2>
+                                    <p>Sua satisfação é nossa prioridade. Estamos aqui para garantir que sua experiência com o MeetFlow seja suave e produtiva.</p>
+                                </div>
+                            </div>
+                        </DialogContent>
+                    </Dialog>
 
-                    <TooltipProvider>
-                        <Tooltip>
-                            <TooltipTrigger>
-                                <AsideItem link="" title="Suporte" icon={LifeBuoy} />
-                            </TooltipTrigger>
-                            <TooltipContent side="right">
-                                <p>Suporte</p>
-                            </TooltipContent>
-                        </Tooltip>
-                    </TooltipProvider>
-                    {isAuth ? (
+                    {isAuth && (
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger>
@@ -119,85 +159,266 @@ export const ClientAside = () => {
                                 </TooltipContent>
                             </Tooltip>
                         </TooltipProvider>
-                    ) : (
-                        <Dialog>
-                            <DialogTrigger>
+                    )}
+                    <Dialog>
+                        <DialogTrigger>
+                            <TooltipProvider>
+                                <Tooltip>
+                                    <TooltipTrigger asChild>
+                                        <Button variant={'ghost'} className="flex h-11 w-full items-center justify-start gap-3 px-10 py-7 max-lg:justify-center max-lg:px-0">
+                                            <Settings className="text-primary-foreground" />
+                                            <p className="text-primary-foreground max-lg:hidden">Configurações</p>
+                                        </Button>
+                                    </TooltipTrigger>
+                                    <TooltipContent side="right">
+                                        <p>Configurações</p>
+                                    </TooltipContent>
+                                </Tooltip>
+                            </TooltipProvider>
+                        </DialogTrigger>
+                        <DialogContent>
+                            <DialogHeader>
+                                <DialogTitle>Configurações</DialogTitle>
+                                <DialogDescription>
+                                    Personalize a aparência da página de acordo com seu gosto visual. Escolha entre uma variedade de temas cuidadosamente criados para tornar sua experiência
+                                    de navegação mais agradável e personalizada.
+                                </DialogDescription>
+                            </DialogHeader>
+                            <label htmlFor="theme-select">Escolha o Tema:</label>
+                            <Select>
+                                <SelectTrigger className="w-full">
+                                    <SelectValue placeholder="Tema" />
+                                </SelectTrigger>
+                                <SelectContent className="flex flex-col">
+                                    <Button
+                                        className="w-full items-start justify-between bg-background p-2 text-lg text-foreground hover:bg-primary"
+                                        onClick={() => setTheme('light')}
+                                        value={'light'}
+                                    >
+                                        Claro
+                                        <ChevronDown />
+                                    </Button>
+                                    <Button
+                                        className="w-full items-start justify-between bg-background p-2 text-lg text-foreground hover:bg-primary"
+                                        onClick={() => setTheme('dark')}
+                                        value={'dark'}
+                                    >
+                                        Escuro
+                                        <ChevronDown />
+                                    </Button>
+                                </SelectContent>
+                            </Select>
+                        </DialogContent>
+                    </Dialog>
+                </div>
+            </aside>
+
+            {/* PHONE MENU */}
+
+            <div className="absolute left-2 top-3 h-10 items-center rounded-md bg-secondary sm:hidden">
+                <Sheet>
+                    <SheetTrigger>
+                        <Menu className="h-10 w-10 text-black" />
+                    </SheetTrigger>
+                    <SheetContent side={'left'} className="fixed flex h-screen w-auto flex-col items-center justify-between py-8 ">
+                        <div className="flex flex-col gap-y-1">
+                            <Link to={'/'}>
+                                <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="mb-0 h-20" />
+                            </Link>
+                            <TooltipProvider>
+                                <Tooltip>
+                                    <TooltipTrigger>
+                                        <Button asChild variant={'ghost'} className="flex h-11 items-center justify-start gap-3 px-10 py-7 ">
+                                            <Link to={'/dashboard/services'}>
+                                                <Home />
+                                                <span>Serviços</span>
+                                            </Link>
+                                        </Button>
+                                    </TooltipTrigger>
+                                    <TooltipContent side="right">
+                                        <p>Serviços</p>
+                                    </TooltipContent>
+                                </Tooltip>
+                            </TooltipProvider>
+
+                            <TooltipProvider>
+                                <Tooltip>
+                                    <TooltipTrigger>
+                                        <Button asChild variant={'ghost'} className="flex h-11 items-center justify-start gap-3 px-10 py-7 ">
+                                            <Link to={'/dashboard/myschedules'}>
+                                                <Layers />
+                                                <span>Meus Agendamentos</span>
+                                            </Link>
+                                        </Button>
+                                    </TooltipTrigger>
+                                    <TooltipContent side="right">
+                                        <p>Meus Agendamentos</p>
+                                    </TooltipContent>
+                                </Tooltip>
+                            </TooltipProvider>
+
+                            <Dialog>
+                                <DialogTrigger>
+                                    <TooltipProvider>
+                                        <Tooltip>
+                                            <TooltipTrigger asChild>
+                                                <Button variant={'ghost'} className="flex h-11 w-full items-center justify-start gap-3 px-10 py-7 ">
+                                                    <Users />
+                                                    <span>Grupos</span>
+                                                </Button>
+                                            </TooltipTrigger>
+                                            <TooltipContent side="right">
+                                                <p>Grupos</p>
+                                            </TooltipContent>
+                                        </Tooltip>
+                                    </TooltipProvider>
+                                </DialogTrigger>
+                                <DialogContent>
+                                    <DialogHeader className="gap-1 ">
+                                        <DialogTitle className="text-xl ">Desculpe-nos!</DialogTitle>
+                                        <DialogDescription className="pb-5 ">
+                                            A seção de grupos ainda não está disponível. Estamos trabalhando duro para trazê-la até você nas próximas versões. Pedimos desculpas pela
+                                            inconveniência e agradecemos sua paciência.
+                                        </DialogDescription>
+                                        <span>Atenciosamente, MeetFlow</span>
+                                    </DialogHeader>
+                                </DialogContent>
+                            </Dialog>
+                        </div>
+                        <div className="mt-[10%] flex w-full flex-col gap-y-1 ">
+                            {!isAuth && (
                                 <TooltipProvider>
                                     <Tooltip>
-                                        <TooltipTrigger asChild>
-                                            <Button variant={'ghost'} className="flex h-11 w-full items-center justify-start gap-3 px-10 py-7 max-lg:justify-center max-lg:px-0">
-                                                <Settings className="text-violet-700" />
-                                                <p className="text-violet-700 max-lg:hidden">Configurações</p>
+                                        <TooltipTrigger>
+                                            <Button asChild variant={'ghost'} className="flex h-11 items-center justify-start gap-3 px-10 py-7 ">
+                                                <Link to={'/register'}>
+                                                    <User />
+                                                    <span>Fazer uma conta</span>
+                                                </Link>
                                             </Button>
                                         </TooltipTrigger>
                                         <TooltipContent side="right">
-                                            <p>Configurações</p>
+                                            <p>Fazer uma conta</p>
                                         </TooltipContent>
                                     </Tooltip>
                                 </TooltipProvider>
-                            </DialogTrigger>
-                            <DialogContent>
-                                <DialogHeader>
-                                    <DialogTitle>Configurações</DialogTitle>
-                                    <DialogDescription>
-                                        Personalize a aparência da página de acordo com seu gosto visual. Escolha entre uma variedade de temas cuidadosamente criados para tornar sua
-                                        experiência de navegação mais agradável e personalizada.
-                                    </DialogDescription>
-                                </DialogHeader>
-                                <label htmlFor="theme-select">Escolha o Tema:</label>
-                                <Select>
-                                    <SelectTrigger className="w-full">
-                                        <SelectValue placeholder="Tema" />
-                                    </SelectTrigger>
-                                    <SelectContent className="flex flex-col">
-                                        <Button
-                                            className="w-full items-start justify-between bg-background p-2 text-lg text-foreground hover:bg-primary"
-                                            onClick={() => setTheme('light')}
-                                            value={'light'}
-                                        >
-                                            Claro
-                                            <ChevronDown />
-                                        </Button>
-                                        <Button
-                                            className="w-full items-start justify-between bg-background p-2 text-lg text-foreground hover:bg-primary"
-                                            onClick={() => setTheme('dark')}
-                                            value={'dark'}
-                                        >
-                                            Escuro
-                                            <ChevronDown />
-                                        </Button>
-                                    </SelectContent>
-                                </Select>
-                            </DialogContent>
-                        </Dialog>
-                    )}
-                </div>
-            </aside>
-            <div className="absolute left-2 top-1 h-10 items-center rounded-md bg-secondary sm:hidden">
-                <Sheet>
-                    <SheetTrigger>
-                        <Menu className="h-10 w-10" />
-                    </SheetTrigger>
-                    <SheetContent side={'left'} className="fixed">
-                        <div className="flex flex-col justify-between">
-                            <div className="flex flex-col gap-y-10  ">
-                                <div className="flex flex-col gap-y-1">
-                                    <Link to={'/'}>
-                                        <img src={theme === 'dark' ? Logo : LightLogo} alt="" className=" mb-14 h-14" />
-                                    </Link>
-                                    <AsideItem link="/" title="Serviços" icon={Home} />
-                                    <AsideItem link="/register" title="Meus Agendamentos" icon={Layers} />
-                                    <AsideItem link="/error" title="Grupos" icon={Users} />
-                                </div>
-                            </div>
-                            <div className="flex w-full flex-col gap-y-1 max-lg:gap-0">
-                                <AsideItem link="/" title="fazer uma conta" icon={User} />
-                                <AsideItem link="/register" title="Suporte" icon={LifeBuoy} />
-                                <Button variant={'ghost'} className="flex h-11 items-center justify-start gap-3 px-10 py-7">
-                                    <Settings className="text-violet-700" />
-                                    <p className="text-violet-700">Configurações</p>
-                                </Button>
-                            </div>
+                            )}
+                            <Dialog>
+                                <DialogTrigger>
+                                    <TooltipProvider>
+                                        <Tooltip>
+                                            <TooltipTrigger asChild>
+                                                <Button variant={'ghost'} className="flex h-11 w-full items-center justify-start gap-3 px-10 py-7">
+                                                    <LifeBuoy />
+                                                    <p className="">suporte</p>
+                                                </Button>
+                                            </TooltipTrigger>
+                                            <TooltipContent side="right">
+                                                <p>Suporte</p>
+                                            </TooltipContent>
+                                        </Tooltip>
+                                    </TooltipProvider>
+                                </DialogTrigger>
+                                <DialogContent>
+                                    <DialogHeader>
+                                        <DialogTitle className="tex-xl text-primary">Bem-vindo ao Suporte MeetFlow!</DialogTitle>
+                                        <DialogDescription className="pb-3 text-base">
+                                            Estamos aqui para ajudar você a aproveitar ao máximo a plataforma MeetFlow. Se surgirem dúvidas ou problemas, nossa equipe está pronta para
+                                            auxiliar.
+                                        </DialogDescription>
+                                    </DialogHeader>
+                                    <div className="flex flex-col gap-3">
+                                        <div className="flex flex-col gap-2">
+                                            <h2 className="text-xl text-primary">Como Podemos Ajudar?</h2>
+                                            <p>
+                                                <span className="text-gray-500">FAQ:</span> Encontre respostas rápidas para suas perguntas mais comuns.
+                                            </p>
+                                            <p>
+                                                <span className="text-gray-500">Tutoriais e Guias:</span> Explore nossos guias passo a passo para dominar a plataforma.
+                                            </p>
+                                            <p>
+                                                <span className="text-gray-500">Suporte Direto: </span>Entre em contato conosco para assistência personalizada.
+                                            </p>
+                                        </div>
+                                        <div className="flex flex-col gap-2">
+                                            <h2 className="text-xl text-primary">Entre em Contato</h2>
+                                            <p>
+                                                <span className="text-gray-500">E-mail:</span> Envie suas dúvidas para support@meetflow.com.
+                                            </p>
+                                            <p>
+                                                <span className="text-gray-500">Telefone: </span> Ligue para (+55) 9945-6162 durante o horário comercial.
+                                            </p>
+                                            <h2 className="text-xl text-primary">Nosso Compromisso</h2>
+                                            <p>Sua satisfação é nossa prioridade. Estamos aqui para garantir que sua experiência com o MeetFlow seja suave e produtiva.</p>
+                                        </div>
+                                    </div>
+                                </DialogContent>
+                            </Dialog>
+
+                            {isAuth && (
+                                <TooltipProvider>
+                                    <Tooltip>
+                                        <TooltipTrigger>
+                                            <Button variant={'ghost'} className="flex h-11 items-center justify-start gap-3 px-10 py-7" asChild>
+                                                <ClientMenu />
+                                            </Button>
+                                        </TooltipTrigger>
+                                        <TooltipContent side="right">
+                                            <p>Usuário</p>
+                                        </TooltipContent>
+                                    </Tooltip>
+                                </TooltipProvider>
+                            )}
+                            <Dialog>
+                                <DialogTrigger>
+                                    <TooltipProvider>
+                                        <Tooltip>
+                                            <TooltipTrigger asChild>
+                                                <Button variant={'ghost'} className="flex h-11 w-full items-center justify-start gap-3 px-10 py-7">
+                                                    <Settings className="text-primary-foreground" />
+                                                    <p className="text-primary-foreground ">Configurações</p>
+                                                </Button>
+                                            </TooltipTrigger>
+                                            <TooltipContent side="right">
+                                                <p>Configurações</p>
+                                            </TooltipContent>
+                                        </Tooltip>
+                                    </TooltipProvider>
+                                </DialogTrigger>
+                                <DialogContent>
+                                    <DialogHeader>
+                                        <DialogTitle>Configurações</DialogTitle>
+                                        <DialogDescription>
+                                            Personalize a aparência da página de acordo com seu gosto visual. Escolha entre uma variedade de temas cuidadosamente criados para tornar sua
+                                            experiência de navegação mais agradável e personalizada.
+                                        </DialogDescription>
+                                    </DialogHeader>
+                                    <label htmlFor="theme-select">Escolha o Tema:</label>
+                                    <Select>
+                                        <SelectTrigger className="w-full">
+                                            <SelectValue placeholder="Tema" />
+                                        </SelectTrigger>
+                                        <SelectContent className="flex flex-col">
+                                            <Button
+                                                className="w-full items-start justify-between bg-background p-2 text-lg text-foreground hover:bg-primary"
+                                                onClick={() => setTheme('light')}
+                                                value={'light'}
+                                            >
+                                                Claro
+                                                <ChevronDown />
+                                            </Button>
+                                            <Button
+                                                className="w-full items-start justify-between bg-background p-2 text-lg text-foreground hover:bg-primary"
+                                                onClick={() => setTheme('dark')}
+                                                value={'dark'}
+                                            >
+                                                Escuro
+                                                <ChevronDown />
+                                            </Button>
+                                        </SelectContent>
+                                    </Select>
+                                </DialogContent>
+                            </Dialog>
                         </div>
                     </SheetContent>
                 </Sheet>

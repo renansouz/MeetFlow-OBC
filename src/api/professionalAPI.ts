@@ -1,14 +1,12 @@
-import axios from 'axios';
-
-import { ScheduleType } from '@/types/ScheduleType';
-// import zod type from step 2
-
-const refreshtoken = sessionStorage.getItem('refreshToken');
+import { api } from '.';
+import { ScheduleFormData } from '@/pages/professional/ProfessionalRegister/step';
 
 export class professionalAPI {
-    static async createSchedule(scheduleData: ScheduleType) {
+    static async createSchedule(scheduleData: ScheduleFormData) {
+        const currentSignupAcessToken = sessionStorage.getItem('currentSignupAcessToken');
         try {
-            const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/schedule/add`, scheduleData, { headers: { refreshtoken: refreshtoken } });
+            console.log(scheduleData);
+            const response = await api.post('/schedule/add', scheduleData, { headers: { Authorization: `Bearer ${currentSignupAcessToken}` } });
             return response.data;
         } catch (error) {
             throw error;

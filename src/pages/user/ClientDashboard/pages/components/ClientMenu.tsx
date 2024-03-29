@@ -36,7 +36,7 @@ export const ClientMenu = () => {
                         <AvatarFallback>{userData?.name.slice(0, 1)}</AvatarFallback>
                     </Avatar>
                     <div className="flex flex-col justify-start">
-                        {userData && <h2 className="text-left">{userData.name}</h2>}
+                        {userData && <h2 className="text-left text-sm whitespace-nowrap">{userData.name}</h2>}
                         {userData && <p className="text-left text-xs text-slate-400">{userData.email}</p>}
                     </div>
                 </Button>
