@@ -43,10 +43,10 @@ export const ServicesCard = () => {
                     </CardHeader>
                     <CardContent className="mt-10 flex justify-between">
                         <div className="flex gap-3">
-                            <Card className="flex items-center justify-center gap-2 rounded-full border-2 border-border px-4 py-3">
+                            <Card className="fflex flex h-12 items-center justify-center gap-2 rounded-md border-2 border-border px-4">
                                 <Hourglass className="text-indigo-500" />2 horas
                             </Card>
-                            <Card className="flex items-center justify-center gap-3  rounded-full border-2 border-border px-4 py-3">
+                            <Card className="fflex flex h-12 items-center justify-center gap-2 rounded-md border-2 border-border px-4">
                                 <CalendarDays className="text-indigo-500" />
                                 11 de abril de 2024 <Clock className="text-indigo-500" /> 11:00h
                             </Card>
