@@ -22,24 +22,26 @@ export const BackGroundImage = styled.div`
 
 export const SobreImage = styled.div`
     background-image: linear-gradient(140deg, rgba(3, 3, 36, 0.247) 40%, rgba(26, 30, 95, 0.726)), url(${sobreImage});
-    height: 80vh;
-    width: 80vh;
+    height: 60vh;
+    width: 60vh;
     background-size: cover;
     border-radius: 20px;
-    @media (max-screen: 1507px) {
-        height: 10rem;
-        width: 10rem;
+    @media (max-width: 747px) {
+        background-color: white;
+        max-height: 30rem;
+        width: 100%;
     }
 `;
 
 export const ProfessionalImage = styled.div`
     background-image: linear-gradient(140deg, rgba(3, 3, 36, 0.247) 40%, rgba(26, 30, 95, 0.726)), url(${professionalImage});
-    height: 80vh;
-    width: 80vh;
+    height: 60vh;
+    width: 60vh;
     background-size: cover;
     border-radius: 20px;
-    @media (max-screen: 1507px){
-        heigh10remt
-        widt10remh
+    @media (max-width: 747px) {
+        background-color: white;
+        max-height: 30rem;
+        width: 100%;
     }
 `;
