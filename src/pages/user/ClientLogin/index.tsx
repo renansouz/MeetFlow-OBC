@@ -15,7 +15,7 @@ import { useAuth } from '@/context/auth-provider';
 import { useTheme } from '@/context/theme-provider';
 import DarkLogo from '@/public/img/Logo.svg';
 import LightLogo from '@/public/img/Logo-light.svg';
-
+import { api } from '@/api';
 import { BackGroundDiv } from './styles';
 
 type passwordAppearenceType = 'text' | 'password';
@@ -48,6 +48,8 @@ export const ClientLogin = () => {
             const res = await axios.post(`${import.meta.env.VITE_BASE_URL}/auth/login`, userData);
             const { refreshToken } = res.data;
             sessionStorage.setItem('refreshToken', refreshToken);
+            api.defaults.headers.common['refreshToken'] = refreshToken
+            console.log(api.defaults.headers.common)
             setAuth(true);
             navigate('/dashboard/services');
         } catch (error) {

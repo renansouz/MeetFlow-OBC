@@ -3,12 +3,10 @@ import { RegisterFormData } from '@/pages/user/ClientRegister';
 import { UserRole } from '@/types/UserRole';
 import { UserType } from '@/types/userType';
 
-const refreshtoken = sessionStorage.getItem('refreshToken');
-
 export class userAPI {
     static async fetchUserData() {
         try {
-            const response = await api.get('/account/user', { headers: { refreshtoken: refreshtoken } });
+            const response = await api.get('/account/user');
             return response.data;
         } catch (error) {
             throw error;

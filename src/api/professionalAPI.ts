@@ -1,12 +1,12 @@
 import { api } from '.';
-
-const refreshtoken = sessionStorage.getItem('refreshToken');
-const currentSignupAcessToken = sessionStorage.getItem('currentSignupAcessToken');
+import { ScheduleFormData } from '@/pages/professional/ProfessionalRegister/step';
 
 export class professionalAPI {
-    static async createSchedule(scheduleData: any) {
+    static async createSchedule(scheduleData: ScheduleFormData) {
+        const currentSignupAcessToken = sessionStorage.getItem('currentSignupAcessToken');
         try {
-            const response = await api.post('/schedule/add', scheduleData, { headers: { acessToken: currentSignupAcessToken } });
+            console.log(scheduleData);
+            const response = await api.post('/schedule/add', scheduleData, { headers: { Authorization: `Bearer ${currentSignupAcessToken}` } });
             return response.data;
         } catch (error) {
             throw error;
