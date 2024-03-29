@@ -55,7 +55,7 @@ export const Home = () => {
                     </div>
                 </BackGroundImage>
             </section>
-            <section className="flex h-screen gap-40 max-xl:h-auto max-xl:flex-col max-xl:gap-y-10 lg:my-36">
+            <section className="flex h-screen gap-40 max-xl:my-24 max-xl:h-auto max-xl:flex-col max-xl:gap-y-10">
                 <div className="ml-[10%] flex w-full flex-col items-center justify-center max-xl:ml-0">
                     <SobreImage />
                 </div>
@@ -77,7 +77,7 @@ export const Home = () => {
                     </div>
                 </div>
             </section>
-            <section className="flex h-screen items-center justify-center gap-40 bg-card max-xl:mb-[10%] max-xl:grid max-xl:h-auto max-xl:place-items-center max-xl:gap-y-10 max-lg:mb-0 max-sm:mb-14 xl:m-0 2xl:m-0 2xl:p-0">
+            <section className="flex h-screen items-center justify-center gap-40 bg-card max-xl:my-24 max-xl:mb-[10%] max-xl:grid max-xl:h-auto max-xl:place-items-center max-xl:gap-y-10 max-lg:mb-0 max-sm:mb-14 xl:m-0 2xl:m-0 2xl:p-0">
                 <div className="flex w-full flex-col items-center justify-center text-center">
                     <div className="ml-[20%] flex flex-col justify-start gap-6 max-xl:ml-0 max-xl:items-center ">
                         <h1 className="text-left font-semibold max-xl:w-lvw max-xl:text-center">Seja um Profissional MeetFlow</h1>
