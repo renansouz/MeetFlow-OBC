@@ -1,3 +1,4 @@
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -12,16 +13,18 @@ export const Home = () => {
             <section className="h-screen min-h-lvh  p-0 text-center">
                 <BackGroundImage>
                     <div className="flex h-full flex-col items-center justify-center">
-                        <h1 className="text-center font-bold  text-white">
-                            <span className="font-poppins-end text-center text-[2.5rem] font-extrabold text-indigo-600">Simplifique </span> seus agendamentos, <div>otimize seu tempo</div>
+                        <h1 className="text-center font-bold text-white  max-sm:text-3xl">
+                            <span className="font-poppins-end text-[2.5rem] font-extrabold text-indigo-500 max-sm:text-3xl">Simplifique </span> seus agendamentos,{' '}
+                            <div>otimize seu tempo</div>
                         </h1>
-                        <p className="mb-20 mt-3 w-1/2 pt-6 text-center  font-light text-white max-lg:text-base max-sm:mb-10 max-sm:text-lg">
+                        <p className="mb-20 mt-3 w-1/2 pt-6 text-center  font-light text-white max-lg:text-base max-sm:mb-10 max-sm:mt-0 max-sm:text-lg">
                             Conectando você aos melhores profissionais, sem complicações.
                         </p>
                         <Dialog>
                             <DialogTrigger>
-                                <Button className="h-14 items-center justify-center rounded-md bg-indigo-600 px-12 py-2 pt-3 text-xl text-white max-sm:h-12 max-sm:px-10 max-sm:py-2 max-sm:text-xl">
-                                    Agendar agora!
+                                <Button className="h-12 items-center justify-between rounded-md bg-indigo-600 px-7 text-xl text-white max-sm:h-12 max-sm:px-5 max-sm:py-2 max-sm:text-xl">
+                                    <div className="mr-6">Agendar agora!</div>
+                                    <ArrowRight />
                                 </Button>
                             </DialogTrigger>
                             <DialogContent className="gap-6 p-12">
@@ -52,36 +55,46 @@ export const Home = () => {
                     </div>
                 </BackGroundImage>
             </section>
-            <section className="flex h-screen items-center justify-center gap-40 max-xl:grid max-xl:h-auto max-xl:place-items-center max-sm:my-14 lg:my-36 xl:m-0 2xl:m-0 2xl:p-0">
-                <div className="ml-[10%] flex w-full flex-col items-center max-xl:ml-0">
+            <section className="flex h-screen gap-40 max-xl:h-auto max-xl:flex-col max-xl:gap-y-10 lg:my-36">
+                <div className="ml-[10%] flex w-full flex-col items-center justify-center max-xl:ml-0">
                     <SobreImage />
                 </div>
                 <div className="flex w-full flex-col items-center justify-center gap-5 text-center">
-                    <div className="mr-[20%] flex flex-col justify-start gap-6 max-xl:mr-0 max-xl:items-center">
+                    <div className="mr-[20%] flex flex-col justify-start gap-6 max-xl:mr-0 max-xl:items-center max-lg:mr-0">
                         <h1 className="text-left font-semibold max-xl:w-lvw max-xl:text-center">Conheça o MeetFlow:</h1>
-                        <p className="max-xl:mx-440 mt-10 w-full text-left font-light max-xl:px-56 max-xl:text-center max-lg:px-[5%] max-sm:mt-0 max-sm:text-base">
+                        <p className=" mt-1 w-full text-left font-light max-xl:px-56 max-xl:text-center max-lg:px-[5%] max-sm:mt-0 max-sm:text-base">
                             Nosso objetivo é simplificar o agendamento de serviços, oferecendo uma plataforma intuitiva e acessível para clientes e profissionais. Encontre o serviço ideal
                             para suas necessidades.
                         </p>
-                        <div className="group inline-flex h-14 w-80 items-center justify-center rounded-md bg-indigo-700 px-6 py-2 text-white max-lg:mb-10 max-sm:text-xl">
-                            <Link to={'/dashboard/services'}>Encontre um serviço</Link>
+                        <div className="flex h-14 w-80 max-xl:items-center max-xl:justify-center max-lg:mb-[20%] max-sm:text-xl">
+                            <Link to={'/dashboard/services'} className="mr-5">
+                                <Button className="items-center justify-center rounded-md py-7 ">
+                                    Encontre um serviço
+                                    <ArrowRight className="ml-3" />
+                                </Button>
+                            </Link>
                         </div>
                     </div>
                 </div>
             </section>
-            <section className="flex h-screen items-center justify-center gap-40 bg-card max-xl:mb-[10%] max-xl:grid max-xl:h-auto max-xl:place-items-center max-lg:mb-0 max-sm:mb-14 xl:m-0 2xl:m-0 2xl:p-0">
+            <section className="flex h-screen items-center justify-center gap-40 bg-card max-xl:mb-[10%] max-xl:grid max-xl:h-auto max-xl:place-items-center max-xl:gap-y-10 max-lg:mb-0 max-sm:mb-14 xl:m-0 2xl:m-0 2xl:p-0">
                 <div className="flex w-full flex-col items-center justify-center text-center">
                     <div className="ml-[20%] flex flex-col justify-start gap-6 max-xl:ml-0 max-xl:items-center ">
                         <h1 className="text-left font-semibold max-xl:w-lvw max-xl:text-center">Seja um Profissional MeetFlow</h1>
-                        <p className="mt-10 w-full text-left font-light max-xl:px-56 max-xl:text-center max-lg:px-[5%] max-sm:mt-0 max-sm:text-base">
+                        <p className="mt-1 w-full text-left font-light max-xl:px-56 max-xl:text-center max-lg:px-[5%] max-sm:mt-0 max-sm:text-base">
                             Se você é um profissional em busca de mais oportunidades, junte-se à nossa comunidade. Aumente sua visibilidade e simplifique seu agendamento
                         </p>
-                        <div className="group inline-flex h-14 w-80 items-center justify-center rounded-md bg-indigo-700 px-6 py-2 text-white max-xl:mb-[20%] max-sm:text-xl">
-                            <Link to={'/register'}>Comece agora</Link>
+                        <div className="flex h-14 w-80 max-xl:mb-[20%] max-xl:items-center max-xl:justify-center max-sm:text-xl">
+                            <Link to={'/professional/register'}>
+                                <Button className="items-center justify-center rounded-md py-7 ">
+                                    Comece agora
+                                    <ArrowRight className="ml-3" />
+                                </Button>
+                            </Link>
                         </div>
                     </div>
                 </div>
-                <div className="mr-[10%] flex w-full flex-col items-center max-xl:order-first max-xl:ml-0 max-xl:mr-0 max-xl:mt-[10%] ">
+                <div className="mr-[10%] flex w-full flex-col items-center justify-center max-xl:order-first max-xl:ml-0 max-xl:mr-0 max-xl:mt-[10%] ">
                     <ProfessionalImage />
                 </div>
             </section>

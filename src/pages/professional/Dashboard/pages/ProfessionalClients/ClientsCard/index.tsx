@@ -19,7 +19,7 @@ export const ClientsCard = () => {
             {loading ? (
                 <Skeleton className="m-10 h-[247px] w-[60%] p-3" />
             ) : (
-                <Card className="m-10 w-[60%] bg-background p-3">
+                <Card className="m-10 w-[50%] cursor-pointer bg-background ">
                     <CardHeader>
                         <CardTitle>Responsividade em tailwind</CardTitle>
                         <CardDescription className=" text-base text-indigo-400/80">
@@ -27,23 +27,20 @@ export const ClientsCard = () => {
                         </CardDescription>
                     </CardHeader>
                     <CardContent className="flex justify-between">
-                        <div className="flex gap-3">
-                            <Card className="flex items-center justify-center gap-2 rounded-md border-2 border-border px-4">
-                                <Hourglass className="text-indigo-500" />2 horas
-                            </Card>
-                            <Card className="flex items-center justify-center gap-3  rounded-md border-2 border-border px-4">
+                        <div className="flex flex-col items-start justify-center gap-3">
+                            <Card className="flex h-12 items-center justify-center gap-2 rounded-md border-2 border-border px-4">
                                 <CalendarDays className="text-indigo-500" />
                                 11 de abril de 2024
                             </Card>
-                            <Card className="flex items-center justify-center gap-3  rounded-md border-2 border-border px-4">
+                            <Card className="flex h-12 items-center justify-center gap-2 rounded-md border-2 border-border px-4">
                                 <Clock className="text-indigo-500" />
-                                11:00h
+                                11:00h à 13:00h
                             </Card>
                         </div>
-                        <div className="flex flex-col items-start">
+                        <div className="flex flex-col items-start justify-center">
                             <div className="flex items-center justify-center">
                                 <User2 className="m-2" />
-                                <span>Renan de Souza</span>
+                                <span>Miqueias falcão nascimento</span>
                             </div>
                             <div className="flex items-center justify-center">
                                 <Phone className="m-2" />
