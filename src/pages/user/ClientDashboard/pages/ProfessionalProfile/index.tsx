@@ -1,10 +1,8 @@
-import { Avatar } from '@radix-ui/react-avatar';
 import dayjs from 'dayjs';
 import { BriefcaseBusiness, CalendarCheck2, ContactRound, DollarSign, HourglassIcon } from 'lucide-react';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
-import { AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
@@ -20,6 +18,16 @@ interface Availability {
 }
 
 export function ProfessionalProfile() {
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setLoading(false);
+        }, 3000);
+
+        return () => clearTimeout(timeout);
+    }, []);
+
     const [selectedDate, setSelectedDate] = useState<Date | null>(null);
     const [availability, setAvailability] = useState<Availability>({
         possibleTimes: [9, 10, 11, 14, 15, 16, 17], // Horários disponíveis fictícios
@@ -40,10 +48,9 @@ export function ProfessionalProfile() {
         onSelectDateTime(dateWithTime);
     }
     return (
-        <Card className="w-[70%] min-w-[20rem] ml-[6%] my-16 pb-10 max-xl:w-full max-xl:m-0 bg-background">
+        <Card className="w-[70%] min-w-[20rem] ml-[6%] my-16 pb-10 max-xl:w-full max-xl:m-0">
             <CardHeader className="bg-indigo-300 h-32 rounded-tl-md rounded-tr-md w-full pt-14 max-lg:rounded-none">
-                <Avatar>
-                    <Skeleton className="w-[100px] h-[20px] rounded-full" />
+                <Avatar className="w-full rounded-full h-36">
                     <AvatarImage src="https://github.com/renansouz.png" className="ml-5 border-4 border-background rounded-full w-36" />
                     <AvatarFallback className="ml-5 border-4 border-background rounded-full w-36">CN</AvatarFallback>
                 </Avatar>
@@ -60,7 +67,12 @@ export function ProfessionalProfile() {
             {/* calendário */}
             <h2 className="mt-10 flex justify-center items-center text-2xl max-lg:text-xl max-md:text-lg max-md:mx-10 mb-10 font-light">Escolha uma data para agendar com Renan</h2>
             <Container isTimePickerOpen={isDateSelected}>
-                <CalendarProfessional selectedDate={selectedDate} onDateSelected={setSelectedDate} />
+                {loading ? (
+                    <Skeleton className="mx-2 w-[40rem] h-[40rem] rounded-[2rem] z-0 gap-y-12" />
+                ) : (
+                    <CalendarProfessional selectedDate={selectedDate} onDateSelected={setSelectedDate} />
+                )}
+
                 {isDateSelected && (
                     <TimePicker>
                         <TimePickerHeader>

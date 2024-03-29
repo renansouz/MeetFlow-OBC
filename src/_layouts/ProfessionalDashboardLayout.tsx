@@ -5,7 +5,7 @@ import { ProfessionalAside } from '@/pages/professional/Dashboard/components/Pro
 
 export const ProfessionalDashboardLayout = () => {
     const { theme } = useTheme();
-    const backgroundToggle = theme === 'dark' ? 'bg-slate-900' : 'bg-[#fff]';
+    const backgroundToggle = theme === 'dark' ? 'bg-background' : 'bg-[#fff]';
 
     return (
         <div className={'flex'}>

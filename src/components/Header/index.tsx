@@ -14,10 +14,11 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 
 export const Header = () => {
     //const { setAuth, isAuth } = useAuth();
+
     const { theme } = useTheme();
 
     return (
-        <div className="relative border-b bg-background">
+        <div className="relative border-b bg-card">
             <div className="flex max-h-24 items-center justify-between gap-6 px-6">
                 <Link to={'/'}>
                     <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="max-h-28" />

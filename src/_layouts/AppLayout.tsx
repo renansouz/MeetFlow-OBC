@@ -6,7 +6,7 @@ import { useTheme } from '@/context/theme-provider';
 
 export function AppLayout() {
     const { theme } = useTheme();
-    const backgroundToggle = theme === 'dark' ? 'bg-slate-950' : 'bg-[#fff]';
+    const backgroundToggle = theme === 'dark' ? 'bg-background' : 'bg-[#fff]';
 
     return (
         <div className={`flex min-h-screen flex-col antialiased ${backgroundToggle}`}>

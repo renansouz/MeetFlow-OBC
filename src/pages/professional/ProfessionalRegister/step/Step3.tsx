@@ -1,7 +1,13 @@
 import { Input } from '@/components/Input';
+import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
-export const Step3 = () => {
+type stepProps = {
+    currentStepState: number;
+    setCurrentStepState: (int: number) => void;
+};
+
+export const Step3 = ({ setCurrentStepState, currentStepState }: stepProps) => {
     return (
         <div className="px-10">
             <div className="mt-20 flex flex-col items-start gap-5">
@@ -27,6 +33,12 @@ export const Step3 = () => {
                     Escreva uma breve descrição do seu serviço
                 </label>
                 <Input placeholder="Digite aqui..." />
+            </div>
+            <div className="flex justify-center mt-20  gap-40 absolute bottom-10">
+                <Button variant={'costumize'} onClick={() => setCurrentStepState(currentStepState - 1)}>
+                    Voltar
+                </Button>
+                <Button type="submit">Continuar</Button>
             </div>
         </div>
     );

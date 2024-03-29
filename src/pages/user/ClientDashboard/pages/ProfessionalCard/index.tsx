@@ -1,4 +1,7 @@
+import { useEffect, useState } from 'react';
+
 import { Search } from '@/components/Search';
+import { Skeleton } from '@/components/ui/skeleton';
 
 import { Header } from '../components/Header';
 import { CardProfessional } from './Card';
@@ -16,6 +19,15 @@ type categories = {
 };
 
 export const Services = () => {
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setLoading(false);
+        }, 3000);
+
+        return () => clearTimeout(timeout);
+    }, []);
     const categoriesMock: categories[] = [
         { title: 'Saúde', id: 1 },
         { title: 'Advocacia', id: 2 },
@@ -59,22 +71,32 @@ export const Services = () => {
             <Header title="Serviços" />
             <div>
                 <div className="flex items-center flex-col gap-5">
-                    <h2 className="text-center text-3xl">Profissionais</h2>
+                    {loading ? <Skeleton className="w-48 h-8 rounded-md z-0 gap-y-12" /> : <h2 className="text-center text-3xl">Profissionais</h2>}
+
                     <Search placeholder="Busque por um serviço ou profissional" />
                 </div>
                 <div className="flex flex-wrap items-center gap-10 mt-10 justify-center">
                     {categoriesMock.map((categorie) => {
                         return (
                             <div className="flex items-center gap-2">
-                                <input
-                                    type="radio"
-                                    className="appearance-none h-6 w-6 border-2 border-indigo-800 checked:bg-indigo-600 checked:border-indigo-800 rounded-md"
-                                    name="category"
-                                    id={categorie.title}
-                                />
-                                <label htmlFor="" id={categorie.title}>
-                                    {categorie.title}
-                                </label>
+                                {loading ? (
+                                    <Skeleton className="h-6 w-6 rounded-md" />
+                                ) : (
+                                    <input
+                                        type="radio"
+                                        className="appearance-none h-6 w-6 border-2 border-indigo-800 checked:bg-indigo-600 checked:border-indigo-800 rounded-md"
+                                        name="category"
+                                        id={categorie.title}
+                                    />
+                                )}
+
+                                {loading ? (
+                                    <Skeleton className="w-20 h-6 rounded-md z-0 gap-y-12" />
+                                ) : (
+                                    <label htmlFor="" id={categorie.title}>
+                                        {categorie.title}
+                                    </label>
+                                )}
                             </div>
                         );
                     })}

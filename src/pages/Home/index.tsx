@@ -1,4 +1,3 @@
-import { Tally1 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -26,25 +25,25 @@ export const Home = () => {
                                     Agendar agora!
                                 </Button>
                             </DialogTrigger>
-                            <DialogContent className="p-12 gap-6">
+                            <DialogContent className="gap-6 p-12">
                                 <DialogHeader className="flex">
-                                    <DialogTitle className="text-2xl items-center justify-center text-center font-bold mb-2">Seja bem-vindo ao MeetFLow!</DialogTitle>
+                                    <DialogTitle className="mb-2 items-center justify-center text-center text-2xl font-bold">Seja bem-vindo ao MeetFLow!</DialogTitle>
                                     <DialogDescription className="text-center">
                                         Estamos felizes por você estar aqui. Para desfrutar ao máximo de nossos serviços, recomendamos criar uma conta. Se preferir, vocês também pode entrar
                                         sem fazer login.
                                     </DialogDescription>
                                 </DialogHeader>
 
-                                <div className="flex flex-col justify-center items-center gap-6 mt-10">
+                                <div className="mt-10 flex flex-col items-center justify-center gap-6">
                                     <Link
-                                        className="item-center justify-center  flex p-4 w-full text-xl border-2 border-indigo-800 bg-indigo-900 bg-opacity-20 hover:bg-indigo-500 hover:bg-opacity-30 rounded-2xl "
+                                        className="item-center flex  w-full justify-center rounded-2xl border-2 border-indigo-800 bg-indigo-900 bg-opacity-20 p-4 text-xl hover:bg-indigo-500 hover:bg-opacity-30 "
                                         to={'/login'}
                                     >
                                         <span className="font-medium">Fazer LogIn</span>
                                     </Link>
                                     <Link
                                         to={'/dashboard/services'}
-                                        className=" item-center hover:text-indigo-600 text-foreground hover:underline justify-center flex p-4 w-full font-medium"
+                                        className=" item-center flex w-full justify-center p-4 font-medium text-foreground hover:text-indigo-600 hover:underline"
                                     >
                                         <span>Entrar sem Login</span>
                                     </Link>
@@ -52,36 +51,14 @@ export const Home = () => {
                             </DialogContent>
                         </Dialog>
                     </div>
-                    <div className="absolute bottom-5 hidden w-[80%] justify-center">
-                        <div className="flex w-screen justify-between">
-                            <div className="flex flex-col items-center">
-                                <span className="bg-gradient-to-r from-indigo-50 to-slate-500 bg-clip-text font-semibold text-transparent max-xl:text-5xl xl:text-5xl">3000+</span>
-                                <p className="inline-block max-lg:text-2xl">usuários</p>
-                            </div>
-                            <div className="flex flex-col items-center">
-                                <Tally1 className="h-20 w-9" />
-                            </div>
-                            <div className="flex flex-col items-center">
-                                <span className="bg-gradient-to-r from-indigo-50 to-slate-500 bg-clip-text font-semibold text-transparent max-xl:text-5xl xl:text-5xl">98%</span>
-                                <p className="inline-block max-lg:text-2xl">de satisfação do cliente</p>
-                            </div>
-                            <div className="flex flex-col items-center">
-                                <Tally1 className="h-20 w-9" />
-                            </div>
-                            <div className="flex flex-col items-center">
-                                <span className="bg-gradient-to-r from-indigo-50 to-slate-500 bg-clip-text font-semibold text-transparent max-xl:text-5xl xl:text-5xl">2300+</span>
-                                <p className="inline-block max-lg:text-2xl">profissionais</p>
-                            </div>
-                        </div>
-                    </div>
                 </BackGroundImage>
             </section>
-            <section className="flex h-screen  items-center gap-40 max-xl:grid max-xl:h-auto max-xl:place-items-center max-sm:my-14 lg:my-36 xl:m-0 2xl:m-0 2xl:p-0">
-                <div className=" flex flex-col items-center max-xl:ml-0">
+            <section className="flex h-screen items-center justify-center gap-40 max-xl:grid max-xl:h-auto max-xl:place-items-center max-sm:my-14 lg:my-36 xl:m-0 2xl:m-0 2xl:p-0">
+                <div className="ml-[10%] flex w-full flex-col items-center max-xl:ml-0">
                     <SobreImage />
                 </div>
-                <div className="flex w-3/6 flex-col items-center justify-center gap-5 text-center">
-                    <div className="mr-52 flex flex-col justify-start gap-6 max-xl:mr-0 max-xl:items-center">
+                <div className="flex w-full flex-col items-center justify-center gap-5 text-center">
+                    <div className="mr-[20%] flex flex-col justify-start gap-6 max-xl:mr-0 max-xl:items-center">
                         <h1 className="text-left text-6xl font-semibold max-xl:w-lvw max-xl:text-center max-lg:text-5xl max-sm:text-4xl md:text-4xl lg:text-5xl ">Conheça o MeetFlow:</h1>
                         <p className="max-xl:mx-440 mt-10 w-full text-left text-2xl font-extralight max-xl:px-56 max-xl:text-center max-lg:px-[5%] max-sm:mt-0 max-sm:text-base">
                             Nosso objetivo é simplificar o agendamento de serviços, oferecendo uma plataforma intuitiva e acessível para clientes e profissionais. Encontre o serviço ideal
@@ -93,15 +70,10 @@ export const Home = () => {
                     </div>
                 </div>
             </section>
-            <section
-                id="profisssional"
-                className="flex h-screen  items-center gap-40 max-lg:bg-secondary bg-opacity-100 max-xl:mb-[10%] max-xl:grid max-xl:h-auto max-xl:place-items-center max-lg:mb-0 max-sm:mb-14 xl:m-0 2xl:m-0 2xl:p-0"
-            >
-                <div className="flex w-3/6 flex-col items-center justify-center text-center">
-                    <div className="ml-52 flex flex-col justify-start gap-6 max-xl:ml-0 max-xl:items-center ">
-                        <h1 className="text-left text-6xl font-semibold max-xl:w-lvw max-xl:text-center max-lg:text-5xl max-sm:text-4xl md:text-4xl lg:text-5xl">
-                            Seja um Profissional MeetFlow
-                        </h1>
+            <section className="flex h-screen items-center justify-center gap-40 bg-card max-xl:mb-[10%] max-xl:grid max-xl:h-auto max-xl:place-items-center max-lg:mb-0 max-sm:mb-14 xl:m-0 2xl:m-0 2xl:p-0">
+                <div className="flex w-full flex-col items-center justify-center text-center">
+                    <div className="ml-[20%] flex flex-col justify-start gap-6 max-xl:ml-0 max-xl:items-center ">
+                        <h1 className="text-left font-semibold max-xl:w-lvw max-xl:text-center max-lg:text-4xl max-sm:text-3xl md:text-3xl lg:text-5xl">Seja um Profissional MeetFlow</h1>
                         <p className="mt-10 w-full text-left text-2xl font-extralight max-xl:px-56 max-xl:text-center max-lg:px-[5%] max-sm:mt-0 max-sm:text-base">
                             Se você é um profissional em busca de mais oportunidades, junte-se à nossa comunidade. Aumente sua visibilidade e simplifique seu agendamento
                         </p>
@@ -110,17 +82,17 @@ export const Home = () => {
                         </div>
                     </div>
                 </div>
-                <div className=" flex flex-col items-center max-xl:order-first max-xl:ml-0 max-xl:mt-[10%] ">
+                <div className="mr-[10%] flex w-full flex-col items-center max-xl:order-first max-xl:ml-0 max-xl:mr-0 max-xl:mt-[10%] ">
                     <ProfessionalImage />
                 </div>
             </section>
-            <section className="my-40 flex min-h-lvh  flex-col items-center justify-center">
+            <section className="my-40  flex min-h-lvh flex-col items-center justify-center">
                 <h1 className="text-center text-6xl font-semibold max-xl:text-5xl max-sm:text-2xl">Dúvidas Frequentes</h1>
                 <p className="my-6 mb-10 text-center text-xl font-extralight max-xl:text-lg max-sm:text-base">Veja as respostas para as perguntas mais frequentes </p>
                 <div className=" max-h-[80%] w-[90%] max-sm:mb-[10%] max-sm:h-full sm:h-full xl:w-[70%]">
                     <Accordion type="single" collapsible>
                         <AccordionItem className="py-5" value="item-1">
-                            <AccordionTrigger className="text-2xl font-normal text-indigo-400 max-xl:text-xl max-sm:text-base lg:text-xl">
+                            <AccordionTrigger className="text-2xl font-bold text-primary-foreground max-xl:text-xl max-sm:text-base lg:text-xl">
                                 Como posso agendar um serviço sem criar uma conta?
                             </AccordionTrigger>
                             <AccordionContent className="mr-56  text-xl font-extralight max-xl:text-lg max-sm:m-10 max-sm:text-base sm:m-0 sm:text-sm lg:text-base">
@@ -128,7 +100,7 @@ export const Home = () => {
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem className="py-5" value="item-2">
-                            <AccordionTrigger className="text-2xl font-normal text-indigo-400 max-xl:text-xl max-sm:text-base sm:text-base lg:text-xl">
+                            <AccordionTrigger className="text-2xl font-bold text-primary-foreground max-xl:text-xl max-sm:text-base sm:text-base lg:text-xl">
                                 Quais são as vantagens de criar uma conta na MeetFlow?
                             </AccordionTrigger>
                             <AccordionContent className="mr-56 text-xl font-extralight max-xl:text-lg max-sm:m-10 max-sm:text-base  sm:m-0 sm:text-base lg:text-base">
@@ -137,7 +109,7 @@ export const Home = () => {
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem className="py-5" value="item-3">
-                            <AccordionTrigger className="text-2xl font-normal text-indigo-400 max-xl:text-xl max-sm:text-base sm:text-base lg:text-xl">
+                            <AccordionTrigger className="text-2xl font-bold text-primary-foreground max-xl:text-xl max-sm:text-base sm:text-base lg:text-xl">
                                 Posso cancelar ou reagendar um agendamento?
                             </AccordionTrigger>
                             <AccordionContent className="mr-56 text-xl font-extralight max-xl:text-lg max-sm:m-10 max-sm:text-base sm:m-0 sm:text-base lg:text-base">
@@ -146,7 +118,7 @@ export const Home = () => {
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem className="py-5" value="item-4">
-                            <AccordionTrigger className="text-2xl font-normal text-indigo-400 max-xl:text-xl max-sm:text-base sm:text-base lg:text-xl">
+                            <AccordionTrigger className="text-2xl font-bold text-primary-foreground max-xl:text-xl max-sm:text-base sm:text-base lg:text-xl">
                                 Como sei se um profissional é confiável?
                             </AccordionTrigger>
                             <AccordionContent className="mr-56 text-xl font-extralight max-xl:text-lg max-sm:m-10 max-sm:text-base sm:m-0 sm:text-base lg:text-base">
@@ -155,7 +127,7 @@ export const Home = () => {
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem className="py-5" value="item-5">
-                            <AccordionTrigger className="text-2xl font-normal text-indigo-400 max-xl:text-xl max-sm:text-base sm:text-base lg:text-xl">
+                            <AccordionTrigger className="text-2xl font-bold text-primary-foreground max-xl:text-xl max-sm:text-base sm:text-base lg:text-xl">
                                 Existe alguma taxa para usar a plataforma?
                             </AccordionTrigger>
                             <AccordionContent className="mr-56 text-xl font-extralight max-xl:text-lg max-sm:m-10 max-sm:text-base sm:m-0 sm:text-base lg:text-base">
