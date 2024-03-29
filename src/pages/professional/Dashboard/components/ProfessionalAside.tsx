@@ -264,8 +264,8 @@ export const ProfessionalAside = () => {
                                 <AsideItem link="/" title="fazer uma conta" icon={User} />
                                 <AsideItem link="/register" title="Suporte" icon={LifeBuoy} />
                                 <Button variant={'ghost'} className="flex h-11 items-center justify-start gap-3 px-10 py-7">
-                                    <Settings className="text-violet-700" />
-                                    <p className="text-violet-700">Configurações</p>
+                                    <Settings className="text-primary-foreground" />
+                                    <p className="text-primary-foreground">Configurações</p>
                                 </Button>
                             </div>
                         </div>

@@ -1,4 +1,5 @@
 import 'react-toastify/dist/ReactToastify.css';
+
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { AxiosError } from 'axios';
@@ -9,13 +10,15 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { z } from 'zod';
+
+import { api } from '@/api';
 import { Input } from '@/components/Input';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/context/auth-provider';
 import { useTheme } from '@/context/theme-provider';
 import DarkLogo from '@/public/img/Logo.svg';
 import LightLogo from '@/public/img/Logo-light.svg';
-import { api } from '@/api';
+
 import { BackGroundDiv } from './styles';
 
 type passwordAppearenceType = 'text' | 'password';
@@ -48,8 +51,8 @@ export const ClientLogin = () => {
             const res = await axios.post(`${import.meta.env.VITE_BASE_URL}/auth/login`, userData);
             const { refreshToken } = res.data;
             sessionStorage.setItem('refreshToken', refreshToken);
-            api.defaults.headers.common['refreshToken'] = refreshToken
-            console.log(api.defaults.headers.common)
+            api.defaults.headers.common['refreshToken'] = refreshToken;
+            console.log(api.defaults.headers.common);
             setAuth(true);
             navigate('/dashboard/services');
         } catch (error) {
@@ -97,6 +100,7 @@ export const ClientLogin = () => {
                         <div className="group mx-1 flex  w-80 items-center gap-2 rounded-lg border border-foreground px-3 py-2 shadow-sm focus-within:border-primary focus:border-primary max-sm:w-[20rem]">
                             <Lock className="text-foreground/90" />
                             <Input
+                                type="password"
                                 className="flex-1 border-0 bg-transparent p-0 text-foreground placeholder-zinc-600 focus:border-primary"
                                 placeholder="Digite sua senha"
                                 id="password"

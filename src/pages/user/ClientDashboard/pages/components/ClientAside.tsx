@@ -87,7 +87,7 @@ export const ClientAside = () => {
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger>
-                                    <AsideItem link="" title="fazer uma conta" icon={User} />
+                                    <AsideItem link="/register" title="fazer uma conta" icon={User} />
                                 </TooltipTrigger>
                                 <TooltipContent side="right">
                                     <p>Fazer uma conta</p>
@@ -126,8 +126,8 @@ export const ClientAside = () => {
                                     <Tooltip>
                                         <TooltipTrigger asChild>
                                             <Button variant={'ghost'} className="flex h-11 w-full items-center justify-start gap-3 px-10 py-7 max-lg:justify-center max-lg:px-0">
-                                                <Settings className="text-violet-700" />
-                                                <p className="text-violet-700 max-lg:hidden">Configurações</p>
+                                                <Settings className="text-primary-foreground" />
+                                                <p className="text-primary-foreground max-lg:hidden">Configurações</p>
                                             </Button>
                                         </TooltipTrigger>
                                         <TooltipContent side="right">
