@@ -11,7 +11,7 @@ export interface NavItemProps {
 
 export function AsideItem({ title, icon: Icon, link }: NavItemProps) {
     return (
-        <Button asChild variant={'ghost'} className="h-11 flex items-center justify-start gap-3 px-10 py-7 max-lg:px-0 max-lg:justify-center">
+        <Button asChild variant={'ghost'} className="flex h-11 items-center justify-start gap-3 px-10 py-7 max-lg:justify-center max-lg:px-0">
             <Link to={link}>
                 <Icon />
                 <span className="max-lg:hidden">{title}</span>

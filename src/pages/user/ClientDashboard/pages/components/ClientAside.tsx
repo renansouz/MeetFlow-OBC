@@ -22,14 +22,14 @@ export const ClientAside = () => {
 
     return (
         <>
-            <aside className=" flex h-screen w-auto flex-col border-r-2 py-8 items-center justify-between max-lg:px-4 max-lg:py-4 bg-slate bg-card max-sm:border-0 max-sm:px-0 ">
+            <aside className=" bg-slate flex h-screen w-auto flex-col items-center justify-between border-r-2 bg-card py-8 max-lg:px-4 max-lg:py-4 max-sm:border-0 max-sm:px-0 ">
                 <div className=" flex flex-col gap-y-10 max-lg:gap-0 max-sm:hidden">
                     <div className="flex flex-col gap-y-1">
                         <Link to={'/'}>
-                            <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="max-lg:hidden h-20 mb-0" />
+                            <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="mb-0 h-20 max-lg:hidden" />
                         </Link>
                         <Link to={'/'}>
-                            <img src={theme === 'dark' ? LogoMenor : LightLogo} alt="" className="lg:hidden img h-11 items-center mb-10" />
+                            <img src={theme === 'dark' ? LogoMenor : LightLogo} alt="" className="img mb-10 h-11 items-center lg:hidden" />
                         </Link>
                         <TooltipProvider>
                             <Tooltip>
@@ -53,19 +53,36 @@ export const ClientAside = () => {
                             </Tooltip>
                         </TooltipProvider>
 
-                        <TooltipProvider>
-                            <Tooltip>
-                                <TooltipTrigger>
-                                    <AsideItem link="/error" title="Grupos" icon={Users} />
-                                </TooltipTrigger>
-                                <TooltipContent side="right">
-                                    <p>Grupos</p>
-                                </TooltipContent>
-                            </Tooltip>
-                        </TooltipProvider>
+                        <Dialog>
+                            <DialogTrigger>
+                                <TooltipProvider>
+                                    <Tooltip>
+                                        <TooltipTrigger asChild>
+                                            <Button variant={'ghost'} className="flex h-11 w-full items-center justify-start gap-3 px-10 py-7 max-lg:justify-center max-lg:px-0">
+                                                <Users />
+                                                <span className="max-lg:hidden">Grupos</span>
+                                            </Button>
+                                        </TooltipTrigger>
+                                        <TooltipContent side="right">
+                                            <p>Grupos</p>
+                                        </TooltipContent>
+                                    </Tooltip>
+                                </TooltipProvider>
+                            </DialogTrigger>
+                            <DialogContent>
+                                <DialogHeader className="gap-1 ">
+                                    <DialogTitle className="text-xl ">Desculpe-nos!</DialogTitle>
+                                    <DialogDescription className="pb-5 ">
+                                        A seção de grupos ainda não está disponível. Estamos trabalhando duro para trazê-la até você nas próximas versões. Pedimos desculpas pela
+                                        inconveniência e agradecemos sua paciência.
+                                    </DialogDescription>
+                                    <span>Atenciosamente, MeetFlow</span>
+                                </DialogHeader>
+                            </DialogContent>
+                        </Dialog>
                     </div>
                 </div>
-                <div className="mt-[10%] flex flex-col gap-y-1 max-lg:gap-0 w-full max-sm:hidden">
+                <div className="mt-[10%] flex w-full flex-col gap-y-1 max-lg:gap-0 max-sm:hidden">
                     {!isAuth && (
                         <TooltipProvider>
                             <Tooltip>
@@ -93,7 +110,7 @@ export const ClientAside = () => {
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger>
-                                    <Button variant={'ghost'} className="h-11 flex items-center justify-start gap-3 px-10 py-7 max-lg:px-0 max-lg:justify-center" asChild>
+                                    <Button variant={'ghost'} className="flex h-11 items-center justify-start gap-3 px-10 py-7 max-lg:justify-center max-lg:px-0" asChild>
                                         <ClientMenu />
                                     </Button>
                                 </TooltipTrigger>
@@ -108,7 +125,7 @@ export const ClientAside = () => {
                                 <TooltipProvider>
                                     <Tooltip>
                                         <TooltipTrigger asChild>
-                                            <Button variant={'ghost'} className="h-11 flex items-center w-full justify-start gap-3 px-10 py-7 max-lg:px-0 max-lg:justify-center">
+                                            <Button variant={'ghost'} className="flex h-11 w-full items-center justify-start gap-3 px-10 py-7 max-lg:justify-center max-lg:px-0">
                                                 <Settings className="text-violet-700" />
                                                 <p className="text-violet-700 max-lg:hidden">Configurações</p>
                                             </Button>
@@ -134,7 +151,7 @@ export const ClientAside = () => {
                                     </SelectTrigger>
                                     <SelectContent className="flex flex-col">
                                         <Button
-                                            className="w-full bg-background text-foreground items-start justify-between text-lg p-2 hover:bg-primary"
+                                            className="w-full items-start justify-between bg-background p-2 text-lg text-foreground hover:bg-primary"
                                             onClick={() => setTheme('light')}
                                             value={'light'}
                                         >
@@ -142,7 +159,7 @@ export const ClientAside = () => {
                                             <ChevronDown />
                                         </Button>
                                         <Button
-                                            className="w-full bg-background text-foreground items-start justify-between text-lg p-2 hover:bg-primary"
+                                            className="w-full items-start justify-between bg-background p-2 text-lg text-foreground hover:bg-primary"
                                             onClick={() => setTheme('dark')}
                                             value={'dark'}
                                         >
@@ -156,7 +173,7 @@ export const ClientAside = () => {
                     )}
                 </div>
             </aside>
-            <div className="items-center top-1 left-2 sm:hidden h-10 absolute bg-secondary rounded-md">
+            <div className="absolute left-2 top-1 h-10 items-center rounded-md bg-secondary sm:hidden">
                 <Sheet>
                     <SheetTrigger>
                         <Menu className="h-10 w-10" />
@@ -166,17 +183,17 @@ export const ClientAside = () => {
                             <div className="flex flex-col gap-y-10  ">
                                 <div className="flex flex-col gap-y-1">
                                     <Link to={'/'}>
-                                        <img src={theme === 'dark' ? Logo : LightLogo} alt="" className=" h-14 mb-14" />
+                                        <img src={theme === 'dark' ? Logo : LightLogo} alt="" className=" mb-14 h-14" />
                                     </Link>
                                     <AsideItem link="/" title="Serviços" icon={Home} />
                                     <AsideItem link="/register" title="Meus Agendamentos" icon={Layers} />
                                     <AsideItem link="/error" title="Grupos" icon={Users} />
                                 </div>
                             </div>
-                            <div className="flex flex-col gap-y-1 max-lg:gap-0 w-full">
+                            <div className="flex w-full flex-col gap-y-1 max-lg:gap-0">
                                 <AsideItem link="/" title="fazer uma conta" icon={User} />
                                 <AsideItem link="/register" title="Suporte" icon={LifeBuoy} />
-                                <Button variant={'ghost'} className="h-11 flex items-center justify-start gap-3 px-10 py-7">
+                                <Button variant={'ghost'} className="flex h-11 items-center justify-start gap-3 px-10 py-7">
                                     <Settings className="text-violet-700" />
                                     <p className="text-violet-700">Configurações</p>
                                 </Button>

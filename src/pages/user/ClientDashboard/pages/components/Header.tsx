@@ -18,9 +18,9 @@ export const Header = ({ title }: HeaderProps) => {
         return () => clearTimeout(timeout);
     }, []);
     return (
-        <div className="px-10 p-5 flex h-13 flex-col mt-[3%]">
-            {loading ? <Skeleton className="w-48 h-10 rounded-md z-0 gap-y-12 my-10" /> : <h1 className="text-3xl font-bols">{title}</h1>}
-            {loading ? <Skeleton className="w-full h-1 rounded-md z-0 gap-y-12" /> : <Separator orientation="horizontal" className=" w-full h-0.5 bg-foreground my-10" />}
+        <div className="h-13 mt-[3%] flex flex-col p-5 px-10">
+            {loading ? <Skeleton className="z-0 my-10 h-10 w-48 gap-y-12 rounded-md" /> : <h1 className="font-bols">{title}</h1>}
+            {loading ? <Skeleton className="z-0 h-1 w-full gap-y-12 rounded-md" /> : <Separator orientation="horizontal" className=" my-10 h-0.5 w-full bg-foreground" />}
         </div>
     );
 };

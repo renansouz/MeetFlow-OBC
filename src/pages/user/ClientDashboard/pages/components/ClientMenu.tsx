@@ -30,7 +30,7 @@ export const ClientMenu = () => {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button variant={'ghost'} className="h-11 flex items-center justify-start gap-3 px-10 py-7 max-lg:px-0 max-lg:justify-center">
+                <Button variant={'ghost'} className="flex h-11 items-center justify-start gap-3 px-10 py-7 max-lg:justify-center max-lg:px-0">
                     <Avatar>
                         <AvatarImage src={userData?.photoUrl} className="w-10" />
                         <AvatarFallback>{userData?.name.slice(0, 1)}</AvatarFallback>

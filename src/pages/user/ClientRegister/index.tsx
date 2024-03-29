@@ -62,15 +62,15 @@ export const ClientRegister = () => {
     const handlePasswordAppearence = () => (passswordAppearenceState === 'password' ? setpasswordAppearenceState('text') : setpasswordAppearenceState('password'));
 
     return (
-        <div className="flex justify-center h-full items-center bg-card">
+        <div className="flex h-full items-center justify-center bg-card">
             <ToastContainer position="bottom-right" theme={theme} />
-            <div className=" w-1/2 max-h-screen">
+            <div className=" max-h-screen w-1/2">
                 <FormDiv className="h-full " onSubmit={handleSubmit(handleSignUp)}>
-                    <div className="flex flex-col items-center justify-center gap-4 h-full">
+                    <div className="flex h-full flex-col items-center justify-center gap-4">
                         <Link to={'/'}>
                             <img src={theme === 'dark' ? LightLogo : DarkLogo} alt="" className="w-24 max-sm:w-20" />
                         </Link>
-                        <h1 className="max-sm:text-xl text-3xl font-bold">Criar uma conta!</h1>
+                        <h1 className="font-bold">Criar uma conta!</h1>
 
                         <div className="flex flex-col items-center justify-center gap-3">
                             <section>
@@ -78,7 +78,7 @@ export const ClientRegister = () => {
                                     Nome
                                 </label>
                                 <Input
-                                    className="focus:border-indigo-200 w-[21rem] max-md:w-[18rem] bg-background p-3 border rounded-lg"
+                                    className="w-[21rem] rounded-lg border bg-background p-3 focus:border-indigo-200 max-md:w-[18rem]"
                                     placeholder="Digite seu nome"
                                     id="name"
                                     {...register('name')}
@@ -89,40 +89,40 @@ export const ClientRegister = () => {
                                     Endereço de e-mail
                                 </label>
                                 <Input
-                                    className="focus:border-indigo-200 w-[21rem] max-md:w-[18rem] bg-background p-3 border rounded-lg"
+                                    className="w-[21rem] rounded-lg border bg-background p-3 focus:border-indigo-200 max-md:w-[18rem]"
                                     placeholder="Digite seu email"
                                     id="email"
                                     {...register('email')}
                                 />
-                                {errors.email && <p className="text-red-500 py-0.5 text-sm">{errors.email.message}</p>}
+                                {errors.email && <p className="py-0.5 text-sm text-red-500">{errors.email.message}</p>}
                             </section>
                             <section>
                                 <label htmlFor="" className="block py-2  font-semibold" id="password">
                                     Senha
                                 </label>
                                 <Input
-                                    className="focus:border-indigo-200 w-[21rem] max-md:w-[18rem] bg-background p-3 border rounded-lg"
+                                    className="w-[21rem] rounded-lg border bg-background p-3 focus:border-indigo-200 max-md:w-[18rem]"
                                     placeholder="Digite sua senha"
                                     id="password"
                                     {...register('password')}
                                 />
-                                {errors.password && <p className="text-red-500 py-0.5 text-sm">{errors.password.message}</p>}
+                                {errors.password && <p className="py-0.5 text-sm text-red-500">{errors.password.message}</p>}
                             </section>
                             <section>
                                 <label htmlFor="" className="block py-2  font-semibold" id="confirmPassword">
                                     Confirme sua senha
                                 </label>
                                 <Input
-                                    className="focus:border-indigo-200 w-[21rem] max-md:w-[18rem] bg-background p-3 border rounded-lg"
+                                    className="w-[21rem] rounded-lg border bg-background p-3 focus:border-indigo-200 max-md:w-[18rem]"
                                     placeholder="Digite sua senha novamente"
                                     id="passwordConfirmation"
                                     {...register('passwordConfirmation')}
                                 />
-                                {errors.passwordConfirmation && <p className="text-red-500 py-0.5 text-sm">{errors.passwordConfirmation.message}</p>}
+                                {errors.passwordConfirmation && <p className="py-0.5 text-sm text-red-500">{errors.passwordConfirmation.message}</p>}
                             </section>
-                            <section className="flex justify-center items-center gap-3 ">
+                            <section className="flex items-center justify-center gap-3 ">
                                 <input
-                                    className="appearance-none h-6 w-6 border-2 border-indigo-800 checked:bg-indigo-600 checked:border-indigo-800 rounded-md"
+                                    className="h-6 w-6 appearance-none rounded-md border-2 border-indigo-800 checked:border-indigo-800 checked:bg-indigo-600"
                                     type="checkbox"
                                     name=""
                                     id=""
@@ -147,7 +147,7 @@ export const ClientRegister = () => {
             </div>
             <div className="flex h-full w-1/2 items-center justify-center max-lg:hidden">
                 <BackGroundDiv>
-                    <h1 className="p-4 text-center font-poppins-start text-7xl font-semibold text-white max-xl:text-5xl max-sm:text-4xl">Facilite sua agenda com o MeetFlow</h1>
+                    <h1 className="text-center font-poppins-start font-bold text-white">Facilite sua agenda com o MeetFlow</h1>
 
                     <p className="w-2/3 text-center text-white">
                         Encontre serviços, agende compromissos e simplifique sua vida com o MeetFlow. A maneira mais fácil de conectar-se com profissionais e organizarsua agenda. Experimente

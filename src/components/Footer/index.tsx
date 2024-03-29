@@ -18,13 +18,13 @@ export const Footer = () => {
                         <p className="text-center max-xl:text-sm lg:text-base">Organize. Agende. Conecte-se. MeetFlow.</p>
                     </div>
                     <div className="flex flex-col gap-4">
-                        <h2 className="mb-2 text-2xl font-medium max-xl:text-sm">Recursos</h2>
+                        <h2 className="mb-2 text-xl font-medium max-xl:text-sm">Recursos</h2>
                         <a href="#">Termos de Uso</a>
                         <a href="#">Política de Privacidade</a>
                         <a href="#">Tutoriais</a>
                     </div>
                     <div className="flex flex-col gap-4">
-                        <h2 className="mb-2 text-2xl font-medium max-xl:text-sm">Sobre Nós</h2>
+                        <h2 className="mb-2 text-xl font-medium max-xl:text-sm">Sobre Nós</h2>
                         <a href="#">Quem Somos</a>
                         <a href="#">Nossa Missão</a>
                         <a href="#">Equipe</a>
@@ -32,13 +32,13 @@ export const Footer = () => {
                         <a href="#">Newsletters</a>
                     </div>
                     <div className="flex flex-col gap-4">
-                        <h2 className="mb-2 text-2xl font-medium max-xl:text-sm">Suporte</h2>
+                        <h2 className="mb-2 text-xl font-medium max-xl:text-sm">Suporte</h2>
                         <a href="#">FAQ</a>
                         <a href="#">Contate-nos</a>
                         <a href="#">Ajuda</a>
                     </div>
                 </div>
-                <Separator orientation="horizontal" className="w-full h-0.5 my-10" />
+                <Separator orientation="horizontal" className="my-10 h-0.5 w-full" />
                 <div className="flex justify-between pb-5 max-xl:mx-10 max-sm:flex-col max-sm:items-center">
                     <p className="text-sm">Copyright &copy; 2024 MeetFlow. All Rights Reserved.</p>
                     <div className="flex gap-5 max-sm:my-5">

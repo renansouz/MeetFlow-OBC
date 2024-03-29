@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { AxiosError } from 'axios';
-import { Calendar, ChevronDown, Home, Layers, LifeBuoy, LogOut, Menu, Plus, Settings, User, Users } from 'lucide-react';
+import { Calendar, ChevronDown, Home, Layers, LifeBuoy, LogOut, Menu, PersonStanding, Plus, Settings, User, Users } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -42,7 +42,7 @@ export const ProfessionalAside = () => {
         register,
         handleSubmit,
         reset,
-        formState: { errors, isSubmitting },
+        formState: { errors },
     } = useForm<LoginFormData>({ resolver: zodResolver(createUserSchema) });
 
     const handleCreateService = async (userData: LoginFormData) => {
@@ -134,29 +134,6 @@ export const ProfessionalAside = () => {
                                             Continuar
                                         </Button>
                                     </div>
-
-                                    {/* <div className="flex justify-between gap-6">
-                                        <span>preço:</span>
-                                        <Input className="w-80" placeholder="Insira o nome do serviço" />
-                                    </div>
-                                    <div className="flex justify-between gap-6">
-                                        <span>Descrinção:</span>
-                                        <Textarea className="row-span-3 w-80 resize-none" placeholder="Insira uma descrinção para este serviço" />
-                                    </div>
-                                    <div className="flex justify-between gap-6">
-                                        <span>Duração:</span>
-                                        <Input className="w-80" placeholder="Inisra a duração deste serviço" />
-                                    </div>
-                                    <div className="flex justify-between gap-6">
-                                        <span>Preço:</span>
-                                        <Input className="w-80" placeholder="adicione um valor para este serviço" />
-                                    </div>
-                                    <div className="flex justify-end">
-                                        <Button type="submit" className=" flex w-32 items-center justify-center bg-indigo-700 hover:bg-indigo-800">
-                                            Salvar
-                                        </Button>
-                                    </div>
-                                    */}
                                 </form>
                             </DialogContent>
                         </Dialog>
@@ -175,10 +152,10 @@ export const ProfessionalAside = () => {
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger>
-                                    <AsideItem link="/register" title="Meus Agendamentos" icon={Home} />
+                                    <AsideItem link="/professional/meus-agendamentos" title="Agendamentos" icon={PersonStanding} />
                                 </TooltipTrigger>
                                 <TooltipContent side="right">
-                                    <p>Meus Agendamentos</p>
+                                    <p>Agendamentos</p>
                                 </TooltipContent>
                             </Tooltip>
                         </TooltipProvider>
@@ -186,10 +163,10 @@ export const ProfessionalAside = () => {
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger>
-                                    <AsideItem link="/error" title="Meus calendário" icon={Calendar} />
+                                    <AsideItem link="/professional/disponibilidade" title="Disponibilidade" icon={Calendar} />
                                 </TooltipTrigger>
                                 <TooltipContent side="right">
-                                    <p>Meu calendário</p>
+                                    <p>disponibilidade</p>
                                 </TooltipContent>
                             </Tooltip>
                         </TooltipProvider>

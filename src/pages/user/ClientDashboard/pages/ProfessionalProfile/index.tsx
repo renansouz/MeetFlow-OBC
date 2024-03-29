@@ -48,27 +48,27 @@ export function ProfessionalProfile() {
         onSelectDateTime(dateWithTime);
     }
     return (
-        <Card className="w-[70%] min-w-[20rem] ml-[6%] my-16 pb-10 max-xl:w-full max-xl:m-0">
-            <CardHeader className="bg-indigo-300 h-32 rounded-tl-md rounded-tr-md w-full pt-14 max-lg:rounded-none">
-                <Avatar className="w-full rounded-full h-36">
-                    <AvatarImage src="https://github.com/renansouz.png" className="ml-5 border-4 border-background rounded-full w-36" />
-                    <AvatarFallback className="ml-5 border-4 border-background rounded-full w-36">CN</AvatarFallback>
+        <Card className="my-16 ml-[6%] w-[70%] min-w-[20rem] pb-10 max-xl:m-0 max-xl:w-full">
+            <CardHeader className="h-32 w-full rounded-tl-md rounded-tr-md bg-indigo-300 pt-14 max-lg:rounded-none">
+                <Avatar className="h-36 w-full rounded-full">
+                    <AvatarImage src="https://github.com/renansouz.png" className="ml-5 w-36 rounded-full border-4 border-background" />
+                    <AvatarFallback className="ml-5 w-36 rounded-full border-4 border-background">CN</AvatarFallback>
                 </Avatar>
             </CardHeader>
-            <CardContent className="flex flex-col mt-20 w-full gap-y-2 border-b-2">
-                <CardTitle className="text-left font-bold ml-6 " style={{ maxWidth: '600px' }}>
+            <CardContent className="mt-20 flex w-full flex-col gap-y-2 border-b-2">
+                <CardTitle className="ml-6 text-left font-bold " style={{ maxWidth: '600px' }}>
                     RENAN DE SOUZA SILVA
                 </CardTitle>
-                <CardDescription className="font-light w-full ml-6">Olá me chamo Renan, caso queira aprender tailwind, agende uma reunião comigo!</CardDescription>
-                <span className="font-bold mt-3 ml-5 text-indigo-600/90">+ 10 agendamentos</span>
+                <CardDescription className="ml-6 w-full font-light">Olá me chamo Renan, caso queira aprender tailwind, agende uma reunião comigo!</CardDescription>
+                <span className="ml-5 mt-3 font-bold text-indigo-600/90">+ 10 agendamentos</span>
             </CardContent>
             {/* SERVIÇOS */}
             <ProfessionalService />
             {/* calendário */}
-            <h2 className="mt-10 flex justify-center items-center text-2xl max-lg:text-xl max-md:text-lg max-md:mx-10 mb-10 font-light">Escolha uma data para agendar com Renan</h2>
+            <h2 className="mb-10 mt-10 flex items-center justify-center font-light max-md:mx-10">Escolha uma data para agendar com Renan</h2>
             <Container isTimePickerOpen={isDateSelected}>
                 {loading ? (
-                    <Skeleton className="mx-2 w-[40rem] h-[40rem] rounded-[2rem] z-0 gap-y-12" />
+                    <Skeleton className="z-0 mx-2 h-[40rem] w-[40rem] gap-y-12 rounded-[2rem]" />
                 ) : (
                     <CalendarProfessional selectedDate={selectedDate} onDateSelected={setSelectedDate} />
                 )}
@@ -87,40 +87,40 @@ export function ProfessionalProfile() {
                         </TimePickerList>
                         <Dialog>
                             <DialogTrigger>
-                                <Button className="p-2 flex w-full">Solicitar Agendamento</Button>
+                                <Button className="flex w-full p-2">Solicitar Agendamento</Button>
                             </DialogTrigger>
                             <DialogContent>
                                 <DialogHeader className="gap-1">
                                     <DialogTitle className="text-xl font-bold">Confirmação de Agendamento</DialogTitle>
                                     <DialogDescription className="border-b-2 pb-5">Por favor, confirme os detalhes do seu agendamento antes de prosseguir.</DialogDescription>
-                                    <DialogHeader className="text-lg flex flex-col m-6 gap-4 py-5">
+                                    <DialogHeader className="m-6 flex flex-col gap-4 py-5 text-lg">
                                         <div className="flex justify-between gap-4 border-b-2 pb-4">
                                             <ContactRound className="text-foreground" />
-                                            <span className="w-1/2 text-xl font-bold">Profissional:</span>
-                                            <span className="w-1/2 text-xl">Renan</span>
+                                            <span className="w-1/2 font-bold">Profissional:</span>
+                                            <span className="w-1/2">Renan</span>
                                         </div>
                                         <div className="flex justify-between gap-4 border-b-2 pb-4">
                                             <BriefcaseBusiness className="text-foreground" />
-                                            <span className="w-1/2 text-xl font-bold">Serviço:</span>
-                                            <span className="w-1/2 text-xl">Tailwind</span>
+                                            <span className="w-1/2 font-bold">Serviço:</span>
+                                            <span className="w-1/2">Tailwind</span>
                                         </div>
                                         <div className="flex justify-between gap-4 border-b-2 pb-4">
                                             <HourglassIcon className="text-foreground" />
-                                            <span className="w-1/2 text-xl font-bold">Duração:</span>
-                                            <span className="w-1/2 text-xl">2 Horas</span>
+                                            <span className="w-1/2 font-bold">Duração:</span>
+                                            <span className="w-1/2">2 Horas</span>
                                         </div>
                                         <div className="flex justify-between gap-4 border-b-2 pb-4">
                                             <CalendarCheck2 className="text-foreground" />
-                                            <span className="w-1/2 text-xl font-bold">Data e Hora:</span>
-                                            <span className="w-1/2 text-xl">11/04/2024 ás 11:11</span>
+                                            <span className="w-1/2 font-bold">Data e Hora:</span>
+                                            <span className="w-1/2">11/04/2024 ás 11:11</span>
                                         </div>
                                         <div className="flex justify-between gap-4 border-b-2 pb-4">
                                             <DollarSign className="text-foreground" />
-                                            <span className="w-1/2 text-xl font-bold">Valor:</span>
-                                            <span className="w-1/2 text-xl">R$100</span>
+                                            <span className="w-1/2 font-bold">Valor:</span>
+                                            <span className="w-1/2">R$100</span>
                                         </div>
                                     </DialogHeader>
-                                    <div className="flex justify-between m-10">
+                                    <div className="m-10 flex justify-between">
                                         <Button variant={'destructive'}>Não confirmar</Button>
                                         <Button variant={'success'}>confirmar</Button>
                                     </div>
