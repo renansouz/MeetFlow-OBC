@@ -95,17 +95,57 @@ export const ClientAside = () => {
                             </Tooltip>
                         </TooltipProvider>
                     )}
+                    <Dialog>
+                        <DialogTrigger>
+                            <TooltipProvider>
+                                <Tooltip>
+                                    <TooltipTrigger asChild>
+                                        <Button variant={'ghost'} className="flex h-11 w-full items-center justify-start gap-3 px-10 py-7 max-lg:justify-center max-lg:px-0">
+                                            <LifeBuoy />
+                                            <p className=" max-lg:hidden">suporte</p>
+                                        </Button>
+                                    </TooltipTrigger>
+                                    <TooltipContent side="right">
+                                        <p>Suporte</p>
+                                    </TooltipContent>
+                                </Tooltip>
+                            </TooltipProvider>
+                        </DialogTrigger>
+                        <DialogContent>
+                            <DialogHeader>
+                                <DialogTitle className="tex-xl text-primary">Bem-vindo ao Suporte MeetFlow!</DialogTitle>
+                                <DialogDescription className="pb-3 text-base">
+                                    Estamos aqui para ajudar você a aproveitar ao máximo a plataforma MeetFlow. Se surgirem dúvidas ou problemas, nossa equipe está pronta para auxiliar.
+                                </DialogDescription>
+                            </DialogHeader>
+                            <div className="flex flex-col gap-3">
+                                <div className="flex flex-col gap-2">
+                                    <h2 className="text-xl text-primary">Como Podemos Ajudar?</h2>
+                                    <p>
+                                        <span className="text-gray-500">FAQ:</span> Encontre respostas rápidas para suas perguntas mais comuns.
+                                    </p>
+                                    <p>
+                                        <span className="text-gray-500">Tutoriais e Guias:</span> Explore nossos guias passo a passo para dominar a plataforma.
+                                    </p>
+                                    <p>
+                                        <span className="text-gray-500">Suporte Direto: </span>Entre em contato conosco para assistência personalizada.
+                                    </p>
+                                </div>
+                                <div className="flex flex-col gap-2">
+                                    <h2 className="text-xl text-primary">Entre em Contato</h2>
+                                    <p>
+                                        <span className="text-gray-500">E-mail:</span> Envie suas dúvidas para support@meetflow.com.
+                                    </p>
+                                    <p>
+                                        <span className="text-gray-500">Telefone: </span> Ligue para (+55) 9945-6162 durante o horário comercial.
+                                    </p>
+                                    <h2 className="text-xl text-primary">Nosso Compromisso</h2>
+                                    <p>Sua satisfação é nossa prioridade. Estamos aqui para garantir que sua experiência com o MeetFlow seja suave e produtiva.</p>
+                                </div>
+                            </div>
+                        </DialogContent>
+                    </Dialog>
 
-                    <TooltipProvider>
-                        <Tooltip>
-                            <TooltipTrigger>
-                                <AsideItem link="" title="Suporte" icon={LifeBuoy} />
-                            </TooltipTrigger>
-                            <TooltipContent side="right">
-                                <p>Suporte</p>
-                            </TooltipContent>
-                        </Tooltip>
-                    </TooltipProvider>
                     {isAuth && (
                         <TooltipProvider>
                             <Tooltip>
@@ -190,8 +230,58 @@ export const ClientAside = () => {
                                 </div>
                             </div>
                             <div className="flex w-full flex-col gap-y-1 max-lg:gap-0">
-                                <AsideItem link="/" title="fazer uma conta" icon={User} />
-                                <AsideItem link="/register" title="Suporte" icon={LifeBuoy} />
+                                <AsideItem link="/register" title="fazer uma conta" icon={User} />
+                                <Dialog>
+                                    <DialogTrigger asChild>
+                                        <TooltipProvider>
+                                            <Tooltip>
+                                                <TooltipTrigger asChild>
+                                                    <Button variant={'ghost'} className="flex h-11 w-full items-center justify-start gap-3 px-10 py-7 max-lg:justify-center max-lg:px-0">
+                                                        <LifeBuoy />
+                                                        <p className=" max-lg:hidden">suporte</p>
+                                                    </Button>
+                                                </TooltipTrigger>
+                                                <TooltipContent side="right">
+                                                    <p>Suporte</p>
+                                                </TooltipContent>
+                                            </Tooltip>
+                                        </TooltipProvider>
+                                    </DialogTrigger>
+                                    <DialogContent>
+                                        <DialogHeader>
+                                            <DialogTitle className="text-primary">Bem-vindo ao Suporte MeetFlow!</DialogTitle>
+                                            <DialogDescription>
+                                                Estamos aqui para ajudar você a aproveitar ao máximo a plataforma MeetFlow. Se surgirem dúvidas ou problemas, nossa equipe está pronta para
+                                                auxiliar.
+                                            </DialogDescription>
+                                        </DialogHeader>
+                                        <div className="flex flex-col">
+                                            <div className="flex flex-col gap-2">
+                                                <h2 className="text-base text-primary">Como Podemos Ajudar?</h2>
+                                                <p>
+                                                    <span className="text-gray-400">FAQ:</span> Encontre respostas rápidas para suas perguntas mais comuns.
+                                                </p>
+                                                <p>
+                                                    <span className="text-gray-400">Tutoriais e Guias:</span> Explore nossos guias passo a passo para dominar a plataforma.
+                                                </p>
+                                                <p>
+                                                    <span className="text-gray-400">Suporte Direto: </span>Entre em contato conosco para assistência personalizada.
+                                                </p>
+                                            </div>
+                                            <div className="flex flex-col gap-2">
+                                                <h2 className="text-base text-primary">Entre em Contato</h2>
+                                                <p>
+                                                    <span className="text-gray-400">E-mail:</span> Envie suas dúvidas para support@meetflow.com.
+                                                </p>
+                                                <p>
+                                                    <span className="text-gray-400">Telefone: </span> Ligue para (+55) 9945-6162 durante o horário comercial.
+                                                </p>
+                                                <h2 className="text-base text-primary">Nosso Compromisso</h2>
+                                                <p>Sua satisfação é nossa prioridade. Estamos aqui para garantir que sua experiência com o MeetFlow seja suave e produtiva.</p>
+                                            </div>
+                                        </div>
+                                    </DialogContent>
+                                </Dialog>
                                 <Button variant={'ghost'} className="flex h-11 items-center justify-start gap-3 px-10 py-7">
                                     <Settings className="text-violet-700" />
                                     <p className="text-violet-700">Configurações</p>
