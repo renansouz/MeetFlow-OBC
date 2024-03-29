@@ -13,7 +13,7 @@ export const Card = ({ Icon, title, label }: CardProps) => {
                 <Icon className="max-xl:w-18 h-14 w-14 text-5xl text-indigo-600 max-xl:h-24" />
             </div>
             <div>
-                <h2 className="mb-2 text-xl font-semibold max-xl:text-center max-xl:text-lg">{title}</h2>
+                <h2 className="mb-2 font-semibold max-xl:text-center max-xl:text-lg">{title}</h2>
                 <p className="max-xl:text-center">{label}</p>
             </div>
         </div>

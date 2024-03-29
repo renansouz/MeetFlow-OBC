@@ -46,7 +46,7 @@ export const UserRegister = () => {
             <div className="h-screen w-1/2 ">
                 <FormDiv onSubmit={handleSubmit(handleSignUp)}>
                     <div className="flex flex-col items-center justify-center gap-5">
-                        <div className="flex justify-start w-full">
+                        <div className="flex w-full justify-start">
                             <ThemeToggle />
                         </div>
                         <Link to={'/'}>

@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 export type authType = boolean;
 
@@ -22,6 +22,15 @@ export const AuthContextProvider = ({ children }: authProviderProps) => {
         isAuth: isAuthState,
         setAuth: setAuth,
     };
+
+    useEffect(() => {
+        const token = sessionStorage.getItem('refreshToken');
+        if (!token) {
+            setAuth(false);
+        } else {
+            setAuth(true);
+        }
+    }, []);
 
     return <authContext.Provider value={value}>{children}</authContext.Provider>;
 };

@@ -48,14 +48,18 @@ body::-webkit-scrollbar-thumb:active {
 }
 
   body, input, textarea, button {
-    font: 1rem "Poppins", sans-serif;
+    font: 1rem 'Space Grotesk', 'monospoco';
   }
 
-  h1 {
+  h1, h2 {
+        font-family: 'Poppins', sans-serif;
         font-weight: 600;
+        font-size: 2.5rem;
     }
     p,
     span {
         font-weight: 400;
+        font-size: 1.125rem;
+        font-family: 'Space Grotesk', 'monospoco';
     }
 `;
