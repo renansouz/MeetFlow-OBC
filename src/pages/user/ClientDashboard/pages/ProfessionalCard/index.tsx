@@ -71,7 +71,7 @@ export const Services = () => {
             <Header title="Serviços" />
             <div>
                 <div className="flex flex-col items-center gap-5">
-                    {loading ? <Skeleton className="z-0 h-8 w-48 gap-y-12 rounded-md" /> : <h2 className="text-center text-3xl">Profissionais</h2>}
+                    {loading ? <Skeleton className="z-0 h-8 w-48 gap-y-12 rounded-md" /> : <h2 className="text-center">Profissionais</h2>}
 
                     <Search placeholder="Busque por um serviço ou profissional" />
                 </div>

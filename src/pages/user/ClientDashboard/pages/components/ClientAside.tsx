@@ -53,16 +53,33 @@ export const ClientAside = () => {
                             </Tooltip>
                         </TooltipProvider>
 
-                        <TooltipProvider>
-                            <Tooltip>
-                                <TooltipTrigger>
-                                    <AsideItem link="/error" title="Grupos" icon={Users} />
-                                </TooltipTrigger>
-                                <TooltipContent side="right">
-                                    <p>Grupos</p>
-                                </TooltipContent>
-                            </Tooltip>
-                        </TooltipProvider>
+                        <Dialog>
+                            <DialogTrigger>
+                                <TooltipProvider>
+                                    <Tooltip>
+                                        <TooltipTrigger asChild>
+                                            <Button variant={'ghost'} className="flex h-11 w-full items-center justify-start gap-3 px-10 py-7 max-lg:justify-center max-lg:px-0">
+                                                <Users />
+                                                <span className="max-lg:hidden">Grupos</span>
+                                            </Button>
+                                        </TooltipTrigger>
+                                        <TooltipContent side="right">
+                                            <p>Grupos</p>
+                                        </TooltipContent>
+                                    </Tooltip>
+                                </TooltipProvider>
+                            </DialogTrigger>
+                            <DialogContent>
+                                <DialogHeader className="gap-1 ">
+                                    <DialogTitle className="text-xl ">Desculpe-nos!</DialogTitle>
+                                    <DialogDescription className="pb-5 ">
+                                        A seção de grupos ainda não está disponível. Estamos trabalhando duro para trazê-la até você nas próximas versões. Pedimos desculpas pela
+                                        inconveniência e agradecemos sua paciência.
+                                    </DialogDescription>
+                                    <span>Atenciosamente, MeetFlow</span>
+                                </DialogHeader>
+                            </DialogContent>
+                        </Dialog>
                     </div>
                 </div>
                 <div className="mt-[10%] flex w-full flex-col gap-y-1 max-lg:gap-0 max-sm:hidden">

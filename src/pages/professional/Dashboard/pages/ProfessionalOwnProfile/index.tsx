@@ -1,7 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
 import { Pencil } from 'lucide-react';
-import { register } from 'module';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';

@@ -65,7 +65,7 @@ export function ProfessionalProfile() {
             {/* SERVIÇOS */}
             <ProfessionalService />
             {/* calendário */}
-            <h2 className="mb-10 mt-10 flex items-center justify-center text-2xl font-light max-lg:text-xl max-md:mx-10 max-md:text-lg">Escolha uma data para agendar com Renan</h2>
+            <h2 className="mb-10 mt-10 flex items-center justify-center font-light max-md:mx-10">Escolha uma data para agendar com Renan</h2>
             <Container isTimePickerOpen={isDateSelected}>
                 {loading ? (
                     <Skeleton className="z-0 mx-2 h-[40rem] w-[40rem] gap-y-12 rounded-[2rem]" />
@@ -96,28 +96,28 @@ export function ProfessionalProfile() {
                                     <DialogHeader className="m-6 flex flex-col gap-4 py-5 text-lg">
                                         <div className="flex justify-between gap-4 border-b-2 pb-4">
                                             <ContactRound className="text-foreground" />
-                                            <span className="w-1/2 text-xl font-bold">Profissional:</span>
-                                            <span className="w-1/2 text-xl">Renan</span>
+                                            <span className="w-1/2 font-bold">Profissional:</span>
+                                            <span className="w-1/2">Renan</span>
                                         </div>
                                         <div className="flex justify-between gap-4 border-b-2 pb-4">
                                             <BriefcaseBusiness className="text-foreground" />
-                                            <span className="w-1/2 text-xl font-bold">Serviço:</span>
-                                            <span className="w-1/2 text-xl">Tailwind</span>
+                                            <span className="w-1/2 font-bold">Serviço:</span>
+                                            <span className="w-1/2">Tailwind</span>
                                         </div>
                                         <div className="flex justify-between gap-4 border-b-2 pb-4">
                                             <HourglassIcon className="text-foreground" />
-                                            <span className="w-1/2 text-xl font-bold">Duração:</span>
-                                            <span className="w-1/2 text-xl">2 Horas</span>
+                                            <span className="w-1/2 font-bold">Duração:</span>
+                                            <span className="w-1/2">2 Horas</span>
                                         </div>
                                         <div className="flex justify-between gap-4 border-b-2 pb-4">
                                             <CalendarCheck2 className="text-foreground" />
-                                            <span className="w-1/2 text-xl font-bold">Data e Hora:</span>
-                                            <span className="w-1/2 text-xl">11/04/2024 ás 11:11</span>
+                                            <span className="w-1/2 font-bold">Data e Hora:</span>
+                                            <span className="w-1/2">11/04/2024 ás 11:11</span>
                                         </div>
                                         <div className="flex justify-between gap-4 border-b-2 pb-4">
                                             <DollarSign className="text-foreground" />
-                                            <span className="w-1/2 text-xl font-bold">Valor:</span>
-                                            <span className="w-1/2 text-xl">R$100</span>
+                                            <span className="w-1/2 font-bold">Valor:</span>
+                                            <span className="w-1/2">R$100</span>
                                         </div>
                                     </DialogHeader>
                                     <div className="m-10 flex justify-between">

@@ -34,9 +34,9 @@ export const CardProfessional = ({ profile_pic, description, name, categorie }: 
                     </CardHeader>
                     <div className="flex-col text-center">
                         <CardContent className="flex flex-col items-center">
-                            <h2 className="max-w-full overflow-hidden overflow-ellipsis whitespace-nowrap text-center font-bold" style={{ maxWidth: '200px' }}>
+                            <p className="max-w-full overflow-hidden overflow-ellipsis whitespace-nowrap text-center font-bold" style={{ maxWidth: '200px' }}>
                                 {name}
-                            </h2>
+                            </p>
                             <span className="max-w-full overflow-hidden overflow-ellipsis whitespace-nowrap font-light" style={{ maxWidth: '200px' }}>
                                 {description}
                             </span>

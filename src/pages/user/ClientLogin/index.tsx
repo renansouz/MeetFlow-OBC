@@ -69,7 +69,7 @@ export const ClientLogin = () => {
                     <Link to={'/'}>
                         <img src={theme === 'dark' ? DarkLogo : LightLogo} alt="" className="w-96" />
                     </Link>
-                    <h1 className="items-center justify-center text-center text-3xl font-bold max-sm:text-xl">Entrar na sua conta!</h1>
+                    <h1 className="items-center justify-center text-center font-bold">Entrar na sua conta!</h1>
                 </div>
                 <form action="" onSubmit={handleSubmit(handleLogin)} className="flex flex-col items-center justify-center gap-8 px-10 py-10 max-sm:w-[90%]">
                     <section>

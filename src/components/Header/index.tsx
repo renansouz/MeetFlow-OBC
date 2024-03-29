@@ -61,7 +61,7 @@ export const Header = () => {
                                     </DialogTrigger>
                                     <DialogContent className="gap-6 p-12">
                                         <DialogHeader className="flex">
-                                            <DialogTitle className="mb-2 items-center justify-center text-center text-2xl font-bold">Seja bem-vindo ao MeetFLow!</DialogTitle>
+                                            <DialogTitle className="mb-2 items-center justify-center text-center font-bold">Seja bem-vindo ao MeetFLow!</DialogTitle>
                                             <DialogDescription className="text-center">
                                                 Estamos felizes por você estar aqui. Para desfrutar ao máximo de nossos serviços, recomendamos criar uma conta. Se preferir, vocês também pode
                                                 entrar sem fazer login.

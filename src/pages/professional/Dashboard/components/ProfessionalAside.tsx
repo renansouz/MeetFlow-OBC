@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { AxiosError } from 'axios';
-import { Calendar, ChevronDown, Home, Layers, LifeBuoy, LogOut, Menu, Plus, Settings, User, Users } from 'lucide-react';
+import { Calendar, ChevronDown, Home, Layers, LifeBuoy, LogOut, Menu, PersonStanding, Plus, Settings, User, Users } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -152,10 +152,10 @@ export const ProfessionalAside = () => {
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger>
-                                    <AsideItem link="/register" title="Meus Agendamentos" icon={Home} />
+                                    <AsideItem link="/professional/meus-agendamentos" title="Agendamentos" icon={PersonStanding} />
                                 </TooltipTrigger>
                                 <TooltipContent side="right">
-                                    <p>Meus Agendamentos</p>
+                                    <p>Agendamentos</p>
                                 </TooltipContent>
                             </Tooltip>
                         </TooltipProvider>
@@ -163,10 +163,10 @@ export const ProfessionalAside = () => {
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger>
-                                    <AsideItem link="/error" title="Meus calendário" icon={Calendar} />
+                                    <AsideItem link="/professional/disponibilidade" title="Disponibilidade" icon={Calendar} />
                                 </TooltipTrigger>
                                 <TooltipContent side="right">
-                                    <p>Meu calendário</p>
+                                    <p>disponibilidade</p>
                                 </TooltipContent>
                             </Tooltip>
                         </TooltipProvider>
