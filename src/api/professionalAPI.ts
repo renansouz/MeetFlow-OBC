@@ -6,7 +6,7 @@ const refreshtoken = sessionStorage.getItem('refreshToken');
 
 export class professionalAPI {
 
-    static async createSchedule(scheduleData: ) {
+    static async createSchedule(scheduleData:  ) {
         try {
             const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/schedule/add`, scheduleData, {headers:{refreshtoken: refreshtoken}});
             return response.data;
