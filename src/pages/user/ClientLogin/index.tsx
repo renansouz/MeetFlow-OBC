@@ -1,5 +1,4 @@
 import 'react-toastify/dist/ReactToastify.css';
-
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { AxiosError } from 'axios';
@@ -10,14 +9,13 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { z } from 'zod';
-
 import { Input } from '@/components/Input';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/context/auth-provider';
 import { useTheme } from '@/context/theme-provider';
-import DarkLogo from '@/public/img/logo.svg';
-import LightLogo from '@/public/img/logo-light.svg';
-
+import DarkLogo from '@/public/img/Logo.svg';
+import LightLogo from '@/public/img/Logo-light.svg';
+import { api } from '@/api';
 import { BackGroundDiv } from './styles';
 
 type passwordAppearenceType = 'text' | 'password';
@@ -50,6 +48,8 @@ export const ClientLogin = () => {
             const res = await axios.post(`${import.meta.env.VITE_BASE_URL}/auth/login`, userData);
             const { refreshToken } = res.data;
             sessionStorage.setItem('refreshToken', refreshToken);
+            api.defaults.headers.common['refreshToken'] = refreshToken
+            console.log(api.defaults.headers.common)
             setAuth(true);
             navigate('/dashboard/services');
         } catch (error) {
