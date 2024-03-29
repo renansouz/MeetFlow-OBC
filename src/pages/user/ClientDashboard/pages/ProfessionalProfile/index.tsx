@@ -50,14 +50,10 @@ export function ProfessionalProfile() {
     return (
         <Card className="w-[70%] min-w-[20rem] ml-[6%] my-16 pb-10 max-xl:w-full max-xl:m-0">
             <CardHeader className="bg-indigo-300 h-32 rounded-tl-md rounded-tr-md w-full pt-14 max-lg:rounded-none">
-                {loading ? (
-                    <Skeleton className="rounded-full mt-10 w-20 h-full ml-5 border-4 border-background " />
-                ) : (
-                    <Avatar className="w-full rounded-full h-36">
-                        <AvatarImage src="https://github.com/renansouz.png" className="ml-5 border-4 border-background rounded-full w-36" />
-                        <AvatarFallback className="ml-5 border-4 border-background rounded-full w-36">CN</AvatarFallback>
-                    </Avatar>
-                )}
+                <Avatar className="w-full rounded-full h-36">
+                    <AvatarImage src="https://github.com/renansouz.png" className="ml-5 border-4 border-background rounded-full w-36" />
+                    <AvatarFallback className="ml-5 border-4 border-background rounded-full w-36">CN</AvatarFallback>
+                </Avatar>
             </CardHeader>
             <CardContent className="flex flex-col mt-20 w-full gap-y-2 border-b-2">
                 <CardTitle className="text-left font-bold ml-6 " style={{ maxWidth: '600px' }}>
@@ -71,7 +67,12 @@ export function ProfessionalProfile() {
             {/* calendário */}
             <h2 className="mt-10 flex justify-center items-center text-2xl max-lg:text-xl max-md:text-lg max-md:mx-10 mb-10 font-light">Escolha uma data para agendar com Renan</h2>
             <Container isTimePickerOpen={isDateSelected}>
-                <CalendarProfessional selectedDate={selectedDate} onDateSelected={setSelectedDate} />
+                {loading ? (
+                    <Skeleton className="mx-2 w-[40rem] h-[40rem] rounded-[2rem] z-0 gap-y-12" />
+                ) : (
+                    <CalendarProfessional selectedDate={selectedDate} onDateSelected={setSelectedDate} />
+                )}
+
                 {isDateSelected && (
                     <TimePicker>
                         <TimePickerHeader>

@@ -3,28 +3,32 @@ import axios, { AxiosError } from 'axios';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { z } from 'zod';
+
+import { userAPI } from '@/api/userAPI';
 import { Input } from '@/components/Input';
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/context/theme-provider';
 import DarkLogo from '@/public/img/only-logo-black.svg';
 import LightLogo from '@/public/img/only-logo-white.svg';
+
 import { BackGroundDiv, FormDiv } from './styles';
-import { userAPI } from '@/api/userAPI';
-import { useNavigate } from 'react-router-dom';
 
 type passwordAppearenceType = 'text' | 'password';
 
-const createUserSchema = z.object({
-    name: z.string(),
-    email: z.string().email({ message: 'Digite um e-mail válido' }),
-    password: z.string().min(5, { message: 'A senha deve possuir no mínimo 5 caracteres' }),
-    passwordConfirmation: z.string().min(5, { message: 'A senha deve possuir no mínimo 5 caracteres' }),
-}).refine((data) => data.password === data.passwordConfirmation, {
-    message:'As senhas não conhecidem',
-    path:["passwordConfirmation"]
-})
+const createUserSchema = z
+    .object({
+        name: z.string(),
+        email: z.string().email({ message: 'Digite um e-mail válido' }),
+        password: z.string().min(5, { message: 'A senha deve possuir no mínimo 5 caracteres' }),
+        passwordConfirmation: z.string().min(5, { message: 'A senha deve possuir no mínimo 5 caracteres' }),
+    })
+    .refine((data) => data.password === data.passwordConfirmation, {
+        message: 'As senhas não conhecidem',
+        path: ['passwordConfirmation'],
+    });
 
 export type RegisterFormData = z.infer<typeof createUserSchema>;
 
@@ -34,16 +38,16 @@ export const ClientRegister = () => {
 
     async function handleSignUp(userData: RegisterFormData) {
         try {
-            await userAPI.createUser(userData,'client');
+            await userAPI.createUser(userData, 'client');
             toast.success('Conta criada com sucesso');
             setTimeout(() => {
                 navigate('/dashboard/services');
-            },1500)
+            }, 1500);
         } catch (error) {
             if (error instanceof AxiosError) {
                 toast.error(error.response?.data.message);
             }
-        }finally{
+        } finally {
             reset();
         }
     }
@@ -58,7 +62,7 @@ export const ClientRegister = () => {
     const handlePasswordAppearence = () => (passswordAppearenceState === 'password' ? setpasswordAppearenceState('text') : setpasswordAppearenceState('password'));
 
     return (
-        <div className="flex justify-center items-center h-full">
+        <div className="flex justify-center h-full items-center bg-card">
             <ToastContainer position="bottom-right" theme={theme} />
             <div className=" w-1/2 max-h-screen">
                 <FormDiv className="h-full " onSubmit={handleSubmit(handleSignUp)}>
@@ -116,7 +120,7 @@ export const ClientRegister = () => {
                                 />
                                 {errors.passwordConfirmation && <p className="text-red-500 py-0.5 text-sm">{errors.passwordConfirmation.message}</p>}
                             </section>
-                            <section className="flex gap-3 ">
+                            <section className="flex justify-center items-center gap-3 ">
                                 <input
                                     className="appearance-none h-6 w-6 border-2 border-indigo-800 checked:bg-indigo-600 checked:border-indigo-800 rounded-md"
                                     type="checkbox"

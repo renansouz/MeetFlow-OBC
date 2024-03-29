@@ -51,37 +51,37 @@ export function ProfessionalOwnProfile() {
     }
     return (
         <div>
-            {loading ? (
-                <Skeleton className="w-[145vh] h-[140vh] rounded-md ml-[5%] mr-[15%] my-16" />
-            ) : (
-                <Card className="ml-[5%] mr-[15%] rounded-md my-16">
-                    <CardHeader>
+            <Card className="my-16 ml-[5%] mr-[15%] rounded-md">
+                <CardHeader>
+                    {loading ? (
+                        <Skeleton className="z-0 h-80 w-full gap-y-12 rounded-md" />
+                    ) : (
                         <Card>
-                            <CardHeader className="bg-indigo-300 h-32 rounded-tl-md rounded-tr-md  pt-14 max-lg:rounded-none">
+                            <CardHeader className="h-32 rounded-tl-md rounded-tr-md bg-indigo-300  pt-14 max-lg:rounded-none">
                                 <Avatar>
-                                    <AvatarImage src="https://github.com/renansouz.png" className="ml-5 border-4 border-background rounded-full w-36" />
-                                    <AvatarFallback className="ml-5 border-4 border-background rounded-full w-36">CN</AvatarFallback>
+                                    <AvatarImage src="https://github.com/renansouz.png" className="ml-5 w-36 rounded-full border-4 border-background" />
+                                    <AvatarFallback className="ml-5 w-36 rounded-full border-4 border-background">CN</AvatarFallback>
                                 </Avatar>
                             </CardHeader>
-                            <CardContent className="flex flex-col mt-20  gap-y-2">
+                            <CardContent className="mt-20 flex flex-col  gap-y-2">
                                 <div className="flex justify-between">
                                     <div>
-                                        <CardTitle className="text-left font-bold ml-6 " style={{ maxWidth: '600px' }}>
+                                        <CardTitle className="ml-6 text-left font-bold " style={{ maxWidth: '600px' }}>
                                             RENAN DE SOUZA SILVA
                                         </CardTitle>
-                                        <CardDescription className="font-light  ml-6">Olá me chamo Renan, caso queira aprender tailwind, agende uma reunião comigo!</CardDescription>
-                                        <span className="font-bold mt-3 ml-5 text-indigo-600/90">+ 10 agendamentos</span>
+                                        <CardDescription className="ml-6  font-light">Olá me chamo Renan, caso queira aprender tailwind, agende uma reunião comigo!</CardDescription>
+                                        <span className="ml-5 mt-3 font-bold text-indigo-600/90">+ 10 agendamentos</span>
                                     </div>
                                     <div>
                                         <Dialog>
                                             <DialogTrigger className="flex">
-                                                <div className="hover:bg-indigo-500 w-10 h-10 rounded-full flex justify-center items-center">
-                                                    <Pencil className=" text-indigo-600/90 flex" />
+                                                <div className="flex h-10 w-10 items-center justify-center rounded-full hover:bg-indigo-500">
+                                                    <Pencil className=" flex text-indigo-600/90" />
                                                 </div>
                                             </DialogTrigger>
                                             <DialogContent>
                                                 <DialogHeader>
-                                                    <div className="border-b-2 w-full flex items-center justify-center py-5">
+                                                    <div className="flex w-full items-center justify-center border-b-2 py-5">
                                                         <DialogTitle className="text-xl">Editar sua conta</DialogTitle>
                                                     </div>
 
@@ -95,7 +95,7 @@ export function ProfessionalOwnProfile() {
                                                                         <FormLabel>Nome</FormLabel>
                                                                         <FormControl>
                                                                             <Input
-                                                                                className="bg-background border-2 rounded-md p-2 w-full border-border focus:border-slate-300"
+                                                                                className="w-full rounded-md border-2 border-border bg-background p-2 focus:border-slate-300"
                                                                                 placeholder="Editar nome"
                                                                                 {...field}
                                                                             />
@@ -112,7 +112,7 @@ export function ProfessionalOwnProfile() {
                                                                         <FormLabel>Título</FormLabel>
                                                                         <FormControl>
                                                                             <Textarea
-                                                                                className="bg-background border-2 rounded-md p-2 w-full border-border focus:border-slate-300"
+                                                                                className="w-full rounded-md border-2 border-border bg-background p-2 focus:border-slate-300"
                                                                                 placeholder="Editar Título"
                                                                                 {...field}
                                                                             />
@@ -129,7 +129,7 @@ export function ProfessionalOwnProfile() {
                                                                         <FormLabel>Email</FormLabel>
                                                                         <FormControl>
                                                                             <Input
-                                                                                className="bg-background border-2 rounded-md p-2 w-full border-border focus:border-slate-300"
+                                                                                className="w-full rounded-md border-2 border-border bg-background p-2 focus:border-slate-300"
                                                                                 type="email"
                                                                                 placeholder="Mudar e-mail"
                                                                                 {...field}
@@ -147,7 +147,7 @@ export function ProfessionalOwnProfile() {
                                                                         <FormLabel>Password</FormLabel>
                                                                         <FormControl>
                                                                             <Input
-                                                                                className="bg-background border-2 rounded-md p-2 w-full border-border focus:border-slate-300"
+                                                                                className="w-full rounded-md border-2 border-border bg-background p-2 focus:border-slate-300"
                                                                                 type="password"
                                                                                 placeholder="Inserir nova senha"
                                                                                 {...field}
@@ -165,7 +165,7 @@ export function ProfessionalOwnProfile() {
                                                                         <FormLabel>Photo</FormLabel>
                                                                         <FormControl>
                                                                             <Input
-                                                                                className="bg-background border-2 rounded-md p-2 w-full border-border focus:border-slate-300"
+                                                                                className="w-full rounded-md border-2 border-border bg-background p-2 focus:border-slate-300"
                                                                                 type="file"
                                                                                 {...field}
                                                                             />
@@ -174,7 +174,7 @@ export function ProfessionalOwnProfile() {
                                                                     </FormItem>
                                                                 )}
                                                             />
-                                                            <Button className="rounded-lg text-lg px-10 flex items-center justify-center w-full" type="submit">
+                                                            <Button className="flex w-full items-center justify-center rounded-lg px-10 text-lg" type="submit">
                                                                 Submit
                                                             </Button>
                                                         </form>
@@ -186,21 +186,21 @@ export function ProfessionalOwnProfile() {
                                 </div>
                             </CardContent>
                         </Card>
-                    </CardHeader>
-                    <CardContent>
-                        <Card>
-                            <CardHeader>
-                                <CardTitle>Meus serviços</CardTitle>
-                                <CardDescription>Aqui esta todos os seus serviços criados</CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                                <ProfessionalService />
-                                <ProfessionalService />
-                            </CardContent>
-                        </Card>
-                    </CardContent>
-                </Card>
-            )}
+                    )}
+                </CardHeader>
+                <CardContent>
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Meus serviços</CardTitle>
+                            <CardDescription>Aqui esta todos os seus serviços criados</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <ProfessionalService />
+                            <ProfessionalService />
+                        </CardContent>
+                    </Card>
+                </CardContent>
+            </Card>
         </div>
     );
 }

@@ -1,11 +1,12 @@
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Button } from '@/components/ui/button';
-import { dayHours } from '@/utils/dayHours';
-import { useState } from 'react';
-import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+
 import { professionalAPI } from '@/api/professionalAPI';
+import { Button } from '@/components/ui/button';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { dayHours } from '@/utils/dayHours';
 
 type stepProps = {
     currentStepState: number;
@@ -13,7 +14,6 @@ type stepProps = {
 };
 
 export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
-
     const createScheduleSchema = z.object({
         name: z.string(),
         days: z.object({
@@ -40,18 +40,13 @@ export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
 
     type ScheduleFormData = z.infer<typeof createScheduleSchema>;
 
-
-    const createNewSchedule = async(scheduleData:ScheduleFormData) => {
-
-        try{
-            const res = await professionalAPI.createSchedule(scheduleData)
-
-        }catch(error){
+    const createNewSchedule = async (scheduleData: ScheduleFormData) => {
+        try {
+            const res = await professionalAPI.createSchedule(scheduleData);
+        } catch (error) {
             console.log(error);
         }
-    }
-
-
+    };
 
     return (
         <form onSubmit={handleSubmit(createNewSchedule)}>

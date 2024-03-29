@@ -1,21 +1,22 @@
+import 'react-toastify/dist/ReactToastify.css';
+
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { AxiosError } from 'axios';
 import { Lock, User } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { z } from 'zod';
-import 'react-toastify/dist/ReactToastify.css';
+
 import { Input } from '@/components/Input';
 import { Button } from '@/components/ui/button';
-import { Skeleton } from '@/components/ui/skeleton';
 import { useAuth } from '@/context/auth-provider';
 import { useTheme } from '@/context/theme-provider';
-import DarkLogo from '@/public/img/Logo.svg';
-import LightLogo from '@/public/img/Logo-light.svg';
+import DarkLogo from '@/public/img/logo.svg';
+import LightLogo from '@/public/img/logo-light.svg';
 
 import { BackGroundDiv } from './styles';
 
@@ -55,37 +56,37 @@ export const ClientLogin = () => {
             if (error instanceof AxiosError) {
                 toast.error(error.response?.data.message);
             }
-        }finally{
+        } finally {
             reset();
         }
     };
 
     return (
-        <div className="flex bg-card h-screen max-xl:justify-center max-xl:items-center">
-            <div className="px-10 w-2/6 m-10 mt-[6%] max-sm:w-full max-sm:h-full max-sm:border-0 max-xl:min-w-[30rem] max-xl:flex max-xl:flex-col max-xl:justify-center max-xl:items-center max-xl:border-2 max-xl:rounded-xl max-xl:p-0  max-xl:m-0">
+        <div className="flex h-screen bg-card max-xl:items-center max-xl:justify-center">
+            <div className="m-10 mt-[6%] w-2/6 px-10 max-xl:m-0 max-xl:flex max-xl:min-w-[30rem] max-xl:flex-col max-xl:items-center max-xl:justify-center max-xl:rounded-xl max-xl:border-2 max-xl:p-0 max-sm:h-full max-sm:w-full  max-sm:border-0">
                 <ToastContainer position="bottom-right" theme={theme} />
                 <div className=" flex flex-col items-center justify-center max-sm:mr-5">
                     <Link to={'/'}>
                         <img src={theme === 'dark' ? DarkLogo : LightLogo} alt="" className="w-96" />
                     </Link>
-                    <h1 className="max-sm:text-xl text-center justify-center items-center text-3xl font-bold">Entrar na sua conta!</h1>
+                    <h1 className="items-center justify-center text-center text-3xl font-bold max-sm:text-xl">Entrar na sua conta!</h1>
                 </div>
-                <form action="" onSubmit={handleSubmit(handleLogin)} className="max-sm:w-[90%] flex flex-col items-center justify-center gap-8 py-10 px-10">
+                <form action="" onSubmit={handleSubmit(handleLogin)} className="flex flex-col items-center justify-center gap-8 px-10 py-10 max-sm:w-[90%]">
                     <section>
                         <label htmlFor="" className="block py-2 font-bold ">
                             Endereço de e-mail
                         </label>
-                        <div className="max-sm:w-[20rem] flex mx-1 w-80 items-center gap-2 rounded-lg border border-foreground px-3 py-2 shadow-sm">
+                        <div className="mx-1 flex w-80 items-center gap-2 rounded-lg border border-foreground px-3 py-2 shadow-sm max-sm:w-[20rem]">
                             <User className="text-foreground/90" />
                             <Input className="flex-1 border-0 bg-transparent p-0 text-foreground placeholder-zinc-600" placeholder="Digite seu email" id="email" {...register('email')} />
                         </div>
-                        {errors.email && <p className="text-red-500 py-2">{errors.email.message}</p>}
+                        {errors.email && <p className="py-2 text-red-500">{errors.email.message}</p>}
                     </section>
                     <section>
                         <label htmlFor="" className="block py-2 font-bold ">
                             Senha
                         </label>
-                        <div className="max-sm:w-[20rem] flex mx-1 w-80 items-center gap-2 rounded-lg border border-foreground px-3 py-2 shadow-sm">
+                        <div className="mx-1 flex w-80 items-center gap-2 rounded-lg border border-foreground px-3 py-2 shadow-sm max-sm:w-[20rem]">
                             <Lock className="text-foreground/90" />
                             <Input
                                 className="flex-1 border-0 bg-transparent p-0 text-foreground placeholder-zinc-600"
@@ -94,11 +95,11 @@ export const ClientLogin = () => {
                                 {...register('password')}
                             />
                         </div>
-                        {errors.password && <p className="text-red-500 py-2">{errors.password.message}</p>}
+                        {errors.password && <p className="py-2 text-red-500">{errors.password.message}</p>}
                     </section>
-                    <section className="flex gap-2 justify-center items-center">
+                    <section className="flex items-center justify-center gap-2">
                         <input
-                            className="appearance-none h-6 w-6 border-2 border-indigo-800 checked:bg-indigo-600 checked:border-indigo-800 rounded-md"
+                            className="h-6 w-6 appearance-none rounded-md border-2 border-indigo-800 checked:border-indigo-800 checked:bg-indigo-600"
                             type="checkbox"
                             name=""
                             id=""
