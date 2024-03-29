@@ -1,10 +1,10 @@
-import { Calendar, Home, Layers, LifeBuoy, LogOut, Menu, Plus, Settings, User, Users } from 'lucide-react';
+import { Calendar, ChevronDown, Home, Layers, LifeBuoy, LogOut, Menu, Plus, Settings, User, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Select, SelectContent, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Textarea } from '@/components/ui/textarea';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
@@ -16,8 +16,8 @@ import LogoMenor from '@/public/img/only-logo-white.svg';
 import { AsideItem } from './asideItem';
 
 export const ProfessionalAside = () => {
-    const { theme } = useTheme();
     const { setTheme } = useTheme();
+    const { theme } = useTheme();
     return (
         <>
             <aside className="flex h-screen w-auto flex-col border-r-2 py-8 items-center justify-between max-lg:px-4 max-lg:py-4 bg-slate bg-card max-sm:border-0 max-sm:px-0 ">
@@ -120,8 +120,8 @@ export const ProfessionalAside = () => {
                                 <Tooltip>
                                     <TooltipTrigger asChild>
                                         <Button variant={'ghost'} className="h-11 flex items-center w-full justify-start gap-3 px-10 py-7 max-lg:px-0 max-lg:justify-center">
-                                            <Settings className="text-violet-700" />
-                                            <p className="text-violet-700 max-lg:hidden">Configurações</p>
+                                            <Settings className="text-primary-foreground" />
+                                            <p className="text-primary-foreground max-lg:hidden">Configurações</p>
                                         </Button>
                                     </TooltipTrigger>
                                     <TooltipContent side="right">
@@ -141,15 +141,25 @@ export const ProfessionalAside = () => {
                             <label htmlFor="theme-select">Escolha o Tema:</label>
                             <Select>
                                 <SelectTrigger className="w-full">
-                                    <SelectValue placeholder="Theme" />
+                                    <SelectValue placeholder="Tema" />
                                 </SelectTrigger>
-                                <SelectContent>
-                                    <SelectItem onClick={() => setTheme('light')} value="light">
-                                        Light
-                                    </SelectItem>
-                                    <SelectItem onClick={() => setTheme('dark')} value="dark">
-                                        Dark
-                                    </SelectItem>
+                                <SelectContent className="flex flex-col">
+                                    <Button
+                                        className="w-full bg-background text-foreground items-start justify-between text-lg p-2 hover:bg-primary"
+                                        onClick={() => setTheme('light')}
+                                        value={'light'}
+                                    >
+                                        Claro
+                                        <ChevronDown />
+                                    </Button>
+                                    <Button
+                                        className="w-full bg-background text-foreground items-start justify-between text-lg p-2 hover:bg-primary"
+                                        onClick={() => setTheme('dark')}
+                                        value={'dark'}
+                                    >
+                                        Escuro
+                                        <ChevronDown />
+                                    </Button>
                                 </SelectContent>
                             </Select>
                         </DialogContent>

@@ -2,7 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { AxiosError } from 'axios';
 import { Lock, User } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -11,6 +11,7 @@ import { z } from 'zod';
 
 import { Input } from '@/components/Input';
 import { Button } from '@/components/ui/button';
+import { Skeleton } from '@/components/ui/skeleton';
 import { useAuth } from '@/context/auth-provider';
 import { useTheme } from '@/context/theme-provider';
 import DarkLogo from '@/public/img/logo.svg';
@@ -71,9 +72,9 @@ export const ClientLogin = () => {
                         <label htmlFor="" className="block py-2 font-bold ">
                             Endereço de e-mail
                         </label>
-                        <div className="max-sm:w-[20rem] flex mx-1 w-80 items-center gap-2 rounded-lg border border-indigo-300 px-4 py-2 shadow-sm">
-                            <User className="text-foreground" />
-                            <Input className="flex-1 border-0 bg-transparent p-0 text-zinc-900 placeholder-zinc-600" placeholder="Digite seu email" id="email" {...register('email')} />
+                        <div className="max-sm:w-[20rem] flex mx-1 w-80 items-center gap-2 rounded-lg border border-foreground px-3 py-2 shadow-sm">
+                            <User className="text-foreground/90" />
+                            <Input className="flex-1 border-0 bg-transparent p-0 text-foreground placeholder-zinc-600" placeholder="Digite seu email" id="email" {...register('email')} />
                         </div>
                         {errors.email && <p className="text-red-500 py-2">{errors.email.message}</p>}
                     </section>
@@ -82,12 +83,17 @@ export const ClientLogin = () => {
                             Senha
                         </label>
                         <div className="max-sm:w-[20rem] flex mx-1 w-80 items-center gap-2 rounded-lg border border-foreground px-3 py-2 shadow-sm">
-                            <Lock className="text-foreground" />
-                            <Input className="flex-1 border-0 bg-transparent p-0 text-zinc-900 placeholder-zinc-600" placeholder="Digite sua senha" id="password" {...register('password')} />
+                            <Lock className="text-foreground/90" />
+                            <Input
+                                className="flex-1 border-0 bg-transparent p-0 text-foreground placeholder-zinc-600"
+                                placeholder="Digite sua senha"
+                                id="password"
+                                {...register('password')}
+                            />
                         </div>
                         {errors.password && <p className="text-red-500 py-2">{errors.password.message}</p>}
                     </section>
-                    <section className="flex gap-2 ">
+                    <section className="flex gap-2 justify-center items-center">
                         <input
                             className="appearance-none h-6 w-6 border-2 border-indigo-800 checked:bg-indigo-600 checked:border-indigo-800 rounded-md"
                             type="checkbox"

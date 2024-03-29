@@ -1,9 +1,9 @@
-import { Home, Layers, LifeBuoy, Menu, Settings, User, Users } from 'lucide-react';
+import { ChevronDown, Home, Layers, LifeBuoy, Menu, Settings, User, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Select, SelectContent, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { useAuth } from '@/context/auth-provider';
@@ -130,15 +130,25 @@ export const ClientAside = () => {
                                 <label htmlFor="theme-select">Escolha o Tema:</label>
                                 <Select>
                                     <SelectTrigger className="w-full">
-                                        <SelectValue placeholder="Theme" />
+                                        <SelectValue placeholder="Tema" />
                                     </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectItem onClick={() => setTheme('light')} value="light">
-                                            Light
-                                        </SelectItem>
-                                        <SelectItem onClick={() => setTheme('dark')} value="dark">
-                                            Dark
-                                        </SelectItem>
+                                    <SelectContent className="flex flex-col">
+                                        <Button
+                                            className="w-full bg-background text-foreground items-start justify-between text-lg p-2 hover:bg-primary"
+                                            onClick={() => setTheme('light')}
+                                            value={'light'}
+                                        >
+                                            Claro
+                                            <ChevronDown />
+                                        </Button>
+                                        <Button
+                                            className="w-full bg-background text-foreground items-start justify-between text-lg p-2 hover:bg-primary"
+                                            onClick={() => setTheme('dark')}
+                                            value={'dark'}
+                                        >
+                                            Escuro
+                                            <ChevronDown />
+                                        </Button>
                                     </SelectContent>
                                 </Select>
                             </DialogContent>

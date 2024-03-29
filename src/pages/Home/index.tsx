@@ -92,7 +92,7 @@ export const Home = () => {
                 <div className=" max-h-[80%] w-[90%] max-sm:mb-[10%] max-sm:h-full sm:h-full xl:w-[70%]">
                     <Accordion type="single" collapsible>
                         <AccordionItem className="py-5" value="item-1">
-                            <AccordionTrigger className="text-2xl font-normal text-indigo-400 max-xl:text-xl max-sm:text-base lg:text-xl">
+                            <AccordionTrigger className="text-2xl text-primary-foreground font-bold max-xl:text-xl max-sm:text-base lg:text-xl">
                                 Como posso agendar um serviço sem criar uma conta?
                             </AccordionTrigger>
                             <AccordionContent className="mr-56  text-xl font-extralight max-xl:text-lg max-sm:m-10 max-sm:text-base sm:m-0 sm:text-sm lg:text-base">
@@ -100,7 +100,7 @@ export const Home = () => {
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem className="py-5" value="item-2">
-                            <AccordionTrigger className="text-2xl font-normal text-indigo-400 max-xl:text-xl max-sm:text-base sm:text-base lg:text-xl">
+                            <AccordionTrigger className="text-2xl text-primary-foreground font-bold max-xl:text-xl max-sm:text-base sm:text-base lg:text-xl">
                                 Quais são as vantagens de criar uma conta na MeetFlow?
                             </AccordionTrigger>
                             <AccordionContent className="mr-56 text-xl font-extralight max-xl:text-lg max-sm:m-10 max-sm:text-base  sm:m-0 sm:text-base lg:text-base">
@@ -109,7 +109,7 @@ export const Home = () => {
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem className="py-5" value="item-3">
-                            <AccordionTrigger className="text-2xl font-normal text-indigo-400 max-xl:text-xl max-sm:text-base sm:text-base lg:text-xl">
+                            <AccordionTrigger className="text-2xl text-primary-foreground font-bold max-xl:text-xl max-sm:text-base sm:text-base lg:text-xl">
                                 Posso cancelar ou reagendar um agendamento?
                             </AccordionTrigger>
                             <AccordionContent className="mr-56 text-xl font-extralight max-xl:text-lg max-sm:m-10 max-sm:text-base sm:m-0 sm:text-base lg:text-base">
@@ -118,7 +118,7 @@ export const Home = () => {
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem className="py-5" value="item-4">
-                            <AccordionTrigger className="text-2xl font-normal text-indigo-400 max-xl:text-xl max-sm:text-base sm:text-base lg:text-xl">
+                            <AccordionTrigger className="text-2xl text-primary-foreground font-bold max-xl:text-xl max-sm:text-base sm:text-base lg:text-xl">
                                 Como sei se um profissional é confiável?
                             </AccordionTrigger>
                             <AccordionContent className="mr-56 text-xl font-extralight max-xl:text-lg max-sm:m-10 max-sm:text-base sm:m-0 sm:text-base lg:text-base">
@@ -127,7 +127,7 @@ export const Home = () => {
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem className="py-5" value="item-5">
-                            <AccordionTrigger className="text-2xl font-normal text-indigo-400 max-xl:text-xl max-sm:text-base sm:text-base lg:text-xl">
+                            <AccordionTrigger className="text-2xl text-primary-foreground font-bold max-xl:text-xl max-sm:text-base sm:text-base lg:text-xl">
                                 Existe alguma taxa para usar a plataforma?
                             </AccordionTrigger>
                             <AccordionContent className="mr-56 text-xl font-extralight max-xl:text-lg max-sm:m-10 max-sm:text-base sm:m-0 sm:text-base lg:text-base">
