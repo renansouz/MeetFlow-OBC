@@ -8,14 +8,14 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { z } from 'zod';
-
+import 'react-toastify/dist/ReactToastify.css';
 import { Input } from '@/components/Input';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useAuth } from '@/context/auth-provider';
 import { useTheme } from '@/context/theme-provider';
-import DarkLogo from '@/public/img/logo.svg';
-import LightLogo from '@/public/img/logo-light.svg';
+import DarkLogo from '@/public/img/Logo.svg';
+import LightLogo from '@/public/img/Logo-light.svg';
 
 import { BackGroundDiv } from './styles';
 
@@ -40,6 +40,7 @@ export const ClientLogin = () => {
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors, isSubmitting },
     } = useForm<LoginFormData>({ resolver: zodResolver(createUserSchema) });
 
@@ -54,6 +55,8 @@ export const ClientLogin = () => {
             if (error instanceof AxiosError) {
                 toast.error(error.response?.data.message);
             }
+        }finally{
+            reset();
         }
     };
 

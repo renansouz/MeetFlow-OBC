@@ -10,7 +10,7 @@ export interface MultiStepProps {
 
 export function MultiStep({ size, currentStep = 1, text }: MultiStepProps) {
     return (
-        <div className="max-md:pt-40 ">
+        <div className="max-md:pt-40 relative">
             <MultiStepContainer>
                 <Steps>
                     {Array.from({ length: size }, (_, i) => i + 1).map((step) => {

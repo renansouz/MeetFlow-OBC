@@ -1,5 +1,3 @@
-import 'react-toastify/dist/ReactToastify.css';
-
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios, { AxiosError } from 'axios';
 import { useState } from 'react';
@@ -7,14 +5,14 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { z } from 'zod';
-
 import { Input } from '@/components/Input';
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/context/theme-provider';
 import DarkLogo from '@/public/img/only-logo-black.svg';
 import LightLogo from '@/public/img/only-logo-white.svg';
-
 import { BackGroundDiv, FormDiv } from './styles';
+import { userAPI } from '@/api/userAPI';
+import { useNavigate } from 'react-router-dom';
 
 type passwordAppearenceType = 'text' | 'password';
 
@@ -23,27 +21,36 @@ const createUserSchema = z.object({
     email: z.string().email({ message: 'Digite um e-mail válido' }),
     password: z.string().min(5, { message: 'A senha deve possuir no mínimo 5 caracteres' }),
     passwordConfirmation: z.string().min(5, { message: 'A senha deve possuir no mínimo 5 caracteres' }),
-});
+}).refine((data) => data.password === data.passwordConfirmation, {
+    message:'As senhas não conhecidem',
+    path:["passwordConfirmation"]
+})
 
-type RegisterFormData = z.infer<typeof createUserSchema>;
+export type RegisterFormData = z.infer<typeof createUserSchema>;
 
 export const ClientRegister = () => {
+    const navigate = useNavigate();
     const { theme } = useTheme();
 
     async function handleSignUp(userData: RegisterFormData) {
-        const data = { ...userData, role: 'client' };
         try {
-            await axios.post(`${import.meta.env.VITE_BASE_URL}/auth/signup`, data);
+            await userAPI.createUser(userData,'client');
+            toast.success('Conta criada com sucesso');
+            setTimeout(() => {
+                navigate('/dashboard/services');
+            },1500)
         } catch (error) {
             if (error instanceof AxiosError) {
                 toast.error(error.response?.data.message);
             }
+        }finally{
+            reset();
         }
     }
-
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors, isSubmitting },
     } = useForm<RegisterFormData>({ resolver: zodResolver(createUserSchema) });
 
@@ -72,7 +79,6 @@ export const ClientRegister = () => {
                                     id="name"
                                     {...register('name')}
                                 />
-                                {errors.email && <p className="text-red-500 py-0.5 text-sm">{errors.email.message}</p>}
                             </section>
                             <section>
                                 <label htmlFor="" className="block py-2  font-semibold" id="email">
