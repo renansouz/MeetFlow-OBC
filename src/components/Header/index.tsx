@@ -14,6 +14,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 
 export const Header = () => {
     //const { setAuth, isAuth } = useAuth();
+
     const { theme } = useTheme();
 
     return (

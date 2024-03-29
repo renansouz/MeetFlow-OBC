@@ -2,6 +2,8 @@ import { Home, Layers, LifeBuoy, Menu, Settings, User, Users } from 'lucide-reac
 import { Link } from 'react-router-dom';
 
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { useAuth } from '@/context/auth-provider';
@@ -16,6 +18,7 @@ import { ClientMenu } from './ClientMenu';
 export const ClientAside = () => {
     const { isAuth } = useAuth();
     const { theme } = useTheme();
+    const { setTheme } = useTheme();
 
     return (
         <>
@@ -100,19 +103,46 @@ export const ClientAside = () => {
                             </Tooltip>
                         </TooltipProvider>
                     ) : (
-                        <TooltipProvider>
-                            <Tooltip>
-                                <TooltipTrigger asChild>
-                                    <Button variant={'ghost'} className="h-11 flex items-center justify-start gap-3 px-10 py-7 max-lg:px-0 max-lg:justify-center">
-                                        <Settings className="text-violet-700" />
-                                        <p className="text-violet-700 max-lg:hidden">Configurações</p>
-                                    </Button>
-                                </TooltipTrigger>
-                                <TooltipContent side="right">
-                                    <p>Configurações</p>
-                                </TooltipContent>
-                            </Tooltip>
-                        </TooltipProvider>
+                        <Dialog>
+                            <DialogTrigger>
+                                <TooltipProvider>
+                                    <Tooltip>
+                                        <TooltipTrigger asChild>
+                                            <Button variant={'ghost'} className="h-11 flex items-center w-full justify-start gap-3 px-10 py-7 max-lg:px-0 max-lg:justify-center">
+                                                <Settings className="text-violet-700" />
+                                                <p className="text-violet-700 max-lg:hidden">Configurações</p>
+                                            </Button>
+                                        </TooltipTrigger>
+                                        <TooltipContent side="right">
+                                            <p>Configurações</p>
+                                        </TooltipContent>
+                                    </Tooltip>
+                                </TooltipProvider>
+                            </DialogTrigger>
+                            <DialogContent>
+                                <DialogHeader>
+                                    <DialogTitle>Configurações</DialogTitle>
+                                    <DialogDescription>
+                                        Personalize a aparência da página de acordo com seu gosto visual. Escolha entre uma variedade de temas cuidadosamente criados para tornar sua
+                                        experiência de navegação mais agradável e personalizada.
+                                    </DialogDescription>
+                                </DialogHeader>
+                                <label htmlFor="theme-select">Escolha o Tema:</label>
+                                <Select>
+                                    <SelectTrigger className="w-full">
+                                        <SelectValue placeholder="Theme" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        <SelectItem onClick={() => setTheme('light')} value="light">
+                                            Light
+                                        </SelectItem>
+                                        <SelectItem onClick={() => setTheme('dark')} value="dark">
+                                            Dark
+                                        </SelectItem>
+                                    </SelectContent>
+                                </Select>
+                            </DialogContent>
+                        </Dialog>
                     )}
                 </div>
             </aside>

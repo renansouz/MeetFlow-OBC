@@ -23,7 +23,7 @@ export function ProfessionalProfile() {
     useEffect(() => {
         const timeout = setTimeout(() => {
             setLoading(false);
-        }, 3000); // Tempo em milissegundos (3 segundos, por exemplo)
+        }, 3000);
 
         return () => clearTimeout(timeout);
     }, []);
@@ -51,9 +51,9 @@ export function ProfessionalProfile() {
         <Card className="w-[70%] min-w-[20rem] ml-[6%] my-16 pb-10 max-xl:w-full max-xl:m-0">
             <CardHeader className="bg-indigo-300 h-32 rounded-tl-md rounded-tr-md w-full pt-14 max-lg:rounded-none">
                 {loading ? (
-                    <Skeleton className="w-36 rounded-full h-36" />
+                    <Skeleton className="rounded-full mt-10 w-20 h-full ml-5 border-4 border-background " />
                 ) : (
-                    <Avatar className="w-36 rounded-full h-36">
+                    <Avatar className="w-full rounded-full h-36">
                         <AvatarImage src="https://github.com/renansouz.png" className="ml-5 border-4 border-background rounded-full w-36" />
                         <AvatarFallback className="ml-5 border-4 border-background rounded-full w-36">CN</AvatarFallback>
                     </Avatar>
