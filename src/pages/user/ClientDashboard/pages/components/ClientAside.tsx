@@ -87,7 +87,7 @@ export const ClientAside = () => {
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger>
-                                    <AsideItem link="/register" title="fazer uma conta" icon={User} />
+                                    <AsideItem link="" title="fazer uma conta" icon={User} />
                                 </TooltipTrigger>
                                 <TooltipContent side="right">
                                     <p>Fazer uma conta</p>
@@ -106,7 +106,7 @@ export const ClientAside = () => {
                             </TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
-                    {isAuth ? (
+                    {isAuth && (
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger>
@@ -119,58 +119,57 @@ export const ClientAside = () => {
                                 </TooltipContent>
                             </Tooltip>
                         </TooltipProvider>
-                    ) : (
-                        <Dialog>
-                            <DialogTrigger>
-                                <TooltipProvider>
-                                    <Tooltip>
-                                        <TooltipTrigger asChild>
-                                            <Button variant={'ghost'} className="flex h-11 w-full items-center justify-start gap-3 px-10 py-7 max-lg:justify-center max-lg:px-0">
-                                                <Settings className="text-primary-foreground" />
-                                                <p className="text-primary-foreground max-lg:hidden">Configurações</p>
-                                            </Button>
-                                        </TooltipTrigger>
-                                        <TooltipContent side="right">
-                                            <p>Configurações</p>
-                                        </TooltipContent>
-                                    </Tooltip>
-                                </TooltipProvider>
-                            </DialogTrigger>
-                            <DialogContent>
-                                <DialogHeader>
-                                    <DialogTitle>Configurações</DialogTitle>
-                                    <DialogDescription>
-                                        Personalize a aparência da página de acordo com seu gosto visual. Escolha entre uma variedade de temas cuidadosamente criados para tornar sua
-                                        experiência de navegação mais agradável e personalizada.
-                                    </DialogDescription>
-                                </DialogHeader>
-                                <label htmlFor="theme-select">Escolha o Tema:</label>
-                                <Select>
-                                    <SelectTrigger className="w-full">
-                                        <SelectValue placeholder="Tema" />
-                                    </SelectTrigger>
-                                    <SelectContent className="flex flex-col">
-                                        <Button
-                                            className="w-full items-start justify-between bg-background p-2 text-lg text-foreground hover:bg-primary"
-                                            onClick={() => setTheme('light')}
-                                            value={'light'}
-                                        >
-                                            Claro
-                                            <ChevronDown />
-                                        </Button>
-                                        <Button
-                                            className="w-full items-start justify-between bg-background p-2 text-lg text-foreground hover:bg-primary"
-                                            onClick={() => setTheme('dark')}
-                                            value={'dark'}
-                                        >
-                                            Escuro
-                                            <ChevronDown />
-                                        </Button>
-                                    </SelectContent>
-                                </Select>
-                            </DialogContent>
-                        </Dialog>
                     )}
+                    <Dialog>
+                        <DialogTrigger>
+                            <TooltipProvider>
+                                <Tooltip>
+                                    <TooltipTrigger asChild>
+                                        <Button variant={'ghost'} className="flex h-11 w-full items-center justify-start gap-3 px-10 py-7 max-lg:justify-center max-lg:px-0">
+                                            <Settings className="text-primary-foreground" />
+                                            <p className="text-primary-foreground max-lg:hidden">Configurações</p>
+                                        </Button>
+                                    </TooltipTrigger>
+                                    <TooltipContent side="right">
+                                        <p>Configurações</p>
+                                    </TooltipContent>
+                                </Tooltip>
+                            </TooltipProvider>
+                        </DialogTrigger>
+                        <DialogContent>
+                            <DialogHeader>
+                                <DialogTitle>Configurações</DialogTitle>
+                                <DialogDescription>
+                                    Personalize a aparência da página de acordo com seu gosto visual. Escolha entre uma variedade de temas cuidadosamente criados para tornar sua experiência
+                                    de navegação mais agradável e personalizada.
+                                </DialogDescription>
+                            </DialogHeader>
+                            <label htmlFor="theme-select">Escolha o Tema:</label>
+                            <Select>
+                                <SelectTrigger className="w-full">
+                                    <SelectValue placeholder="Tema" />
+                                </SelectTrigger>
+                                <SelectContent className="flex flex-col">
+                                    <Button
+                                        className="w-full items-start justify-between bg-background p-2 text-lg text-foreground hover:bg-primary"
+                                        onClick={() => setTheme('light')}
+                                        value={'light'}
+                                    >
+                                        Claro
+                                        <ChevronDown />
+                                    </Button>
+                                    <Button
+                                        className="w-full items-start justify-between bg-background p-2 text-lg text-foreground hover:bg-primary"
+                                        onClick={() => setTheme('dark')}
+                                        value={'dark'}
+                                    >
+                                        Escuro
+                                        <ChevronDown />
+                                    </Button>
+                                </SelectContent>
+                            </Select>
+                        </DialogContent>
+                    </Dialog>
                 </div>
             </aside>
             <div className="absolute left-2 top-1 h-10 items-center rounded-md bg-secondary sm:hidden">
