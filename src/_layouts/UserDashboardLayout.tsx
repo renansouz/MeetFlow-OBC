@@ -10,7 +10,7 @@ export const UserDashboardLayout = () => {
         <div className="flex">
             <ClientAside />
 
-            <div className={`w-full h-screen overflow-hidden overflow-y-scroll ${backgroundToggle}`}>
+            <div className={`h-screen w-full overflow-hidden overflow-y-scroll ${backgroundToggle}`}>
                 <Outlet />
             </div>
         </div>

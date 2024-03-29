@@ -1,11 +1,12 @@
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Button } from '@/components/ui/button';
-import { dayHours } from '@/utils/dayHours';
-import { useState } from 'react';
-import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+
 import { professionalAPI } from '@/api/professionalAPI';
+import { Button } from '@/components/ui/button';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { dayHours } from '@/utils/dayHours';
 
 type stepProps = {
     currentStepState: number;
@@ -13,7 +14,6 @@ type stepProps = {
 };
 
 export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
-
     const createScheduleSchema = z.object({
         name: z.string(),
         days: z.object({
@@ -40,18 +40,13 @@ export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
 
     type ScheduleFormData = z.infer<typeof createScheduleSchema>;
 
-
-    const createNewSchedule = async(scheduleData:ScheduleFormData) => {
-
-        try{
-            const res = await professionalAPI.createSchedule(scheduleData)
-
-        }catch(error){
+    const createNewSchedule = async (scheduleData: ScheduleFormData) => {
+        try {
+            const res = await professionalAPI.createSchedule(scheduleData);
+        } catch (error) {
             console.log(error);
         }
-    }
-
-
+    };
 
     return (
         <form onSubmit={handleSubmit(createNewSchedule)}>
@@ -89,7 +84,7 @@ export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
             </div>
             <div>
                 <h2 className="text-center text-black">Dias disponiveis</h2>
-                <div className="mt-5 flex justify-center gap-5 flex-wrap">
+                <div className="mt-5 flex flex-wrap justify-center gap-5">
                     <div className="flex flex-col items-center justify-center gap-2">
                         <input type="checkbox" id="" {...register('days.sunday1')} />
                         <label htmlFor="" className="block text-black">
@@ -133,7 +128,7 @@ export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
                         </label>
                     </div>
                 </div>
-                <div className="flex justify-center mt-20  gap-40 absolute bottom-10 w-full">
+                <div className="absolute bottom-10 mt-20  flex w-full justify-center gap-40">
                     <Button variant={'costumize'} onClick={() => setCurrentStepState(currentStepState - 1)}>
                         Voltar
                     </Button>

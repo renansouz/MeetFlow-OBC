@@ -1,20 +1,22 @@
 import 'react-toastify/dist/ReactToastify.css';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Input } from '@/components/Input';
+
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-import { useForm } from 'react-hook-form';
-import { userAPI } from '@/api/userAPI';
-import { toast, ToastContainer } from 'react-toastify';
-import { useTheme } from '@/context/theme-provider';
 import { AxiosError } from 'axios';
-import { Button } from '@/components/ui/button';
+import { AxiosResponse } from 'axios';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import {AxiosResponse} from "axios"
+import { toast, ToastContainer } from 'react-toastify';
+import { z } from 'zod';
+
+import { userAPI } from '@/api/userAPI';
+import { Input } from '@/components/Input';
+import { Button } from '@/components/ui/button';
+import { useTheme } from '@/context/theme-provider';
 
 type stepProps = {
-    currentStepState:number
+    currentStepState: number;
     setCurrentStepState: (int: number) => void;
 };
 
@@ -51,7 +53,7 @@ export const Step1 = ({ setCurrentStepState, currentStepState }: stepProps) => {
         try {
             const res: AxiosResponse = await userAPI.createUser(userData, 'client');
             sessionStorage.setItem('currentSignupAcessToken', res.data?.accessToken);
-            setCurrentStepState(2)
+            setCurrentStepState(2);
         } catch (error) {
             if (error instanceof AxiosError) {
                 toast.error(error.response?.data.message);
@@ -78,7 +80,7 @@ export const Step1 = ({ setCurrentStepState, currentStepState }: stepProps) => {
                     </label>
 
                     <Input placeholder="Digite seu e-mail" id="email" {...register('email')} />
-                    {errors.email && <p className="text-red-500 py-0.5 text-sm">{errors.email.message}</p>}
+                    {errors.email && <p className="py-0.5 text-sm text-red-500">{errors.email.message}</p>}
                 </section>
 
                 <section>
@@ -86,14 +88,14 @@ export const Step1 = ({ setCurrentStepState, currentStepState }: stepProps) => {
                         Senha
                     </label>
                     <Input id="password" placeholder="Digite sua senha" {...register('password', { required: true })} />
-                    {errors.password && <p className="text-red-500 py-0.5 text-sm">{errors.password.message}</p>}
+                    {errors.password && <p className="py-0.5 text-sm text-red-500">{errors.password.message}</p>}
                 </section>
                 <section>
                     <label htmlFor="" className="block py-1 font-bold text-black">
                         Confirme sua senha
                     </label>
                     <Input id="passwordConfirmation" placeholder="Digite sua senha novamente" {...register('passwordConfirmation')} />
-                    {errors.passwordConfirmation && <p className="text-red-500 py-0.5 text-sm">{errors.passwordConfirmation.message}</p>}
+                    {errors.passwordConfirmation && <p className="py-0.5 text-sm text-red-500">{errors.passwordConfirmation.message}</p>}
                 </section>
                 <section className="flex gap-2 text-black">
                     <input type="checkbox" name="" id="" onClick={handlePasswordAppearence} />
@@ -107,8 +109,10 @@ export const Step1 = ({ setCurrentStepState, currentStepState }: stepProps) => {
                         </Link>
                     </p>
                 </div>
-                <div className="flex justify-center mt-20  gap-40 absolute bottom-10">
-                    <Button variant={'costumize'} onClick={() => navigate("/")}>Voltar</Button>
+                <div className="absolute bottom-10 mt-20  flex justify-center gap-40">
+                    <Button variant={'costumize'} onClick={() => navigate('/')}>
+                        Voltar
+                    </Button>
                     <Button type="submit">Continuar</Button>
                 </div>
             </form>

@@ -1,5 +1,5 @@
 export type ScheduleType = {
-    name:string,
+    name: string;
     days1: {
         monday: boolean;
         sunday1: boolean;
@@ -10,8 +10,8 @@ export type ScheduleType = {
         saturday1: boolean;
     };
     hourStart1: string;
-    hourEnd1:string;
-    hourLunchStart1?:string;
-    hourLunchEnd1?:string;
-    minimumTimeForReSchedule:number;
+    hourEnd1: string;
+    hourLunchStart1?: string;
+    hourLunchEnd1?: string;
+    minimumTimeForReSchedule: number;
 };

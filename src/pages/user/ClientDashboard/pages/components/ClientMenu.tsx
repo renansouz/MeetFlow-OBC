@@ -30,13 +30,13 @@ export const ClientMenu = () => {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button variant={'ghost'} className="h-11 flex items-center justify-start gap-3 px-10 py-7 max-lg:px-0 max-lg:justify-center">
+                <Button variant={'ghost'} className="flex h-11 items-center justify-start gap-3 px-10 py-7 max-lg:justify-center max-lg:px-0">
                     <Avatar>
                         <AvatarImage src={userData?.photoUrl} className="w-10" />
                         <AvatarFallback>{userData?.name.slice(0, 1)}</AvatarFallback>
                     </Avatar>
                     <div className="flex flex-col justify-start">
-                        {userData && <h2 className="text-left">{userData.name}</h2>}
+                        {userData && <h2 className="text-left text-sm whitespace-nowrap">{userData.name}</h2>}
                         {userData && <p className="text-left text-xs text-slate-400">{userData.email}</p>}
                     </div>
                 </Button>

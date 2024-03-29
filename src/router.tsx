@@ -8,7 +8,8 @@ import { UserDashboardLayout } from './_layouts/UserDashboardLayout';
 import { NotFound } from './pages/404';
 import { Home } from './pages/Home';
 import { ProfessionalDashboard } from './pages/professional/Dashboard';
-import { ProfessionalOwnProfile } from './pages/professional/ProfessionalOwnProfile';
+import { Clients } from './pages/professional/Dashboard/pages/ProfessionalClients';
+import { ProfessionalOwnProfile } from './pages/professional/Dashboard/pages/ProfessionalOwnProfile';
 import { ProfessionalRegister } from './pages/professional/ProfessionalRegister';
 import { ClientDashboard } from './pages/user/ClientDashboard';
 import { MySchedules } from './pages/user/ClientDashboard/pages/MySchedule';
@@ -93,6 +94,16 @@ const dashBoardRoutes: RouteObject[] = [
             {
                 path: '/professional/profile',
                 element: <ProfessionalOwnProfile />,
+            },
+        ],
+    },
+    {
+        path: '/',
+        element: <ProfessionalDashboardLayout />,
+        children: [
+            {
+                path: '/professional/meus-agendamentos',
+                element: <Clients />,
             },
         ],
     },

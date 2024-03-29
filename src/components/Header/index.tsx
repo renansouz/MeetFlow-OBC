@@ -9,13 +9,16 @@ import Logo from '@/public/img/Logo.svg';
 import LightLogo from '@/public/img/Logo-light.svg';
 
 import { ThemeToggle } from '../theme/theme-toggle';
+import { Button } from '../ui/button';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog';
 
 export const Header = () => {
     //const { setAuth, isAuth } = useAuth();
+
     const { theme } = useTheme();
 
     return (
-        <div className="relative border-b bg-background">
+        <div className="relative border-b bg-card">
             <div className="flex max-h-24 items-center justify-between gap-6 px-6">
                 <Link to={'/'}>
                     <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="max-h-28" />
@@ -36,7 +39,7 @@ export const Header = () => {
                                 </NavigationMenuItem>
                                 <NavigationMenuItem>
                                     <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                                        <Link to={'/login'}>Profissional</Link>
+                                        <a href="#profissional">Profissional</a>
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
                                 <NavigationMenuItem>
@@ -44,11 +47,44 @@ export const Header = () => {
                                         <Link to={'/login'}>Entrar</Link>
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
-                                <NavigationMenuItem>
-                                    <NavigationMenuLink asChild className="group ml-10 inline-flex h-10 w-max items-center justify-center rounded-md bg-indigo-600 px-6 py-2 text-white">
-                                        <Link to={'/register'}>Agendar</Link>
-                                    </NavigationMenuLink>
-                                </NavigationMenuItem>
+
+                                <Dialog>
+                                    <DialogTrigger>
+                                        <NavigationMenuItem>
+                                            <NavigationMenuLink
+                                                asChild
+                                                className="group ml-10 inline-flex h-10 w-max items-center justify-center rounded-md bg-indigo-600 px-6 py-2 text-white"
+                                            >
+                                                <Button>Agendar</Button>
+                                            </NavigationMenuLink>
+                                        </NavigationMenuItem>
+                                    </DialogTrigger>
+                                    <DialogContent className="gap-6 p-12">
+                                        <DialogHeader className="flex">
+                                            <DialogTitle className="mb-2 items-center justify-center text-center font-bold">Seja bem-vindo ao MeetFLow!</DialogTitle>
+                                            <DialogDescription className="text-center">
+                                                Estamos felizes por você estar aqui. Para desfrutar ao máximo de nossos serviços, recomendamos criar uma conta. Se preferir, vocês também pode
+                                                entrar sem fazer login.
+                                            </DialogDescription>
+                                        </DialogHeader>
+
+                                        <div className="mt-10 flex flex-col items-center justify-center gap-6">
+                                            <Link
+                                                className="item-center flex  w-full justify-center rounded-2xl border-2 border-indigo-800 bg-indigo-400 p-4 text-xl text-background hover:bg-indigo-500 "
+                                                to={'/login'}
+                                            >
+                                                <span className="font-medium">Fazer LogIn</span>
+                                            </Link>
+                                            <Link
+                                                to={'/dashboard/services'}
+                                                className=" item-center flex w-full justify-center p-4 font-medium text-foreground hover:text-indigo-600 hover:underline"
+                                            >
+                                                <span>Entrar sem Login</span>
+                                            </Link>
+                                        </div>
+                                    </DialogContent>
+                                </Dialog>
+
                                 <NavigationMenuItem></NavigationMenuItem>
                             </NavigationMenuList>
                         </NavigationMenu>
@@ -71,7 +107,7 @@ export const Header = () => {
                                         Sobre
                                     </Link>
                                     <Separator />
-                                    <Link to={'/login'} className="w-full rounded-md border-solid p-4 text-center hover:bg-accent ">
+                                    <Link to={''} className="w-full rounded-md border-solid p-4 text-center hover:bg-accent ">
                                         Área do Profissional
                                     </Link>
                                     <Separator />

@@ -18,7 +18,7 @@ export const ProfessionalRegister = () => {
             <BackGroundDiv>
                 <div className="flex w-1/2 flex-col items-center justify-center gap-20  max-xl:hidden">
                     <img src={theme === 'dark' ? DarkLogo : LightLogo} alt="" className="w-96" />
-                    <h1 className="text-center text-5xl font-semibold">Junte-se à comunidade MeetFlow</h1>
+                    <h1 className="text-center font-semibold">Junte-se à comunidade MeetFlow</h1>
                 </div>
 
                 <div className="flex w-1/2 items-center justify-center max-xl:w-screen">
