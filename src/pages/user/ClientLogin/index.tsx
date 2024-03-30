@@ -68,9 +68,17 @@ export const ClientLogin = () => {
                         <label htmlFor="" className="block py-2 font-bold ">
                             Endereço de e-mail
                         </label>
-                        <div className="mx-1 flex w-80 items-center gap-2 rounded-lg border border-foreground px-3 py-2 shadow-sm max-sm:w-[20rem]">
+                        <div
+                            tabIndex={0}
+                            className="group flex w-[20rem] items-center justify-between gap-2 rounded-lg border border-foreground px-3 py-2 shadow-sm focus-within:border-primary focus:border-primary max-sm:w-[20rem]"
+                        >
                             <User className="text-foreground/90" />
-                            <Input className="flex-1 border-0 bg-transparent p-0 text-foreground placeholder-zinc-600" placeholder="Digite seu email" id="email" {...register('email')} />
+                            <Input
+                                className="w-[16rem] flex-1 border-0 bg-transparent p-0 text-foreground placeholder-zinc-600 focus:border-primary"
+                                placeholder="Digite seu email"
+                                id="email"
+                                {...register('email')}
+                            />
                         </div>
                         {errors.email && <p className="py-2 text-red-500">{errors.email.message}</p>}
                     </section>
@@ -78,10 +86,11 @@ export const ClientLogin = () => {
                         <label htmlFor="" className="block py-2 font-bold ">
                             Senha
                         </label>
-                        <div className="mx-1 flex w-80 items-center gap-2 rounded-lg border border-foreground px-3 py-2 shadow-sm max-sm:w-[20rem]">
-                            <Lock className="text-foreground/90" />
+                        <div className="group flex w-[20rem] items-center justify-between gap-2 rounded-lg border border-foreground px-3 py-2 shadow-sm focus-within:border-primary focus:border-primary max-sm:w-[20rem]">
+                            <Lock className="w-[16rem] text-foreground/90" />
                             <Input
-                                className="flex-1 border-0 bg-transparent p-0 text-foreground placeholder-zinc-600"
+                                type={passswordAppearenceState}
+                                className="w-[16rem] flex-1 border-0 bg-transparent p-0 text-foreground placeholder-zinc-600 focus:border-primary"
                                 placeholder="Digite sua senha"
                                 id="password"
                                 {...register('password')}

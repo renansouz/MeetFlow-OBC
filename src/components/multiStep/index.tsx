@@ -10,7 +10,7 @@ export interface MultiStepProps {
 
 export function MultiStep({ size, currentStep = 1, text }: MultiStepProps) {
     return (
-        <div className="relative max-md:pt-40">
+        <div className="mb-10 flex justify-start bg-card">
             <MultiStepContainer>
                 <Steps>
                     {Array.from({ length: size }, (_, i) => i + 1).map((step) => {
@@ -19,7 +19,7 @@ export function MultiStep({ size, currentStep = 1, text }: MultiStepProps) {
                                 <DivRepeat>
                                     <Step key={step} active={currentStep >= step} stepContent={step} currentStep={currentStep} />
                                     <Label active={currentStep >= step}>{text[step - 1]}</Label>
-                                    {step !== size && <ChevronRight className="h-8 w-8 text-black" />}
+                                    {step !== size && <ChevronRight className="h-8 w-8 text-foreground" />}
                                 </DivRepeat>
                             </>
                         );
