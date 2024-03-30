@@ -2,7 +2,9 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { useEffect, useState } from 'react';
 import { RouterProvider } from 'react-router-dom';
+
 import { ThemeProvider } from '@/context/theme-provider';
+
 import Preloader from './components/Preload';
 import { AuthProvider } from './context/auth-provider';
 import { queryClient } from './lib/react-query';

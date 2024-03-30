@@ -10,7 +10,7 @@ import { Header } from '../components/Header';
 import { ProfessionalCard } from './ProfessionalCard';
 
 export type CardData = {
-    id: string;
+    _id: string;
     profile_pic: string;
     name: string;
     description: string;
@@ -48,10 +48,7 @@ export const Services = () => {
         async function getProfessionals() {
             try {
                 const res = await userAPI.fetchProfessionals();
-                const { data } = res.data[0].data
-                console.log(data);
-
-                
+                const { data } = res;
                 setProfessionals(data);
             } catch (error) {
                 if (error instanceof AxiosError) {
@@ -68,9 +65,7 @@ export const Services = () => {
             <Header title="Serviços" />
             <div>
                 <div className="flex flex-col items-center gap-5">
-
                     {loading ? <Skeleton className="z-0 h-8 w-48 gap-y-12 rounded-md" /> : <h2 className="text-center max-sm:mt-8 max-sm:text-3xl">Profissionais</h2>}
-
 
                     <Search placeholder="Busque por um serviço ou profissional" />
                 </div>
@@ -102,19 +97,18 @@ export const Services = () => {
                 </div>
                 <div className="flex">
                     <div className="flex flex-wrap justify-center gap-10 px-16 py-16 max-lg:gap-2 max-sm:gap-1 ">
-                        {professionals?.map((professional, index) => {
+                        {professionals?.map((professional) => {
                             return (
                                 <ProfessionalCard
                                     name={professional.name}
                                     categorie={professional.categorie}
                                     description={professional.description}
                                     profile_pic={professional.profile_pic}
-                                    id={professional.id}
-                                    key={professional.id}
+                                    _id={professional._id}
+                                    key={professional._id}
                                 />
                             );
                         })}
-
                     </div>
                 </div>
             </div>

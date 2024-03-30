@@ -1,18 +1,19 @@
+import { AxiosError } from 'axios';
 import dayjs from 'dayjs';
 import { BriefcaseBusiness, CalendarCheck2, ContactRound, DollarSign, HourglassIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
+import { userAPI } from '@/api/userAPI';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Skeleton } from '@/components/ui/skeleton';
+
 import { CalendarProfessional } from './Calendar';
 import { ProfessionalService } from './ProfessionalService';
 import { Container, TimePicker, TimePickerHeader, TimePickerItem, TimePickerList } from './styles';
-import { userAPI } from '@/api/userAPI';
-import { useParams } from 'react-router-dom';
-import { AxiosError } from 'axios';
 
 interface Availability {
     possibleTimes: number[];
@@ -20,8 +21,7 @@ interface Availability {
 }
 
 export function ProfessionalProfile() {
-
-    const {id} = useParams();
+    const { _id } = useParams();
 
     const [loading, setLoading] = useState(true);
 
@@ -47,32 +47,28 @@ export function ProfessionalProfile() {
 
     const selectedDateWithoutTime = selectedDate ? dayjs(selectedDate).format('YYYY-MM-DD') : null;
 
-    // function handleSelectTime(hour: number) {
-    //     const dateWithTime = new Date(selectedDate!);
-    //     dateWithTime.setHours(hour);
-    //     onSelectDateTime(dateWithTime);
-    // }
+    const onSelectDateTime = (param: Date) =>
+        void function handleSelectTime(hour: number) {
+            const dateWithTime = new Date(selectedDate!);
+            dateWithTime.setHours(hour);
+            onSelectDateTime(dateWithTime);
+        };
 
     useEffect(() => {
-        async function getProfileData(){
-            try{
-                const res = await userAPI.fetchProfileData(id);
-                const {data} = res;
+        async function getProfileData() {
+            try {
+                const res = await userAPI.fetchProfileData(_id);
+                const { data } = res;
                 console.log(data);
-            }catch(error){
-                if(error instanceof AxiosError){
+            } catch (error) {
+                if (error instanceof AxiosError) {
                     console.log(error.message);
                 }
             }
         }
 
         getProfileData();
-
-    },[])
-
-
-
-
+    }, []);
 
     return (
         <Card className="my-16 ml-[6%] w-[70%] min-w-[20rem] pb-10 max-xl:m-0 max-xl:w-full">
@@ -84,7 +80,7 @@ export function ProfessionalProfile() {
             </CardHeader>
             <CardContent className="mt-20 flex w-full flex-col gap-y-2 border-b-2">
                 <CardTitle className="ml-6 text-left font-bold " style={{ maxWidth: '600px' }}>
-                    RENAN DE SOUZA SILVA
+                    {}
                 </CardTitle>
                 <CardDescription className="ml-6 w-full font-light">Olá me chamo Renan, caso queira aprender tailwind, agende uma reunião comigo!</CardDescription>
                 <span className="ml-5 mt-3 font-bold text-indigo-600/90">+ 10 agendamentos</span>
