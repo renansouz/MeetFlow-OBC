@@ -23,7 +23,7 @@ export const AlertDialogContainer = ({ triger, alertMessage, description, callba
         <AlertDialog>
             <AlertDialogTrigger asChild className="w-full">
                 <Button variant={'ghost'} className="">
-                    <p className="text-red-600 text-left">{triger}</p>
+                    <p className="text-left text-red-600">{triger}</p>
                 </Button>
             </AlertDialogTrigger>
             <AlertDialogContent>

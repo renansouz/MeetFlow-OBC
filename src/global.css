@@ -11,41 +11,41 @@
             --card-foreground: 40 20% 10%; /* cinza escuro */
             --popover: 240 2.4% 100%; /* branco */
             --popover-foreground: 40 20% 10%; /* cinza escuro */
-            --primary: 262.1 83.3% 57.8%; /* azul claro */
-            --primary-foreground: 210 20% 98%; /* indigo-100 */
+            --primary: 233 70% 75%; /* azul claro */
+            --primary-foreground: 240 48% 28%; /* indigo-100 */
             --secondary: 220 14.3% 95.9%; /* cinza claro */
             --secondary-foreground: 220.9 39.3% 11%; /* cinza azulado */
-            --muted: 220 14.3% 95.9%; /* cinza claro */
+            --muted: 220 14.3% 80%; /* cinza claro */
             --muted-foreground: 220 8.9% 46.1%; /* cinza */
             --accent: 220 14.3% 95.9%; /* cinza claro */
             --accent-foreground: 220.9 39.3% 11%; /* cinza azulado */
             --destructive: 0 84.2% 60.2%; /* vermelho claro */
             --destructive-foreground: 210 20% 98%; /* indigo-100 */
-            --border: 220 13% 91%; /* cinza claro */
-            --input: 220 13% 91%; /* cinza claro */
+            --border:  220 14.3% 80%; /* cinza claro */
+            --input:  220 14.3% 80%; /* cinza claro */
             --ring: 262.1 83.3% 57.8%; /* azul claro */
             --radius: 0.5rem;
         }
 
         .dark {
-            --background: 230 84.3% 4.9%; /* slate-950 */
+            --background: 210 23% 7%; /* slate-900 */
             --foreground: 210 20% 98%; /* indigo-100 */
-            --card: 215 27.9% 6.9%; /* slate-800 */
+            --card: 210 80% 3%; /* slate-900 */
             --card-foreground: 210 20% 98%; /* indigo-100 */
-            --popover: 215 27.9% 6.9%; /* slate-800 */
+            --popover: 215 27.9% 10.8%; /* slate-900 */
             --popover-foreground: 210 20% 98%; /* indigo-100 */
-            --primary: 210 20% 98%; /* indigo-100 */
-            --primary-foreground: 210 20% 98%; /* indigo-100 */
+            --primary: 240 67.8% 48.4%; /* indigo-100 */
+            --primary-foreground: 227 65% 80%; /* indigo-100 */
             --secondary: 210 20% 98%; /* indigo-100 */
             --secondary-foreground: 210 20% 98%; /* indigo-100 */
-            --muted: 215 27.9% 10.9%; /* slate-700 */
+            --muted: 215 27.9% 10.8%; /* slate-900 */
             --muted-foreground: 210 20% 98%; /* indigo-100 */
-            --accent: 215 27.9% 10.9%; /* slate-700 */
+            --accent: 215 27.9% 10.8%; /* slate-900 */
             --accent-foreground: 210 20% 98%; /* indigo-100 */
             --destructive: 0 62.8% 30.6%; /* red-600 */
             --destructive-foreground: 210 20% 98%; /* indigo-100 */
-            --border: 215 27.9% 10.9%; /* slate-700 */
-            --input: 215 27.9% 10.9%; /* slate-700 */
+            --border: 215 27.9% 10.8%; /* slate-900 */
+            --input: 215 27.9% 10.8%; /* slate-900 */
             --ring: 240 82.6% 5.1%; /* indigo-900 */
         }
     }

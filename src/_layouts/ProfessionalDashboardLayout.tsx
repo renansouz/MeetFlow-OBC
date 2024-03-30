@@ -10,7 +10,7 @@ export const ProfessionalDashboardLayout = () => {
     return (
         <div className={'flex'}>
             <ProfessionalAside />
-            <div className={`w-full h-screen overflow-hidden overflow-y-scroll ${backgroundToggle}`}>
+            <div className={`h-screen w-full overflow-hidden overflow-y-scroll ${backgroundToggle}`}>
                 <Outlet />
             </div>
         </div>

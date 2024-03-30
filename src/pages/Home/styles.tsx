@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import professionalImage from '@/public/img/area-profissional.jpg';
+import professionalImage from '@/public/img/area-profissional.svg';
 import pageBackground from '@/public/img/page-background.svg';
 import sobreImage from '@/public/img/sobre-nos.jpg';
 
@@ -21,25 +21,25 @@ export const BackGroundImage = styled.div`
 `;
 
 export const SobreImage = styled.div`
-    background-image: linear-gradient(to right, rgba(3, 3, 36, 0) 20%, rgba(3, 7, 18, 100) 90%), url(${sobreImage});
+    background-image: linear-gradient(140deg, rgba(3, 3, 36, 0.247) 40%, rgba(26, 30, 95, 0.726)), url(${sobreImage});
     height: 80vh;
-    width: 100vh;
+    width: 80vh;
     background-size: cover;
-
-    @media (max-width: 1279px) {
-        background-image: linear-gradient(to right, rgba(3, 3, 36, 0.2) 20%, rgba(3, 7, 18, 100)), url(${sobreImage});
-        border-radius: 20px;
+    border-radius: 20px;
+    @media (max-screen: 1507px) {
+        height: 10rem;
+        width: 10rem;
     }
 `;
 
 export const ProfessionalImage = styled.div`
-    background-image: linear-gradient(to left, rgba(3, 3, 36, 21%) 33%, rgba(3, 7, 18, 100) 90%), url(${professionalImage});
+    background-image: linear-gradient(140deg, rgba(3, 3, 36, 0.247) 40%, rgba(26, 30, 95, 0.726)), url(${professionalImage});
     height: 80vh;
-    width: 100vh;
+    width: 80vh;
     background-size: cover;
-
-    @media (max-width: 1279px) {
-        background-image: linear-gradient(to right, rgba(3, 3, 36, 0.2) 20%, rgba(3, 7, 18, 100)), url(${professionalImage});
-        border-radius: 20px;
+    border-radius: 20px;
+    @media (max-screen: 1507px){
+        heigh10remt
+        widt10remh
     }
 `;

@@ -5,11 +5,9 @@ import { ServicesCard } from './ServicesCard';
 export function MySchedules() {
     return (
         <>
-            <Card className="m-[10%] p-24 hidden">
-                <CardContent className="flex justify-center items-center">
-                    <p className="text-2xl text-center">Você precisa de uma conta para ter acesso a página meus agendamentos</p>
-                </CardContent>
-            </Card>
+            <div className="flex h-lvh items-center justify-center">
+                <p className="text-center">Você precisa de uma conta para ter acesso a página meus agendamentos</p>
+            </div>
 
             <Card className="m-[5%] p-5 ">
                 <CardHeader>

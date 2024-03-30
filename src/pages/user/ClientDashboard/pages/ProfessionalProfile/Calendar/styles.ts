@@ -6,7 +6,7 @@ export const CalendarContainer = styled.div<{ isTimePickerOpen: boolean }>`
     gap: 1.5rem;
     padding: 1.5rem;
     box-shadow: 0 0 2px #1f2937;
-    background-color: #09090b;
+    background-color: #020617;
     border-radius: 2rem;
     min-width: 20rem;
     margin-left: 1rem;

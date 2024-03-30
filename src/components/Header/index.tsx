@@ -5,8 +5,8 @@ import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuL
 import { Separator } from '@/components/ui/separator';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useTheme } from '@/context/theme-provider';
-import Logo from '@/public/img/logo.svg';
-import LightLogo from '@/public/img/logo-light.svg';
+import Logo from '@/public/img/Logo.svg';
+import LightLogo from '@/public/img/Logo-light.svg';
 
 import { ThemeToggle } from '../theme/theme-toggle';
 import { Button } from '../ui/button';
@@ -14,10 +14,11 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 
 export const Header = () => {
     //const { setAuth, isAuth } = useAuth();
+
     const { theme } = useTheme();
 
     return (
-        <div className="relative border-b bg-background">
+        <div className="relative border-b bg-card">
             <div className="flex max-h-24 items-center justify-between gap-6 px-6">
                 <Link to={'/'}>
                     <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="max-h-28" />
@@ -58,25 +59,25 @@ export const Header = () => {
                                             </NavigationMenuLink>
                                         </NavigationMenuItem>
                                     </DialogTrigger>
-                                    <DialogContent className="p-12 gap-6">
+                                    <DialogContent className="gap-6 p-12">
                                         <DialogHeader className="flex">
-                                            <DialogTitle className="text-2xl items-center justify-center text-center font-bold mb-2">Seja bem-vindo ao MeetFLow!</DialogTitle>
+                                            <DialogTitle className="mb-2 items-center justify-center text-center font-bold">Seja bem-vindo ao MeetFLow!</DialogTitle>
                                             <DialogDescription className="text-center">
                                                 Estamos felizes por você estar aqui. Para desfrutar ao máximo de nossos serviços, recomendamos criar uma conta. Se preferir, vocês também pode
                                                 entrar sem fazer login.
                                             </DialogDescription>
                                         </DialogHeader>
 
-                                        <div className="flex flex-col justify-center items-center gap-6 mt-10">
+                                        <div className="mt-10 flex flex-col items-center justify-center gap-6">
                                             <Link
-                                                className="item-center justify-center  flex p-4 w-full text-xl border-2 border-indigo-800 bg-indigo-400 text-background hover:bg-indigo-500 rounded-2xl "
+                                                className="item-center flex  w-full justify-center rounded-2xl border-2 border-indigo-800 bg-indigo-400 p-4 text-xl text-background hover:bg-indigo-500 "
                                                 to={'/login'}
                                             >
                                                 <span className="font-medium">Fazer LogIn</span>
                                             </Link>
                                             <Link
                                                 to={'/dashboard/services'}
-                                                className=" item-center hover:text-indigo-600 text-foreground hover:underline justify-center flex p-4 w-full font-medium"
+                                                className=" item-center flex w-full justify-center p-4 font-medium text-foreground hover:text-indigo-600 hover:underline"
                                             >
                                                 <span>Entrar sem Login</span>
                                             </Link>
