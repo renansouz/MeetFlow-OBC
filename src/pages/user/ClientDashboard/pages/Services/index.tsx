@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 import { getProfessional } from '@/api/get-professional';
 import { getProfile, GetProfileParams } from '@/api/get-profile';
+
 import { Search } from '@/components/Search';
 import { Skeleton } from '@/components/ui/skeleton';
 
@@ -46,6 +47,7 @@ export const Services = () => {
                 console.log(professional);
                 setProfessionals(professional);
                 setLoading(false);
+
             } catch (error) {
                 if (error instanceof AxiosError) {
                     console.log(error.message);
@@ -78,11 +80,12 @@ export const Services = () => {
     }, [selectedProfessionalId]);
 
     return (
-        <div className="w-full">
+        <div className="w-full max-sm:mt-10">
             <Header title="Serviços" />
             <div>
                 <div className="flex flex-col items-center gap-5">
-                    {loading ? <Skeleton className="z-0 h-8 w-48 gap-y-12 rounded-md" /> : <h2 className="text-center">Profissionais</h2>}
+                    {loading ? <Skeleton className="z-0 h-8 w-48 gap-y-12 rounded-md" /> : <h2 className="text-center max-sm:mt-8 max-sm:text-3xl">Profissionais</h2>}
+
                     <Search placeholder="Busque por um serviço ou profissional" />
                 </div>
                 <div className="mt-10 flex flex-wrap items-center justify-center gap-10"></div>
@@ -90,16 +93,14 @@ export const Services = () => {
                     <div className="flex flex-wrap justify-center gap-10 px-16 py-16 max-lg:gap-2 max-sm:gap-1 ">
                         {professionals?.map((professional) => {
                             return (
-                                <div key={professional._id} onClick={() => handleProfessionalClick(professional._id)}>
-                                    <ProfessionalCard
-                                        name={professional.name}
-                                        categorie={professional.categorie}
-                                        description={professional.description}
-                                        profile_pic={professional.profile_pic}
-                                        _id={professional._id}
-                                        key={professional._id}
-                                    />
-                                </div>
+                                <ProfessionalCard
+                                    name={professional.name}
+                                    categorie={professional.categorie}
+                                    description={professional.description}
+                                    profile_pic={professional.profile_pic}
+                                    _id={professional._id}
+                                    key={professional._id}
+                                />
                             );
                         })}
                     </div>

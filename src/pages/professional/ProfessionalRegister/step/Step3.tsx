@@ -1,33 +1,30 @@
-import { Input } from '@/components/Input';
+import { MoveLeft, MoveRight } from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import {z} from "zod";
-
+import { Textarea } from '@/components/ui/textarea';
 
 type stepProps = {
     currentStepState: number;
     setCurrentStepState: (int: number) => void;
 };
 
-
-export const Step3 = () => {
+export const Step3 = ({ setCurrentStepState, currentStepState }: stepProps) => {
     return (
-        <div className="">
-            <div className="mt-20 flex flex-col items-center gap-5">
-                <label htmlFor="" className="block text-black">
+        <div>
+            <div className="flex flex-col items-center gap-5">
+                <label htmlFor="" className="text-2xl text-foreground">
                     Escreva uma breve descrição do seu serviço
                 </label>
-                <Input placeholder="Digite aqui..." />
-            </div>
-            <div className="mt-20 flex flex-col items-start items-center gap-5">
-                <label htmlFor="" className="block text-black">
+                <Textarea className="row-span-35 h-32 w-[90%] resize-none  rounded-lg bg-card px-8 py-2 text-xl focus:border-indigo-400" placeholder="Digite aqui..." />
+                <label htmlFor="" className="text-2xl text-foreground">
                     Selecione sua área de atuação
                 </label>
                 <Select>
-                    <SelectTrigger className="w-[180px] bg-white text-black">
+                    <SelectTrigger className="h-14 w-[90%] rounded-lg bg-card text-xl hover:border-indigo-400">
                         <SelectValue placeholder="Selecione" />
                     </SelectTrigger>
-                    <SelectContent className="w-[180px] bg-white text-black">
+                    <SelectContent className="rounded-lg bg-card  text-xl">
                         <SelectItem value={'Advocacia'}>Advocacia</SelectItem>
                         <SelectItem value={'Saúde'}>Saúde</SelectItem>
                         <SelectItem value={'Design'}>Design</SelectItem>
@@ -37,17 +34,15 @@ export const Step3 = () => {
                     </SelectContent>
                 </Select>
             </div>
-            <div className="mt-20 flex flex-col gap-5 items-start">
-                <label htmlFor="" className="block text-black">
-                    Escreva uma breve descrição do seu serviço
-                </label>
-                <Input placeholder="Digite aqui..." />
-            </div>
-            <div className="absolute bottom-10 mt-20  flex justify-center gap-40">
-                <Button variant={'costumize'} onClick={() => setCurrentStepState(currentStepState - 1)}>
+
+            <div className="mt-20  flex w-full justify-center gap-40">
+                <Button onClick={() => setCurrentStepState(currentStepState - 1)}>
+                    <MoveLeft className="mr-3" />
                     Voltar
                 </Button>
-                <Button type="submit">Continuar</Button>
+                <Button variant={'success'} type="submit">
+                    Concluir
+                </Button>
             </div>
         </div>
     );
