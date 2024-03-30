@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
 
-export const ProfessionalService = () => {
+export const ProfessionalService = ({ onServiceClick } : any ) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -50,7 +50,7 @@ export const ProfessionalService = () => {
                             </Card>
                         </div>
 
-                        <Button asChild className="bg-indigo-700 text-lg font-light hover:bg-indigo-800" variant={'default'}>
+                        <Button onClick={onServiceClick} asChild className="bg-indigo-700 text-lg font-light hover:bg-indigo-800" variant={'default'}>
                             <Link to={''} className="px-6">
                                 <LucideCalendarPlus className="mr-3 h-5 w-5" />
                                 Agendar

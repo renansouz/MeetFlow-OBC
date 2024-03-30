@@ -7,7 +7,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useTheme } from '@/context/theme-provider';
 import Logo from '@/public/img/Logo.svg';
 import LightLogo from '@/public/img/Logo-light.svg';
-
+import { useAuth } from '@/context/auth-provider';
 import { ThemeToggle } from '../theme/theme-toggle';
 import { Button } from '../ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog';
@@ -18,6 +18,7 @@ export const Header = () => {
 
     const { theme } = useTheme();
     const { setTheme } = useTheme();
+    const { isAuthenticated } = useAuth();
 
     return (
         <div className="relative border-b bg-card">
@@ -41,7 +42,7 @@ export const Header = () => {
                                 </NavigationMenuItem>
                                 <NavigationMenuItem>
                                     <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                                        <a href="#profissional">Profissional</a>
+                                        <Link to={'/professional/dashboard'}>Profissional</Link>
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
                                 <NavigationMenuItem>
@@ -49,7 +50,6 @@ export const Header = () => {
                                         <Link to={'/login'}>Entrar</Link>
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
-
                                 <Dialog>
                                     <DialogTrigger>
                                         <NavigationMenuItem>

@@ -64,17 +64,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         }
     };
 
-    const logout = () => {
-        Cookies.remove('meetFlow.token');
-        Cookies.remove('meetFlow.refreshToken');
-        Cookies.remove('meetFlow.user');
-        setUser(null);
-    };
-
     const signOut = () => {
         Cookies.remove('meetFlow.token');
         Cookies.remove('meetFlow.refreshToken');
         Cookies.remove('meetFlow.user');
+        setUser(null)
     };
     return <AuthContext.Provider value={{ login, isAuthenticated, user, signOut }}>{children}</AuthContext.Provider>;
 };

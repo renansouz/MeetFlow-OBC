@@ -10,6 +10,8 @@ import { Controller, useForm } from 'react-hook-form';
 import { Ocuppations } from '@/utils/Occupation';
 import { useAuth } from '@/context/auth-provider';
 import { toast, ToastContainer } from 'react-toastify';
+import { updateProfile } from '@/api/update-profile';
+import { useNavigate } from 'react-router-dom';
 
 type stepProps = {
     currentStepState: number;
@@ -18,7 +20,7 @@ type stepProps = {
 
 const UpdateUserSchema = z.object({
     description: z.string({ required_error: 'Campo obrigatório' }),
-    occupation: z.string({ required_error: 'Campo obrigatório' }),
+    occupationArea: z.string({ required_error: 'Campo obrigatório' }),
 });
 
 export type updateUserFormData = z.infer<typeof UpdateUserSchema>;
@@ -26,26 +28,33 @@ export type updateUserFormData = z.infer<typeof UpdateUserSchema>;
 export const Step3 = ({ setCurrentStepState, currentStepState }: stepProps) => {
 
     const {user} = useAuth();
+    const navigate = useNavigate();
 
     const {
         register,
         handleSubmit,
         control,
+        reset,
         formState: { errors },
     } = useForm<updateUserFormData>({ resolver: zodResolver(UpdateUserSchema) });
 
-    const updataUser = async (updateData:updateUserFormData) => {
+    const updateUser = async (updateData:updateUserFormData) => {
+        console.log(user?._id)
         try {
-            const res = await professionalAPI.updateUser(updateData, user?._id );
+            console.log(updateData)
+            const res = await updateProfile(user?._id,updateData);
+            navigate('/login');
         } catch (error) {
             if(error instanceof AxiosError){
                 toast.error(error.message)
             }
+        }finally{
+            reset()
         }
     };
 
     return (
-        <form onSubmit={handleSubmit(updataUser)}>
+        <form onSubmit={handleSubmit(updateUser)}>
             <ToastContainer position='bottom-right' />
             <div className="flex flex-col items-center gap-5">
                 <label htmlFor="" className="text-2xl text-foreground">
@@ -61,7 +70,7 @@ export const Step3 = ({ setCurrentStepState, currentStepState }: stepProps) => {
                     Selecione sua área de atuação
                 </label>
                 <Controller
-                    name="occupation"
+                    name="occupationArea"
                     control={control}
                     render={({ field: { name, onChange, value, disabled } }) => {
                         return (
@@ -72,7 +81,7 @@ export const Step3 = ({ setCurrentStepState, currentStepState }: stepProps) => {
                                 <SelectContent className="rounded-lg bg-card  text-xl">
                                     {Ocuppations.map((ocupattion) => {
                                         return (
-                                            <SelectItem value={ocupattion} {...register('occupation')}>
+                                            <SelectItem value={ocupattion} {...register('occupationArea')}>
                                                 {ocupattion}
                                             </SelectItem>
                                         );
@@ -82,7 +91,7 @@ export const Step3 = ({ setCurrentStepState, currentStepState }: stepProps) => {
                         );
                     }}
                 ></Controller>
-                {errors.occupation && <p className="text-red-500">{errors.occupation.message}</p>}
+                {errors.occupationArea && <p className="text-red-500">{errors.occupationArea.message}</p>}
             </div>
             <div className="mt-20  flex w-full justify-center gap-40">
                 <Button onClick={() => setCurrentStepState(currentStepState - 1)}>

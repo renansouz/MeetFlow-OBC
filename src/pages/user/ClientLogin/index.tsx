@@ -7,15 +7,13 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { z } from 'zod';
-
 import { Input } from '@/components/Input';
 import { Button } from '@/components/ui/button';
-import { useAuth } from '@/context/auth-provider';
 import { useTheme } from '@/context/theme-provider';
 import DarkLogo from '@/public/img/Logo.svg';
 import LightLogo from '@/public/img/Logo-light.svg';
-
 import { BackGroundDiv } from './styles';
+import { useAuth } from '@/context/auth-provider';
 
 type passwordAppearenceType = 'text' | 'password';
 
@@ -27,7 +25,7 @@ const createUserSchema = z.object({
 type LoginFormData = z.infer<typeof createUserSchema>;
 
 export const ClientLogin = () => {
-    const { login } = useAuth();
+    const { login,user } = useAuth();
     const { theme } = useTheme();
     const navigate = useNavigate();
 
@@ -43,8 +41,9 @@ export const ClientLogin = () => {
 
     const handleLogin = async (userData: LoginFormData) => {
         try {
-            await login(userData.email, userData.password);
-            navigate('/dashboard/services');
+            const res = await login(userData.email, userData.password);
+            console.log(user);
+            user?.role === 'professional' ? navigate("/professional/dashboard") : navigate("/dashboard/services");
         } catch (error) {
             if (error instanceof AxiosError) {
                 toast.error(error.response?.data.message);

@@ -101,7 +101,7 @@ export const RouterWrapper = (): any => {
                 {
                     path: '/professional/dashboard',
                     element: (
-                        <ProtectedRoute>
+                        <ProtectedRoute fallbackRoute="/professional/register">
                             <ProfessionalDashboard />
                         </ProtectedRoute>
                     ),
