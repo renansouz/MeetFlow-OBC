@@ -10,10 +10,10 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Skeleton } from '@/components/ui/skeleton';
-
 import { CalendarProfessional } from './Calendar';
 import { ProfessionalService } from './ProfessionalService';
 import { Container, TimePicker, TimePickerHeader, TimePickerItem, TimePickerList } from './styles';
+import { getProfile } from '@/api/get-profile';
 
 interface Availability {
     possibleTimes: number[];
@@ -22,6 +22,8 @@ interface Availability {
 
 export function ProfessionalProfile() {
     const { _id } = useParams();
+
+    console.log(_id);
 
     const [loading, setLoading] = useState(true);
 
@@ -57,9 +59,8 @@ export function ProfessionalProfile() {
     useEffect(() => {
         async function getProfileData() {
             try {
-                const res = await userAPI.fetchProfileData(_id);
-                const { data } = res;
-                console.log(data);
+                const profile = await getProfile( _id );
+                console.log('Profile data:', profile);
             } catch (error) {
                 if (error instanceof AxiosError) {
                     console.log(error.message);

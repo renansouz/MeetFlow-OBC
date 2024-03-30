@@ -15,7 +15,7 @@ type AuthContextData = {
     login(email: string, password: string): Promise<void>;
     isAuthenticated: boolean;
     user: User | null;
-    logout: () => void;
+    signOut: () => void;
 };
 
 const AuthContext = createContext({} as AuthContextData);
@@ -76,7 +76,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         Cookies.remove('meetFlow.refreshToken');
         Cookies.remove('meetFlow.user');
     };
-    return <AuthContext.Provider value={{ login, isAuthenticated, user, logout }}>{children}</AuthContext.Provider>;
+    return <AuthContext.Provider value={{ login, isAuthenticated, user, signOut }}>{children}</AuthContext.Provider>;
 };
 
 export const useAuth = (): AuthContextData => useContext(AuthContext);

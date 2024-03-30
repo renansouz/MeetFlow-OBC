@@ -38,7 +38,7 @@ export const ClientMenu = () => {
                 <Button variant={'ghost'} className="flex h-11 w-full items-center justify-start gap-3 px-8 py-7 max-lg:justify-center max-lg:px-0">
                     <Avatar>
                         <AvatarImage src={userData?.photoUrl} className="w-10" />
-                        <AvatarFallback>{userData?.name.slice(0, 1)} RN</AvatarFallback>
+                        <AvatarFallback>{userData?.name.slice(0, 1)}</AvatarFallback>
                     </Avatar>
                     <div className="flex w-44 flex-col justify-start max-xl:hidden">
                         {userData && <h2 className="overflow-hidden overflow-ellipsis whitespace-nowrap text-left text-sm">{userData.name}</h2>}
