@@ -218,7 +218,7 @@ export const ClientAside = () => {
             <div className="absolute left-2 top-3 h-10 items-center rounded-md bg-secondary sm:hidden">
                 <Sheet>
                     <SheetTrigger className="bg-card p-1">
-                        <Menu className="h-10 w-10 text-white " />
+                        <Menu className="h-10 w-10 text-foreground " />
                     </SheetTrigger>
                     <SheetContent side={'left'} className="fixed flex h-screen w-auto flex-col items-center justify-between py-8 ">
                         <div className="flex flex-col gap-y-1">
