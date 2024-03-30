@@ -27,7 +27,7 @@ export type updateUserFormData = z.infer<typeof UpdateUserSchema>;
 
 export const Step3 = ({ setCurrentStepState, currentStepState }: stepProps) => {
 
-    const {user} = useAuth();
+    
     const navigate = useNavigate();
 
     const {
@@ -39,10 +39,10 @@ export const Step3 = ({ setCurrentStepState, currentStepState }: stepProps) => {
     } = useForm<updateUserFormData>({ resolver: zodResolver(UpdateUserSchema) });
 
     const updateUser = async (updateData:updateUserFormData) => {
-        console.log(user?._id)
+        const userId = sessionStorage.getItem('userID');
         try {
             console.log(updateData)
-            const res = await updateProfile(user?._id,updateData);
+            const res = await updateProfile(userId,updateData);
             navigate('/login');
         } catch (error) {
             if(error instanceof AxiosError){

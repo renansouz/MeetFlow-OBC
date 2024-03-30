@@ -1,6 +1,7 @@
 import { api } from '.';
 import { ScheduleFormData } from '@/pages/professional/ProfessionalRegister/step';
 import { updateUserFormData } from '@/pages/professional/ProfessionalRegister/step';
+import Cookies from 'js-cookie';
 
 export class professionalAPI {
     static async createSchedule(scheduleData: ScheduleFormData) {

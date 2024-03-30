@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { z } from 'zod';
-
+import Cookies from 'js-cookie';
 import { userAPI } from '@/api/userAPI';
 import { Input } from '@/components/Input';
 import { Button } from '@/components/ui/button';
@@ -52,7 +52,9 @@ export const Step1 = ({ setCurrentStepState }: stepProps) => {
     async function handleSignUp(userData: RegisterFormData) {
         try {
             const res: AxiosResponse = await userAPI.createUser(userData, 'client');
+            console.log(res);
             sessionStorage.setItem('currentSignupAcessToken', res.data?.accessToken);
+            sessionStorage.setItem('userID', res.data?.user._id);
             setCurrentStepState(2);
         } catch (error) {
             if (error instanceof AxiosError) {
