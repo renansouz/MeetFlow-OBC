@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
-import { api } from '@/libs/axios';
+import { api } from '@/lib/axios';
 
 type User = {
     email: string;

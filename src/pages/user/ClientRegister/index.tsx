@@ -1,5 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import axios, { AxiosError } from 'axios';
+import { useMutation } from '@tanstack/react-query';
+import { AxiosError } from 'axios';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
@@ -7,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { z } from 'zod';
 
-import { userAPI } from '@/api/userAPI';
+import { signIn } from '@/api/sign-in';
 import { Input } from '@/components/Input';
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/context/theme-provider';
@@ -36,12 +37,16 @@ export const ClientRegister = () => {
     const navigate = useNavigate();
     const { theme } = useTheme();
 
+    const { mutateAsync: authenticate } = useMutation({
+        mutationFn: signIn,
+    });
+
     async function handleSignUp(userData: RegisterFormData) {
         try {
-            await userAPI.createUser(userData, 'client');
+            await authenticate({ email: userData.email, password: userData.password, passwordConfirmation: userData.passwordConfirmation, name: userData.name, role: 'client' });
             toast.success('Conta criada com sucesso');
             setTimeout(() => {
-                navigate('/dashboard/services');
+                navigate('/login');
             }, 1500);
         } catch (error) {
             if (error instanceof AxiosError) {
@@ -70,7 +75,7 @@ export const ClientRegister = () => {
                         <Link to={'/'}>
                             <img src={theme === 'dark' ? LightLogo : DarkLogo} alt="" className="w-24 max-sm:w-20" />
                         </Link>
-                        <h1 className="max-sm:text-xl text-3xl font-bold">Criar uma conta!</h1>
+                        <h1 className="text-3xl font-bold max-sm:text-xl">Criar uma conta!</h1>
 
                         <div className="flex flex-col items-center justify-center gap-3">
                             <section>
@@ -78,7 +83,7 @@ export const ClientRegister = () => {
                                     Nome
                                 </label>
                                 <Input
-                                    className="focus:border-indigo-200 w-[21rem] max-md:w-[18rem] bg-background p-3 border rounded-lg"
+                                    className="w-[21rem] rounded-lg border bg-background p-3 focus:border-indigo-200 max-md:w-[18rem]"
                                     placeholder="Digite seu nome"
                                     id="name"
                                     {...register('name')}
@@ -89,7 +94,7 @@ export const ClientRegister = () => {
                                     Endereço de e-mail
                                 </label>
                                 <Input
-                                    className="focus:border-indigo-200 w-[21rem] max-md:w-[18rem] bg-background p-3 border rounded-lg"
+                                    className="w-[21rem] rounded-lg border bg-background p-3 focus:border-indigo-200 max-md:w-[18rem]"
                                     placeholder="Digite seu email"
                                     id="email"
                                     {...register('email')}
@@ -101,7 +106,7 @@ export const ClientRegister = () => {
                                     Senha
                                 </label>
                                 <Input
-                                    className="focus:border-indigo-200 w-[21rem] max-md:w-[18rem] bg-background p-3 border rounded-lg"
+                                    className="w-[21rem] rounded-lg border bg-background p-3 focus:border-indigo-200 max-md:w-[18rem]"
                                     placeholder="Digite sua senha"
                                     id="password"
                                     {...register('password')}
@@ -113,7 +118,7 @@ export const ClientRegister = () => {
                                     Confirme sua senha
                                 </label>
                                 <Input
-                                    className="focus:border-indigo-200 w-[21rem] max-md:w-[18rem] bg-background p-3 border rounded-lg"
+                                    className="w-[21rem] rounded-lg border bg-background p-3 focus:border-indigo-200 max-md:w-[18rem]"
                                     placeholder="Digite sua senha novamente"
                                     id="passwordConfirmation"
                                     {...register('passwordConfirmation')}

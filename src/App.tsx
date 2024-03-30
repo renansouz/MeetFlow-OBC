@@ -7,7 +7,7 @@ import { ThemeProvider } from '@/context/theme-provider';
 
 import Preloader from './components/Preload';
 import { AuthProvider } from './context/auth-provider';
-import { queryClient } from './libs/react-query';
+import { queryClient } from './lib/react-query';
 import { RouterWrapper } from './router';
 import { GlobalStyles } from './styles/global';
 
@@ -29,7 +29,7 @@ function App() {
                     <ThemeProvider storageKey="MeetFlow-theme" defaultTheme="dark">
                         <GlobalStyles />
                         <QueryClientProvider client={queryClient}>
-                            <RouterProvider router={router} />
+                            <RouterProvider router={RouterWrapper()} />
                             {process.env.NODE_ENV !== 'production' && <ReactQueryDevtools />}
                         </QueryClientProvider>
                     </ThemeProvider>
@@ -38,5 +38,4 @@ function App() {
         </>
     );
 }
-//<RouterProvider router={RouterWrapper()} />
 export default App;

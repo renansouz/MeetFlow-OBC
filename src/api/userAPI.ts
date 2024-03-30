@@ -1,26 +1,12 @@
 import axios from 'axios';
-import { AxiosError } from 'axios';
-
-import { UserType } from '@/types/userType';
-
-const refreshtoken = sessionStorage.getItem('refreshToken');
+import Cookies from 'js-cookie';
 
 export class userAPI {
     static async fetchUserData() {
         try {
-            const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/account/user`, { headers: { refreshtoken: refreshtoken } });
-            if (!response) {
-                throw new Error('Erro ao fazer a requisição:');
-            }
-            return response.data;
-        } catch (error) {
-            throw error;
-        }
-    }
+            const refreshToken = Cookies.get('meetFlow.refreshToken');
 
-    static async createUser() {
-        try {
-            const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/account/user`, { headers: { refreshtoken: refreshtoken } });
+            const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/account/whoami`, { headers: { refreshtoken: refreshToken } });
             if (!response) {
                 throw new Error('Erro ao fazer a requisição:');
             }
