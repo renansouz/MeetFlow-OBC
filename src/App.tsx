@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import { QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { useEffect, useState } from 'react';
 import { RouterProvider } from 'react-router-dom';
 import { ThemeProvider } from '@/context/theme-provider';
 import Preloader from './components/Preload';
-import { AuthContextProvider } from './context/auth-provider';
-import { GlobalStyles } from './styles/global';
+import { AuthProvider } from './context/auth-provider';
+import { queryClient } from './lib/react-query';
 import { RouterWrapper } from './router';
-
+import { GlobalStyles } from './styles/global';
 
 function App() {
     const [loading, setLoading] = useState(true);
@@ -21,15 +23,17 @@ function App() {
             {loading ? (
                 <Preloader />
             ) : (
-                <AuthContextProvider>
+                <AuthProvider>
                     <ThemeProvider storageKey="MeetFlow-theme" defaultTheme="dark">
                         <GlobalStyles />
-                        <RouterProvider router={RouterWrapper()} />
+                        <QueryClientProvider client={queryClient}>
+                            <RouterProvider router={RouterWrapper()} />
+                            {process.env.NODE_ENV !== 'production' && <ReactQueryDevtools />}
+                        </QueryClientProvider>
                     </ThemeProvider>
-                </AuthContextProvider>
+                </AuthProvider>
             )}
         </>
     );
 }
-
 export default App;
