@@ -21,7 +21,7 @@ interface Availability {
 }
 
 export function ProfessionalProfile() {
-    const { id } = useParams();
+    const { _id } = useParams();
 
     const [loading, setLoading] = useState(true);
 
@@ -47,16 +47,17 @@ export function ProfessionalProfile() {
 
     const selectedDateWithoutTime = selectedDate ? dayjs(selectedDate).format('YYYY-MM-DD') : null;
 
-    // function handleSelectTime(hour: number) {
-    //     const dateWithTime = new Date(selectedDate!);
-    //     dateWithTime.setHours(hour);
-    //     onSelectDateTime(dateWithTime);
-    // }
+    const onSelectDateTime = (param: Date) =>
+        void function handleSelectTime(hour: number) {
+            const dateWithTime = new Date(selectedDate!);
+            dateWithTime.setHours(hour);
+            onSelectDateTime(dateWithTime);
+        };
 
     useEffect(() => {
         async function getProfileData() {
             try {
-                const res = await userAPI.fetchProfileData(id);
+                const res = await userAPI.fetchProfileData(_id);
                 const { data } = res;
                 console.log(data);
             } catch (error) {
@@ -79,7 +80,7 @@ export function ProfessionalProfile() {
             </CardHeader>
             <CardContent className="mt-20 flex w-full flex-col gap-y-2 border-b-2">
                 <CardTitle className="ml-6 text-left font-bold " style={{ maxWidth: '600px' }}>
-                    RENAN DE SOUZA SILVA
+                    {}
                 </CardTitle>
                 <CardDescription className="ml-6 w-full font-light">Olá me chamo Renan, caso queira aprender tailwind, agende uma reunião comigo!</CardDescription>
                 <span className="ml-5 mt-3 font-bold text-indigo-600/90">+ 10 agendamentos</span>
