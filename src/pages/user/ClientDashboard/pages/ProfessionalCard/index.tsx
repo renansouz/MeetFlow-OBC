@@ -67,11 +67,11 @@ export const Services = () => {
     ];
 
     return (
-        <div className="w-full">
+        <div className="w-full max-sm:mt-10">
             <Header title="Serviços" />
             <div>
                 <div className="flex flex-col items-center gap-5">
-                    {loading ? <Skeleton className="z-0 h-8 w-48 gap-y-12 rounded-md" /> : <h2 className="text-center">Profissionais</h2>}
+                    {loading ? <Skeleton className="z-0 h-8 w-48 gap-y-12 rounded-md" /> : <h2 className="text-center max-sm:mt-8 max-sm:text-3xl">Profissionais</h2>}
 
                     <Search placeholder="Busque por um serviço ou profissional" />
                 </div>
@@ -102,7 +102,7 @@ export const Services = () => {
                     })}
                 </div>
                 <div className="flex">
-                    <div className="flex flex-wrap justify-center gap-10 py-16">
+                    <div className="flex flex-wrap justify-center gap-10 py-16 max-lg:gap-2 max-sm:gap-1 ">
                         {cardMock.map((user) => (
                             <CardProfessional profile_pic={user.profile_pic} name={user.name} categorie={user.categorie} description={user.description} />
                         ))}
