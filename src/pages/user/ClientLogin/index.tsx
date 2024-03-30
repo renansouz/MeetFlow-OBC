@@ -91,7 +91,7 @@ export const ClientLogin = () => {
                                 {...register('email')}
                             />
                         </div>
-                        {errors.email && <p className="py-2 text-red-500">{errors.email.message}</p>}
+                        {errors.email && <p className="py-2 text-sm text-red-500">{errors.email.message}</p>}
                     </section>
                     <section>
                         <label htmlFor="" className="block py-2 font-bold ">
@@ -107,7 +107,7 @@ export const ClientLogin = () => {
                                 {...register('password')}
                             />
                         </div>
-                        {errors.password && <p className="py-2 text-red-500">{errors.password.message}</p>}
+                        {errors.password && <p className="py-2 text-sm text-red-500">{errors.password.message}</p>}
                     </section>
                     <section className="flex items-center justify-center gap-2">
                         <input

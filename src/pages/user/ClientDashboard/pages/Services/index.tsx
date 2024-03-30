@@ -47,7 +47,10 @@ export const Services = () => {
         async function getProfessionals() {
             try {
                 const res = await userAPI.fetchProfessionals();
-                const { data } = res.data;
+                const { data } = res.data[0].data
+                console.log(data);
+
+                
                 setProfessionals(data);
             } catch (error) {
                 if (error instanceof AxiosError) {
