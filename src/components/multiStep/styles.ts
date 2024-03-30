@@ -5,8 +5,8 @@ export const MultiStepContainer = styled.div``;
 export const Label = styled.p<{ active?: boolean }>`
     text-align: center;
     font-weight: bold;
-    color: ${(props) => (props.active ? '#000' : '#8D8D99')};
-    font-size: 0.875rem;
+    margin-right: 1rem;
+    color: ${(props) => (props.active ? '#4338ca' : '#8D8D99')};
 `;
 
 export const Steps = styled.div`
@@ -17,9 +17,12 @@ export const Steps = styled.div`
 
 export const Step = styled.div<{ active?: boolean; stepContent: number; currentStep: number }>`
     width: 35px;
+    margin-right: 1rem;
     height: 35px;
+    padding: 1.25rem;
     border-radius: 50%;
-    background-color: ${(props) => {
+    border: solid;
+    border-color: ${(props) => {
         if (props.currentStep === 1) {
             return props.stepContent === 1 ? '#4F46E5' : '#323238'; // Roxo ou Cinza
         } else if (props.currentStep === 2) {
@@ -41,12 +44,13 @@ export const Step = styled.div<{ active?: boolean; stepContent: number; currentS
             }
             return props.stepContent;
         }}';
+    }
+    &:after {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100%;
-        color: #fff;
-        font-size: 1.8rem;
+        font-size: 1.2rem;
         font-weight: bolder;
     }
 `;
@@ -54,5 +58,4 @@ export const Step = styled.div<{ active?: boolean; stepContent: number; currentS
 export const DivRepeat = styled.div`
     display: flex;
     align-items: center;
-    gap: 1rem;
 `;

@@ -1,11 +1,13 @@
+import { AxiosError } from 'axios';
 import { useEffect, useState } from 'react';
-import { Search } from '@/components/Search';
-import { Skeleton } from '@/components/ui/skeleton';
-import { Header } from '../components/Header';
-import { ProfessionalCard } from './ProfessionalCard';
+
 import { professionalAPI } from '@/api/professionalAPI';
 import { userAPI } from '@/api/userAPI';
-import { AxiosError } from 'axios';
+import { Search } from '@/components/Search';
+import { Skeleton } from '@/components/ui/skeleton';
+
+import { Header } from '../components/Header';
+import { ProfessionalCard } from './ProfessionalCard';
 
 export type CardData = {
     id: string;
@@ -62,11 +64,14 @@ export const Services = () => {
     }, []);
 
     return (
-        <div className="w-full">
+        <div className="w-full max-sm:mt-10">
             <Header title="Serviços" />
             <div>
                 <div className="flex flex-col items-center gap-5">
-                    {loading ? <Skeleton className="z-0 h-8 w-48 gap-y-12 rounded-md" /> : <h2 className="text-center">Profissionais</h2>}
+
+                    {loading ? <Skeleton className="z-0 h-8 w-48 gap-y-12 rounded-md" /> : <h2 className="text-center max-sm:mt-8 max-sm:text-3xl">Profissionais</h2>}
+
+
                     <Search placeholder="Busque por um serviço ou profissional" />
                 </div>
                 <div className="mt-10 flex flex-wrap items-center justify-center gap-10">
@@ -109,6 +114,7 @@ export const Services = () => {
                                 />
                             );
                         })}
+
                     </div>
                 </div>
             </div>
