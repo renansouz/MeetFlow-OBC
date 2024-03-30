@@ -13,9 +13,9 @@ type User = {
 
 type AuthContextData = {
     login(email: string, password: string): Promise<void>;
-    isAuth: boolean;
+    isAuthenticated: boolean;
     user: User | null;
-    signOut: () => void;
+    logout: () => void;
 };
 
 const AuthContext = createContext({} as AuthContextData);
@@ -23,7 +23,7 @@ const AuthContext = createContext({} as AuthContextData);
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState(false);
-    const isAuth = !!user;
+    const isAuthenticated = !!user;
 
     useEffect(() => {
         const userComingFromCookie = Cookies.get('meetFlow.user');
@@ -42,6 +42,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const login = async (email: string, password: string) => {
         try {
             setLoading(true);
+
             const response = await api.post('auth/login', {
                 email,
                 password,
@@ -59,22 +60,23 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
             toast.success('Login efetuado com sucesso!');
         } catch (error: any) {
             setLoading(false);
-            throw error;
+            loading && toast.error(error.response?.data.message);
         }
     };
 
-    // const logout = () => {
-    //     Cookies.remove('meetFlow.token');
-    //     Cookies.remove('meetFlow.refreshToken');
-    //     Cookies.remove('meetFlow.user');
-    // };
+    const logout = () => {
+        Cookies.remove('meetFlow.token');
+        Cookies.remove('meetFlow.refreshToken');
+        Cookies.remove('meetFlow.user');
+        setUser(null);
+    };
 
     const signOut = () => {
         Cookies.remove('meetFlow.token');
         Cookies.remove('meetFlow.refreshToken');
         Cookies.remove('meetFlow.user');
     };
-    return <AuthContext.Provider value={{ login, isAuth, user, signOut }}>{children}</AuthContext.Provider>;
+    return <AuthContext.Provider value={{ login, isAuthenticated, user, logout }}>{children}</AuthContext.Provider>;
 };
 
 export const useAuth = (): AuthContextData => useContext(AuthContext);

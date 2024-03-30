@@ -1,26 +1,28 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { userAPI } from '@/api/userAPI';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-import { UserType } from '@/types/userType';
 import { useAuth } from '@/context/auth-provider';
+import { UserType } from '@/types/userType';
+
 import { AlertDialogContainer } from './AlertDialogContainer';
-import { useNavigate } from 'react-router-dom';
 
 export const ClientMenu = () => {
     const [userData, setUserData] = useState<UserType | undefined>();
     const navigate = useNavigate();
-    const {signOut} = useAuth();
+    const { signOut } = useAuth();
 
     const handleLogout = () => {
         signOut();
-        navigate("/");
-    }
+        navigate('/');
+    };
 
     useEffect(() => {
-        console.log('fetch')
+        console.log('fetch');
         const getUserData = async () => {
             const res = await userAPI.fetchUserData();
             const { user } = await res;
@@ -33,14 +35,14 @@ export const ClientMenu = () => {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button variant={'ghost'} className="flex h-11 items-center justify-start gap-3 px-10 py-7 max-lg:justify-center max-lg:px-0">
+                <Button variant={'ghost'} className="flex h-11 w-full items-center justify-start gap-3 px-8 py-7 max-lg:justify-center max-lg:px-0">
                     <Avatar>
                         <AvatarImage src={userData?.photoUrl} className="w-10" />
-                        <AvatarFallback>{userData?.name.slice(0, 1)}</AvatarFallback>
+                        <AvatarFallback>{userData?.name.slice(0, 1)} RN</AvatarFallback>
                     </Avatar>
-                    <div className="flex flex-col justify-start">
-                        {userData && <h2 className="whitespace-nowrap text-left text-sm">{userData.name}</h2>}
-                        {userData && <p className="text-left text-xs text-slate-400">{userData.email}</p>}
+                    <div className="flex w-44 flex-col justify-start max-xl:hidden">
+                        {userData && <h2 className="overflow-hidden overflow-ellipsis whitespace-nowrap text-left text-sm">{userData.name}</h2>}
+                        {userData && <p className="overflow-hidden overflow-ellipsis whitespace-nowrap text-left text-xs">{userData.email}</p>}
                     </div>
                 </Button>
             </DropdownMenuTrigger>
