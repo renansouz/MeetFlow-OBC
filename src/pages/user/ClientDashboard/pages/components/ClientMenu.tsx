@@ -40,7 +40,9 @@ export const ClientMenu = () => {
                         <AvatarImage src={userData?.photoUrl} className="w-10" />
                         <AvatarFallback>{userData?.name.slice(0, 1)}</AvatarFallback>
                     </Avatar>
-                    <div className="flex w-44 flex-col justify-start max-xl:hidden">
+                    <div className="flex w-44 flex-col justify-start max-sm:visible sm:hidden lg:block">
+                        <h2 className="overflow-hidden overflow-ellipsis whitespace-nowrap text-left text-sm">rebererva</h2>
+                        <p className="overflow-hidden overflow-ellipsis whitespace-nowrap text-left text-xs">rerewdsfsdfrwererewr</p>
                         {userData && <h2 className="overflow-hidden overflow-ellipsis whitespace-nowrap text-left text-sm">{userData.name}</h2>}
                         {userData && <p className="overflow-hidden overflow-ellipsis whitespace-nowrap text-left text-xs">{userData.email}</p>}
                     </div>
