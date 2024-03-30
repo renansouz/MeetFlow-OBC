@@ -52,7 +52,11 @@ export const UserRegister = () => {
                         <Link to={'/'}>
                             <img src={theme === 'dark' ? LightLogo : DarkLogo} alt="" className="w-full" />
                         </Link>
+<<<<<<< HEAD
                         <h2 className=" text-2xl">Criar uma conta!</h2>
+=======
+                        <h2 className="w-lvh">Criar uma conta!</h2>
+>>>>>>> 0d01b5411b03b49363eed0142ebe8353ef8d32d3
                     </div>
                     <div className="flex flex-col items-center justify-center gap-5 py-10">
                         <section>

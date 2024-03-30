@@ -263,7 +263,7 @@ export const ProfessionalAside = () => {
                             <div className="flex w-full flex-col gap-y-1 max-lg:gap-0">
                                 <AsideItem link="/" title="fazer uma conta" icon={User} />
                                 <AsideItem link="/register" title="Suporte" icon={LifeBuoy} />
-                                <Button variant={'ghost'} className="flex h-11 items-center justify-start gap-3 px-10 py-7">
+                                <Button variant={'ghost'} className="h-11 flex items-center justify-start gap-3 px-10 py-7">
                                     <Settings className="text-violet-700" />
                                     <p className="text-violet-700">Configurações</p>
                                 </Button>

@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
-
 import { userAPI } from '@/api/userAPI';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -36,7 +35,7 @@ export const ClientMenu = () => {
                         <AvatarFallback>{userData?.name.slice(0, 1)}</AvatarFallback>
                     </Avatar>
                     <div className="flex flex-col justify-start">
-                        {userData && <h2 className="text-left">{userData.name}</h2>}
+                        {userData && <h2 className="whitespace-nowrap text-left text-sm">{userData.name}</h2>}
                         {userData && <p className="text-left text-xs text-slate-400">{userData.email}</p>}
                     </div>
                 </Button>

@@ -1,16 +1,25 @@
 import { Input } from '@/components/Input';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {z} from "zod";
+
 
 type stepProps = {
     currentStepState: number;
     setCurrentStepState: (int: number) => void;
 };
 
-export const Step3 = ({ setCurrentStepState, currentStepState }: stepProps) => {
+
+export const Step3 = () => {
     return (
-        <div className="px-10">
-            <div className="mt-20 flex flex-col items-start gap-5">
+        <div className="">
+            <div className="mt-20 flex flex-col items-center gap-5">
+                <label htmlFor="" className="block text-black">
+                    Escreva uma breve descrição do seu serviço
+                </label>
+                <Input placeholder="Digite aqui..." />
+            </div>
+            <div className="mt-20 flex flex-col items-start items-center gap-5">
                 <label htmlFor="" className="block text-black">
                     Selecione sua área de atuação
                 </label>
@@ -28,7 +37,7 @@ export const Step3 = ({ setCurrentStepState, currentStepState }: stepProps) => {
                     </SelectContent>
                 </Select>
             </div>
-            <div className="mt-20 flex flex-col items-start gap-5">
+            <div className="mt-20 flex flex-col gap-5 items-start">
                 <label htmlFor="" className="block text-black">
                     Escreva uma breve descrição do seu serviço
                 </label>

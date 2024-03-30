@@ -70,7 +70,7 @@ export const ClientRegister = () => {
                         <Link to={'/'}>
                             <img src={theme === 'dark' ? LightLogo : DarkLogo} alt="" className="w-24 max-sm:w-20" />
                         </Link>
-                        <h1 className="font-bold">Criar uma conta!</h1>
+                        <h1 className="max-sm:text-xl text-3xl font-bold">Criar uma conta!</h1>
 
                         <div className="flex flex-col items-center justify-center gap-3">
                             <section>
@@ -78,7 +78,7 @@ export const ClientRegister = () => {
                                     Nome
                                 </label>
                                 <Input
-                                    className="w-[21rem] rounded-lg border bg-background p-3 focus:border-indigo-200 max-md:w-[18rem]"
+                                    className="focus:border-indigo-200 w-[21rem] max-md:w-[18rem] bg-background p-3 border rounded-lg"
                                     placeholder="Digite seu nome"
                                     id="name"
                                     {...register('name')}
@@ -89,7 +89,7 @@ export const ClientRegister = () => {
                                     Endereço de e-mail
                                 </label>
                                 <Input
-                                    className="w-[21rem] rounded-lg border bg-background p-3 focus:border-indigo-200 max-md:w-[18rem]"
+                                    className="focus:border-indigo-200 w-[21rem] max-md:w-[18rem] bg-background p-3 border rounded-lg"
                                     placeholder="Digite seu email"
                                     id="email"
                                     {...register('email')}
@@ -101,7 +101,7 @@ export const ClientRegister = () => {
                                     Senha
                                 </label>
                                 <Input
-                                    className="w-[21rem] rounded-lg border bg-background p-3 focus:border-indigo-200 max-md:w-[18rem]"
+                                    className="focus:border-indigo-200 w-[21rem] max-md:w-[18rem] bg-background p-3 border rounded-lg"
                                     placeholder="Digite sua senha"
                                     id="password"
                                     {...register('password')}
@@ -113,7 +113,7 @@ export const ClientRegister = () => {
                                     Confirme sua senha
                                 </label>
                                 <Input
-                                    className="w-[21rem] rounded-lg border bg-background p-3 focus:border-indigo-200 max-md:w-[18rem]"
+                                    className="focus:border-indigo-200 w-[21rem] max-md:w-[18rem] bg-background p-3 border rounded-lg"
                                     placeholder="Digite sua senha novamente"
                                     id="passwordConfirmation"
                                     {...register('passwordConfirmation')}
@@ -149,10 +149,7 @@ export const ClientRegister = () => {
                 <BackGroundDiv>
                     <h1 className="text-center font-poppins-start font-bold text-white">Facilite sua agenda com o MeetFlow</h1>
 
-                    <p className="w-2/3 text-center text-white">
-                        Encontre serviços, agende compromissos e simplifique sua vida com o MeetFlow. A maneira mais fácil de conectar-se com profissionais e organizarsua agenda. Experimente
-                        agora!
-                    </p>
+                    <p className="w-2/3 text-center text-white">Agende e organize com MeetFlow - conecte-se facilmente a serviços e profissionais. Experimente!</p>
                 </BackGroundDiv>
             </div>
         </div>

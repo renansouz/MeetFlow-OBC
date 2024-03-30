@@ -7,10 +7,16 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Skeleton } from '@/components/ui/skeleton';
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0d01b5411b03b49363eed0142ebe8353ef8d32d3
 import { CalendarProfessional } from './Calendar';
 import { ProfessionalService } from './ProfessionalService';
 import { Container, TimePicker, TimePickerHeader, TimePickerItem, TimePickerList } from './styles';
+import { userAPI } from '@/api/userAPI';
+import { useParams } from 'react-router-dom';
+import { AxiosError } from 'axios';
 
 interface Availability {
     possibleTimes: number[];
@@ -18,6 +24,12 @@ interface Availability {
 }
 
 export function ProfessionalProfile() {
+<<<<<<< HEAD
+=======
+
+    const {id} = useParams();
+
+>>>>>>> 0d01b5411b03b49363eed0142ebe8353ef8d32d3
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -42,11 +54,33 @@ export function ProfessionalProfile() {
 
     const selectedDateWithoutTime = selectedDate ? dayjs(selectedDate).format('YYYY-MM-DD') : null;
 
-    function handleSelectTime(hour: number) {
-        const dateWithTime = new Date(selectedDate!);
-        dateWithTime.setHours(hour);
-        onSelectDateTime(dateWithTime);
-    }
+    // function handleSelectTime(hour: number) {
+    //     const dateWithTime = new Date(selectedDate!);
+    //     dateWithTime.setHours(hour);
+    //     onSelectDateTime(dateWithTime);
+    // }
+
+    useEffect(() => {
+        async function getProfileData(){
+            try{
+                const res = await userAPI.fetchProfileData(id);
+                const {data} = res;
+                console.log(data);
+            }catch(error){
+                if(error instanceof AxiosError){
+                    console.log(error.message);
+                }
+            }
+        }
+
+        getProfileData();
+
+    },[])
+
+
+
+
+
     return (
         <Card className="my-16 ml-[6%] w-[70%] min-w-[20rem] pb-10 max-xl:m-0 max-xl:w-full">
             <CardHeader className="h-32 w-full rounded-tl-md rounded-tr-md bg-indigo-300 pt-14 max-lg:rounded-none">
