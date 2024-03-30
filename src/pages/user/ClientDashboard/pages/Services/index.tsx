@@ -1,6 +1,7 @@
 import { AxiosError } from 'axios';
 import { useEffect, useState } from 'react';
 
+import { professionalAPI } from '@/api/professionalAPI';
 import { userAPI } from '@/api/userAPI';
 import { Search } from '@/components/Search';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -31,7 +32,7 @@ export const Services = () => {
     useEffect(() => {
         const timeout = setTimeout(() => {
             setLoading(false);
-        }, 3000);
+        }, 1500);
 
         return () => clearTimeout(timeout);
     }, []);
@@ -47,10 +48,9 @@ export const Services = () => {
         async function getProfessionals() {
             try {
                 const res = await userAPI.fetchProfessionals();
-                const { data } = res.data[0].data
+                const { data } = res.data[0].data;
                 console.log(data);
 
-                
                 setProfessionals(data);
             } catch (error) {
                 if (error instanceof AxiosError) {
