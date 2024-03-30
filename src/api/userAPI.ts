@@ -2,13 +2,24 @@ import { api } from '.';
 import { RegisterFormData } from '@/pages/user/ClientRegister';
 import { UserRole } from '@/types/UserRole';
 import { UserType } from '@/types/userType';
+import Cookies from 'js-cookie';
 
 export class userAPI {
     static async fetchUserData() {
         try {
-            const response = await api.get('/account/user');
+            const refreshToken = Cookies.get('meetFlow.refreshToken');
+            const response = await api.get('/account/user', {headers: {refreshToken: refreshToken}});
             return response.data;
         } catch (error) {
+            throw error;
+        }
+    }
+
+    static async fetchProfileData(id : string | undefined){
+        try{
+            const response = await api.get(`/user/load?${id}`);
+            return response.data;
+        }catch (error){
             throw error;
         }
     }
@@ -25,7 +36,7 @@ export class userAPI {
 
     static async fetchProfessionals() {
         try {
-            const res = await api.get('/user/loadByPage?page=1');
+            const res = await api.get('/user/loadProfessional');
             return res;
         } catch (error) {
             throw error;

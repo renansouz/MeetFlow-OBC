@@ -1,7 +1,4 @@
-import 'react-toastify/dist/ReactToastify.css';
-
 import { zodResolver } from '@hookform/resolvers/zod';
-import axios from 'axios';
 import { AxiosError } from 'axios';
 import { Lock, User } from 'lucide-react';
 import { useState } from 'react';
@@ -10,8 +7,6 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { z } from 'zod';
-
-import { api } from '@/api';
 import { Input } from '@/components/Input';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/context/auth-provider';
@@ -31,8 +26,7 @@ const createUserSchema = z.object({
 type LoginFormData = z.infer<typeof createUserSchema>;
 
 export const ClientLogin = () => {
-    const { setAuth } = useAuth();
-
+    const { login } = useAuth();
     const { theme } = useTheme();
     const navigate = useNavigate();
 
@@ -48,12 +42,7 @@ export const ClientLogin = () => {
 
     const handleLogin = async (userData: LoginFormData) => {
         try {
-            const res = await axios.post(`${import.meta.env.VITE_BASE_URL}/auth/login`, userData);
-            const { refreshToken } = res.data;
-            sessionStorage.setItem('refreshToken', refreshToken);
-            api.defaults.headers.common['refreshToken'] = refreshToken;
-            console.log(api.defaults.headers.common);
-            setAuth(true);
+            await login(userData.email, userData.password);
             navigate('/dashboard/services');
         } catch (error) {
             if (error instanceof AxiosError) {
@@ -65,16 +54,16 @@ export const ClientLogin = () => {
     };
 
     return (
-        <div className="flex h-screen w-full bg-card max-xl:items-center max-xl:justify-center">
-            <div className="m-10 mt-[6%] w-2/6 px-10 max-xl:m-0 max-xl:flex max-xl:min-w-[30rem] max-xl:flex-col max-xl:items-center max-xl:justify-center max-xl:rounded-xl max-xl:border-2 max-xl:p-0 max-sm:h-full max-sm:w-full max-sm:border-0">
+        <div className="flex h-screen bg-card max-xl:items-center max-xl:justify-center">
+            <div className="m-10 mt-[6%] w-2/6 px-10 max-xl:m-0 max-xl:flex max-xl:min-w-[30rem] max-xl:flex-col max-xl:items-center max-xl:justify-center max-xl:rounded-xl max-xl:border-2 max-xl:p-0 max-sm:h-full max-sm:w-full  max-sm:border-0">
                 <ToastContainer position="bottom-right" theme={theme} />
                 <div className=" flex flex-col items-center justify-center max-sm:mr-5">
                     <Link to={'/'}>
                         <img src={theme === 'dark' ? DarkLogo : LightLogo} alt="" className="w-96" />
                     </Link>
-                    <h1 className="items-center justify-center text-center text-3xl font-bold max-md:text-2xl">Entrar na sua conta!</h1>
+                    <h1 className="items-center justify-center text-center font-bold">Entrar na sua conta!</h1>
                 </div>
-                <form action="" onSubmit={handleSubmit(handleLogin)} className="flex flex-col items-center justify-center gap-8 px-10 py-10 max-md:px-0 max-sm:w-[70%]">
+                <form action="" onSubmit={handleSubmit(handleLogin)} className="flex flex-col items-center justify-center gap-8 px-10 py-10 max-sm:w-[90%]">
                     <section>
                         <label htmlFor="" className="block py-2 font-bold ">
                             Endereço de e-mail
@@ -122,7 +111,7 @@ export const ClientLogin = () => {
                     <Button className="max-sm:96 mt-0 w-64" type="submit">
                         Entrar
                     </Button>
-                    <p className="flex w-[50vh] items-center justify-center">
+                    <p className="">
                         Não possui uma conta?{' '}
                         <Link to={'/register'} className="text-blue-700 hover:underline">
                             Cadastre-se

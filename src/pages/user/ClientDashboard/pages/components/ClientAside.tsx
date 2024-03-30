@@ -145,7 +145,6 @@ export const ClientAside = () => {
                             </div>
                         </DialogContent>
                     </Dialog>
-
                     {isAuth && (
                         <TooltipProvider>
                             <Tooltip>

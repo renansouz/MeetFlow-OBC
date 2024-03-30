@@ -25,11 +25,14 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-tooltip": "^1.0.7",
     "@stitches/react": "^1.2.8",
+    "@tanstack/react-query": "^5.28.9",
+    "@tanstack/react-query-devtools": "^5.28.10",
     "axios": "^1.6.8",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "dayjs": "^1.11.10",
     "dotenv": "^16.4.5",
+    "js-cookie": "^3.0.5",
     "localforage": "^1.10.0",
     "lucide-react": "^0.359.0",
     "match-sorter": "^6.3.4",
@@ -47,6 +50,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.6",
     "@types/node": "^20.11.29",
     "@types/react": "^18.2.64",
     "@types/react-dom": "^18.2.21",
