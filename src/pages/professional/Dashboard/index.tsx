@@ -1,5 +1,3 @@
-import dayjs from 'dayjs';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Calendar } from '@/components/Calendar';
@@ -8,23 +6,8 @@ import { Button } from '@/components/ui/button';
 import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarTrigger } from '@/components/ui/menubar';
 import { Separator } from '@/components/ui/separator';
 import { useTheme } from '@/context/theme-provider';
-import Logo from '@/public/img/Logo.svg';
-import LightLogo from '@/public/img/Logo-light.svg';
 
-import { Container, TimePicker, TimePickerHeader, TimePickerItem, TimePickerList } from './styles';
-
-interface Availability {
-    possibleTimes: number[];
-    availableTimes: number[];
-}
-
-export const DashboardCalendar = () => {
-    const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-    const [availability, setAvailability] = useState<Availability>({
-        possibleTimes: [9, 10, 11, 14, 15, 16], // Horários disponíveis fictícios
-        availableTimes: [9, 10, 11], // Horários disponíveis fictícios
-    });
-
+export const Dashboard = () => {
     const { theme } = useTheme();
 
     const isDateSelected = !!selectedDate; // Aqui é utilizado para verificar se a data foi selecionada habilitando o TimePicker
@@ -226,24 +209,9 @@ export const DashboardCalendar = () => {
                                             </div>
 
                                             <Separator />
-                                            <Container isTimePickerOpen={isDateSelected}>
-                                                <Calendar selectedDate={selectedDate} onDateSelected={setSelectedDate} />
-                                                {isDateSelected && (
-                                                    <TimePicker>
-                                                        <TimePickerHeader>
-                                                            {weekDay} <span>{describedDate}</span>
-                                                        </TimePickerHeader>
-
-                                                        <TimePickerList>
-                                                            {availability.possibleTimes.map((hour) => (
-                                                                <TimePickerItem key={hour} onClick={() => handleSelectTime(hour)} disabled={!availability.availableTimes.includes(hour)}>
-                                                                    {String(hour).padStart(2, '0')}:00h
-                                                                </TimePickerItem>
-                                                            ))}
-                                                        </TimePickerList>
-                                                    </TimePicker>
-                                                )}
-                                            </Container>
+                                            <div className="flex items-center justify-center">
+                                                <Calendar />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
