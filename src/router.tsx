@@ -92,7 +92,7 @@ export const RouterWrapper = (): any => {
         {
             path: '/',
             element: <UserDashboardLayout />,
-            children: [{ path: '/dashboard/profile', element: <ProfessionalProfile /> }],
+            children: [{ path: '/dashboard/profile/:id', element: <ProfessionalProfile /> }],
         },
         {
             path: '/',

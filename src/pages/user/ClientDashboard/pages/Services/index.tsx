@@ -8,6 +8,7 @@ import { userAPI } from '@/api/userAPI';
 import { AxiosError } from 'axios';
 
 export type CardData = {
+    id: string;
     profile_pic: string;
     name: string;
     description: string;
@@ -24,10 +25,12 @@ export const Services = () => {
 
     const [professionals, setProfessionals] = useState<CardData[]>();
 
+    console.log(professionals);
+
     useEffect(() => {
         const timeout = setTimeout(() => {
             setLoading(false);
-        }, 3000);
+        }, 1500);
 
         return () => clearTimeout(timeout);
     }, []);
@@ -43,7 +46,7 @@ export const Services = () => {
         async function getProfessionals() {
             try {
                 const res = await userAPI.fetchProfessionals();
-                const { data } = res;
+                const { data } = res.data;
                 setProfessionals(data);
             } catch (error) {
                 if (error instanceof AxiosError) {
@@ -61,7 +64,6 @@ export const Services = () => {
             <div>
                 <div className="flex flex-col items-center gap-5">
                     {loading ? <Skeleton className="z-0 h-8 w-48 gap-y-12 rounded-md" /> : <h2 className="text-center">Profissionais</h2>}
-
                     <Search placeholder="Busque por um serviço ou profissional" />
                 </div>
                 <div className="mt-10 flex flex-wrap items-center justify-center gap-10">
@@ -91,8 +93,19 @@ export const Services = () => {
                     })}
                 </div>
                 <div className="flex">
-                    <div className="flex w-1/12 flex-col items-start gap-2">
-                        <p></p>
+                    <div className="flex flex-wrap justify-center gap-10 px-16 py-16 max-lg:gap-2 max-sm:gap-1 ">
+                        {professionals?.map((professional, index) => {
+                            return (
+                                <ProfessionalCard
+                                    name={professional.name}
+                                    categorie={professional.categorie}
+                                    description={professional.description}
+                                    profile_pic={professional.profile_pic}
+                                    id={professional.id}
+                                    key={professional.id}
+                                />
+                            );
+                        })}
                     </div>
                 </div>
             </div>

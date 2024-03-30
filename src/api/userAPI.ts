@@ -13,6 +13,15 @@ export class userAPI {
         }
     }
 
+    static async fetchProfileData(id : string | undefined){
+        try{
+            const response = await api.get(`/user/load?${id}`);
+            return response.data;
+        }catch (error){
+            throw error;
+        }
+    }
+
     static async createUser(userData: RegisterFormData, userRole: UserRole) {
         const data = { ...userData, role: 'client' };
         try {
@@ -25,7 +34,7 @@ export class userAPI {
 
     static async fetchProfessionals() {
         try {
-            const res = await api.get('/user/loadByPage?page=1');
+            const res = await api.get('/user/loadProfessional');
             return res;
         } catch (error) {
             throw error;
