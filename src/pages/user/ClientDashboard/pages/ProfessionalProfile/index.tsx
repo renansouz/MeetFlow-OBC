@@ -23,8 +23,6 @@ interface Availability {
 export function ProfessionalProfile() {
     const { _id } = useParams();
 
-    console.log(_id);
-
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
