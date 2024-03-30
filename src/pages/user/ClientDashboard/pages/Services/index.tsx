@@ -46,17 +46,115 @@ export const Services = () => {
 
     useEffect(() => {
         async function getProfessionals() {
-            try {
-                const res = await userAPI.fetchProfessionals();
-                const { data } = res;
-                setProfessionals(data);
-            } catch (error) {
-                if (error instanceof AxiosError) {
-                    console.log(error.message);
-                }
-            }
+            const fakeProfessionals: CardData[] = [
+                {
+                    _id: '1',
+                    profile_pic: 'https://github.com/renansouz.png',
+                    name: 'Renan Souza Silva',
+                    description: 'Desenvolvimento, Inovação',
+                    categorie: 'Programador',
+                },
+                {
+                    _id: '2',
+                    profile_pic: 'https://github.com/WesleyR10.png',
+                    name: 'Wesley Ribas',
+                    description: 'Estruturas, Projetos',
+                    categorie: 'Engenheiro',
+                },
+                {
+                    _id: '3',
+                    profile_pic: 'https://github.com/miqueiasmartinsf.png',
+                    name: 'Miqueias Martins',
+                    description: 'Jurídico, Consultoria',
+                    categorie: 'Advocacia',
+                },
+                {
+                    _id: '4',
+                    profile_pic: 'https://github.com/isaacpontes.png',
+                    name: 'Isaac Ponts',
+                    description: 'Cadeia, Eficiência',
+                    categorie: 'Logistica',
+                },
+                {
+                    _id: '5',
+                    profile_pic: 'https://github.com/sousaDeveloper.png',
+                    name: 'Matheus Sousa',
+                    description: 'Software, Soluções',
+                    categorie: 'Tecnologia',
+                },
+                {
+                    _id: '6',
+                    profile_pic: 'https://github.com/julianaconde.png',
+                    name: 'Juliana Conde',
+                    description: 'Saúde, Bem-estar',
+                    categorie: 'Saúde',
+                },
+                {
+                    _id: '7',
+                    profile_pic: 'https://github.com/leonardoscorza.png',
+                    name: 'Leonardo Corza',
+                    description: 'Visual, Criatividade',
+                    categorie: 'Design',
+                },
+                {
+                    _id: '8',
+                    profile_pic: 'https://github.com/JsCodeDevlopment.png',
+                    name: 'Js Code Development',
+                    description: 'Inovação, Tecnologia',
+                    categorie: 'Tecnologia',
+                },
+                {
+                    _id: '9',
+                    profile_pic: 'https://github.com/thiagodau.png',
+                    name: 'Thiago Dau',
+                    description: 'Reabilitação, Cuidado',
+                    categorie: 'Saúde',
+                },
+                {
+                    _id: '10',
+                    profile_pic: 'https://github.com/evertonccarvalho.png',
+                    name: 'Éverton Carvalho',
+                    description: 'Estético, Usabilidade',
+                    categorie: 'Design',
+                },
+                {
+                    _id: '11',
+                    profile_pic: 'https://i.pravatar.cc/150?img=31',
+                    name: 'Ana Martinez',
+                    description: 'Distribuição, Organização',
+                    categorie: 'Logistica',
+                },
+                {
+                    _id: '12',
+                    profile_pic: 'https://i.pravatar.cc/150?img=32',
+                    name: 'Nilce neta',
+                    description: 'Desenvolvimento, Aplicações',
+                    categorie: 'Tecnologia',
+                },
+                {
+                    _id: '13',
+                    profile_pic: 'https://i.pravatar.cc/150?img=33',
+                    name: 'Jung Kook',
+                    description: 'Legislação, Direitos',
+                    categorie: 'Advocacia',
+                },
+                {
+                    _id: '14',
+                    profile_pic: 'https://i.pravatar.cc/150?img=34',
+                    name: 'marta nascimento',
+                    description: 'Mental, Terapia',
+                    categorie: 'Saúde',
+                },
+                {
+                    _id: '15',
+                    profile_pic: 'https://i.pravatar.cc/150?img=35',
+                    name: 'Emily Clark',
+                    description: 'Logística, Planejamento',
+                    categorie: 'Logistica',
+                },
+            ];
+            setProfessionals(fakeProfessionals);
         }
-
         getProfessionals();
     }, []);
 

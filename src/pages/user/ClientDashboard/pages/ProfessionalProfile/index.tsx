@@ -69,6 +69,7 @@ export function ProfessionalProfile() {
 
         getProfileData();
     }, []);
+    const [showContent, setShowContent] = useState(false);
 
     return (
         <Card className="my-16 ml-[6%] w-[70%] min-w-[20rem] pb-10 max-xl:m-0 max-xl:w-full">
@@ -80,79 +81,84 @@ export function ProfessionalProfile() {
             </CardHeader>
             <CardContent className="mt-20 flex w-full flex-col gap-y-2 border-b-2">
                 <CardTitle className="ml-6 text-left font-bold " style={{ maxWidth: '600px' }}>
-                    {}
+                    {}Renan Souza
                 </CardTitle>
                 <CardDescription className="ml-6 w-full font-light">Olá me chamo Renan, caso queira aprender tailwind, agende uma reunião comigo!</CardDescription>
                 <span className="ml-5 mt-3 font-bold text-indigo-600/90">+ 10 agendamentos</span>
+                {/* SERVIÇOS */}
+                <h2 className="mb-10 ml-10 mt-10 flex items-center justify-start text-3xl font-light max-md:mx-10">Serviços de Renan</h2>
+                <ProfessionalService onServiceClick={() => setShowContent(true)} />
             </CardContent>
-            {/* SERVIÇOS */}
-            <ProfessionalService />
             {/* calendário */}
-            <h2 className="mb-10 mt-10 flex items-center justify-center font-light max-md:mx-10">Escolha uma data para agendar com Renan</h2>
-            <Container isTimePickerOpen={isDateSelected}>
-                {loading ? (
-                    <Skeleton className="z-0 mx-2 h-[40rem] w-[40rem] gap-y-12 rounded-[2rem]" />
-                ) : (
-                    <CalendarProfessional selectedDate={selectedDate} onDateSelected={setSelectedDate} />
-                )}
-
-                {isDateSelected && (
-                    <TimePicker>
-                        <TimePickerHeader>
-                            {weekDay} <span>{describedDate}</span>
-                        </TimePickerHeader>
-                        <TimePickerList>
-                            {availability.possibleTimes.map((hour) => (
-                                <TimePickerItem key={hour} onClick={() => handleSelectTime(hour)} disabled={!availability.availableTimes.includes(hour)}>
-                                    {String(hour).padStart(2, '0')}:00h
-                                </TimePickerItem>
-                            ))}
-                        </TimePickerList>
-                        <Dialog>
-                            <DialogTrigger>
-                                <Button className="flex w-full p-2">Solicitar Agendamento</Button>
-                            </DialogTrigger>
-                            <DialogContent>
-                                <DialogHeader className="gap-1">
-                                    <DialogTitle className="text-xl font-bold">Confirmação de Agendamento</DialogTitle>
-                                    <DialogDescription className="border-b-2 pb-5">Por favor, confirme os detalhes do seu agendamento antes de prosseguir.</DialogDescription>
-                                    <DialogHeader className="m-6 flex flex-col gap-4 py-5 text-lg">
-                                        <div className="flex justify-between gap-4 border-b-2 pb-4">
-                                            <ContactRound className="text-foreground" />
-                                            <span className="w-1/2 font-bold">Profissional:</span>
-                                            <span className="w-1/2">Renan</span>
-                                        </div>
-                                        <div className="flex justify-between gap-4 border-b-2 pb-4">
-                                            <BriefcaseBusiness className="text-foreground" />
-                                            <span className="w-1/2 font-bold">Serviço:</span>
-                                            <span className="w-1/2">Tailwind</span>
-                                        </div>
-                                        <div className="flex justify-between gap-4 border-b-2 pb-4">
-                                            <HourglassIcon className="text-foreground" />
-                                            <span className="w-1/2 font-bold">Duração:</span>
-                                            <span className="w-1/2">2 Horas</span>
-                                        </div>
-                                        <div className="flex justify-between gap-4 border-b-2 pb-4">
-                                            <CalendarCheck2 className="text-foreground" />
-                                            <span className="w-1/2 font-bold">Data e Hora:</span>
-                                            <span className="w-1/2">11/04/2024 ás 11:11</span>
-                                        </div>
-                                        <div className="flex justify-between gap-4 border-b-2 pb-4">
-                                            <DollarSign className="text-foreground" />
-                                            <span className="w-1/2 font-bold">Valor:</span>
-                                            <span className="w-1/2">R$100</span>
-                                        </div>
-                                    </DialogHeader>
-                                    <div className="m-10 flex justify-between">
-                                        <Button variant={'destructive'}>Não confirmar</Button>
-                                        <Button variant={'success'}>confirmar</Button>
-                                    </div>
-                                </DialogHeader>
-                            </DialogContent>
-                        </Dialog>
-                    </TimePicker>
-                )}
-            </Container>
+            {}
+            {showContent && (
+                <>
+                    <h2 className="mb-10 mt-10 flex items-center justify-center text-3xl font-light max-md:mx-10">Escolha uma data para agendar com Renan</h2>
+                    <Container isTimePickerOpen={isDateSelected}>
+                        {loading ? (
+                            <Skeleton className="z-0 mx-2 h-[40rem] w-[40rem] gap-y-12 rounded-[2rem]" />
+                        ) : (
+                            <CalendarProfessional selectedDate={selectedDate} onDateSelected={setSelectedDate} />
+                        )}
+                        {isDateSelected && (
+                            <TimePicker>
+                                <TimePickerHeader>
+                                    {weekDay} <span>{describedDate}</span>
+                                </TimePickerHeader>
+                                <TimePickerList>
+                                    {availability.possibleTimes.map((hour) => (
+                                        <TimePickerItem key={hour} onClick={() => handleSelectTime(hour)} disabled={!availability.availableTimes.includes(hour)}>
+                                            {String(hour).padStart(2, '0')}:00h
+                                        </TimePickerItem>
+                                    ))}
+                                </TimePickerList>
+                                <Dialog>
+                                    <DialogTrigger asChild className="flex flex-col">
+                                        <Button className="flex h-16 w-full p-2 text-xl">Solicitar Agendamento</Button>
+                                    </DialogTrigger>
+                                    <DialogContent>
+                                        <DialogHeader className="gap-1">
+                                            <DialogTitle className="text-xl font-bold">Confirmação de Agendamento</DialogTitle>
+                                            <DialogDescription className="border-b-2 pb-5">Por favor, confirme os detalhes do seu agendamento antes de prosseguir.</DialogDescription>
+                                            <DialogHeader className="m-6 flex flex-col gap-4 py-5 text-lg">
+                                                <div className="flex justify-between gap-4 border-b-2 pb-4">
+                                                    <ContactRound className="text-foreground" />
+                                                    <span className="w-1/2 font-bold">Profissional:</span>
+                                                    <span className="w-1/2">Renan</span>
+                                                </div>
+                                                <div className="flex justify-between gap-4 border-b-2 pb-4">
+                                                    <BriefcaseBusiness className="text-foreground" />
+                                                    <span className="w-1/2 font-bold">Serviço:</span>
+                                                    <span className="w-1/2">Tailwind</span>
+                                                </div>
+                                                <div className="flex justify-between gap-4 border-b-2 pb-4">
+                                                    <HourglassIcon className="text-foreground" />
+                                                    <span className="w-1/2 font-bold">Duração:</span>
+                                                    <span className="w-1/2">2 Horas</span>
+                                                </div>
+                                                <div className="flex justify-between gap-4 border-b-2 pb-4">
+                                                    <CalendarCheck2 className="text-foreground" />
+                                                    <span className="w-1/2 font-bold">Data e Hora:</span>
+                                                    <span className="w-1/2">11/04/2024 ás 11:11</span>
+                                                </div>
+                                                <div className="flex justify-between gap-4 border-b-2 pb-4">
+                                                    <DollarSign className="text-foreground" />
+                                                    <span className="w-1/2 font-bold">Valor:</span>
+                                                    <span className="w-1/2">R$100</span>
+                                                </div>
+                                            </DialogHeader>
+                                            <div className="m-10 flex justify-between">
+                                                <Button variant={'destructive'}>Não confirmar</Button>
+                                                <Button variant={'success'}>confirmar</Button>
+                                            </div>
+                                        </DialogHeader>
+                                    </DialogContent>
+                                </Dialog>
+                            </TimePicker>
+                        )}
+                    </Container>
+                </>
+            )}
         </Card>
     );
 }

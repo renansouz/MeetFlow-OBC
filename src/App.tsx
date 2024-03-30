@@ -30,7 +30,6 @@ function App() {
                         <GlobalStyles />
                         <QueryClientProvider client={queryClient}>
                             <RouterProvider router={RouterWrapper()} />
-                            {process.env.NODE_ENV !== 'production' && <ReactQueryDevtools />}
                         </QueryClientProvider>
                     </ThemeProvider>
                 </AuthProvider>

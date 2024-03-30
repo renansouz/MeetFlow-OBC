@@ -1,4 +1,7 @@
+import 'react-toastify/dist/ReactToastify.css';
+
 import { zodResolver } from '@hookform/resolvers/zod';
+import axios from 'axios';
 import { AxiosError } from 'axios';
 import { Lock, User } from 'lucide-react';
 import { useState } from 'react';
@@ -8,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { z } from 'zod';
 
+import { api } from '@/api';
 import { Input } from '@/components/Input';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/context/auth-provider';
@@ -27,7 +31,8 @@ const createUserSchema = z.object({
 type LoginFormData = z.infer<typeof createUserSchema>;
 
 export const ClientLogin = () => {
-    const { login } = useAuth();
+    const { setAuth } = useAuth();
+
     const { theme } = useTheme();
     const navigate = useNavigate();
 
@@ -43,7 +48,12 @@ export const ClientLogin = () => {
 
     const handleLogin = async (userData: LoginFormData) => {
         try {
-            await login(userData.email, userData.password);
+            const res = await axios.post(`${import.meta.env.VITE_BASE_URL}/auth/login`, userData);
+            const { refreshToken } = res.data;
+            sessionStorage.setItem('refreshToken', refreshToken);
+            api.defaults.headers.common['refreshToken'] = refreshToken;
+            console.log(api.defaults.headers.common);
+            setAuth(true);
             navigate('/dashboard/services');
         } catch (error) {
             if (error instanceof AxiosError) {
@@ -81,7 +91,7 @@ export const ClientLogin = () => {
                                 {...register('email')}
                             />
                         </div>
-                        {errors.email && <p className="py-2 text-sm text-red-500">{errors.email.message}</p>}
+                        {errors.email && <p className="py-2 text-red-500">{errors.email.message}</p>}
                     </section>
                     <section>
                         <label htmlFor="" className="block py-2 font-bold ">
@@ -97,7 +107,7 @@ export const ClientLogin = () => {
                                 {...register('password')}
                             />
                         </div>
-                        {errors.password && <p className="py-2 text-sm text-red-500">{errors.password.message}</p>}
+                        {errors.password && <p className="py-2 text-red-500">{errors.password.message}</p>}
                     </section>
                     <section className="flex items-center justify-center gap-2">
                         <input
