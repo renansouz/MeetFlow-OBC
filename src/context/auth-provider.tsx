@@ -13,9 +13,9 @@ type User = {
 
 type AuthContextData = {
     login(email: string, password: string): Promise<void>;
-    isAuthenticated: boolean;
+    isAuth: boolean;
     user: User | null;
-    logout: () => void;
+    signOut: () => void;
 };
 
 const AuthContext = createContext({} as AuthContextData);
@@ -23,7 +23,7 @@ const AuthContext = createContext({} as AuthContextData);
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState(false);
-    const isAuthenticated = !!user;
+    const isAuth = !!user;
 
     useEffect(() => {
         const userComingFromCookie = Cookies.get('meetFlow.user');
@@ -59,23 +59,22 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
             toast.success('Login efetuado com sucesso!');
         } catch (error: any) {
             setLoading(false);
-            throw error 
+            throw error;
         }
     };
 
-    const logout = () => {
-        Cookies.remove('meetFlow.token');
-        Cookies.remove('meetFlow.refreshToken');
-        Cookies.remove('meetFlow.user');
-        setUser(null);
-    };
+    // const logout = () => {
+    //     Cookies.remove('meetFlow.token');
+    //     Cookies.remove('meetFlow.refreshToken');
+    //     Cookies.remove('meetFlow.user');
+    // };
 
     const signOut = () => {
         Cookies.remove('meetFlow.token');
         Cookies.remove('meetFlow.refreshToken');
         Cookies.remove('meetFlow.user');
     };
-    return <AuthContext.Provider value={{ login, isAuthenticated, user, logout }}>{children}</AuthContext.Provider>;
+    return <AuthContext.Provider value={{ login, isAuth, user, signOut }}>{children}</AuthContext.Provider>;
 };
 
 export const useAuth = (): AuthContextData => useContext(AuthContext);

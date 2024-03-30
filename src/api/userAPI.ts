@@ -2,11 +2,13 @@ import { api } from '.';
 import { RegisterFormData } from '@/pages/user/ClientRegister';
 import { UserRole } from '@/types/UserRole';
 import { UserType } from '@/types/userType';
+import Cookies from 'js-cookie';
 
 export class userAPI {
     static async fetchUserData() {
         try {
-            const response = await api.get('/account/user');
+            const refreshToken = Cookies.get('meetFlow.refreshToken');
+            const response = await api.get('/account/user', {headers: {refreshToken: refreshToken}});
             return response.data;
         } catch (error) {
             throw error;
