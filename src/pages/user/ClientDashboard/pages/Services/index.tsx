@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 
 import { getProfessional } from '@/api/get-professional';
 import { getProfile, GetProfileParams } from '@/api/get-profile';
-
 import { Search } from '@/components/Search';
 import { Skeleton } from '@/components/ui/skeleton';
 
@@ -47,14 +46,12 @@ export const Services = () => {
                 console.log(professional);
                 setProfessionals(professional);
                 setLoading(false);
-
             } catch (error) {
                 if (error instanceof AxiosError) {
                     console.log(error.message);
                 }
             }
         }
-
         getProfessionals();
     }, []);
 
