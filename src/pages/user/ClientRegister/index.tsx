@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import axios, { AxiosError } from 'axios';
+import { AxiosError } from 'axios';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
@@ -16,8 +16,6 @@ import LightLogo from '@/public/img/only-logo-white.svg';
 
 import { BackGroundDiv, FormDiv } from './styles';
 
-type passwordAppearenceType = 'text' | 'password';
-
 const createUserSchema = z
     .object({
         name: z.string(),
@@ -26,7 +24,7 @@ const createUserSchema = z
         passwordConfirmation: z.string().min(5, { message: 'A senha deve possuir no mínimo 5 caracteres' }),
     })
     .refine((data) => data.password === data.passwordConfirmation, {
-        message: 'As senhas não conhecidem',
+        message: 'As senhas não coincidem',
         path: ['passwordConfirmation'],
     });
 
@@ -35,6 +33,7 @@ export type RegisterFormData = z.infer<typeof createUserSchema>;
 export const ClientRegister = () => {
     const navigate = useNavigate();
     const { theme } = useTheme();
+    const [showPassword, setShowPassword] = useState(false);
 
     async function handleSignUp(userData: RegisterFormData) {
         try {
@@ -58,8 +57,9 @@ export const ClientRegister = () => {
         formState: { errors, isSubmitting },
     } = useForm<RegisterFormData>({ resolver: zodResolver(createUserSchema) });
 
-    const [passswordAppearenceState, setpasswordAppearenceState] = useState<passwordAppearenceType>('password');
-    const handlePasswordAppearence = () => (passswordAppearenceState === 'password' ? setpasswordAppearenceState('text') : setpasswordAppearenceState('password'));
+    const handlePasswordAppearence = () => {
+        setShowPassword(!showPassword);
+    };
 
     return (
         <div className="flex h-full items-center justify-center bg-card">
@@ -101,6 +101,7 @@ export const ClientRegister = () => {
                                     Senha
                                 </label>
                                 <Input
+                                    type={showPassword ? 'text' : 'password'}
                                     className="w-[21rem] rounded-lg border border-slate-800 bg-background p-3 focus:border-primary max-md:w-[18rem]"
                                     placeholder="Digite sua senha"
                                     id="password"
@@ -113,6 +114,7 @@ export const ClientRegister = () => {
                                     Confirme sua senha
                                 </label>
                                 <Input
+                                    type={showPassword ? 'text' : 'password'}
                                     className="w-[21rem] rounded-lg border border-slate-800 bg-background p-3 focus:border-primary max-md:w-[18rem]"
                                     placeholder="Digite sua senha novamente"
                                     id="passwordConfirmation"
@@ -124,11 +126,7 @@ export const ClientRegister = () => {
                                 <input
                                     className="h-6 w-6 appearance-none rounded-md border-2 border-indigo-800 checked:border-indigo-800 checked:bg-indigo-600"
                                     type="checkbox"
-                                    name=""
-                                    id=""
-                                    onClick={() => {
-                                        toast.success('sucess');
-                                    }}
+                                    onClick={handlePasswordAppearence}
                                 />
                                 <label htmlFor="">Mostrar senha</label>
                             </section>

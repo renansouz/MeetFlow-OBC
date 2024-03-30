@@ -3,30 +3,30 @@ import 'react-toastify/dist/ReactToastify.css';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { AxiosError } from 'axios';
 import { AxiosResponse } from 'axios';
+import { MoveRight } from 'lucide-react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { z } from 'zod';
 
 import { userAPI } from '@/api/userAPI';
 import { Input } from '@/components/Input';
 import { Button } from '@/components/ui/button';
-import { useTheme } from '@/context/theme-provider';
 
 type stepProps = {
     currentStepState: number;
     setCurrentStepState: (int: number) => void;
 };
 
-export const Step1 = ({ setCurrentStepState, currentStepState }: stepProps) => {
-    const { theme } = useTheme();
+export const Step1 = ({ setCurrentStepState }: stepProps) => {
     const navigate = useNavigate();
+    const [showPassword, setShowPassword] = useState(false);
 
-    type passwordAppearenceType = 'password' | 'text';
-    const [passwordAppearence, setPasswordAppearence] = useState<passwordAppearenceType>('password');
-    const handlePasswordAppearence = () => (passwordAppearence === 'password' ? setPasswordAppearence('text') : setPasswordAppearence('password'));
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
 
     const createUserSchema = z
         .object({
@@ -46,7 +46,7 @@ export const Step1 = ({ setCurrentStepState, currentStepState }: stepProps) => {
         register,
         handleSubmit,
         reset,
-        formState: { errors, isSubmitting },
+        formState: { errors },
     } = useForm<RegisterFormData>({ resolver: zodResolver(createUserSchema) });
 
     async function handleSignUp(userData: RegisterFormData) {
@@ -64,56 +64,81 @@ export const Step1 = ({ setCurrentStepState, currentStepState }: stepProps) => {
     }
 
     return (
-        <div className="">
-            <ToastContainer position="bottom-right" theme={theme} />
-            <form className="mt-24 flex w-full flex-col items-center justify-center gap-5 px-10" onSubmit={handleSubmit(handleSignUp)}>
+        <div className="flex p-5">
+            <form className="flex h-full flex-col items-center justify-center gap-5 px-10" onSubmit={handleSubmit(handleSignUp)}>
                 <section className="w-ful">
-                    <label htmlFor="" className="block py-1 font-bold text-black">
+                    <label htmlFor="" className="block py-1 font-bold text-foreground">
                         Nome
                     </label>
-                    <Input placeholder="Digite seu nome" id="user" {...register('name')} />
+                    <Input
+                        className="w-[20rem] rounded-xl border-2 border-slate-700 bg-card py-4 pl-4 text-foreground focus:border-indigo-300"
+                        placeholder="Digite seu nome"
+                        id="user"
+                        {...register('name')}
+                    />
                 </section>
 
                 <section>
-                    <label htmlFor="" className="block py-1 font-bold text-black">
+                    <label htmlFor="" className="block py-1 font-bold text-foreground">
                         Endereço de e-mail
                     </label>
 
-                    <Input placeholder="Digite seu e-mail" id="email" {...register('email')} />
+                    <Input
+                        className="w-[20rem] rounded-xl border-2 border-slate-700 bg-card py-4 pl-4 text-foreground focus:border-indigo-300"
+                        placeholder="Digite seu e-mail"
+                        id="email"
+                        {...register('email')}
+                    />
                     {errors.email && <p className="py-0.5 text-sm text-red-500">{errors.email.message}</p>}
                 </section>
 
                 <section>
-                    <label htmlFor="" className="block py-1 font-bold text-black">
+                    <label htmlFor="" className="block py-1 font-bold text-foreground">
                         Senha
                     </label>
-                    <Input id="password" placeholder="Digite sua senha" {...register('password', { required: true })} />
+                    <Input
+                        className="w-[20rem] rounded-xl border-2 border-slate-700 bg-card py-4 pl-4 text-foreground focus:border-indigo-300"
+                        id="password"
+                        placeholder="Digite sua senha"
+                        type={showPassword ? 'text' : 'password'}
+                        {...register('password', { required: true })}
+                    />
                     {errors.password && <p className="py-0.5 text-sm text-red-500">{errors.password.message}</p>}
                 </section>
                 <section>
-                    <label htmlFor="" className="block py-1 font-bold text-black">
+                    <label htmlFor="" className="block py-1 font-bold text-foreground">
                         Confirme sua senha
                     </label>
-                    <Input id="passwordConfirmation" placeholder="Digite sua senha novamente" {...register('passwordConfirmation')} />
+                    <Input
+                        className="w-[20rem] rounded-xl border-2 border-slate-700 bg-card py-4 pl-4 text-foreground focus:border-indigo-300"
+                        id="passwordConfirmation"
+                        placeholder="Digite sua senha novamente"
+                        type={showPassword ? 'text' : 'password'}
+                        {...register('passwordConfirmation')}
+                    />
                     {errors.passwordConfirmation && <p className="py-0.5 text-sm text-red-500">{errors.passwordConfirmation.message}</p>}
                 </section>
-                <section className="flex gap-2 text-black">
-                    <input type="checkbox" name="" id="" onClick={handlePasswordAppearence} />
+                <section className="flex items-center justify-center gap-3 ">
+                    <input
+                        className="h-6 w-6 appearance-none rounded-md border-2 border-indigo-800 checked:border-indigo-800 checked:bg-indigo-600"
+                        type="checkbox"
+                        onClick={togglePasswordVisibility} // Chama a função para alternar a visibilidade da senha
+                    />
                     <label htmlFor="">Mostrar senha</label>
                 </section>
                 <div className="flex w-full justify-center">
-                    <p className="text-black">
+                    <p className="text-foreground">
                         Já possui uma conta?{' '}
                         <Link to={'/login'} className="text-blue-700 hover:underline">
                             Entrar
                         </Link>
                     </p>
                 </div>
-                <div className="absolute bottom-10 mt-20  flex justify-center gap-40">
-                    <Button variant={'costumize'} onClick={() => navigate('/')}>
-                        Voltar
+                <div className="mt-5  flex justify-center gap-40">
+                    <Button type="submit">
+                        Continuar
+                        <MoveRight className="ml-3" />
                     </Button>
-                    <Button type="submit">Continuar</Button>
                 </div>
             </form>
         </div>

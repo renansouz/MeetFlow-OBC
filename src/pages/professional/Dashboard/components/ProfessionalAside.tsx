@@ -103,7 +103,7 @@ export const ProfessionalAside = () => {
                                                 <span className="text-foreground">Descrinção:</span>
                                             </label>
                                             <Textarea
-                                                className=" row-span-30 w-[70%] resize-none"
+                                                className="row-span-30 w-[70%]  resize-none"
                                                 placeholder="Insira uma descrinção para este serviço"
                                                 id="user"
                                                 {...register('description')}

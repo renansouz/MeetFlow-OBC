@@ -22,4 +22,13 @@ export class userAPI {
             throw error;
         }
     }
+
+    static async fetchProfessionals() {
+        try {
+            const res = await api.get('/user/loadByPage?page=1');
+            return res;
+        } catch (error) {
+            throw error;
+        }
+    }
 }

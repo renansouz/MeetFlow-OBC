@@ -1,5 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { AxiosError } from 'axios';
+import { MoveLeft, MoveRight } from 'lucide-react';
 import { Controller, useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
 import { z } from 'zod';
@@ -35,8 +36,7 @@ export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
         register,
         handleSubmit,
         control,
-        reset,
-        formState: { errors, isSubmitting },
+        formState: { errors },
     } = useForm<ScheduleFormData>({ resolver: zodResolver(createScheduleSchema) });
 
     const createNewSchedule = async (scheduleData: ScheduleFormData) => {
@@ -51,10 +51,10 @@ export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
     };
 
     return (
-        <form onSubmit={handleSubmit(createNewSchedule)}>
+        <form className="" onSubmit={handleSubmit(createNewSchedule)}>
             <ToastContainer />
-            <div className="flex flex-col items-center justify-center">
-                <h2 className="mt-20 text-black">Horários disponíveis</h2>
+            <div className="flex flex-col items-center justify-start">
+                <span className="text-4xl text-foreground">Horários disponíveis</span>
                 <div className="flex items-center justify-center gap-10 py-10 ">
                     <div>
                         <Controller
@@ -63,10 +63,10 @@ export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
                             render={({ field: { name, onChange, value, disabled } }) => {
                                 return (
                                     <Select name={name} onValueChange={onChange} value={value} disabled={disabled}>
-                                        <SelectTrigger className="w-[180px] bg-white text-black">
+                                        <SelectTrigger className="w-[180px] bg-card text-foreground">
                                             <SelectValue placeholder="00:00" />
                                         </SelectTrigger>
-                                        <SelectContent className="w-[180px] bg-white text-black">
+                                        <SelectContent className="w-[180px] bg-card text-foreground">
                                             {dayHours.map((day) => (
                                                 <SelectItem value={day} {...register('hourStart1')}>
                                                     {day}
@@ -80,7 +80,7 @@ export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
                         {errors.hourStart1 && <p>{errors.hourStart1.message}</p>}
                     </div>
                     <div>
-                        <p className="text-black">até</p>
+                        <p className="text-foreground">até</p>
                     </div>
                     <div>
                         <Controller
@@ -89,10 +89,10 @@ export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
                             render={({ field: { name, onChange, value, disabled } }) => {
                                 return (
                                     <Select name={name} onValueChange={onChange} value={value} disabled={disabled}>
-                                        <SelectTrigger className="w-[180px] bg-white text-black">
+                                        <SelectTrigger className="w-[180px] bg-card text-foreground">
                                             <SelectValue placeholder="00:00" />
                                         </SelectTrigger>
-                                        <SelectContent className="w-[180px] bg-white text-black">
+                                        <SelectContent className="w-[180px] bg-card text-foreground">
                                             {dayHours.map((day) => (
                                                 <SelectItem value={day}>{day}</SelectItem>
                                             ))}
@@ -105,57 +105,101 @@ export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
                 </div>
                 <div className="flex gap-x-12">{errors.hourEnd1 && <p className="text-red-600">{errors.hourEnd1.message}</p>}</div>
             </div>
-            <div>
-                <h2 className="text-center text-black">Dias disponiveis</h2>
-                <div className="mt-5 flex flex-wrap justify-center gap-5">
-                    <div className="flex flex-col items-center justify-center gap-2">
-                        <input type="checkbox" id="" {...register('days1.sunday1')} />
-                        <label htmlFor="" className="block text-black">
+            <div className="flex flex-col">
+                <span className="items-center justify-center text-center text-4xl text-foreground">Dias disponiveis</span>
+                <div className="mt-5 flex flex-wrap justify-center gap-1">
+                    <div className="flex flex-col items-center justify-center gap-2 border-2 bg-card p-4">
+                        <input
+                            className="h-6 w-6 appearance-none rounded-md border-2 border-indigo-800 checked:border-indigo-800 checked:bg-indigo-600"
+                            type="checkbox"
+                            id=""
+                            {...register('days1.sunday1')}
+                        />
+                        <label htmlFor="" className="block text-xl text-foreground">
                             Domingo
                         </label>
                     </div>
-                    <div className="flex flex-col items-center justify-center gap-2">
-                        <input type="checkbox" id="" {...register('days1.monday1')} defaultChecked />
-                        <label htmlFor="" className="block text-black">
+                    <div className="flex flex-col items-center justify-center gap-2 border-2 bg-card p-4">
+                        <input
+                            className="h-6 w-6 appearance-none rounded-md border-2 border-indigo-800 checked:border-indigo-800 checked:bg-indigo-600"
+                            type="checkbox"
+                            id=""
+                            {...register('days1.monday1')}
+                            defaultChecked
+                        />
+                        <label htmlFor="" className="block text-xl text-foreground">
                             Segunda
                         </label>
                     </div>
-                    <div className="flex flex-col items-center justify-center gap-2">
-                        <input type="checkbox" id="" {...register('days1.tuesday1')} defaultChecked />
-                        <label htmlFor="" className="block text-black">
+                    <div className="flex flex-col items-center justify-center gap-2 border-2 bg-card p-4">
+                        <input
+                            className="h-6 w-6 appearance-none rounded-md border-2 border-indigo-800 checked:border-indigo-800 checked:bg-indigo-600"
+                            type="checkbox"
+                            id=""
+                            {...register('days1.tuesday1')}
+                            defaultChecked
+                        />
+                        <label htmlFor="" className="block text-xl text-foreground">
                             Terça
                         </label>
                     </div>
-                    <div className="flex flex-col items-center justify-center gap-2">
-                        <input type="checkbox" id="" {...register('days1.wednesday1')} defaultChecked />
-                        <label htmlFor="" className="block text-black">
+                    <div className="flex flex-col items-center justify-center gap-2 border-2 bg-card p-4">
+                        <input
+                            className="h-6 w-6 appearance-none rounded-md border-2 border-indigo-800 checked:border-indigo-800 checked:bg-indigo-600"
+                            type="checkbox"
+                            id=""
+                            {...register('days1.wednesday1')}
+                            defaultChecked
+                        />
+                        <label htmlFor="" className="block text-xl text-foreground">
                             Quarta
                         </label>
                     </div>
-                    <div className="flex flex-col items-center justify-center gap-2">
-                        <input type="checkbox" id="" {...register('days1.thursday1')} defaultChecked />
-                        <label htmlFor="" className="block text-black">
+                    <div className="flex flex-col items-center justify-center gap-2 border-2 bg-card p-4">
+                        <input
+                            className="h-6 w-6 appearance-none rounded-md border-2 border-indigo-800 checked:border-indigo-800 checked:bg-indigo-600"
+                            type="checkbox"
+                            id=""
+                            {...register('days1.thursday1')}
+                            defaultChecked
+                        />
+                        <label htmlFor="" className="block text-xl text-foreground">
                             Quinta
                         </label>
                     </div>
-                    <div className="flex flex-col items-center justify-center gap-2">
-                        <input type="checkbox" id="" {...register('days1.friday1')} defaultChecked />
-                        <label htmlFor="" className="block text-black">
+                    <div className="flex flex-col items-center justify-center gap-2 border-2 bg-card p-4">
+                        <input
+                            className="h-6 w-6 appearance-none rounded-md border-2 border-indigo-800 checked:border-indigo-800 checked:bg-indigo-600"
+                            type="checkbox"
+                            id=""
+                            {...register('days1.friday1')}
+                            defaultChecked
+                        />
+                        <label htmlFor="" className="block text-xl text-foreground">
                             Sexta
                         </label>
                     </div>
-                    <div className="flex flex-col items-center justify-center gap-2">
-                        <input type="checkbox" id="" {...register('days1.saturday1')} />
-                        <label htmlFor="" className="block text-black">
+                    <div className="flex flex-col items-center justify-center gap-2 border-2 bg-card p-4">
+                        <input
+                            className="h-6 w-6 appearance-none rounded-md border-2 border-indigo-800 checked:border-indigo-800 checked:bg-indigo-600"
+                            type="checkbox"
+                            id=""
+                            {...register('days1.saturday1')}
+                        />
+                        <label htmlFor="" className="block text-xl text-foreground">
                             Sábado
                         </label>
                     </div>
                 </div>
-                <div className="absolute bottom-10 mt-20  flex w-full justify-center gap-40">
-                    <Button variant={'costumize'} onClick={() => setCurrentStepState(currentStepState - 1)}>
+                <div className="mt-5 flex w-full justify-center gap-40">
+                    <Button onClick={() => setCurrentStepState(currentStepState - 1)}>
+                        <MoveLeft className="mr-3" />
                         Voltar
                     </Button>
-                    <Button type="submit">Continuar</Button>
+                    <Button type="submit">
+                        Continuar
+                        <MoveRight className="ml-3" />
+                    </Button>
                 </div>
             </div>
         </form>
