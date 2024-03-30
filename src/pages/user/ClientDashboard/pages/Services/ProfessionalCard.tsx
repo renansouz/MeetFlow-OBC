@@ -10,10 +10,9 @@ import { Skeleton } from '@/components/ui/skeleton';
 
 import { CardData } from '.';
 
-export const ProfessionalCard = ({ profile_pic, description, name, categorie, id }: CardData) => {
+export const ProfessionalCard = ({ profile_pic, description, name, categorie, _id }: CardData) => {
     const [loading, setLoading] = useState(true);
 
-    console.log('id' + name);
 
     useEffect(() => {
         const timeout = setTimeout(() => {
@@ -31,7 +30,7 @@ export const ProfessionalCard = ({ profile_pic, description, name, categorie, id
                     <CardHeader className="h-20 w-full items-center rounded-tl-md rounded-tr-md bg-indigo-300">
                         <Avatar>
                             <AvatarImage src={profile_pic} className="w-24 rounded-full" />
-                            <AvatarFallback>CN</AvatarFallback>
+                            <AvatarFallback className="h-24 w-24 rounded-full">{name.slice(0, 1)}</AvatarFallback>
                         </Avatar>
                     </CardHeader>
                     <div className="flex-col text-center">
@@ -45,7 +44,7 @@ export const ProfessionalCard = ({ profile_pic, description, name, categorie, id
                             <span className="mt-6 ">{categorie}</span>
                         </CardContent>
                         <Button asChild className="mb-10 bg-primary text-lg font-light text-foreground hover:bg-indigo-400" variant={'default'}>
-                            <Link to={`/dashboard/profile/${id}`} className="px-6">
+                            <Link to={`/dashboard/profile/${_id}`} className="px-6">
                                 <LucideCalendarPlus className="mr-3 h-5 w-5" />
                                 Agendar
                             </Link>

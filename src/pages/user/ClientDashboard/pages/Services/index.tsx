@@ -8,7 +8,7 @@ import { userAPI } from '@/api/userAPI';
 import { AxiosError } from 'axios';
 
 export type CardData = {
-    id: string;
+    _id: string;
     profile_pic: string;
     name: string;
     description: string;
@@ -46,10 +46,7 @@ export const Services = () => {
         async function getProfessionals() {
             try {
                 const res = await userAPI.fetchProfessionals();
-                const { data } = res.data[0].data
-                console.log(data);
-
-                
+                const {data} = res;
                 setProfessionals(data);
             } catch (error) {
                 if (error instanceof AxiosError) {
@@ -97,15 +94,15 @@ export const Services = () => {
                 </div>
                 <div className="flex">
                     <div className="flex flex-wrap justify-center gap-10 px-16 py-16 max-lg:gap-2 max-sm:gap-1 ">
-                        {professionals?.map((professional, index) => {
+                        {professionals?.map((professional) => {
                             return (
                                 <ProfessionalCard
                                     name={professional.name}
                                     categorie={professional.categorie}
                                     description={professional.description}
                                     profile_pic={professional.profile_pic}
-                                    id={professional.id}
-                                    key={professional.id}
+                                    _id={professional._id}
+                                    key={professional._id}
                                 />
                             );
                         })}
