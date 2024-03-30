@@ -1,11 +1,14 @@
 import { Input } from '@/components/Input';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {z} from "zod";
+
 
 type stepProps = {
     currentStepState: number;
     setCurrentStepState: (int: number) => void;
 };
+
 
 export const Step3 = ({ setCurrentStepState, currentStepState }: stepProps) => {
     return (

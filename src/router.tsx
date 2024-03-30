@@ -13,7 +13,7 @@ import { ProfessionalOwnProfile } from './pages/professional/Dashboard/pages/Pro
 import { ProfessionalRegister } from './pages/professional/ProfessionalRegister';
 import { ClientDashboard } from './pages/user/ClientDashboard';
 import { MySchedules } from './pages/user/ClientDashboard/pages/MySchedule';
-import { Services } from './pages/user/ClientDashboard/pages/ProfessionalCard';
+import { Services } from './pages/user/ClientDashboard/pages/Services';
 import { ProfessionalProfile } from './pages/user/ClientDashboard/pages/ProfessionalProfile';
 import { ClientLogin } from './pages/user/ClientLogin';
 import { ClientRegister } from './pages/user/ClientRegister';

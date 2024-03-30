@@ -10,7 +10,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 
 import { CardData } from '.';
 
-export const CardProfessional = ({ profile_pic, description, name, categorie }: CardData) => {
+export const ProfessionalCard = ({ profile_pic, description, name, categorie }: CardData) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
