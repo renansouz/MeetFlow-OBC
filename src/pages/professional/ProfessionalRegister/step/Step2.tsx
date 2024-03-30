@@ -4,7 +4,6 @@ import { MoveLeft, MoveRight } from 'lucide-react';
 import { Controller, useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
 import { z } from 'zod';
-
 import { professionalAPI } from '@/api/professionalAPI';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
