@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { RouterProvider } from 'react-router-dom';
-
 import { ThemeProvider } from '@/context/theme-provider';
-import { router } from '@/router';
-
 import Preloader from './components/Preload';
 import { AuthContextProvider } from './context/auth-provider';
 import { GlobalStyles } from './styles/global';
+import { RouterWrapper } from './router';
+
 
 function App() {
     const [loading, setLoading] = useState(true);
@@ -25,7 +24,7 @@ function App() {
                 <AuthContextProvider>
                     <ThemeProvider storageKey="MeetFlow-theme" defaultTheme="dark">
                         <GlobalStyles />
-                        <RouterProvider router={router} />
+                        <RouterProvider router={RouterWrapper()} />
                     </ThemeProvider>
                 </AuthContextProvider>
             )}
