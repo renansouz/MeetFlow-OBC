@@ -1,5 +1,3 @@
-import Cookies from 'js-cookie';
-
 import { ScheduleFormData } from '@/pages/professional/ProfessionalRegister/step';
 import { updateUserFormData } from '@/pages/professional/ProfessionalRegister/step';
 

@@ -1,4 +1,5 @@
 import Cookies from 'js-cookie';
+
 import { RegisterFormData } from '@/pages/user/ClientRegister';
 
 import { api } from '.';

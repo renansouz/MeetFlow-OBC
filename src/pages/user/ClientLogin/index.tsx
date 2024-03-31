@@ -1,6 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { AxiosError } from 'axios';
-import { AxiosResponse } from 'axios';
 import { Lock, User } from 'lucide-react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';

@@ -1,5 +1,6 @@
 import { AxiosError } from 'axios';
 import { useEffect, useState } from 'react';
+
 import { userAPI } from '@/api/userAPI';
 import { Search } from '@/components/Search';
 import { Skeleton } from '@/components/ui/skeleton';
