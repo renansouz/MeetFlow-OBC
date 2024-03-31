@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-
 import { AppLayout } from './_layouts/AppLayout';
 import { AuthLayout } from './_layouts/auth';
 import { ProfessionalDashboardLayout } from './_layouts/ProfessionalDashboardLayout';
@@ -81,11 +80,7 @@ export const RouterWrapper = (): any => {
             children: [
                 {
                     path: '/dashboard/myschedules',
-                    element: (
-                        <ProtectedRoute>
-                            <MySchedules />
-                        </ProtectedRoute>
-                    ),
+                    element: <MySchedules />,
                 },
             ],
         },
@@ -100,11 +95,7 @@ export const RouterWrapper = (): any => {
             children: [
                 {
                     path: '/professional/dashboard',
-                    element: (
-                        <ProtectedRoute fallbackRoute="/professional/register">
-                            <ProfessionalDashboard />
-                        </ProtectedRoute>
-                    ),
+                    element: <ProfessionalDashboard />,
                 },
             ],
         },
@@ -114,11 +105,7 @@ export const RouterWrapper = (): any => {
             children: [
                 {
                     path: '/professional/profile',
-                    element: (
-                        <ProtectedRoute>
-                            <ProfessionalOwnProfile />
-                        </ProtectedRoute>
-                    ),
+                    element: <ProfessionalOwnProfile />,
                 },
             ],
         },

@@ -15,7 +15,7 @@ export const Home = () => {
                 <BackGroundImage>
                     <div className="flex flex-col items-center justify-center gap-2">
                         <h1 className="text-center font-bold text-indigo-100  max-sm:text-3xl">
-                            <span className="font-poppins-end text-[2.5rem] font-extrabold text-indigo-500 max-sm:text-3xl">SIMPLIFIQUE </span> seus agendamentos
+                            <span className="font-poppins-end text-[2.5rem] font-extrabold text-indigo-500 max-sm:text-3xl">Simplifique </span> seus agendamentos
                             <div>otimize seu tempo</div>
                         </h1>
                         <p className="mb-8 text-center text-xl font-light text-indigo-100 max-lg:text-base max-sm:mb-10 max-sm:mt-0 max-sm:text-lg">
@@ -55,14 +55,14 @@ export const Home = () => {
                     </div>
                 </BackGroundImage>
             </section>
-            <section className="mx-10 my-16  flex items-start justify-center gap-2">
-                <div className="w-[28%] rounded-2xl p-7 py-10 hover:opacity-60">
+            <section className="mx-10 my-16 flex  items-start justify-center gap-2 max-xl:w-full max-xl:flex-col max-xl:items-center  max-md:hidden">
+                <div className="w-[28%] rounded-2xl p-7 py-10 hover:opacity-60 max-xl:w-1/2">
                     <Card Icon={Star} title="Facilidade de Uso" label="Navegue e agende serviços sem complicações." />
                 </div>
-                <div className="w-[28%] rounded-2xl bg-card/70 bg-gradient-to-r from-card/30 via-card/30 to-primary/10 p-7 py-10  hover:opacity-60">
+                <div className="w-[28%] rounded-2xl bg-card/70 bg-gradient-to-r from-card/30 via-card/30 to-primary/10 p-7 py-10 hover:opacity-60  max-xl:w-1/2">
                     <Card Icon={ShieldCheck} title="conexões direta" label="Conecte-se diretamente com profissionais qualificados." />
                 </div>
-                <div className="w-[28%] rounded-2xl p-7 py-10 hover:opacity-60">
+                <div className="w-[28%] rounded-2xl p-7 py-10 hover:opacity-60 max-xl:w-1/2">
                     <Card Icon={FolderSync} title="gerenciamento simples" label="Mantenha sua agenda organizada em um só lugar." />
                 </div>
             </section>
@@ -79,7 +79,7 @@ export const Home = () => {
                         </p>
                         <div className="flex h-14 w-80 max-xl:items-center max-xl:justify-center max-lg:mb-[20%] max-sm:text-xl">
                             <Link to={'/dashboard/services'} className="mr-5">
-                                <Button className="items-center justify-center rounded-md py-7 ">
+                                <Button className="items-center justify-center rounded-md py-7 text-white ">
                                     Encontre um serviço
                                     <ArrowRight className="ml-3" />
                                 </Button>

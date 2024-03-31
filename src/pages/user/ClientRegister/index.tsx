@@ -41,7 +41,7 @@ export const ClientRegister = () => {
             toast.success('Conta criada com sucesso');
             setTimeout(() => {
                 navigate('/dashboard/services');
-            }, 3000);
+            }, 1500);
         } catch (error) {
             if (error instanceof AxiosError) {
                 toast.error(error.response?.data.message);
@@ -70,7 +70,7 @@ export const ClientRegister = () => {
                         <Link to={'/'}>
                             <img src={theme === 'dark' ? LightLogo : DarkLogo} alt="" className="w-24 max-sm:w-20" />
                         </Link>
-                        <h1 className="mt-6 text-3xl font-bold">Criar uma conta!</h1>
+                        <h1 className="font-bold max-lg:text-3xl">Criar uma conta!</h1>
 
                         <div className="flex flex-col items-center justify-center gap-3">
                             <section>

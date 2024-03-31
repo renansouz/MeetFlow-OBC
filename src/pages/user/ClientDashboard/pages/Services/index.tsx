@@ -1,5 +1,7 @@
+// import { AxiosError } from 'axios';
 import { useEffect, useState } from 'react';
 
+// import { userAPI } from '@/api/userAPI';
 import { Search } from '@/components/Search';
 import { Skeleton } from '@/components/ui/skeleton';
 import { randomPicture } from '@/utils/randomPicture';
@@ -25,14 +27,15 @@ export const Services = () => {
 
     const [professionals, setProfessionals] = useState<CardData[]>();
 
+    console.log(professionals);
+
     useEffect(() => {
         const timeout = setTimeout(() => {
             setLoading(false);
-        }, 3000);
+        }, 200);
 
         return () => clearTimeout(timeout);
     }, []);
-
     const categoriesMock: categories[] = [
         { title: 'Saúde', id: 1 },
         { title: 'Advocacia', id: 2 },
@@ -42,12 +45,12 @@ export const Services = () => {
     ];
 
     useEffect(() => {
-        async function getProfessionals() {
+        async function getProfessionalsFake() {
             const fakeProfessionals: CardData[] = [
                 {
                     _id: '1',
                     profile_pic: 'https://github.com/renansouz.png',
-                    name: 'Renan Souza Silva',
+                    name: 'Renan Silva',
                     description: 'Desenvolvimento, Inovação',
                     categorie: 'Programador',
                 },
@@ -67,21 +70,21 @@ export const Services = () => {
                 },
                 {
                     _id: '4',
-                    profile_pic: 'https://github.com/isaacpontes.png',
-                    name: 'Isaac Ponts',
-                    description: 'Cadeia, Eficiência',
+                    profile_pic: 'https://i.pravatar.cc/150?img=56',
+                    name: 'Isaac Pontes',
+                    description: 'Melhora, Eficiência',
                     categorie: 'Logistica',
                 },
                 {
                     _id: '5',
-                    profile_pic: 'https://github.com/sousaDeveloper.png',
-                    name: 'Matheus Sousa',
+                    profile_pic: 'https://i.pravatar.cc/150?img=1',
+                    name: 'Gisele Maria',
                     description: 'Software, Soluções',
                     categorie: 'Tecnologia',
                 },
                 {
                     _id: '6',
-                    profile_pic: 'https://github.com/julianaconde.png',
+                    profile_pic: 'https://i.pravatar.cc/150?img=38',
                     name: 'Juliana Conde',
                     description: 'Saúde, Bem-estar',
                     categorie: 'Saúde',
@@ -152,8 +155,24 @@ export const Services = () => {
             ];
             setProfessionals(fakeProfessionals);
         }
-        getProfessionals();
+        getProfessionalsFake();
     }, []);
+    //  CÓDIGO FUNCIONAL
+    // useEffect(() => {
+    //     async function getProfessionals() {
+    //         try {
+    //             const res = await userAPI.fetchProfessionals();
+    //             const { data } = res;
+    //             setProfessionals(data);
+    //         } catch (error) {
+    //             if (error instanceof AxiosError) {
+    //                 console.log(error.message);
+    //             }
+    //         }
+    //     }
+
+    //     getProfessionals();
+    // }, []);
 
     return (
         <div className="w-full max-sm:mt-10">
@@ -162,7 +181,7 @@ export const Services = () => {
                 <div className="flex flex-col items-center gap-5">
                     {loading ? <Skeleton className="z-0 h-8 w-48 gap-y-12 rounded-md" /> : <h2 className="text-center max-sm:mt-8 max-sm:text-3xl">Profissionais</h2>}
 
-                    <Search placeholder="Busque por um serviço ou profissional" />
+                    {loading ? <Skeleton className="z-0 h-8 w-48 gap-y-12 rounded-md" /> : <Search placeholder="Busque por um serviço ou profissional" />}
                 </div>
                 <div className="mt-10 flex flex-wrap items-center justify-center gap-10">
                     {categoriesMock.map((categorie) => {
@@ -173,7 +192,7 @@ export const Services = () => {
                                 ) : (
                                     <input
                                         type="radio"
-                                        className="h-6 w-6 appearance-none rounded-md border-2 border-primary checked:border-primary checked:bg-primary/50"
+                                        className="h-6 w-6 appearance-none rounded-md border-2 border-indigo-800 checked:border-indigo-800 checked:bg-indigo-600"
                                         name="category"
                                         id={categorie.title}
                                     />
@@ -191,7 +210,7 @@ export const Services = () => {
                     })}
                 </div>
                 <div className="flex">
-                    <div className="flex flex-wrap justify-center gap-5  py-16 max-lg:gap-2 max-sm:gap-1 ">
+                    <div className="flex flex-wrap justify-center gap-10 px-16 py-16 max-lg:gap-2 max-sm:gap-1 ">
                         {professionals?.map((professional) => {
                             return (
                                 <ProfessionalCard

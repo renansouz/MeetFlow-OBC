@@ -18,9 +18,9 @@ export const Header = () => {
     const { setTheme } = useTheme();
 
     return (
-        <div className="h-[10%] bg-card ">
-            <div className=" fixed z-10 flex max-h-[7%]  w-screen items-center justify-between border-b bg-card px-6">
-                <div className="absolute left-0 top-11 h-5 w-full bg-card bg-gradient-to-b from-transparent to-card opacity-70 blur"></div>
+        <div className="h-[10%] ">
+            <div className=" fixed z-10  flex max-h-[7%] w-screen  items-center justify-between border-b bg-card px-6 ">
+                <div className="absolute left-0 top-11 -mt-10 h-[100%] w-full bg-card bg-gradient-to-b from-transparent to-card opacity-70 blur"></div>
                 <div className="z-10">
                     <Link to={'/'}>
                         <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="max-h-20" />

@@ -24,6 +24,7 @@ export const Logo = styled.div`
     background-size: cover;
     height: 9rem;
     width: 6.8rem;
+    margin-bottom: 20px;
     justify-content: center;
     align-items: center;
     display: flex;

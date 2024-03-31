@@ -29,7 +29,7 @@ export function ProfessionalOwnProfile() {
     useEffect(() => {
         const timeout = setTimeout(() => {
             setLoading(false);
-        }, 3000);
+        }, 2000);
 
         return () => clearTimeout(timeout);
     }, []);
@@ -66,9 +66,9 @@ export function ProfessionalOwnProfile() {
                                 <div className="flex justify-between">
                                     <div>
                                         <CardTitle className="ml-6 text-left font-bold " style={{ maxWidth: '600px' }}>
-                                            RENAN DE SOUZA SILVA
+                                            Renan Silva
                                         </CardTitle>
-                                        <CardDescription className="ml-6  font-light">Olá me chamo Renan, caso queira aprender tailwind, agende uma reunião comigo!</CardDescription>
+                                        <CardDescription className="ml-6  font-light">Desenvolvimento, Inovação!</CardDescription>
                                         <span className="ml-5 mt-3 font-bold text-indigo-600/90">+ 10 agendamentos</span>
                                     </div>
                                     <div>
@@ -194,7 +194,6 @@ export function ProfessionalOwnProfile() {
                             <CardDescription>Aqui esta todos os seus serviços criados</CardDescription>
                         </CardHeader>
                         <CardContent>
-                            <ProfessionalService />
                             <ProfessionalService />
                         </CardContent>
                     </Card>
