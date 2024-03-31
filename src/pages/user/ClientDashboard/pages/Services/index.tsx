@@ -25,8 +25,6 @@ export const Services = () => {
 
     const [professionals, setProfessionals] = useState<CardData[]>();
 
-    const [selectedCategory, setSelectedCategory] = useState<string>('');
-
     useEffect(() => {
         const timeout = setTimeout(() => {
             setLoading(false);
@@ -55,7 +53,7 @@ export const Services = () => {
                 },
                 {
                     _id: '2',
-                    profile_pic: 'https://github.com/WesleyR10.png',
+                    profile_pic: 'https://github.com/joao.png',
                     name: 'Wesley Ribas',
                     description: 'Estruturas, Projetos',
                     categorie: 'Engenheiro',
@@ -97,28 +95,28 @@ export const Services = () => {
                 },
                 {
                     _id: '8',
-                    profile_pic: 'https://github.com/JsCodeDevlopment.png',
-                    name: 'Js Code Development',
+                    profile_pic: 'https://i.pravatar.cc/150?img=20',
+                    name: 'maria clara',
                     description: 'Inovação, Tecnologia',
                     categorie: 'Tecnologia',
                 },
                 {
                     _id: '9',
-                    profile_pic: 'https://github.com/thiagodau.png',
-                    name: 'Thiago Dau',
+                    profile_pic: 'https://i.pravatar.cc/150?img=10',
+                    name: 'Pedro martins',
                     description: 'Reabilitação, Cuidado',
                     categorie: 'Saúde',
                 },
                 {
                     _id: '10',
-                    profile_pic: 'https://github.com/evertonccarvalho.png',
+                    profile_pic: 'https://i.pravatar.cc/150?img=23',
                     name: 'Éverton Carvalho',
                     description: 'Estético, Usabilidade',
                     categorie: 'Design',
                 },
                 {
                     _id: '11',
-                    profile_pic: 'https://i.pravatar.cc/150?img=31',
+                    profile_pic: 'https://i.pravatar.cc/150?img=23',
                     name: 'Ana Martinez',
                     description: 'Distribuição, Organização',
                     categorie: 'Logistica',
@@ -175,7 +173,7 @@ export const Services = () => {
                                 ) : (
                                     <input
                                         type="radio"
-                                        className="h-6 w-6 appearance-none rounded-md border-2 border-indigo-800 checked:border-indigo-800 checked:bg-indigo-600"
+                                        className="h-6 w-6 appearance-none rounded-md border-2 border-primary checked:border-primary checked:bg-primary/50"
                                         name="category"
                                         id={categorie.title}
                                     />
@@ -200,7 +198,7 @@ export const Services = () => {
                                     name={professional.name}
                                     categorie={professional.categorie}
                                     description={professional.description}
-                                    profile_pic={randomPicture()}
+                                    profile_pic={professional.profile_pic}
                                     _id={professional._id}
                                     key={professional._id}
                                 />
