@@ -35,7 +35,6 @@ export const Home = () => {
                                         sem fazer login.
                                     </DialogDescription>
                                 </DialogHeader>
-
                                 <div className="mt-10 flex flex-col items-center justify-center gap-6">
                                     <Link
                                         className="item-center flex  w-full justify-center rounded-2xl border-2 border-indigo-800 bg-indigo-900 bg-opacity-20 p-4 text-xl hover:bg-indigo-500 hover:bg-opacity-30 "
