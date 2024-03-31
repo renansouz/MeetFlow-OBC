@@ -57,9 +57,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
             api.defaults.headers['authorization'] = `Bearer ${token}`;
             setLoading(false);
             toast.success('Login efetuado com sucesso!');
-        } catch (error: any) {
-            setLoading(false);
-            loading && toast.error(error.response?.data.message);
+        } catch (error) {
+            throw error;
         }
     };
 

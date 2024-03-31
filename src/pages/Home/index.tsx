@@ -1,24 +1,25 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, FolderSync, ShieldCheck, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 
+import { Card } from './Components/Card';
 import { BackGroundImage, ProfessionalImage, SobreImage } from './styles';
 
 export const Home = () => {
     return (
         <div className="p-0">
-            <section className="h-screen min-h-lvh  p-0 text-center">
+            <section id="hero-section" className="h-screen min-h-lvh p-0 text-center">
                 <BackGroundImage>
-                    <div className="flex h-full flex-col items-center justify-center">
-                        <h1 className="text-center font-bold text-white  max-sm:text-3xl">
-                            <span className="font-poppins-end text-[2.5rem] font-extrabold text-indigo-500 max-sm:text-3xl">Simplifique </span> seus agendamentos,{' '}
+                    <div className="flex flex-col items-center justify-center gap-2">
+                        <h1 className="text-center font-bold text-indigo-100  max-sm:text-3xl">
+                            <span className="font-poppins-end text-[2.5rem] font-extrabold text-indigo-500 max-sm:text-3xl">SIMPLIFIQUE </span> seus agendamentos
                             <div>otimize seu tempo</div>
                         </h1>
-                        <p className="mb-20 mt-3 w-1/2 pt-6 text-center  font-light text-white max-lg:text-base max-sm:mb-10 max-sm:mt-0 max-sm:text-lg">
-                            Conectando você aos melhores profissionais, sem complicações.
+                        <p className="mb-8 text-center text-xl font-light text-indigo-100 max-lg:text-base max-sm:mb-10 max-sm:mt-0 max-sm:text-lg">
+                            Conectando você aos melhores profissionais, <br /> sem complicações.
                         </p>
                         <Dialog>
                             <DialogTrigger>
@@ -54,7 +55,18 @@ export const Home = () => {
                     </div>
                 </BackGroundImage>
             </section>
-            <section className="flex h-screen max-xl:my-24 max-xl:h-auto max-xl:flex-col ">
+            <section className="mx-10 my-16  flex items-start justify-center gap-2">
+                <div className="w-[28%] rounded-2xl p-7 py-10 hover:opacity-60">
+                    <Card Icon={Star} title="Facilidade de Uso" label="Navegue e agende serviços sem complicações." />
+                </div>
+                <div className="w-[28%] rounded-2xl bg-card/70 bg-gradient-to-r from-card/30 via-card/30 to-primary/10 p-7 py-10  hover:opacity-60">
+                    <Card Icon={ShieldCheck} title="conexões direta" label="Conecte-se diretamente com profissionais qualificados." />
+                </div>
+                <div className="w-[28%] rounded-2xl p-7 py-10 hover:opacity-60">
+                    <Card Icon={FolderSync} title="gerenciamento simples" label="Mantenha sua agenda organizada em um só lugar." />
+                </div>
+            </section>
+            <section id="about-section" className="flex h-screen items-center justify-center max-xl:my-24 max-xl:h-auto max-xl:flex-col ">
                 <div className="flex w-full flex-col items-center justify-center max-xl:ml-0">
                     <SobreImage />
                 </div>
@@ -76,7 +88,10 @@ export const Home = () => {
                     </div>
                 </div>
             </section>
-            <section className="flex h-screen items-center justify-center bg-card max-xl:my-24 max-xl:mb-[10%] max-xl:grid max-xl:h-auto max-xl:place-items-center max-lg:mb-0 max-sm:mb-14 xl:m-0 2xl:m-0 2xl:p-0">
+            <section
+                id="professional-section"
+                className="flex h-screen items-center justify-center bg-card max-xl:my-24 max-xl:mb-[10%] max-xl:grid max-xl:h-auto max-xl:place-items-center max-lg:mb-0 max-sm:mb-14 xl:m-0 2xl:m-0 2xl:p-0"
+            >
                 <div className="flex w-full flex-col items-center justify-center text-center">
                     <div className="ml-[20%] flex flex-col justify-start gap-6 max-xl:ml-0 max-xl:items-center ">
                         <h1 className="text-left font-semibold max-xl:w-lvw max-xl:text-center">Seja um Profissional MeetFlow</h1>

@@ -15,7 +15,7 @@ import { useTheme } from '@/context/theme-provider';
 import DarkLogo from '@/public/img/Logo.svg';
 import LightLogo from '@/public/img/Logo-light.svg';
 
-import { BackGroundDiv } from './styles';
+import { BackGroundDiv, Logo } from './styles';
 
 type passwordAppearenceType = 'text' | 'password';
 
@@ -121,8 +121,17 @@ export const ClientLogin = () => {
                     </p>
                 </form>
             </div>
-            <div className="flex h-full w-4/6 items-center justify-center max-xl:hidden">
-                <BackGroundDiv></BackGroundDiv>
+            <div className="flex h-full w-4/6 flex-col items-center justify-center max-xl:hidden">
+                <div className="flex h-full w-1/2 items-center justify-center max-lg:hidden">
+                    <BackGroundDiv>
+                        <div className="-mt-36 flex flex-col items-center justify-center">
+                            <Logo />
+
+                            <h1 className="text-center font-poppins-start font-bold text-white">Facilite sua agenda com o MeetFlow</h1>
+                            <p className="w-2/3 text-center text-white">Agende e organize com MeetFlow - conecte-se facilmente a serviços e profissionais. Experimente!</p>
+                        </div>
+                    </BackGroundDiv>
+                </div>
             </div>
         </div>
     );

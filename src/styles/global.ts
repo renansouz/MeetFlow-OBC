@@ -52,10 +52,17 @@ body::-webkit-scrollbar-thumb:active {
   }
 
   h1, h2 {
-        font-family: 'Poppins', sans-serif;
-        font-weight: 600;
-        font-size: 2.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 2.5rem;
+  }
+
+  @media (min-width: 1300px) {
+    h1, h2 {
+      font-size: 3rem;
     }
+  }
+
     p,
     span {
         font-weight: 400;

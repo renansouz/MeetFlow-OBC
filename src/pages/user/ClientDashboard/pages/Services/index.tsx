@@ -1,7 +1,5 @@
-import { AxiosError } from 'axios';
 import { useEffect, useState } from 'react';
 
-import { userAPI } from '@/api/userAPI';
 import { Search } from '@/components/Search';
 import { Skeleton } from '@/components/ui/skeleton';
 import { randomPicture } from '@/utils/randomPicture';
@@ -27,15 +25,16 @@ export const Services = () => {
 
     const [professionals, setProfessionals] = useState<CardData[]>();
 
-    console.log(professionals);
+    const [selectedCategory, setSelectedCategory] = useState<string>('');
 
     useEffect(() => {
         const timeout = setTimeout(() => {
             setLoading(false);
-        }, 1500);
+        }, 3000);
 
         return () => clearTimeout(timeout);
     }, []);
+
     const categoriesMock: categories[] = [
         { title: 'Saúde', id: 1 },
         { title: 'Advocacia', id: 2 },
@@ -194,7 +193,7 @@ export const Services = () => {
                     })}
                 </div>
                 <div className="flex">
-                    <div className="flex flex-wrap justify-center gap-10 px-16 py-16 max-lg:gap-2 max-sm:gap-1 ">
+                    <div className="flex flex-wrap justify-center gap-5  py-16 max-lg:gap-2 max-sm:gap-1 ">
                         {professionals?.map((professional) => {
                             return (
                                 <ProfessionalCard

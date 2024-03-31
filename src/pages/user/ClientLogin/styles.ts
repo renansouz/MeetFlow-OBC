@@ -1,19 +1,33 @@
 import styled from 'styled-components';
 
-import pageBackground from '@/public/img/login-background.jpg';
+import logo from '@/public/img/only-logo-white.png';
+import pageBackground from '@/public/img/register-background.svg';
 
 export const BackGroundDiv = styled.div`
-    background-image: linear-gradient(140deg, rgba(0, 0, 1, 0.1) 0%, rgba(26, 30, 95, 0) 90%), url(${pageBackground});
+    background-image: linear-gradient(140deg, rgba(0, 0, 1, 0.84) 100%, rgba(26, 30, 95, 0.1) 90%), url(${pageBackground});
     background-size: cover;
     background-repeat: no-repeat;
     width: 66.6%;
     height: 100%;
     position: fixed;
     background-position: center center;
-    gap: 50px;
+    flex-direction: column;
+    gap: 10px;
     z-index: 1;
+    display: flex;
     justify-content: center;
     align-items: center;
+`;
+
+export const Logo = styled.div`
+    background-image: url(${logo});
+    background-size: cover;
+    height: 9rem;
+    width: 6.8rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-repeat: no-repeat;
 `;
 
 export const FormDiv = styled.div`
