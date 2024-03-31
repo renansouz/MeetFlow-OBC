@@ -152,7 +152,7 @@ export const ProfessionalAside = () => {
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger>
-                                    <AsideItem link="/professional/meus-agendamentos" title="Agendamentos" icon={PersonStanding} />
+                                    <AsideItem link="/professional/myschedules" title="Agendamentos" icon={PersonStanding} />
                                 </TooltipTrigger>
                                 <TooltipContent side="right">
                                     <p>Agendamentos</p>
