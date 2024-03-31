@@ -7,7 +7,6 @@ Bem-vindo ao MeetFlow! Uma plataforma moderna de agendamento que conecta profiss
 ## 🛠️ Tecnologias Utilizadas
 
 - **React**: Biblioteca JavaScript para criar interfaces de usuário.
-- **Shadow UI**: Ferramenta para criar interfaces de usuário com sombras.
 - **TypeScript**: Superset do JavaScript que adiciona tipagem estática.
 - **Vite**: Ferramenta de build rápida para projetos web modernos.
 - **Tailwind CSS**: Framework de CSS utilitário para desenvolvimento rápido.
