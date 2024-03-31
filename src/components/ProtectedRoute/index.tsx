@@ -1,14 +1,15 @@
 import { ReactNode, useEffect } from 'react';
-import { useNavigate, Outlet, Navigate } from 'react-router-dom';
+import { Navigate, Outlet, useNavigate } from 'react-router-dom';
+
 import { useAuth } from '@/context/auth-provider';
 
 type ProtectedRouteType = {
     children: ReactNode;
     particular?: 'client' | 'professional';
-    fallbackRoute?:string;
+    fallbackRoute?: string;
 };
 
-export const ProtectedRoute = ({ children, particular ,fallbackRoute='/login' }: ProtectedRouteType) => {
-    const {user} = useAuth();
-    return user && user.role === particular ? <Outlet/> : <Navigate to={fallbackRoute} replace/>  
+export const ProtectedRoute = ({ children, particular, fallbackRoute = '/login' }: ProtectedRouteType) => {
+    const { user } = useAuth();
+    return user === null || user?.role === particular ? <Navigate to={fallbackRoute} replace /> : <Outlet />;
 };

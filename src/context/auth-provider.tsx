@@ -28,7 +28,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     useEffect(() => {
         const userComingFromCookie = Cookies.get('meetFlow.user');
         const refreshToken = Cookies.get('meetFlow.refreshToken');
-
         console.log('userComingFromCookie', userComingFromCookie);
         const parsedUser = userComingFromCookie ? JSON.parse(userComingFromCookie) : null;
         console.log('parsedUser', parsedUser);
@@ -68,7 +67,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         Cookies.remove('meetFlow.token');
         Cookies.remove('meetFlow.refreshToken');
         Cookies.remove('meetFlow.user');
-        setUser(null)
+        setUser(null);
     };
     return <AuthContext.Provider value={{ login, isAuthenticated, user, signOut }}>{children}</AuthContext.Provider>;
 };

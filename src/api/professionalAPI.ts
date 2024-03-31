@@ -1,7 +1,9 @@
-import { api } from '.';
+import Cookies from 'js-cookie';
+
 import { ScheduleFormData } from '@/pages/professional/ProfessionalRegister/step';
 import { updateUserFormData } from '@/pages/professional/ProfessionalRegister/step';
-import Cookies from 'js-cookie';
+
+import { api } from '.';
 
 export class professionalAPI {
     static async createSchedule(scheduleData: ScheduleFormData) {
@@ -15,13 +17,11 @@ export class professionalAPI {
         }
     }
 
-    static async updateUser(userData:updateUserFormData,id:string | undefined) {
-        try{
-            const response = await api.put(`/user/update?_id=${id}`, userData)
-        }catch(error){
-            throw error 
+    static async updateUser(userData: updateUserFormData, id: string | undefined) {
+        try {
+            const response = await api.put(`/user/update?_id=${id}`, userData);
+        } catch (error) {
+            throw error;
         }
-
     }
-
 }

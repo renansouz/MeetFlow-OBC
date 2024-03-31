@@ -13,7 +13,6 @@ import { CardData } from '.';
 export const ProfessionalCard = ({ profile_pic, description, name, categorie, _id }: CardData) => {
     const [loading, setLoading] = useState(true);
 
-
     useEffect(() => {
         const timeout = setTimeout(() => {
             setLoading(false);

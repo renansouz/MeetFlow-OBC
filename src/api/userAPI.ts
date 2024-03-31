@@ -1,8 +1,5 @@
 import Cookies from 'js-cookie';
-
 import { RegisterFormData } from '@/pages/user/ClientRegister';
-import { UserRole } from '@/types/UserRole';
-import { UserType } from '@/types/userType';
 
 import { api } from '.';
 
@@ -26,8 +23,8 @@ export class userAPI {
         }
     }
 
-    static async createUser(userData: RegisterFormData, userRole: UserRole) {
-        const data = { ...userData, role: 'client' };
+    static async createUser(userData: RegisterFormData) {
+        const data = { ...userData, role: 'professional' };
         try {
             const res = await api.post('/auth/signup', data);
             return res;

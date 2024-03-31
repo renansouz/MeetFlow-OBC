@@ -1,17 +1,15 @@
-import { MoveLeft, MoveRight } from 'lucide-react';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { AxiosError } from 'axios';
+import { MoveLeft} from 'lucide-react';
+import { Controller, useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import { z } from 'zod';
+import { updateProfile } from '@/api/update-profile';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
-import { z } from 'zod';
-import { professionalAPI } from '@/api/professionalAPI';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { AxiosError } from 'axios';
-import { Controller, useForm } from 'react-hook-form';
 import { Ocuppations } from '@/utils/Occupation';
-import { useAuth } from '@/context/auth-provider';
-import { toast, ToastContainer } from 'react-toastify';
-import { updateProfile } from '@/api/update-profile';
-import { useNavigate } from 'react-router-dom';
 
 type stepProps = {
     currentStepState: number;
@@ -26,8 +24,6 @@ const UpdateUserSchema = z.object({
 export type updateUserFormData = z.infer<typeof UpdateUserSchema>;
 
 export const Step3 = ({ setCurrentStepState, currentStepState }: stepProps) => {
-
-    
     const navigate = useNavigate();
 
     const {
@@ -38,24 +34,25 @@ export const Step3 = ({ setCurrentStepState, currentStepState }: stepProps) => {
         formState: { errors },
     } = useForm<updateUserFormData>({ resolver: zodResolver(UpdateUserSchema) });
 
-    const updateUser = async (updateData:updateUserFormData) => {
+    const updateUser = async (updateData: updateUserFormData) => {
         const userId = sessionStorage.getItem('userID');
         try {
-            console.log(updateData)
-            const res = await updateProfile(userId,updateData);
+            const res = await updateProfile(userId, updateData);
             navigate('/login');
+            sessionStorage.removeItem('userID');
+            sessionStorage.removeItem('currentSignupAcessToken');
         } catch (error) {
-            if(error instanceof AxiosError){
-                toast.error(error.message)
+            if (error instanceof AxiosError) {
+                toast.error(error.message);
             }
-        }finally{
-            reset()
+        } finally {
+            reset();
         }
     };
 
     return (
         <form onSubmit={handleSubmit(updateUser)}>
-            <ToastContainer position='bottom-right' />
+            <ToastContainer position="bottom-right" />
             <div className="flex flex-col items-center gap-5">
                 <label htmlFor="" className="text-2xl text-foreground">
                     Escreva uma breve descrição do seu serviço

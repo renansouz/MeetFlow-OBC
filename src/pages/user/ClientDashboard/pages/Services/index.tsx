@@ -1,10 +1,9 @@
 import { AxiosError } from 'axios';
 import { useEffect, useState } from 'react';
-
-import { professionalAPI } from '@/api/professionalAPI';
 import { userAPI } from '@/api/userAPI';
 import { Search } from '@/components/Search';
 import { Skeleton } from '@/components/ui/skeleton';
+import { randomPicture } from '@/utils/randomPicture';
 
 import { Header } from '../components/Header';
 import { ProfessionalCard } from './ProfessionalCard';
@@ -103,7 +102,7 @@ export const Services = () => {
                                     name={professional.name}
                                     categorie={professional.categorie}
                                     description={professional.description}
-                                    profile_pic={professional.profile_pic}
+                                    profile_pic={randomPicture()}
                                     _id={professional._id}
                                     key={professional._id}
                                 />

@@ -1,9 +1,11 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { RouteObject } from 'react-router-dom';
+
 import { AppLayout } from './_layouts/AppLayout';
 import { AuthLayout } from './_layouts/auth';
 import { ProfessionalDashboardLayout } from './_layouts/ProfessionalDashboardLayout';
 import { UserDashboardLayout } from './_layouts/UserDashboardLayout';
+import { ProtectedRoute } from './components/ProtectedRoute';
 import { NotFound } from './pages/404';
 import { Home } from './pages/Home';
 import { ProfessionalDashboard } from './pages/professional/Dashboard';
@@ -12,11 +14,10 @@ import { ProfessionalOwnProfile } from './pages/professional/Dashboard/pages/Pro
 import { ProfessionalRegister } from './pages/professional/ProfessionalRegister';
 import { ClientDashboard } from './pages/user/ClientDashboard';
 import { MySchedules } from './pages/user/ClientDashboard/pages/MySchedule';
-import { Services } from './pages/user/ClientDashboard/pages/Services';
 import { ProfessionalProfile } from './pages/user/ClientDashboard/pages/ProfessionalProfile';
+import { Services } from './pages/user/ClientDashboard/pages/Services';
 import { ClientLogin } from './pages/user/ClientLogin';
 import { ClientRegister } from './pages/user/ClientRegister';
-import { ProtectedRoute } from './components/ProtectedRoute';
 
 export const RouterWrapper = (): any => {
     const router = createBrowserRouter([

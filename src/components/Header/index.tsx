@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from '@/components/ui/navigation-menu';
 import { Separator } from '@/components/ui/separator';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { useAuth } from '@/context/auth-provider';
 import { useTheme } from '@/context/theme-provider';
 import Logo from '@/public/img/Logo.svg';
 import LightLogo from '@/public/img/Logo-light.svg';
-import { useAuth } from '@/context/auth-provider';
+
 import { ThemeToggle } from '../theme/theme-toggle';
 import { Button } from '../ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog';

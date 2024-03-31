@@ -5,7 +5,7 @@ export interface GetProfileParams {
 }
 
 export interface GetProfileResponse {
-    _id: string ;
+    _id: string;
     name: string;
     email: string;
     serviceIds: string[];

@@ -3,16 +3,18 @@ import dayjs from 'dayjs';
 import { BriefcaseBusiness, CalendarCheck2, ContactRound, DollarSign, HourglassIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+
+import { getProfile } from '@/api/get-profile';
+import { GetProfileResponse } from '@/api/get-profile';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Skeleton } from '@/components/ui/skeleton';
+
 import { CalendarProfessional } from './Calendar';
 import { ProfessionalService } from './ProfessionalService';
 import { Container, TimePicker, TimePickerHeader, TimePickerItem, TimePickerList } from './styles';
-import { getProfile } from '@/api/get-profile';
-import { GetProfileResponse } from '@/api/get-profile';
 
 interface Availability {
     possibleTimes: number[];
@@ -59,6 +61,7 @@ export function ProfessionalProfile() {
         async function getProfileData() {
             try {
                 const data = await getProfile(_id);
+                console.log(data);
                 setProfessional(data);
             } catch (error) {
                 if (error instanceof AxiosError) {
@@ -76,7 +79,7 @@ export function ProfessionalProfile() {
         <Card className="my-16 ml-[6%] w-[70%] min-w-[20rem] pb-10 max-xl:m-0 max-xl:w-full">
             <CardHeader className="h-32 w-full rounded-tl-md rounded-tr-md bg-indigo-300 pt-14 max-lg:rounded-none">
                 <Avatar className="h-36 w-full rounded-full">
-                    <AvatarImage src="https://github.com/renansouz.png" className="ml-5 w-36 rounded-full border-4 border-background" />
+                    <AvatarImage src="" className="ml-5 w-36 rounded-full border-4 border-background" />
                     <AvatarFallback className="ml-5 w-36 rounded-full border-4 border-background">{professional?.name.slice(0, 1)}</AvatarFallback>
                 </Avatar>
             </CardHeader>
