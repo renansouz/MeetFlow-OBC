@@ -1,40 +1,96 @@
-import { MoveLeft, MoveRight } from 'lucide-react';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { AxiosError } from 'axios';
+import { MoveLeft } from 'lucide-react';
+import { Controller, useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import { z } from 'zod';
 
+import { updateProfile } from '@/api/update-profile';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
+import { Ocuppations } from '@/utils/Occupation';
 
 type stepProps = {
     currentStepState: number;
     setCurrentStepState: (int: number) => void;
 };
 
+const UpdateUserSchema = z.object({
+    description: z.string({ required_error: 'Campo obrigatório' }),
+    occupationArea: z.string({ required_error: 'Campo obrigatório' }),
+});
+
+export type updateUserFormData = z.infer<typeof UpdateUserSchema>;
+
 export const Step3 = ({ setCurrentStepState, currentStepState }: stepProps) => {
+    const navigate = useNavigate();
+
+    const {
+        register,
+        handleSubmit,
+        control,
+        reset,
+        formState: { errors },
+    } = useForm<updateUserFormData>({ resolver: zodResolver(UpdateUserSchema) });
+
+    const updateUser = async (updateData: updateUserFormData) => {
+        const userId = sessionStorage.getItem('userID');
+        try {
+            const res = await updateProfile(userId, updateData);
+            navigate('/login');
+            sessionStorage.removeItem('userID');
+            sessionStorage.removeItem('currentSignupAcessToken');
+        } catch (error) {
+            if (error instanceof AxiosError) {
+                toast.error(error.message);
+            }
+        } finally {
+            reset();
+        }
+    };
+
     return (
-        <div>
+        <form onSubmit={handleSubmit(updateUser)}>
+            <ToastContainer position="bottom-right" />
             <div className="flex flex-col items-center gap-5">
                 <label htmlFor="" className="text-2xl text-foreground">
                     Escreva uma breve descrição do seu serviço
                 </label>
-                <Textarea className="row-span-35 h-32 w-[90%] resize-none  rounded-lg bg-card px-8 py-2 text-xl focus:border-indigo-400" placeholder="Digite aqui..." />
+                <Textarea
+                    {...register('description')}
+                    className="row-span-35 h-32 w-[90%] resize-none  rounded-lg bg-card px-8 py-2 text-xl focus:border-indigo-400"
+                    placeholder="Digite aqui..."
+                />
+                {errors.description && <p className="text-red-500">{errors.description.message}</p>}
                 <label htmlFor="" className="text-2xl text-foreground">
                     Selecione sua área de atuação
                 </label>
-                <Select>
-                    <SelectTrigger className="h-14 w-[90%] rounded-lg bg-card text-xl hover:border-indigo-400">
-                        <SelectValue placeholder="Selecione" />
-                    </SelectTrigger>
-                    <SelectContent className="rounded-lg bg-card  text-xl">
-                        <SelectItem value={'Advocacia'}>Advocacia</SelectItem>
-                        <SelectItem value={'Saúde'}>Saúde</SelectItem>
-                        <SelectItem value={'Design'}>Design</SelectItem>
-                        <SelectItem value={'Tecnologia'}>Tecnologia</SelectItem>
-                        <SelectItem value={'Logística'}>Logística</SelectItem>
-                        <SelectItem value={'Construção'}>Construção</SelectItem>
-                    </SelectContent>
-                </Select>
+                <Controller
+                    name="occupationArea"
+                    control={control}
+                    render={({ field: { name, onChange, value, disabled } }) => {
+                        return (
+                            <Select name={name} onValueChange={onChange} value={value} disabled={disabled}>
+                                <SelectTrigger className="h-14 w-[90%] rounded-lg bg-card text-xl hover:border-indigo-400">
+                                    <SelectValue placeholder="Selecione" />
+                                </SelectTrigger>
+                                <SelectContent className="rounded-lg bg-card  text-xl">
+                                    {Ocuppations.map((ocupattion) => {
+                                        return (
+                                            <SelectItem value={ocupattion} {...register('occupationArea')}>
+                                                {ocupattion}
+                                            </SelectItem>
+                                        );
+                                    })}
+                                </SelectContent>
+                            </Select>
+                        );
+                    }}
+                ></Controller>
+                {errors.occupationArea && <p className="text-red-500">{errors.occupationArea.message}</p>}
             </div>
-
             <div className="mt-20  flex w-full justify-center gap-40">
                 <Button onClick={() => setCurrentStepState(currentStepState - 1)}>
                     <MoveLeft className="mr-3" />
@@ -44,6 +100,6 @@ export const Step3 = ({ setCurrentStepState, currentStepState }: stepProps) => {
                     Concluir
                 </Button>
             </div>
-        </div>
+        </form>
     );
 };

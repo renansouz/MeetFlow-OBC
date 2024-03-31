@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
 
-export const ProfessionalService = ({ onServiceClick }) => {
+export const ProfessionalService = ({ onServiceClick }: any) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {

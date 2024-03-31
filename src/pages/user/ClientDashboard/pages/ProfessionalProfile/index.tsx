@@ -4,7 +4,8 @@ import { BriefcaseBusiness, CalendarCheck2, ContactRound, DollarSign, HourglassI
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { userAPI } from '@/api/userAPI';
+import { getProfile } from '@/api/get-profile';
+import { GetProfileResponse } from '@/api/get-profile';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -22,7 +23,6 @@ interface Availability {
 
 export function ProfessionalProfile() {
     const { _id } = useParams();
-
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -47,19 +47,22 @@ export function ProfessionalProfile() {
 
     const selectedDateWithoutTime = selectedDate ? dayjs(selectedDate).format('YYYY-MM-DD') : null;
 
-    const onSelectDateTime = (param: Date) =>
+    const onSelectDateTime = (param: Date) => {
         void function handleSelectTime(hour: number) {
             const dateWithTime = new Date(selectedDate!);
             dateWithTime.setHours(hour);
             onSelectDateTime(dateWithTime);
         };
+    };
+
+    const [professional, setProfessional] = useState<GetProfileResponse>();
 
     useEffect(() => {
         async function getProfileData() {
             try {
-                const res = await userAPI.fetchProfileData(_id);
-                const { data } = res;
+                const data = await getProfile(_id);
                 console.log(data);
+                setProfessional(data);
             } catch (error) {
                 if (error instanceof AxiosError) {
                     console.log(error.message);
@@ -75,15 +78,15 @@ export function ProfessionalProfile() {
         <Card className="my-16 ml-[6%] w-[70%] min-w-[20rem] pb-10 max-xl:m-0 max-xl:w-full">
             <CardHeader className="h-32 w-full rounded-tl-md rounded-tr-md bg-indigo-300 pt-14 max-lg:rounded-none">
                 <Avatar className="h-36 w-full rounded-full">
-                    <AvatarImage src="https://github.com/renansouz.png" className="ml-5 w-36 rounded-full border-4 border-background" />
-                    <AvatarFallback className="ml-5 w-36 rounded-full border-4 border-background">CN</AvatarFallback>
+                    <AvatarImage src="" className="ml-5 w-36 rounded-full border-4 border-background" />
+                    <AvatarFallback className="ml-5 w-36 rounded-full border-4 border-background">{professional?.name.slice(0, 1)}</AvatarFallback>
                 </Avatar>
             </CardHeader>
             <CardContent className="mt-20 flex w-full flex-col gap-y-2 border-b-2">
                 <CardTitle className="ml-6 text-left font-bold " style={{ maxWidth: '600px' }}>
-                    {}Renan Souza
+                    {professional?.name}
                 </CardTitle>
-                <CardDescription className="ml-6 w-full font-light">Olá me chamo Renan, caso queira aprender tailwind, agende uma reunião comigo!</CardDescription>
+                <CardDescription className="ml-6 w-full font-light"></CardDescription>
                 <span className="ml-5 mt-3 font-bold text-indigo-600/90">+ 10 agendamentos</span>
                 {/* SERVIÇOS */}
                 <h2 className="mb-10 ml-10 mt-10 flex items-center justify-start text-3xl font-light max-md:mx-10">Serviços de Renan</h2>
