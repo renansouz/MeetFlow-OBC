@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import { getCurrentUserData } from '@/api/getCurrentUserData';
 import { userAPI } from '@/api/userAPI';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -23,7 +23,7 @@ export const ClientMenu = () => {
 
     useEffect(() => {
         const getUserData = async () => {
-            const res = await userAPI.fetchUserData();
+            const res = await getCurrentUserData();
             const { user } = await res;
             setUserData(user);
         };

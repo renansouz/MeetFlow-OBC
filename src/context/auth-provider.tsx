@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
-import { api } from '@/lib/axios';
+import { api } from '@/api';
 
 type User = {
     email: string;
@@ -52,11 +52,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
             setUser(userComing);
             api.defaults.timeout = 3000;
-            api.defaults.headers['authorization'] = `Bearer ${token}`;
+            api.defaults.headers.common["Authorization"] = "Bearer " + token;
+            console.log(api.defaults.headers);
             setLoading(false);
             toast.success('Login efetuado com sucesso!');
         } catch (error) {
-            throw error
+            throw error;
         }
     };
 

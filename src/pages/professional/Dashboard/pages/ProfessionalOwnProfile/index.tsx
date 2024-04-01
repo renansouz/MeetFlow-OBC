@@ -4,7 +4,6 @@ import { Pencil } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-
 import { Input } from '@/components/Input';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -13,6 +12,10 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Skeleton } from '@/components/ui/skeleton';
 import { Textarea } from '@/components/ui/textarea';
 import { ProfessionalService } from '@/pages/user/ClientDashboard/pages/ProfessionalProfile/ProfessionalService';
+import { getCurrentUserData } from '@/api/getCurrentUserData';
+import { AxiosError } from 'axios';
+import { UserType } from '@/types/userType';
+
 const createUserSchema = z.object({
     username: z.string().min(2, { message: 'Username must be at least 2 characters.' }),
     description: z.string().min(2, { message: 'Username must be at least 2 characters.' }),
@@ -25,11 +28,12 @@ type RegisterFormData = z.infer<typeof createUserSchema>;
 
 export function ProfessionalOwnProfile() {
     const [loading, setLoading] = useState(true);
+    const [user, setUser] = useState<UserType>();
 
     useEffect(() => {
         const timeout = setTimeout(() => {
             setLoading(false);
-        }, 3000);
+        }, 1500);
 
         return () => clearTimeout(timeout);
     }, []);
@@ -44,9 +48,25 @@ export function ProfessionalOwnProfile() {
     });
 
     async function onSubmit(data: RegisterFormData) {
-        setTimeout(() => {
-        }, 2000);
+        setTimeout(() => {}, 2000);
     }
+
+    useEffect(() => {
+        async function getProfessinalData() {
+            try {
+                const res = await getCurrentUserData();
+                const { user } = res;
+                setUser(user);
+            } catch (error) {
+                if (error instanceof AxiosError) {
+                    //console.log(error);
+                }
+            }
+        }
+
+        getProfessinalData();
+    }, []);
+
     return (
         <div>
             <Card className="my-16 ml-[5%] mr-[15%] rounded-md">
@@ -56,8 +76,8 @@ export function ProfessionalOwnProfile() {
                     ) : (
                         <Card>
                             <CardHeader className="h-32 rounded-tl-md rounded-tr-md bg-indigo-300  pt-14 max-lg:rounded-none">
-                                <Avatar>
-                                    <AvatarImage src="https://github.com/renansouz.png" className="ml-5 w-36 rounded-full border-4 border-background" />
+                                <Avatar className="ml-5 w-36 rounded-full border-4 border-background">
+                                    <AvatarImage src="https://github.com/renansouz.png" className="w-36 rounded-full" />
                                     <AvatarFallback className="ml-5 w-36 rounded-full border-4 border-background">CN</AvatarFallback>
                                 </Avatar>
                             </CardHeader>
@@ -65,7 +85,7 @@ export function ProfessionalOwnProfile() {
                                 <div className="flex justify-between">
                                     <div>
                                         <CardTitle className="ml-6 text-left font-bold " style={{ maxWidth: '600px' }}>
-                                            RENAN DE SOUZA SILVA
+                                            {user?.name}
                                         </CardTitle>
                                         <CardDescription className="ml-6  font-light">Olá me chamo Renan, caso queira aprender tailwind, agende uma reunião comigo!</CardDescription>
                                         <span className="ml-5 mt-3 font-bold text-indigo-600/90">+ 10 agendamentos</span>
