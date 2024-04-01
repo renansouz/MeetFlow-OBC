@@ -6,13 +6,13 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
 
-export const ProfessionalService = () => {
+export const ProfessionalService = ({ onServiceClick }: any) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const timeout = setTimeout(() => {
             setLoading(false);
-        }, 3000);
+        }, 2000);
 
         return () => clearTimeout(timeout);
     }, []);
@@ -36,9 +36,7 @@ export const ProfessionalService = () => {
                                 <span className="font-extralight">(10)</span>
                             </div>
                         </div>
-                        <CardDescription className="w-[80%]">
-                            especialista em Tailwind. Entre em contato para agendar sua primeira aula e leve seus projetos web para o próximo nível
-                        </CardDescription>
+                        <CardDescription className="w-[80%]">Aprenda a deixar uma pagina responsiva!</CardDescription>
                     </CardHeader>
                     <CardContent className="mt-10 flex justify-between">
                         <div className="flex gap-3">
@@ -50,7 +48,7 @@ export const ProfessionalService = () => {
                             </Card>
                         </div>
 
-                        <Button asChild className="bg-indigo-700 text-lg font-light hover:bg-indigo-800" variant={'default'}>
+                        <Button onClick={onServiceClick} asChild className="bg-indigo-700 text-lg font-light hover:bg-indigo-800" variant={'default'}>
                             <Link to={''} className="px-6">
                                 <LucideCalendarPlus className="mr-3 h-5 w-5" />
                                 Agendar

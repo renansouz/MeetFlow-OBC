@@ -51,8 +51,9 @@ export const Step1 = ({ setCurrentStepState }: stepProps) => {
 
     async function handleSignUp(userData: RegisterFormData) {
         try {
-            const res: AxiosResponse = await userAPI.createUser(userData, 'client');
+            const res: AxiosResponse = await userAPI.createUser(userData);
             sessionStorage.setItem('currentSignupAcessToken', res.data?.accessToken);
+            sessionStorage.setItem('userID', res.data?.user._id);
             setCurrentStepState(2);
         } catch (error) {
             if (error instanceof AxiosError) {

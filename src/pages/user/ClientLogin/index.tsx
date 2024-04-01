@@ -1,7 +1,4 @@
-import 'react-toastify/dist/ReactToastify.css';
-
 import { zodResolver } from '@hookform/resolvers/zod';
-import axios from 'axios';
 import { AxiosError } from 'axios';
 import { Lock, User } from 'lucide-react';
 import { useState } from 'react';
@@ -11,7 +8,6 @@ import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { z } from 'zod';
 
-import { api } from '@/api';
 import { Input } from '@/components/Input';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/context/auth-provider';
@@ -19,7 +15,7 @@ import { useTheme } from '@/context/theme-provider';
 import DarkLogo from '@/public/img/Logo.svg';
 import LightLogo from '@/public/img/Logo-light.svg';
 
-import { BackGroundDiv } from './styles';
+import { BackGroundDiv, Logo } from './styles';
 
 type passwordAppearenceType = 'text' | 'password';
 
@@ -31,8 +27,7 @@ const createUserSchema = z.object({
 type LoginFormData = z.infer<typeof createUserSchema>;
 
 export const ClientLogin = () => {
-    const { setAuth } = useAuth();
-
+    const { login, user } = useAuth();
     const { theme } = useTheme();
     const navigate = useNavigate();
 
@@ -48,13 +43,9 @@ export const ClientLogin = () => {
 
     const handleLogin = async (userData: LoginFormData) => {
         try {
-            const res = await axios.post(`${import.meta.env.VITE_BASE_URL}/auth/login`, userData);
-            const { refreshToken } = res.data;
-            sessionStorage.setItem('refreshToken', refreshToken);
-            api.defaults.headers.common['refreshToken'] = refreshToken;
-            console.log(api.defaults.headers.common);
-            setAuth(true);
-            navigate('/dashboard/services');
+            await login(userData.email, userData.password);
+            console.log(user);
+            user?.role === 'professional' ? navigate('/professional/dashboard') : navigate('/dashboard/services');
         } catch (error) {
             if (error instanceof AxiosError) {
                 toast.error(error.response?.data.message);
@@ -91,7 +82,7 @@ export const ClientLogin = () => {
                                 {...register('email')}
                             />
                         </div>
-                        {errors.email && <p className="py-2 text-red-500">{errors.email.message}</p>}
+                        {errors.email && <p className="py-2 text-sm text-red-500">{errors.email.message}</p>}
                     </section>
                     <section>
                         <label htmlFor="" className="block py-2 font-bold ">
@@ -107,7 +98,7 @@ export const ClientLogin = () => {
                                 {...register('password')}
                             />
                         </div>
-                        {errors.password && <p className="py-2 text-red-500">{errors.password.message}</p>}
+                        {errors.password && <p className="py-2 text-sm text-red-500">{errors.password.message}</p>}
                     </section>
                     <section className="flex items-center justify-center gap-2">
                         <input
@@ -130,8 +121,17 @@ export const ClientLogin = () => {
                     </p>
                 </form>
             </div>
-            <div className="flex h-full w-4/6 items-center justify-center max-xl:hidden">
-                <BackGroundDiv></BackGroundDiv>
+            <div className="flex h-full w-4/6 flex-col items-center justify-center max-xl:hidden">
+                <div className="flex h-full w-1/2 items-center justify-center max-lg:hidden">
+                    <BackGroundDiv>
+                        <div className="-mt-36 flex flex-col items-center justify-center">
+                            <Logo />
+
+                            <h1 className="text-center font-poppins-start font-bold text-white">Facilite sua agenda com o MeetFlow</h1>
+                            <p className="w-2/3 text-center text-white">Agende e organize com MeetFlow - conecte-se facilmente a serviços e profissionais. Experimente!</p>
+                        </div>
+                    </BackGroundDiv>
+                </div>
             </div>
         </div>
     );

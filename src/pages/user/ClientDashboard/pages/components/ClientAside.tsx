@@ -16,7 +16,7 @@ import { AsideItem } from './AsideItem';
 import { ClientMenu } from './ClientMenu';
 
 export const ClientAside = () => {
-    const { isAuth } = useAuth();
+    const { isAuthenticated } = useAuth();
     const { theme } = useTheme();
     const { setTheme } = useTheme();
 
@@ -83,7 +83,7 @@ export const ClientAside = () => {
                     </div>
                 </div>
                 <div className="mt-[10%] flex w-full flex-col gap-y-1 max-lg:gap-0 max-sm:hidden">
-                    {!isAuth && (
+                    {!isAuthenticated && (
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger>
@@ -145,8 +145,7 @@ export const ClientAside = () => {
                             </div>
                         </DialogContent>
                     </Dialog>
-
-                    {isAuth && (
+                    {isAuthenticated && (
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger>
@@ -284,7 +283,7 @@ export const ClientAside = () => {
                             </Dialog>
                         </div>
                         <div className="mt-[10%] flex w-full flex-col gap-y-1 ">
-                            {!isAuth && (
+                            {!isAuthenticated && (
                                 <TooltipProvider>
                                     <Tooltip>
                                         <TooltipTrigger>
@@ -353,7 +352,7 @@ export const ClientAside = () => {
                                 </DialogContent>
                             </Dialog>
 
-                            {isAuth && (
+                            {isAuthenticated && (
                                 <TooltipProvider>
                                     <Tooltip>
                                         <TooltipTrigger>

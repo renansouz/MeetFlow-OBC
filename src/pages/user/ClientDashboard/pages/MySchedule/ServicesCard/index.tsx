@@ -12,7 +12,7 @@ export const ServicesCard = () => {
     useEffect(() => {
         const timeout = setTimeout(() => {
             setLoading(false);
-        }, 3000);
+        }, 2000);
 
         return () => clearTimeout(timeout);
     }, []);
@@ -48,10 +48,10 @@ export const ServicesCard = () => {
                             </Card>
                             <Card className="fflex flex h-12 items-center justify-center gap-2 rounded-md border-2 border-border px-4">
                                 <CalendarDays className="text-indigo-500" />
-                                11/05/2024
+                                31/03/2024
                             </Card>
                             <Card className="fflex flex h-12 items-center justify-center gap-2 rounded-md border-2 border-border px-4">
-                                <Clock className="text-indigo-500" /> 11:00h ás 13:00h
+                                <Clock className="text-indigo-500" /> 10:00h ás 12:00h
                             </Card>
                         </div>
                         <Button asChild className="hover:bg-indigo-80 max-mlg:text-base font-liht bg-indigo-700  text-lg" variant={'default'}>

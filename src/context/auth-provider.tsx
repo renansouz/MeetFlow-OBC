@@ -1,44 +1,73 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import Cookies from 'js-cookie';
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
-export type authType = boolean;
+import { api } from '@/lib/axios';
 
-export type authContextType = {
-    isAuth: authType;
-    setAuth: (authState: authType) => void;
+type User = {
+    email: string;
+    role: string;
+    _id: string;
 };
 
-export const authContext = createContext<authContextType | undefined>(undefined);
+type AuthContextData = {
+    login(email: string, password: string): Promise<void>;
+    isAuthenticated: boolean;
+    user: User | null;
+    signOut: () => void;
+};
 
-type authProviderProps = { children: React.ReactNode };
+const AuthContext = createContext({} as AuthContextData);
 
-export const AuthContextProvider = ({ children }: authProviderProps) => {
-    const [isAuthState, setAuthState] = useState<authType>(false);
-
-    const setAuth = (authState: authType) => {
-        setAuthState(authState);
-    };
-
-    const value: authContextType = {
-        isAuth: isAuthState,
-        setAuth: setAuth,
-    };
+export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    const [user, setUser] = useState<User | null>(null);
+    const [loading, setLoading] = useState(false);
+    const isAuthenticated = !!user;
 
     useEffect(() => {
-        const token = sessionStorage.getItem('refreshToken');
-        if (!token) {
-            setAuth(false);
+        const userComingFromCookie = Cookies.get('meetFlow.user');
+        const refreshToken = Cookies.get('meetFlow.refreshToken');
+        console.log('userComingFromCookie', userComingFromCookie);
+        const parsedUser = userComingFromCookie ? JSON.parse(userComingFromCookie) : null;
+        console.log('parsedUser', parsedUser);
+        if (parsedUser && refreshToken) {
+            setUser(parsedUser);
         } else {
-            setAuth(true);
+            signOut();
         }
     }, []);
 
-    return <authContext.Provider value={value}>{children}</authContext.Provider>;
+    const login = async (email: string, password: string) => {
+        try {
+            setLoading(true);
+
+            const response = await api.post('auth/login', {
+                email,
+                password,
+                passwordConfirmation: password,
+            });
+            const { accessToken: token, refreshToken, user: userComing } = response?.data || {};
+            Cookies.set('meetFlow.token', token, { expires: 30, path: '/' });
+            Cookies.set('meetFlow.refreshToken', refreshToken, { expires: 30, path: '/' });
+            Cookies.set('meetFlow.user', JSON.stringify(userComing), { expires: 30, path: '/' });
+
+            setUser(userComing);
+            api.defaults.timeout = 3000;
+            api.defaults.headers['authorization'] = `Bearer ${token}`;
+            setLoading(false);
+            toast.success('Login efetuado com sucesso!');
+        } catch (error) {
+            throw error;
+        }
+    };
+
+    const signOut = () => {
+        Cookies.remove('meetFlow.token');
+        Cookies.remove('meetFlow.refreshToken');
+        Cookies.remove('meetFlow.user');
+        setUser(null);
+    };
+    return <AuthContext.Provider value={{ login, isAuthenticated, user, signOut }}>{children}</AuthContext.Provider>;
 };
 
-export const useAuth = (): authContextType => {
-    const context = useContext(authContext);
-
-    if (context === undefined) throw new Error('useAuth must be used within a AuthContextProvider');
-
-    return context;
-};
+export const useAuth = (): AuthContextData => useContext(AuthContext);
