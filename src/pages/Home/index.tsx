@@ -14,8 +14,8 @@ export const Home = () => {
             <section id="hero-section" className="h-screen min-h-lvh p-0 text-center">
                 <BackGroundImage>
                     <div className="flex flex-col items-center justify-center gap-2">
-                        <h1 className="text-center text-[3rem] font-bold text-indigo-100  max-sm:text-3xl">
-                            <span className="font-poppins-end text-[3rem] font-extrabold text-indigo-500 max-sm:text-3xl">Simplifique </span> seus agendamentos
+                        <h1 className="text-center font-bold text-indigo-100  max-sm:text-3xl">
+                            <span className="font-poppins-end text-[2.5rem] font-extrabold text-indigo-500 max-sm:text-3xl">Simplifique </span> seus agendamentos
                             <div>otimize seu tempo</div>
                         </h1>
                         <p className="mb-8 text-center text-xl font-light text-indigo-100 max-lg:text-base max-sm:mb-10 max-sm:mt-0 max-sm:text-lg">
