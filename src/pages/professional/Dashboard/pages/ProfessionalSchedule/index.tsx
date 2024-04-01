@@ -45,7 +45,6 @@ export function ProfessionalOwnProfile() {
 
     async function onSubmit(data: RegisterFormData) {
         setTimeout(() => {
-            console.log(data);
         }, 2000);
     }
     return (

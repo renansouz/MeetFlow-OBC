@@ -27,7 +27,6 @@ export const Services = () => {
 
     const [professionals, setProfessionals] = useState<CardData[]>();
 
-    console.log(professionals);
 
     useEffect(() => {
         const timeout = setTimeout(() => {
@@ -52,7 +51,6 @@ export const Services = () => {
                 setProfessionals(data);
             } catch (error) {
                 if (error instanceof AxiosError) {
-                    console.log(error.message);
                 }
             }
         }

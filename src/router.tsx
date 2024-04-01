@@ -3,7 +3,8 @@ import { AppLayout } from './_layouts/AppLayout';
 import { AuthLayout } from './_layouts/auth';
 import { ProfessionalDashboardLayout } from './_layouts/ProfessionalDashboardLayout';
 import { UserDashboardLayout } from './_layouts/UserDashboardLayout';
-import { ProtectedRoute } from './components/ProtectedRoute';
+import { ProfessionalProtectedRoute } from './components/ProtectedRoute/ProfessionalProtectedRoute';
+import { ClientProtectedRoute } from './components/ProtectedRoute/ClientProtectedRoute';
 import { NotFound } from './pages/404';
 import { Home } from './pages/Home';
 import { ProfessionalDashboard } from './pages/professional/Dashboard';
@@ -80,7 +81,11 @@ export const RouterWrapper = (): any => {
             children: [
                 {
                     path: '/dashboard/myschedules',
-                    element: <MySchedules />,
+                    element: (
+                        <ClientProtectedRoute>
+                            <MySchedules />
+                        </ClientProtectedRoute>
+                    ),
                 },
             ],
         },
@@ -95,7 +100,11 @@ export const RouterWrapper = (): any => {
             children: [
                 {
                     path: '/professional/dashboard',
-                    element: <ProfessionalDashboard />,
+                    element: (
+                        <ProfessionalProtectedRoute>
+                            <ProfessionalDashboard />,
+                        </ProfessionalProtectedRoute>
+                    ),
                 },
             ],
         },

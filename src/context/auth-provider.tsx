@@ -28,9 +28,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     useEffect(() => {
         const userComingFromCookie = Cookies.get('meetFlow.user');
         const refreshToken = Cookies.get('meetFlow.refreshToken');
-        console.log('userComingFromCookie', userComingFromCookie);
         const parsedUser = userComingFromCookie ? JSON.parse(userComingFromCookie) : null;
-        console.log('parsedUser', parsedUser);
         if (parsedUser && refreshToken) {
             setUser(parsedUser);
         } else {

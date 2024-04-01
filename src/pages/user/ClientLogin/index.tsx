@@ -44,7 +44,6 @@ export const ClientLogin = () => {
     const handleLogin = async (userData: LoginFormData) => {
         try {
             await login(userData.email, userData.password);
-            console.log(user);
             user?.role === 'professional' ? navigate('/professional/dashboard') : navigate('/dashboard/services');
         } catch (error) {
             if (error instanceof AxiosError) {

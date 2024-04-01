@@ -72,7 +72,6 @@ export function CalendarProfessional({ selectedDate, onDateSelected }: CalendarP
             return [];
         }
 
-        console.log('calendarWeeks ~ blockedDates', blockedDates);
 
         const daysInMonthArray = Array.from({
             length: currentDate.daysInMonth(), // daysInMonth() retorna o número de dias do mês

@@ -7,7 +7,6 @@ export class professionalAPI {
     static async createSchedule(scheduleData: ScheduleFormData) {
         const currentSignupAcessToken = sessionStorage.getItem('currentSignupAcessToken');
         try {
-            console.log(scheduleData);
             const response = await api.post('/schedule/add', scheduleData, { headers: { Authorization: `Bearer ${currentSignupAcessToken}` } });
             return response.data;
         } catch (error) {

@@ -22,7 +22,6 @@ export const ClientMenu = () => {
     };
 
     useEffect(() => {
-        console.log('fetch');
         const getUserData = async () => {
             const res = await userAPI.fetchUserData();
             const { user } = await res;

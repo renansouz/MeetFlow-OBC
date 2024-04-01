@@ -61,11 +61,9 @@ export function ProfessionalProfile() {
         async function getProfileData() {
             try {
                 const data = await getProfile(_id);
-                console.log(data);
                 setProfessional(data);
             } catch (error) {
                 if (error instanceof AxiosError) {
-                    console.log(error.message);
                 }
             }
         }
