@@ -1,12 +1,10 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import axios from 'axios';
 import { AxiosError } from 'axios';
 import { Calendar, ChevronDown, Home, Layers, LifeBuoy, LogOut, Menu, PersonStanding, Plus, Settings, User, Users } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import { z } from 'zod';
-
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
@@ -14,12 +12,11 @@ import { Select, SelectContent, SelectTrigger, SelectValue } from '@/components/
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Textarea } from '@/components/ui/textarea';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { useAuth } from '@/context/auth-provider';
 import { useTheme } from '@/context/theme-provider';
 import Logo from '@/public/img/Logo.svg';
 import LightLogo from '@/public/img/Logo-light.svg';
 import LogoMenor from '@/public/img/only-logo-white.svg';
-
+import { useAuth } from '@/context/auth-provider';
 import { AsideItem } from './asideItem';
 import { createService } from '@/api/createService';
 
@@ -36,6 +33,7 @@ export const ProfessionalAside = () => {
     const { setTheme } = useTheme();
     const navigate = useNavigate();
     const { theme } = useTheme();
+    const { signOut } = useAuth();
 
     const {
         register,
@@ -54,6 +52,11 @@ export const ProfessionalAside = () => {
         } finally {
             reset();
         }
+    };
+
+    const handleLogout = () => {
+        signOut();
+        navigate('/');
     };
 
     return (
@@ -234,10 +237,10 @@ export const ProfessionalAside = () => {
                     </Dialog>
 
                     <Button asChild className="flex h-11 items-center justify-start gap-3 bg-inherit px-10 py-7 hover:bg-inherit max-lg:justify-center max-lg:px-0 ">
-                        <Link className="justify-center gap-x-5" to={''}>
+                        <div className="justify-center gap-x-5" onClick={handleLogout}>
                             <span className="text-lg text-red-500 max-lg:hidden">Sair</span>
                             <LogOut className="text-red-500" />
-                        </Link>
+                        </div>
                     </Button>
                 </div>
             </aside>
