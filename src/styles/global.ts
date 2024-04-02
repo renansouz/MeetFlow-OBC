@@ -56,6 +56,7 @@ body::-webkit-scrollbar-thumb:active {
         font-weight: 600;
         font-size: 2.5rem;
     }
+
     p,
     span {
         font-weight: 400;

@@ -18,8 +18,6 @@ export function MySchedules() {
                 </CardHeader>
                 <CardContent>
                     <ServicesCard />
-                    <ServicesCard />
-                    <ServicesCard />
                 </CardContent>
             </Card>
         </>

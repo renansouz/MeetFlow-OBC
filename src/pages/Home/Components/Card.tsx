@@ -8,13 +8,13 @@ type CardProps = {
 
 export const Card = ({ Icon, title, label }: CardProps) => {
     return (
-        <div className="flex h-24 w-4/5  items-center gap-10 max-xl:w-full max-xl:flex-col">
-            <div className="flex h-24 w-24 items-center justify-center rounded-full bg-sky-950">
-                <Icon className="max-xl:w-18 h-14 w-14 text-5xl text-indigo-600 max-xl:h-24" />
+        <div className="flex items-center  gap-10">
+            <div className="flex items-center justify-center rounded-full bg-indigo-600 p-4">
+                <Icon className="max-xl:w-18 h-10 w-10 text-5xl text-indigo-400" />
             </div>
             <div>
-                <h2 className="mb-2 font-semibold max-xl:text-center max-xl:text-lg">{title}</h2>
-                <p className="max-xl:text-center">{label}</p>
+                <h2 className="mb-2 text-xl font-bold">{title}</h2>
+                <p className="text-start text-xl font-light text-foreground max-xl:text-sm">{label}</p>
             </div>
         </div>
     );

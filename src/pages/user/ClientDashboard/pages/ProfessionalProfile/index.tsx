@@ -22,13 +22,12 @@ interface Availability {
 
 export function ProfessionalProfile() {
     const { _id } = useParams();
-
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const timeout = setTimeout(() => {
             setLoading(false);
-        }, 3000);
+        }, 2000);
 
         return () => clearTimeout(timeout);
     }, []);
@@ -47,18 +46,24 @@ export function ProfessionalProfile() {
 
     const selectedDateWithoutTime = selectedDate ? dayjs(selectedDate).format('YYYY-MM-DD') : null;
 
-    const onSelectDateTime = (param: Date) =>
+    const onSelectDateTime = (param: Date) => {
         void function handleSelectTime(hour: number) {
             const dateWithTime = new Date(selectedDate!);
             dateWithTime.setHours(hour);
             onSelectDateTime(dateWithTime);
         };
+    };
+
+    const [professional, setProfessional] = useState<GetProfileResponse>();
 
     useEffect(() => {
         async function getProfileData() {
             try {
                 const res = await getProfile(_id);
                 console.log('res', res);
+                // const data = await getProfile(_id);
+                // console.log(data);
+                // setProfessional(data);
             } catch (error) {
                 if (error instanceof AxiosError) {
                     console.log(error.message);
@@ -68,6 +73,7 @@ export function ProfessionalProfile() {
 
         getProfileData();
     }, []);
+
     const [showContent, setShowContent] = useState(false);
 
     return (
@@ -75,17 +81,18 @@ export function ProfessionalProfile() {
             <CardHeader className="h-32 w-full rounded-tl-md rounded-tr-md bg-indigo-300 pt-14 max-lg:rounded-none">
                 <Avatar className="h-36 w-full rounded-full">
                     <AvatarImage src="https://github.com/renansouz.png" className="ml-5 w-36 rounded-full border-4 border-background" />
-                    <AvatarFallback className="ml-5 w-36 rounded-full border-4 border-background">CN</AvatarFallback>
+                    <AvatarFallback className="ml-5 w-36 rounded-full border-4 border-background">{professional?.name.slice(0, 1)}</AvatarFallback>
                 </Avatar>
             </CardHeader>
             <CardContent className="mt-20 flex w-full flex-col gap-y-2 border-b-2">
-                <CardTitle className="ml-6 text-left font-bold " style={{ maxWidth: '600px' }}>
-                    {}Renan Souza
+                <CardTitle className="ml-6 text-left text-xl font-bold " style={{ maxWidth: '600px' }}>
+                    {/* {professional?.name} */}
+                    Renan Silva
                 </CardTitle>
-                <CardDescription className="ml-6 w-full font-light">Olá me chamo Renan, caso queira aprender tailwind, agende uma reunião comigo!</CardDescription>
-                <span className="ml-5 mt-3 font-bold text-indigo-600/90">+ 10 agendamentos</span>
+                <CardDescription className="ml-6 w-full font-light"> Desenvolvimento, Inovação</CardDescription>
+                <span className="ml-5 mt-3 font-bold text-indigo-600/90">+ 11 agendamentos</span>
                 {/* SERVIÇOS */}
-                <h2 className="mb-10 ml-10 mt-10 flex items-center justify-start text-3xl font-light max-md:mx-10">Serviços de Renan</h2>
+                <h2 className=" ml-10 mt-10 flex items-center justify-start text-3xl font-light max-md:mx-10">Serviços de Renan</h2>
                 <ProfessionalService onServiceClick={() => setShowContent(true)} />
             </CardContent>
             {/* calendário */}
@@ -112,8 +119,8 @@ export function ProfessionalProfile() {
                                     ))}
                                 </TimePickerList>
                                 <Dialog>
-                                    <DialogTrigger asChild className="flex flex-col">
-                                        <Button className="flex h-16 w-full p-2 text-xl">Solicitar Agendamento</Button>
+                                    <DialogTrigger asChild>
+                                        <Button className="flex h-14 w-full p-2 text-xl">Solicitar Agendamento</Button>
                                     </DialogTrigger>
                                     <DialogContent>
                                         <DialogHeader className="gap-1">
@@ -138,7 +145,7 @@ export function ProfessionalProfile() {
                                                 <div className="flex justify-between gap-4 border-b-2 pb-4">
                                                     <CalendarCheck2 className="text-foreground" />
                                                     <span className="w-1/2 font-bold">Data e Hora:</span>
-                                                    <span className="w-1/2">11/04/2024 ás 11:11</span>
+                                                    <span className="w-1/2">31/03/2024 ás 10:0</span>
                                                 </div>
                                                 <div className="flex justify-between gap-4 border-b-2 pb-4">
                                                     <DollarSign className="text-foreground" />

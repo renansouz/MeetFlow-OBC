@@ -7,9 +7,7 @@ import { Step1, Step2, Step3 } from './step';
 import { BackGroundDiv } from './styles';
 
 export const ProfessionalRegister = () => {
-    const { theme } = useTheme();
-
-    const [currentStepState, setCurrentStepState] = useState<number>(3);
+    const [currentStepState, setCurrentStepState] = useState<number>(1);
 
     return (
         <div className="flex h-full w-full bg-card">

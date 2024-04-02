@@ -15,7 +15,7 @@ type AuthContextData = {
     login(email: string, password: string): Promise<void>;
     isAuthenticated: boolean;
     user: User | null;
-    logout: () => void;
+    signOut: () => void;
 };
 
 const AuthContext = createContext({} as AuthContextData);
@@ -28,7 +28,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     useEffect(() => {
         const userComingFromCookie = Cookies.get('meetFlow.user');
         const refreshToken = Cookies.get('meetFlow.refreshToken');
-
         console.log('userComingFromCookie', userComingFromCookie);
         const parsedUser = userComingFromCookie ? JSON.parse(userComingFromCookie) : null;
         console.log('parsedUser', parsedUser);
@@ -58,25 +57,18 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
             api.defaults.headers['authorization'] = `Bearer ${token}`;
             setLoading(false);
             toast.success('Login efetuado com sucesso!');
-        } catch (error: any) {
-            setLoading(false);
-            loading && toast.error(error.response?.data.message);
+        } catch (error) {
+            throw error;
         }
-    };
-
-    const logout = () => {
-        Cookies.remove('meetFlow.token');
-        Cookies.remove('meetFlow.refreshToken');
-        Cookies.remove('meetFlow.user');
-        setUser(null);
     };
 
     const signOut = () => {
         Cookies.remove('meetFlow.token');
         Cookies.remove('meetFlow.refreshToken');
         Cookies.remove('meetFlow.user');
+        setUser(null);
     };
-    return <AuthContext.Provider value={{ login, isAuthenticated, user, logout }}>{children}</AuthContext.Provider>;
+    return <AuthContext.Provider value={{ login, isAuthenticated, user, signOut }}>{children}</AuthContext.Provider>;
 };
 
 export const useAuth = (): AuthContextData => useContext(AuthContext);
