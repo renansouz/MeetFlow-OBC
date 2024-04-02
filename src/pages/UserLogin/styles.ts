@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-
 import pageBackground from '@/public/img/login-background.jpg';
 
 export const BackGroundDiv = styled.div`

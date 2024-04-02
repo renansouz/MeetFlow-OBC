@@ -46,7 +46,7 @@ export const Step1 = ({ setCurrentStepState }: stepProps) => {
     } = useForm<RegisterFormData>({ resolver: zodResolver(createUserSchema) });
 
     async function handleSignUp(userData: RegisterFormData) {
-        const SignInBody = { ...userData, role: 'client' };
+        const SignInBody = { ...userData, role: 'professional' };
 
         try {
             const res = await signIn(SignInBody);

@@ -6,8 +6,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { z } from 'zod';
-
-import { userAPI } from '@/api/userAPI';
+import { signIn } from '@/api/sign-in';
 import { Input } from '@/components/Input';
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/context/theme-provider';
@@ -36,8 +35,9 @@ export const ClientRegister = () => {
     const [showPassword, setShowPassword] = useState(false);
 
     async function handleSignUp(userData: RegisterFormData) {
+        const SignInBody = { ...userData, role: 'client' };
         try {
-            await userAPI.createUser(userData, 'client');
+            await signIn(SignInBody);
             toast.success('Conta criada com sucesso');
             setTimeout(() => {
                 navigate('/login');

@@ -13,7 +13,7 @@ import { ClientDashboard } from './pages/user/ClientDashboard';
 import { MySchedules } from './pages/user/ClientDashboard/pages/MySchedule';
 import { ProfessionalProfile } from './pages/user/ClientDashboard/pages/ProfessionalProfile';
 import { Services } from './pages/user/ClientDashboard/pages/Services';
-import { ClientLogin } from './pages/user/ClientLogin';
+import { ClientLogin } from './pages/UserLogin';
 import { ClientRegister } from './pages/user/ClientRegister';
 import { ProfessionalProtectedRoute } from './components/ProtectedRoute/ProfessionalProtectedRoute';
 import { RouterProps } from 'react-router-dom';
