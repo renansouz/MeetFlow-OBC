@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
-import { Navigate, Outlet } from 'react-router-dom';
-import { useAuth, User } from '@/context/auth-provider';
+import { Navigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
 type ProtectedRouteType = {
@@ -8,11 +7,10 @@ type ProtectedRouteType = {
 };
 
 export const ProfessionalProtectedRoute = ({ children }: ProtectedRouteType) => {
-    
     const userComingFromCookie = Cookies.get('meetFlow.user');
     const user = userComingFromCookie ? JSON.parse(userComingFromCookie) : null;
 
-    console.log(user);
+    console.log(user.role);
 
-    return user.role === 'profesional' ? children : <Navigate to={'/professional/register'} />;
+    return user.role === 'professional' ? children : <Navigate to={'/professional/register'} />;
 };

@@ -40,7 +40,7 @@ export const ClientRegister = () => {
             await userAPI.createUser(userData, 'client');
             toast.success('Conta criada com sucesso');
             setTimeout(() => {
-                navigate('/dashboard/services');
+                navigate('/login');
             }, 1500);
         } catch (error) {
             if (error instanceof AxiosError) {
