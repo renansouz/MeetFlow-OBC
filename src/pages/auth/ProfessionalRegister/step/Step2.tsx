@@ -36,8 +36,8 @@ const createScheduleSchema = z.object({
         saturday1: z.boolean(),
         sunday1: z.boolean(),
     }),
-    hourStart1: z.string({ required_error: 'Campo obrigatório' }),
-    hourEnd1: z.string({ required_error: 'Campo obrigatório' }),
+    hourStart1: z.string().min(1, 'Campo obrigatório'),
+    hourEnd1: z.string().min(1, 'Campo obrigatório'),
 });
 
 export type ScheduleFormData = z.infer<typeof createScheduleSchema>;
@@ -94,9 +94,10 @@ export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
                                 </Select>
                             );
                         }}
+                        rules={{ required: 'Campo obrigatório' }}
                     ></Controller>
                     {errors.hourStart1 && <p>{errors.hourStart1.message}</p>}
-                    <p className="text-foreground">até</p>
+                    <p className="text-foreground">awté</p>
                     <Controller
                         name="hourEnd1"
                         control={control}
@@ -116,6 +117,7 @@ export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
                                 </Select>
                             );
                         }}
+                        rules={{ required: 'Campo obrigatório' }}
                     ></Controller>
                 </div>
                 <div className="flex gap-x-12">{errors.hourEnd1 && <p className="text-red-600">{errors.hourEnd1.message}</p>}</div>

@@ -95,7 +95,7 @@ export const LandingPage = () => {
                             Se você é um profissional em busca de mais oportunidades, junte-se à nossa comunidade. Aumente sua visibilidade e simplifique seu agendamento
                         </p>
                         <div className="group inline-flex h-14 w-80 items-center justify-center rounded-md bg-indigo-700 px-6 py-2 text-2xl text-white max-xl:mb-[20%] max-sm:text-xl">
-                            <Link to={'/register'}>Comece agora</Link>
+                            <Link to={'/professional/register'}>Comece agora</Link>
                         </div>
                     </div>
                 </div>
