@@ -1,8 +1,7 @@
 import Cookies from 'js-cookie';
-
 import { RegisterFormData } from '@/pages/user/ClientRegister';
-
 import { api } from '.';
+import { Role } from '@/context/auth-provider';
 
 export class userAPI {
     static async fetchProfileData(_id: string | undefined) {
@@ -14,8 +13,8 @@ export class userAPI {
         }
     }
 
-    static async createUser(userData: RegisterFormData) {
-        const data = { ...userData, role: 'professional' };
+    static async createUser(userData: RegisterFormData, role: Role) {
+        const data = { ...userData, role };
         try {
             const res = await api.post('/auth/signup', data);
             return res;

@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 import { AppLayout } from './_layouts/AppLayout';
 import { AuthLayout } from './_layouts/auth';
 import { ProfessionalDashboardLayout } from './_layouts/ProfessionalDashboardLayout';
@@ -15,6 +15,8 @@ import { ProfessionalProfile } from './pages/user/ClientDashboard/pages/Professi
 import { Services } from './pages/user/ClientDashboard/pages/Services';
 import { ClientLogin } from './pages/user/ClientLogin';
 import { ClientRegister } from './pages/user/ClientRegister';
+import { ProfessionalProtectedRoute } from './components/ProtectedRoute/ProfessionalProtectedRoute';
+import { RouterProps } from 'react-router-dom';
 
 export const RouterWrapper = (): any => {
     const router = createBrowserRouter([
@@ -94,7 +96,11 @@ export const RouterWrapper = (): any => {
             children: [
                 {
                     path: '/professional/dashboard',
-                    element: <ProfessionalDashboard />,
+                    element: (
+                        <ProfessionalProtectedRoute>
+                            <ProfessionalDashboard />
+                        </ProfessionalProtectedRoute>
+                    ),
                 },
             ],
         },
