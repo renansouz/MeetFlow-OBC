@@ -42,9 +42,9 @@ export const ProfessionalAside = () => {
         formState: { errors },
     } = useForm<NewServiceFormData>({ resolver: zodResolver(createNewServiceSchema) });
 
-    const handleCreateService = async (userData: NewServiceFormData) => {
+    const handleCreateService = async (serviceData: NewServiceFormData) => {
         try {
-            const res = await createService(userData);
+            const res = await createService(serviceData);
         } catch (error) {
             if (error instanceof AxiosError) {
                 toast.error(error.response?.data.message);

@@ -16,3 +16,4 @@ export async function signIn({ name, email, password, passwordConfirmation, role
         throw error;
     }
 }
+
