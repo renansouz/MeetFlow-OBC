@@ -1,13 +1,13 @@
 import { Menu } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+//import { useAuth } from '@/context/auth-provider';
+import { useTheme } from '@/components/theme/theme-provider';
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from '@/components/ui/navigation-menu';
 import { Separator } from '@/components/ui/separator';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-//import { useAuth } from '@/context/auth-provider';
-import { useTheme } from '@/context/theme-provider';
-import Logo from '@/public/img/Logo.svg';
-import LightLogo from '@/public/img/Logo-light.svg';
+import Logo from '@/public/Logo.svg';
+import LightLogo from '@/public/Logo-light.svg';
 
 import { ThemeToggle } from '../theme/theme-toggle';
 

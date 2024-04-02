@@ -1,15 +1,15 @@
 import { ChevronDown, Menu } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+import { useTheme } from '@/components/theme/theme-provider';
+import { Button } from '@/components/ui/button';
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from '@/components/ui/navigation-menu';
 import { Separator } from '@/components/ui/separator';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { useTheme } from '@/context/theme-provider';
-import Logo from '@/public/img/Logo.svg';
-import LightLogo from '@/public/img/Logo-light.svg';
+import Logo from '@/public/Logo.svg';
+import LightLogo from '@/public/Logo-light.svg';
 
 import { ThemeToggle } from '../theme/theme-toggle';
-import { Button } from '../ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog';
 import { Select, SelectContent, SelectTrigger, SelectValue } from '../ui/select';
 
@@ -19,8 +19,8 @@ export const Header = () => {
 
     return (
         <div className="h-[10%] ">
-            <div className=" fixed z-10  flex max-h-[7%] w-screen  items-center justify-between border-b bg-card px-6 ">
-                <div className="absolute left-0 top-11 -mt-10 h-[100%] w-full bg-card bg-gradient-to-b from-transparent to-card opacity-70 blur"></div>
+            <div className=" fixed z-10 flex max-h-[7%]  w-screen items-center justify-between border-b bg-card px-6">
+                <div className="absolute left-0 top-11 h-5 w-full bg-card bg-gradient-to-b from-transparent to-card opacity-70 blur"></div>
                 <div className="z-10">
                     <Link to={'/'}>
                         <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="max-h-20" />
