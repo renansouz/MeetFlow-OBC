@@ -12,7 +12,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Textarea } from '@/components/ui/textarea';
-import { ProfessionalService } from '@/pages/user/ClientDashboard/pages/ProfessionalProfile/ProfessionalService';
+import { ProfessionalService } from '@/pages/user/ClientDashboard/pages/ProfessionalProfile/ProfessionalServiceCard';
 const createUserSchema = z.object({
     username: z.string().min(2, { message: 'Username must be at least 2 characters.' }),
     description: z.string().min(2, { message: 'Username must be at least 2 characters.' }),
@@ -44,8 +44,7 @@ export function ProfessionalOwnProfile() {
     });
 
     async function onSubmit(data: RegisterFormData) {
-        setTimeout(() => {
-        }, 2000);
+        setTimeout(() => {}, 2000);
     }
     return (
         <div>

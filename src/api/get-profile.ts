@@ -1,4 +1,4 @@
-import { api } from '@/lib/axios';
+import { api } from '.';
 
 export interface GetProfileParams {
     _id?: string;
@@ -17,7 +17,10 @@ export interface GetProfileResponse {
 }
 
 export async function getProfile(_id: GetProfileParams) {
-    const response = await api.get<GetProfileResponse>(`/user/load?_id=${_id}`);
-
-    return response.data;
+    try {
+        const response = await api.get<GetProfileResponse>(`/user/load?_id=${_id}`);
+        return response.data;
+    } catch (error) {
+        throw error;
+    }
 }

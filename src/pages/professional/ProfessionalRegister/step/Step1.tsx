@@ -6,10 +6,9 @@ import { MoveRight } from 'lucide-react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { z } from 'zod';
-import { userAPI } from '@/api/userAPI';
+import { signIn } from '@/api/sign-in';
 import { Input } from '@/components/Input';
 import { Button } from '@/components/ui/button';
 
@@ -19,7 +18,6 @@ type stepProps = {
 };
 
 export const Step1 = ({ setCurrentStepState }: stepProps) => {
-    const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
 
     const togglePasswordVisibility = () => {
@@ -48,10 +46,12 @@ export const Step1 = ({ setCurrentStepState }: stepProps) => {
     } = useForm<RegisterFormData>({ resolver: zodResolver(createUserSchema) });
 
     async function handleSignUp(userData: RegisterFormData) {
+        const SignInBody = { ...userData, role: 'client' };
+
         try {
-            const res: AxiosResponse = await userAPI.createUser(userData, 'profesional');
-            sessionStorage.setItem('currentSignupAcessToken', res.data?.accessToken);
-            sessionStorage.setItem('userID', res.data?.user._id);
+            const res = await signIn(SignInBody);
+            sessionStorage.setItem('currentSignupAcessToken', res.accessToken);
+            sessionStorage.setItem('userID', res.user._id);
             setCurrentStepState(2);
         } catch (error) {
             if (error instanceof AxiosError) {

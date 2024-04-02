@@ -3,18 +3,19 @@ import dayjs from 'dayjs';
 import { BriefcaseBusiness, CalendarCheck2, ContactRound, DollarSign, HourglassIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
-import { getProfile } from '@/api/get-profile';
-import { GetProfileResponse } from '@/api/get-profile';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Skeleton } from '@/components/ui/skeleton';
-
 import { CalendarProfessional } from './Calendar';
-import { ProfessionalService } from './ProfessionalService';
+import { ProfessionalService } from './ProfessionalServiceCard';
 import { Container, TimePicker, TimePickerHeader, TimePickerItem, TimePickerList } from './styles';
+
+import { getProfile } from '@/api/get-profile';
+import { GetProfileResponse } from '@/api/get-profile';
+import { getProfessionalServices } from '@/api/getProfessionalServices';
+
 
 interface Availability {
     possibleTimes: number[];
@@ -56,6 +57,7 @@ export function ProfessionalProfile() {
     };
 
     const [professional, setProfessional] = useState<GetProfileResponse>();
+    const [services,setServices] = useState('');
 
     useEffect(() => {
         async function getProfileData() {
@@ -68,8 +70,22 @@ export function ProfessionalProfile() {
             }
         }
 
+        async function getProfessionalServicesData(){
+            try{
+                const data = await getProfessionalServices(_id);
+                console.log(data);
+                setServices(data);
+            }catch(error){
+                if(error instanceof AxiosError){} 
+            }
+        }
+
+        getProfessionalServicesData();
         getProfileData();
     }, []);
+
+    
+
 
     const [showContent, setShowContent] = useState(false);
 

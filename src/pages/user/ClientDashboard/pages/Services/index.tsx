@@ -23,10 +23,9 @@ type categories = {
 };
 
 export const Services = () => {
+    
     const [loading, setLoading] = useState(true);
-
     const [professionals, setProfessionals] = useState<CardData[]>();
-
 
     useEffect(() => {
         const timeout = setTimeout(() => {
@@ -48,6 +47,7 @@ export const Services = () => {
             try {
                 const res = await userAPI.fetchProfessionals();
                 const { data } = res;
+                console.log(data);
                 setProfessionals(data);
             } catch (error) {
                 if (error instanceof AxiosError) {

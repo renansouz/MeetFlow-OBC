@@ -4,11 +4,11 @@ import { MoveLeft, MoveRight } from 'lucide-react';
 import { Controller, useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
 import { z } from 'zod';
-
-import { professionalAPI } from '@/api/professionalAPI';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { dayHours } from '@/utils/dayHours';
+import { createSchedule } from '@/api/createSchedule';
+
 
 type stepProps = {
     currentStepState: number;
@@ -41,7 +41,7 @@ export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
 
     const createNewSchedule = async (scheduleData: ScheduleFormData) => {
         try {
-            await professionalAPI.createSchedule(scheduleData);
+            await createSchedule(scheduleData);
             setCurrentStepState(3);
         } catch (error) {
             if (error instanceof AxiosError) {

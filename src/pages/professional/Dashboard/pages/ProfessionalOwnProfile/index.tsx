@@ -11,7 +11,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Textarea } from '@/components/ui/textarea';
-import { ProfessionalService } from '@/pages/user/ClientDashboard/pages/ProfessionalProfile/ProfessionalService';
+import { ProfessionalService } from '@/pages/user/ClientDashboard/pages/ProfessionalProfile/ProfessionalServiceCard';
 import { getCurrentUserData } from '@/api/getCurrentUserData';
 import { AxiosError } from 'axios';
 import { UserType } from '@/types/userType';

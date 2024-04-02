@@ -2,7 +2,6 @@
 import Cookies from 'js-cookie';
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-
 import { api } from '@/api';
 
 export type User = {

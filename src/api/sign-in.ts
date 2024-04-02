@@ -1,4 +1,4 @@
-import { api } from '@/lib/axios';
+import { api } from '.';
 
 export interface SignInBody {
     name: string;
@@ -8,6 +8,11 @@ export interface SignInBody {
     role: string;
 }
 
-export async function signIn({ name, email, password, passwordConfirmation }: SignInBody) {
-    await api.post('/auth/signup', { name, email, password, passwordConfirmation, role: 'client' });
+export async function signIn({ name, email, password, passwordConfirmation, role }: SignInBody) {
+    try {
+        const res = await api.post('/auth/signup', { name, email, password, passwordConfirmation, role });
+        return res.data;
+    } catch (error) {
+        throw error;
+    }
 }
