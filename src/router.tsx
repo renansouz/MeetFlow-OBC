@@ -1,22 +1,22 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { RouteObject } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
+
+import { AuthLayout } from '@/_layouts/AuthLayout';
+import { DashboardLayout } from '@/_layouts/DashboardLayout';
+import { LandingPage } from '@/pages';
+import { NotFound } from '@/pages/404';
+import { ClientRegister } from '@/pages/auth';
+import { ProfessionalRegister } from '@/pages/auth';
+import { ClientLogin } from '@/pages/auth';
+import { DashboardClient } from '@/pages/dashboard/client';
+import { MySchedules } from '@/pages/dashboard/client';
+import { ProfessionalProfile } from '@/pages/dashboard/client';
+import { Services } from '@/pages/dashboard/client';
+import { Profile } from '@/pages/dashboard/professional';
+import { DashboardProfessional } from '@/pages/dashboard/professional';
+import { Clients } from '@/pages/dashboard/professional/ProfessionalClients';
+
 import { AppLayout } from './_layouts/AppLayout';
-import { AuthLayout } from './_layouts/Auth';
-import { ProfessionalDashboardLayout } from './_layouts/ProfessionalDashboardLayout';
-import { UserDashboardLayout } from './_layouts/UserDashboardLayout';
 import { ProtectedRoute } from './components/ProtectedRoute';
-import { NotFound } from './pages/404';
-import { Home } from './pages/Home';
-import { ProfessionalDashboard } from './pages/professional/Dashboard';
-import { Clients } from './pages/professional/Dashboard/pages/ProfessionalClients';
-import { ProfessionalOwnProfile } from './pages/professional/Dashboard/pages/ProfessionalOwnProfile';
-import { ProfessionalRegister } from './pages/professional/ProfessionalRegister';
-import { ClientDashboard } from './pages/user/ClientDashboard';
-import { MySchedules } from './pages/user/ClientDashboard/pages/MySchedule';
-import { ProfessionalProfile } from './pages/user/ClientDashboard/pages/ProfessionalProfile';
-import { Services } from './pages/user/ClientDashboard/pages/Services';
-import { ClientLogin } from './pages/user/ClientLogin';
-import { ClientRegister } from './pages/user/ClientRegister';
 
 export const RouterWrapper = (): any => {
     const router = createBrowserRouter([
@@ -26,7 +26,7 @@ export const RouterWrapper = (): any => {
             children: [
                 {
                     path: '/',
-                    element: <Home />,
+                    element: <LandingPage />,
                 },
             ],
         },
@@ -45,7 +45,7 @@ export const RouterWrapper = (): any => {
             element: <AuthLayout />,
             children: [
                 {
-                    path: '/register',
+                    path: 'client/register',
                     element: <ClientRegister />,
                 },
             ],
@@ -62,22 +62,22 @@ export const RouterWrapper = (): any => {
         },
         {
             path: '/',
-            element: <UserDashboardLayout />,
+            element: <DashboardLayout userType="client" />,
             children: [
                 {
                     path: '/dashboard',
-                    element: <ClientDashboard />,
+                    element: <DashboardClient />,
                 },
             ],
         },
         {
             path: '/',
-            element: <UserDashboardLayout />,
+            element: <DashboardLayout userType="client" />,
             children: [{ path: '/dashboard/services', element: <Services /> }],
         },
         {
             path: '/',
-            element: <UserDashboardLayout />,
+            element: <DashboardLayout userType="client" />,
             children: [
                 {
                     path: '/dashboard/myschedules',
@@ -87,32 +87,32 @@ export const RouterWrapper = (): any => {
         },
         {
             path: '/',
-            element: <UserDashboardLayout />,
+            element: <DashboardLayout userType="client" />,
             children: [{ path: '/dashboard/profile/:_id', element: <ProfessionalProfile /> }],
         },
         {
             path: '/',
-            element: <ProfessionalDashboardLayout />,
+            element: <DashboardLayout userType="professional" />,
             children: [
                 {
                     path: '/professional/dashboard',
-                    element: <ProfessionalDashboard />,
+                    element: <DashboardProfessional />,
                 },
             ],
         },
         {
             path: '/',
-            element: <ProfessionalDashboardLayout />,
+            element: <DashboardLayout userType="professional" />,
             children: [
                 {
                     path: '/professional/profile',
-                    element: <ProfessionalOwnProfile />,
+                    element: <Profile />,
                 },
             ],
         },
         {
             path: '/',
-            element: <ProfessionalDashboardLayout />,
+            element: <DashboardLayout userType="professional" />,
             children: [
                 {
                     path: '/professional/myschedules',

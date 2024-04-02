@@ -1,7 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import Cookies from 'js-cookie';
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
 
 import { api } from '@/lib/axios';
 
@@ -22,7 +20,6 @@ const AuthContext = createContext({} as AuthContextData);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [user, setUser] = useState<User | null>(null);
-    const [loading, setLoading] = useState(false);
     const isAuthenticated = !!user;
 
     useEffect(() => {
@@ -31,6 +28,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         console.log('userComingFromCookie', userComingFromCookie);
         const parsedUser = userComingFromCookie ? JSON.parse(userComingFromCookie) : null;
         console.log('parsedUser', parsedUser);
+
         if (parsedUser && refreshToken) {
             setUser(parsedUser);
         } else {
@@ -40,8 +38,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     const login = async (email: string, password: string) => {
         try {
-            setLoading(true);
-
             const response = await api.post('auth/login', {
                 email,
                 password,
@@ -55,8 +51,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
             setUser(userComing);
             api.defaults.timeout = 3000;
             api.defaults.headers['authorization'] = `Bearer ${token}`;
-            setLoading(false);
-            toast.success('Login efetuado com sucesso!');
         } catch (error) {
             throw error;
         }
