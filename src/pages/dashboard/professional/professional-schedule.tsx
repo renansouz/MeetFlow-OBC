@@ -36,12 +36,6 @@ export function ProfessionalSchedule() {
     }, []);
     const form = useForm<RegisterFormData>({
         resolver: zodResolver(createUserSchema),
-        defaultValues: {
-            username: '',
-            email: '',
-            description: '',
-            password: '',
-        },
     });
 
     async function onSubmit(data: RegisterFormData) {

@@ -1,10 +1,11 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
+import { useQuery } from '@tanstack/react-query';
 import { Pencil } from 'lucide-react';
-import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
+import { getServiceByPage } from '@/api';
 import { Input } from '@/components/Input';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -12,6 +13,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Textarea } from '@/components/ui/textarea';
+import { useAuth } from '@/context/auth-provider';
 import { ProfessionalService } from '@/pages/dashboard/client/ProfessionalProfile/ProfessionalService';
 
 const createUserSchema = z.object({
@@ -25,24 +27,18 @@ const createUserSchema = z.object({
 type RegisterFormData = z.infer<typeof createUserSchema>;
 
 export function Profile() {
-    const [loading, setLoading] = useState(true);
+    const { user } = useAuth();
 
-    useEffect(() => {
-        const timeout = setTimeout(() => {
-            setLoading(false);
-        }, 2000);
-
-        return () => clearTimeout(timeout);
-    }, []);
-    const form = useForm<RegisterFormData>({
-        resolver: zodResolver(createUserSchema),
-        defaultValues: {
-            username: '',
-            email: '',
-            description: '',
-            password: '',
-        },
+    const { data: services, isLoading: isLoadingService } = useQuery({
+        queryKey: ['servicesProfile'],
+        queryFn: () => getServiceByPage({ userId: user?._id, page: 1 }),
+        staleTime: Infinity,
+        enabled: !!user,
     });
+
+    console.log('services', services);
+
+    const form = useForm<RegisterFormData>({ resolver: zodResolver(createUserSchema) });
 
     async function onSubmit(data: RegisterFormData) {
         setTimeout(() => {
@@ -53,7 +49,7 @@ export function Profile() {
         <div>
             <Card className="my-16 ml-[5%] mr-[15%] rounded-md">
                 <CardHeader>
-                    {loading ? (
+                    {isLoadingService ? (
                         <Skeleton className="z-0 h-80 w-full gap-y-12 rounded-md" />
                     ) : (
                         <Card>
@@ -195,7 +191,7 @@ export function Profile() {
                             <CardDescription>Aqui esta todos os seus serviços criados</CardDescription>
                         </CardHeader>
                         <CardContent>
-                            <ProfessionalService />
+                            <ProfessionalService services={services} />
                         </CardContent>
                     </Card>
                 </CardContent>

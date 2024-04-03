@@ -1,12 +1,13 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import axios from 'axios';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 import { Calendar, ChevronDown, Home, Layers, LifeBuoy, LogOut, Menu, PersonStanding, Plus, Settings, User, Users } from 'lucide-react';
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { z } from 'zod';
 
+import { createService } from '@/api';
 import { AsideItem } from '@/components/asideItem';
 import { useTheme } from '@/components/theme/theme-provider';
 import { Button } from '@/components/ui/button';
@@ -23,19 +24,17 @@ import LogoMenor from '@/public/only-logo-white.svg';
 
 const createUserSchema = z.object({
     name: z.string(),
-    description: z.string().min(5, { message: 'descrinção pequena' }),
-    duration: z.coerce.number().min(30, { message: 'tempo minimo 30 minutos' }),
+    description: z.string().min(5, { message: 'descrição pequena' }),
+    duration: z.coerce.number().min(15, { message: 'tempo mínimo 15 minutos' }),
     price: z.coerce.number(),
 });
 
 type LoginFormData = z.infer<typeof createUserSchema>;
 
 export const ProfessionalAside = () => {
-    const { setTheme } = useTheme();
-    const { setAuth } = useAuth();
-    const navigate = useNavigate();
-
-    const { theme } = useTheme();
+    const { setTheme, theme } = useTheme();
+    const { logout } = useAuth();
+    const queryClient = useQueryClient();
 
     const {
         register,
@@ -44,13 +43,19 @@ export const ProfessionalAside = () => {
         formState: { errors },
     } = useForm<LoginFormData>({ resolver: zodResolver(createUserSchema) });
 
+    const { mutateAsync: crateServiceFn } = useMutation({
+        mutationFn: createService,
+        onSuccess: () => {
+            // Forçar a query 'servicesProfile' a ser recarregada
+            queryClient.invalidateQueries({ queryKey: ['servicesProfile'] });
+        },
+    });
+
     const handleCreateService = async (userData: LoginFormData) => {
         try {
-            const res = await axios.post(`${import.meta.env.VITE_BASE_URL}/professional/profile`, userData);
-            const { refreshToken } = res.data;
-            sessionStorage.setItem('refreshToken', refreshToken);
-            setAuth(true);
-            navigate('/professional/profile');
+            await crateServiceFn({ name: userData.name, description: userData.description, duration: userData.duration, price: userData.price });
+            console.log('service created', userData);
+            // setAuth(true);
         } catch (error) {
             if (error instanceof AxiosError) {
                 toast.error(error.response?.data.message);
@@ -115,7 +120,7 @@ export const ProfessionalAside = () => {
                                             <label htmlFor="" className="block py-1 font-bold text-black">
                                                 <span className="text-foreground">Duração:</span>
                                             </label>
-                                            <Input className="w-[70%]" placeholder="Inisra a duração deste serviço" id="user" {...register('duration')} />
+                                            <Input className="w-[70%]" type="number" placeholder="Inisra a duração deste serviço" id="user" {...register('duration')} />
                                         </div>
                                         <div className="flex items-center justify-center">{errors.duration && <p className="py-2 text-red-500">{errors.duration.message}</p>}</div>
                                     </section>
@@ -124,7 +129,7 @@ export const ProfessionalAside = () => {
                                             <label htmlFor="" className="block py-1 font-bold text-black">
                                                 <span className="text-foreground">Preço:</span>
                                             </label>
-                                            <Input className="w-[70%]" placeholder="adicione um valor para este serviço" id="user" {...register('price')} />
+                                            <Input className="w-[70%]" type="number" placeholder="adicione um valor para este serviço" id="user" {...register('price')} />
                                         </div>
                                         <div className="flex items-center justify-center">{errors.price && <p className="py-2 text-red-500">{errors.price.message}</p>}</div>
                                     </section>
@@ -234,8 +239,8 @@ export const ProfessionalAside = () => {
                         </DialogContent>
                     </Dialog>
 
-                    <Button asChild className="flex h-11 items-center justify-start gap-3 bg-inherit px-10 py-7 hover:bg-inherit max-lg:justify-center max-lg:px-0 ">
-                        <Link className="justify-center gap-x-5" to={''}>
+                    <Button asChild className="flex h-11 items-center justify-start gap-3 bg-inherit px-10 py-7 hover:bg-inherit max-lg:justify-center max-lg:px-0" onClick={() => logout()}>
+                        <Link className="justify-center gap-x-5" to={'/'}>
                             <span className="text-lg text-red-500 max-lg:hidden">Sair</span>
                             <LogOut className="text-red-500" />
                         </Link>

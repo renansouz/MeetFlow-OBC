@@ -1,5 +1,6 @@
 import Cookies from 'js-cookie';
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { api } from '@/lib/axios';
 
@@ -13,14 +14,18 @@ type AuthContextData = {
     login(email: string, password: string): Promise<void>;
     isAuthenticated: boolean;
     user: User | null;
-    signOut: () => void;
+    logout: () => void;
 };
-
 const AuthContext = createContext({} as AuthContextData);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [user, setUser] = useState<User | null>(null);
     const isAuthenticated = !!user;
+
+    const logout = () => {
+        signOut();
+        setUser(null);
+    };
 
     useEffect(() => {
         const userComingFromCookie = Cookies.get('meetFlow.user');
@@ -56,13 +61,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         }
     };
 
-    const signOut = () => {
-        Cookies.remove('meetFlow.token');
-        Cookies.remove('meetFlow.refreshToken');
-        Cookies.remove('meetFlow.user');
-        setUser(null);
-    };
-    return <AuthContext.Provider value={{ login, isAuthenticated, user, signOut }}>{children}</AuthContext.Provider>;
+    return <AuthContext.Provider value={{ login, isAuthenticated, user, logout }}>{children}</AuthContext.Provider>;
 };
 
 export const useAuth = (): AuthContextData => useContext(AuthContext);
+
+export function signOut() {
+    Cookies.remove('meetFlow.token');
+    Cookies.remove('meetFlow.refreshToken');
+    Cookies.remove('meetFlow.user');
+}
