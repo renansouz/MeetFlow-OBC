@@ -20,8 +20,20 @@ export interface ScheduleInBody {
     hourLunchEnd1?: string;
 }
 
-export async function createSchedule({ name, description, days1, hourStart1, hourLunchStart1, hourLunchEnd1, hourEnd1 }: ScheduleInBody) {
+export async function createSchedule({
+    name,
+    description,
+    days1,
+    hourStart1,
+    hourLunchStart1,
+    hourLunchEnd1,
+    hourEnd1,
+}: ScheduleInBody) {
     const token = Cookies.get('meetFlow.token');
 
-    await api.post('schedule/add', { name, description, days1, hourStart1, hourLunchStart1, hourLunchEnd1, hourEnd1 }, { headers: { Authorization: `Bearer ${token}` } });
+    await api.post(
+        'schedule/add',
+        { name, description, days1, hourStart1, hourLunchStart1, hourLunchEnd1, hourEnd1 },
+        { headers: { Authorization: `Bearer ${token}` } }
+    );
 }

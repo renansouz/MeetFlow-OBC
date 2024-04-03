@@ -15,19 +15,22 @@ export interface UpdateProfileResponse {
     _id: string;
     name: string;
     email: string;
-    serviceIds: string[];
-    scheduleId: string | null;
-    myScheduleId: string | null;
-    headLine: string | null;
-    photoUrl?: string | null;
+    serviceIds: string[] | undefined;
+    scheduleId: string | undefined;
+    myScheduleId: string;
+    headLine: string;
+    photoUrl?: string | undefined;
     occupationArea: string;
 }
 
 export async function updateProfile(data: UpdateProfileBody) {
-    const _id = Cookies.get('meetFlow.user');
-    const parsedId = _id ? JSON.parse(_id) : null;
+    const user = Cookies.get('meetFlow.user');
+    const parsedId = user ? JSON.parse(user) : null;
     const token = Cookies.get('meetFlow.token');
 
-    const response = await api.patch<UpdateProfileResponse>(`/user/update?_id=${parsedId}`, data, { headers: { Authorization: `Bearer ${token}` } });
+    const response = await api.patch<UpdateProfileResponse>(`/user/update?_id=${parsedId._id}`, {
+        data,
+        headers: { Authorization: `Bearer ${token}` },
+    });
     return response.data;
 }

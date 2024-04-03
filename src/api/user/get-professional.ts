@@ -21,6 +21,5 @@ export interface GetProfessionalResponse {
 
 export async function getProfessional() {
     const response = await api.get<GetProfessionalResponse>('/user/loadProfessional');
-    console.log('response', response.data);
     return response.data;
 }

@@ -1,6 +1,12 @@
 import { AxiosError } from 'axios';
 import dayjs from 'dayjs';
-import { BriefcaseBusiness, CalendarCheck2, ContactRound, DollarSign, HourglassIcon } from 'lucide-react';
+import {
+    BriefcaseBusiness,
+    CalendarCheck2,
+    ContactRound,
+    DollarSign,
+    HourglassIcon,
+} from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -8,7 +14,14 @@ import { getProfile } from '@/api/user/get-profile';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from '@/components/ui/dialog';
 import { Skeleton } from '@/components/ui/skeleton';
 
 import { CalendarProfessional } from './Calendar';
@@ -80,31 +93,48 @@ export function ProfessionalProfile() {
         <Card className="my-16 ml-[6%] w-[70%] min-w-[20rem] pb-10 max-xl:m-0 max-xl:w-full">
             <CardHeader className="h-32 w-full rounded-tl-md rounded-tr-md bg-indigo-300 pt-14 max-lg:rounded-none">
                 <Avatar className="h-36 w-full rounded-full">
-                    <AvatarImage src="https://github.com/renansouz.png" className="ml-5 w-36 rounded-full border-4 border-background" />
-                    <AvatarFallback className="ml-5 w-36 rounded-full border-4 border-background">{professional?.name.slice(0, 1)}</AvatarFallback>
+                    <AvatarImage
+                        src="https://github.com/renansouz.png"
+                        className="ml-5 w-36 rounded-full border-4 border-background"
+                    />
+                    <AvatarFallback className="ml-5 w-36 rounded-full border-4 border-background">
+                        {professional?.name.slice(0, 1)}
+                    </AvatarFallback>
                 </Avatar>
             </CardHeader>
             <CardContent className="mt-20 flex w-full flex-col gap-y-2 border-b-2">
-                <CardTitle className="ml-6 text-left text-xl font-bold " style={{ maxWidth: '600px' }}>
+                <CardTitle
+                    className="ml-6 text-left text-xl font-bold "
+                    style={{ maxWidth: '600px' }}
+                >
                     {/* {professional?.name} */}
                     Renan Silva
                 </CardTitle>
-                <CardDescription className="ml-6 w-full font-light"> Desenvolvimento, Inovação</CardDescription>
+                <CardDescription className="ml-6 w-full font-light">
+                    {' '}
+                    Desenvolvimento, Inovação
+                </CardDescription>
                 <span className="ml-5 mt-3 font-bold text-indigo-600/90">+ 11 agendamentos</span>
                 {/* SERVIÇOS */}
-                <h2 className=" ml-10 mt-10 flex items-center justify-start text-3xl font-light max-md:mx-10">Serviços de Renan</h2>
+                <h2 className=" ml-10 mt-10 flex items-center justify-start text-3xl font-light max-md:mx-10">
+                    Serviços de Renan
+                </h2>
                 <ProfessionalService onServiceClick={() => setShowContent(true)} />
             </CardContent>
             {/* calendário */}
-            {}
             {showContent && (
                 <>
-                    <h2 className="mb-10 mt-10 flex items-center justify-center text-3xl font-light max-md:mx-10">Escolha uma data para agendar com Renan</h2>
+                    <h2 className="mb-10 mt-10 flex items-center justify-center text-3xl font-light max-md:mx-10">
+                        Escolha uma data para agendar com Renan
+                    </h2>
                     <Container isTimePickerOpen={isDateSelected}>
                         {loading ? (
                             <Skeleton className="z-0 mx-2 h-[40rem] w-[40rem] gap-y-12 rounded-[2rem]" />
                         ) : (
-                            <CalendarProfessional selectedDate={selectedDate} onDateSelected={setSelectedDate} />
+                            <CalendarProfessional
+                                selectedDate={selectedDate}
+                                onDateSelected={setSelectedDate}
+                            />
                         )}
                         {isDateSelected && (
                             <TimePicker>
@@ -113,39 +143,60 @@ export function ProfessionalProfile() {
                                 </TimePickerHeader>
                                 <TimePickerList>
                                     {availability.possibleTimes.map((hour) => (
-                                        <TimePickerItem key={hour} onClick={() => handleSelectTime(hour)} disabled={!availability.availableTimes.includes(hour)}>
+                                        <TimePickerItem
+                                            key={hour}
+                                            onClick={() => handleSelectTime(hour)}
+                                            disabled={!availability.availableTimes.includes(hour)}
+                                        >
                                             {String(hour).padStart(2, '0')}:00h
                                         </TimePickerItem>
                                     ))}
                                 </TimePickerList>
                                 <Dialog>
                                     <DialogTrigger asChild>
-                                        <Button className="flex h-14 w-full p-2 text-xl">Solicitar Agendamento</Button>
+                                        <Button className="flex h-14 w-full p-2 text-xl">
+                                            Solicitar Agendamento
+                                        </Button>
                                     </DialogTrigger>
                                     <DialogContent>
                                         <DialogHeader className="gap-1">
-                                            <DialogTitle className="text-xl font-bold">Confirmação de Agendamento</DialogTitle>
-                                            <DialogDescription className="border-b-2 pb-5">Por favor, confirme os detalhes do seu agendamento antes de prosseguir.</DialogDescription>
+                                            <DialogTitle className="text-xl font-bold">
+                                                Confirmação de Agendamento
+                                            </DialogTitle>
+                                            <DialogDescription className="border-b-2 pb-5">
+                                                Por favor, confirme os detalhes do seu agendamento
+                                                antes de prosseguir.
+                                            </DialogDescription>
                                             <DialogHeader className="m-6 flex flex-col gap-4 py-5 text-lg">
                                                 <div className="flex justify-between gap-4 border-b-2 pb-4">
                                                     <ContactRound className="text-foreground" />
-                                                    <span className="w-1/2 font-bold">Profissional:</span>
+                                                    <span className="w-1/2 font-bold">
+                                                        Profissional:
+                                                    </span>
                                                     <span className="w-1/2">Renan</span>
                                                 </div>
                                                 <div className="flex justify-between gap-4 border-b-2 pb-4">
                                                     <BriefcaseBusiness className="text-foreground" />
-                                                    <span className="w-1/2 font-bold">Serviço:</span>
+                                                    <span className="w-1/2 font-bold">
+                                                        Serviço:
+                                                    </span>
                                                     <span className="w-1/2">Tailwind</span>
                                                 </div>
                                                 <div className="flex justify-between gap-4 border-b-2 pb-4">
                                                     <HourglassIcon className="text-foreground" />
-                                                    <span className="w-1/2 font-bold">Duração:</span>
+                                                    <span className="w-1/2 font-bold">
+                                                        Duração:
+                                                    </span>
                                                     <span className="w-1/2">2 Horas</span>
                                                 </div>
                                                 <div className="flex justify-between gap-4 border-b-2 pb-4">
                                                     <CalendarCheck2 className="text-foreground" />
-                                                    <span className="w-1/2 font-bold">Data e Hora:</span>
-                                                    <span className="w-1/2">31/03/2024 ás 10:0</span>
+                                                    <span className="w-1/2 font-bold">
+                                                        Data e Hora:
+                                                    </span>
+                                                    <span className="w-1/2">
+                                                        31/03/2024 ás 10:0
+                                                    </span>
                                                 </div>
                                                 <div className="flex justify-between gap-4 border-b-2 pb-4">
                                                     <DollarSign className="text-foreground" />
@@ -154,7 +205,9 @@ export function ProfessionalProfile() {
                                                 </div>
                                             </DialogHeader>
                                             <div className="m-10 flex justify-between">
-                                                <Button variant={'destructive'}>Não confirmar</Button>
+                                                <Button variant={'destructive'}>
+                                                    Não confirmar
+                                                </Button>
                                                 <Button variant={'success'}>confirmar</Button>
                                             </div>
                                         </DialogHeader>

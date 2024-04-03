@@ -15,7 +15,9 @@ export interface GetUserResponse {
 
 export async function getUser() {
     const refreshToken = Cookies.get('meetFlow.refreshToken');
-    const response = await api.get<GetUserResponse>('/account/whoami', { headers: { refreshtoken: refreshToken } });
+    const response = await api.get<GetUserResponse>('/account/whoami', {
+        headers: { refreshtoken: refreshToken },
+    });
 
     return response.data;
 }
