@@ -28,7 +28,6 @@ type RegisterFormData = z.infer<typeof createUserSchema>;
 
 export function Profile() {
     const { user } = useAuth();
-
     const { data: services, isLoading: isLoadingService } = useQuery({
         queryKey: ['servicesProfile'],
         queryFn: () => getServiceByPage({ userId: user?._id, page: 1 }),

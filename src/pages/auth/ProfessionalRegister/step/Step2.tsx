@@ -94,6 +94,7 @@ export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
                                 </Select>
                             );
                         }}
+                        rules={{ required: 'Campo obrigatório' }}
                     ></Controller>
                     {errors.hourStart1 && <p>{errors.hourStart1.message}</p>}
                     <p className="text-foreground">até</p>
@@ -116,6 +117,7 @@ export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
                                 </Select>
                             );
                         }}
+                        rules={{ required: 'Campo obrigatório' }}
                     ></Controller>
                 </div>
                 <div className="flex gap-x-12">{errors.hourEnd1 && <p className="text-red-600">{errors.hourEnd1.message}</p>}</div>
