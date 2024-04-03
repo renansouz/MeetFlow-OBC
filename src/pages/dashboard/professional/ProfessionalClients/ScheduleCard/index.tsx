@@ -26,7 +26,8 @@ export const ScheduleCard = () => {
                         <CardTitle>Responsividade em tailwind</CardTitle>
 
                         <CardDescription className=" text-base text-indigo-400/80">
-                            Solicitação feita por: <span className="text-foreground">miqueias falcão</span>
+                            Solicitação feita por:{' '}
+                            <span className="text-foreground">miqueias falcão</span>
                         </CardDescription>
                     </CardHeader>
 
@@ -48,11 +49,17 @@ export const ScheduleCard = () => {
                         </div>
 
                         <div className="flex">
-                            <Button className="mr-4 text-lg font-light text-foreground " variant={'success'}>
+                            <Button
+                                className="mr-4 text-lg font-light text-foreground "
+                                variant={'success'}
+                            >
                                 Aceitar
                             </Button>
 
-                            <Button className="text-lg font-light text-foreground " variant={'destructive'}>
+                            <Button
+                                className="text-lg font-light text-foreground "
+                                variant={'destructive'}
+                            >
                                 Recusar
                             </Button>
                         </div>

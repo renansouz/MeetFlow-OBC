@@ -13,13 +13,17 @@ export function Clients() {
             <Card className="m-[5%] p-5 ">
                 <CardHeader>
                     <CardTitle>Agendamentos Pendentes</CardTitle>
-                    <CardDescription>Verifique todos os seus agendamentos pendentes</CardDescription>
+                    <CardDescription>
+                        Verifique todos os seus agendamentos pendentes
+                    </CardDescription>
                 </CardHeader>
                 <ScheduleCard />
                 <ScheduleCard />
                 <CardHeader>
                     <CardTitle>Clientes Confirmados</CardTitle>
-                    <CardDescription>Verifique todos os seus agendamentos confirmados</CardDescription>
+                    <CardDescription>
+                        Verifique todos os seus agendamentos confirmados
+                    </CardDescription>
                 </CardHeader>
                 <CardContent>
                     <ClientsCard />

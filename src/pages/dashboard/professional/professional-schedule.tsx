@@ -8,8 +8,21 @@ import { z } from 'zod';
 import { Input } from '@/components/Input';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import {
+    Dialog,
+    DialogContent,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from '@/components/ui/dialog';
+import {
+    Form,
+    FormControl,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage,
+} from '@/components/ui/form';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Textarea } from '@/components/ui/textarea';
 import { ProfessionalService } from '@/pages/dashboard/client/ProfessionalProfile/ProfessionalService';
@@ -53,18 +66,31 @@ export function ProfessionalSchedule() {
                         <Card>
                             <CardHeader className="h-32 rounded-tl-md rounded-tr-md bg-indigo-300  pt-14 max-lg:rounded-none">
                                 <Avatar>
-                                    <AvatarImage src="https://github.com/renansouz.png" className="ml-5 w-36 rounded-full border-4 border-background" />
-                                    <AvatarFallback className="ml-5 w-36 rounded-full border-4 border-background">CN</AvatarFallback>
+                                    <AvatarImage
+                                        src="https://github.com/renansouz.png"
+                                        className="ml-5 w-36 rounded-full border-4 border-background"
+                                    />
+                                    <AvatarFallback className="ml-5 w-36 rounded-full border-4 border-background">
+                                        CN
+                                    </AvatarFallback>
                                 </Avatar>
                             </CardHeader>
                             <CardContent className="mt-20 flex flex-col  gap-y-2">
                                 <div className="flex justify-between">
                                     <div>
-                                        <CardTitle className="ml-6 text-left font-bold " style={{ maxWidth: '600px' }}>
+                                        <CardTitle
+                                            className="ml-6 text-left font-bold "
+                                            style={{ maxWidth: '600px' }}
+                                        >
                                             RENAN DE SOUZA SILVA
                                         </CardTitle>
-                                        <CardDescription className="ml-6  font-light">Olá me chamo Renan, caso queira aprender tailwind, agende uma reunião comigo!</CardDescription>
-                                        <span className="ml-5 mt-3 font-bold text-indigo-600/90">+ 10 agendamentos</span>
+                                        <CardDescription className="ml-6  font-light">
+                                            Olá me chamo Renan, caso queira aprender tailwind,
+                                            agende uma reunião comigo!
+                                        </CardDescription>
+                                        <span className="ml-5 mt-3 font-bold text-indigo-600/90">
+                                            + 10 agendamentos
+                                        </span>
                                     </div>
                                     <div>
                                         <Dialog>
@@ -76,11 +102,16 @@ export function ProfessionalSchedule() {
                                             <DialogContent>
                                                 <DialogHeader>
                                                     <div className="flex w-full items-center justify-center border-b-2 py-5">
-                                                        <DialogTitle className="text-xl">Editar sua conta</DialogTitle>
+                                                        <DialogTitle className="text-xl">
+                                                            Editar sua conta
+                                                        </DialogTitle>
                                                     </div>
 
                                                     <Form {...form}>
-                                                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+                                                        <form
+                                                            onSubmit={form.handleSubmit(onSubmit)}
+                                                            className="space-y-5"
+                                                        >
                                                             <FormField
                                                                 control={form.control}
                                                                 name="username"
@@ -103,7 +134,9 @@ export function ProfessionalSchedule() {
                                                                 name="description"
                                                                 render={({ field }) => (
                                                                     <FormItem>
-                                                                        <FormLabel>Título</FormLabel>
+                                                                        <FormLabel>
+                                                                            Título
+                                                                        </FormLabel>
                                                                         <FormControl>
                                                                             <Textarea
                                                                                 className="w-full rounded-md border-2 border-border bg-background p-2 focus:border-slate-300"
@@ -138,7 +171,9 @@ export function ProfessionalSchedule() {
                                                                 name="password"
                                                                 render={({ field }) => (
                                                                     <FormItem>
-                                                                        <FormLabel>Password</FormLabel>
+                                                                        <FormLabel>
+                                                                            Password
+                                                                        </FormLabel>
                                                                         <FormControl>
                                                                             <Input
                                                                                 className="w-full rounded-md border-2 border-border bg-background p-2 focus:border-slate-300"
@@ -168,7 +203,10 @@ export function ProfessionalSchedule() {
                                                                     </FormItem>
                                                                 )}
                                                             />
-                                                            <Button className="flex w-full items-center justify-center rounded-lg px-10 text-lg" type="submit">
+                                                            <Button
+                                                                className="flex w-full items-center justify-center rounded-lg px-10 text-lg"
+                                                                type="submit"
+                                                            >
                                                                 Submit
                                                             </Button>
                                                         </form>
@@ -186,7 +224,9 @@ export function ProfessionalSchedule() {
                     <Card>
                         <CardHeader>
                             <CardTitle>Meus serviços</CardTitle>
-                            <CardDescription>Aqui esta todos os seus serviços criados</CardDescription>
+                            <CardDescription>
+                                Aqui esta todos os seus serviços criados
+                            </CardDescription>
                         </CardHeader>
                         <CardContent>
                             <ProfessionalService />

@@ -22,7 +22,9 @@ const createUserSchema = z
         name: z.string(),
         email: z.string().email({ message: 'Digite um e-mail válido' }),
         password: z.string().min(5, { message: 'A senha deve possuir no mínimo 5 caracteres' }),
-        passwordConfirmation: z.string().min(5, { message: 'A senha deve possuir no mínimo 5 caracteres' }),
+        passwordConfirmation: z
+            .string()
+            .min(5, { message: 'A senha deve possuir no mínimo 5 caracteres' }),
     })
     .refine((data) => data.password === data.passwordConfirmation, {
         message: 'As senhas não coincidem',
@@ -54,7 +56,13 @@ export const ClientRegister = () => {
 
     async function handleSignUp(userData: RegisterFormData) {
         try {
-            await authenticate({ email: userData.email, password: userData.password, passwordConfirmation: userData.passwordConfirmation, name: userData.name, role: 'client' });
+            await authenticate({
+                email: userData.email,
+                password: userData.password,
+                passwordConfirmation: userData.passwordConfirmation,
+                name: userData.name,
+                role: 'client',
+            });
             toast.success('Conta criada com sucesso', {
                 className: 'w-full h-20 flex items-center justify-center gap-x-2 ',
                 position: 'top-right',
@@ -81,7 +89,11 @@ export const ClientRegister = () => {
                 <FormDiv className="h-full " onSubmit={handleSubmit(handleSignUp)}>
                     <div className="flex h-full flex-col items-center justify-center gap-4">
                         <Link to={'/'}>
-                            <img src={theme === 'dark' ? LightLogo : DarkLogo} alt="" className="w-24 max-sm:w-20" />
+                            <img
+                                src={theme === 'dark' ? LightLogo : DarkLogo}
+                                alt=""
+                                className="w-24 max-sm:w-20"
+                            />
                         </Link>
                         <h1 className="text-3xl font-bold max-sm:text-xl">Criar uma conta!</h1>
 
@@ -107,7 +119,11 @@ export const ClientRegister = () => {
                                     id="email"
                                     {...register('email')}
                                 />
-                                {errors.email && <p className="py-0.5 text-sm text-red-500">{errors.email.message}</p>}
+                                {errors.email && (
+                                    <p className="py-0.5 text-sm text-red-500">
+                                        {errors.email.message}
+                                    </p>
+                                )}
                             </section>
                             <section>
                                 <label className="block py-2  font-semibold" htmlFor="password">
@@ -120,10 +136,17 @@ export const ClientRegister = () => {
                                     type={showPassword ? 'text' : 'password'}
                                     {...register('password')}
                                 />
-                                {errors.password && <p className="py-0.5 text-sm text-red-500">{errors.password.message}</p>}
+                                {errors.password && (
+                                    <p className="py-0.5 text-sm text-red-500">
+                                        {errors.password.message}
+                                    </p>
+                                )}
                             </section>
                             <section>
-                                <label className="block py-2  font-semibold" htmlFor="passwordConfirmation">
+                                <label
+                                    className="block py-2  font-semibold"
+                                    htmlFor="passwordConfirmation"
+                                >
                                     Confirme sua senha
                                 </label>
                                 <Input
@@ -133,7 +156,11 @@ export const ClientRegister = () => {
                                     type={showPassword ? 'text' : 'password'}
                                     {...register('passwordConfirmation')}
                                 />
-                                {errors.passwordConfirmation && <p className="py-0.5 text-sm text-red-500">{errors.passwordConfirmation.message}</p>}
+                                {errors.passwordConfirmation && (
+                                    <p className="py-0.5 text-sm text-red-500">
+                                        {errors.passwordConfirmation.message}
+                                    </p>
+                                )}
                             </section>
                             <section className="flex items-center justify-center gap-3 ">
                                 <input
@@ -144,7 +171,11 @@ export const ClientRegister = () => {
                                 />
                                 <label htmlFor="checkbox">Mostrar senha</label>
                             </section>
-                            <Button className="mt-[10%] w-full" type="submit" disabled={isSubmitting}>
+                            <Button
+                                className="mt-[10%] w-full"
+                                type="submit"
+                                disabled={isSubmitting}
+                            >
                                 Cadastrar
                             </Button>
                             <div className="flex gap-2">
@@ -159,9 +190,14 @@ export const ClientRegister = () => {
             </div>
             <div className="flex h-full w-1/2 items-center justify-center max-lg:hidden">
                 <BackGroundDiv>
-                    <h1 className="text-center font-poppins-start font-bold text-white">Facilite sua agenda com o MeetFlow</h1>
+                    <h1 className="text-center font-poppins-start font-bold text-white">
+                        Facilite sua agenda com o MeetFlow
+                    </h1>
 
-                    <p className="w-2/3 text-center text-white">Agende e organize com MeetFlow - conecte-se facilmente a serviços e profissionais. Experimente!</p>
+                    <p className="w-2/3 text-center text-white">
+                        Agende e organize com MeetFlow - conecte-se facilmente a serviços e
+                        profissionais. Experimente!
+                    </p>
                 </BackGroundDiv>
             </div>
         </div>

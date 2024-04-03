@@ -4,7 +4,14 @@ import { useMemo, useState } from 'react';
 
 import { getWeekDays } from '@/utils/get-week-day';
 
-import { CalendarActions, CalendarBody, CalendarContainer, CalendarDay, CalendarHeader, CalendarTitle } from './styles';
+import {
+    CalendarActions,
+    CalendarBody,
+    CalendarContainer,
+    CalendarDay,
+    CalendarHeader,
+    CalendarTitle,
+} from './styles';
 
 interface CalendarWeek {
     week: number;
@@ -27,7 +34,10 @@ interface CalendarProps {
 }
 
 export function CalendarProfessional({ selectedDate, onDateSelected }: CalendarProps) {
-    const [blockedDates, setBlockedDates] = useState<BlockedDates>({ blockedWeekDays: [1, 2], blockedDates: [1, 2] });
+    const [blockedDates, setBlockedDates] = useState<BlockedDates>({
+        blockedWeekDays: [1, 2],
+        blockedDates: [1, 2],
+    });
 
     // Referente aos meses do ano
     const [currentDate, setCurrentDate] = useState(() => {
@@ -171,7 +181,10 @@ export function CalendarProfessional({ selectedDate, onDateSelected }: CalendarP
                                 {days.map(({ date, disabled }) => {
                                     return (
                                         <td key={date.toString()}>
-                                            <CalendarDay onClick={() => onDateSelected(date.toDate())} disabled={disabled}>
+                                            <CalendarDay
+                                                onClick={() => onDateSelected(date.toDate())}
+                                                disabled={disabled}
+                                            >
                                                 {date.get('date')}
                                             </CalendarDay>
                                         </td>

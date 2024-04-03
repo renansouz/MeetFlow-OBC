@@ -4,7 +4,8 @@ import logo from '@/public/only-logo-white.png';
 import pageBackground from '@/public/register-background.svg';
 
 export const BackGroundDiv = styled.div`
-    background-image: linear-gradient(140deg, rgba(0, 0, 1, 0.84) 100%, rgba(26, 30, 95, 0.1) 90%), url(${pageBackground});
+    background-image: linear-gradient(140deg, rgba(0, 0, 1, 0.84) 100%, rgba(26, 30, 95, 0.1) 90%),
+        url(${pageBackground});
     background-size: cover;
     background-repeat: no-repeat;
     width: 66.6%;

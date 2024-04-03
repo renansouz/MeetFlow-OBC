@@ -35,7 +35,11 @@ export const Step = styled.div<StepProps>`
         if (props.$currentStep === 1) {
             return props.$stepcontent === 1 ? '#4F46E5' : '#323238'; // Roxo ou Cinza
         } else if (props.$currentStep === 2) {
-            return props.$stepcontent === 1 ? '#008000' : props.$stepcontent === 2 ? '#4F46E5' : '#323238'; // Verde, Roxo ou Cinza
+            return props.$stepcontent === 1
+                ? '#008000'
+                : props.$stepcontent === 2
+                  ? '#4F46E5'
+                  : '#323238'; // Verde, Roxo ou Cinza
         } else if (props.$currentStep === 3) {
             return props.$stepcontent <= 2 ? '#008000' : '#4F46E5'; // Verde, Roxo ou Cinza
         }

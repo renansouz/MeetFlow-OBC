@@ -25,7 +25,8 @@ export const ClientsCard = () => {
                         <CardTitle>Responsividade em tailwind</CardTitle>
 
                         <CardDescription className=" text-base text-indigo-400/80">
-                            Solicitação feita por: <span className="text-foreground">miqueias falcão</span>
+                            Solicitação feita por:{' '}
+                            <span className="text-foreground">miqueias falcão</span>
                         </CardDescription>
                     </CardHeader>
 

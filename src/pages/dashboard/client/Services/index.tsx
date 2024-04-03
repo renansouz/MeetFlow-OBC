@@ -40,9 +40,17 @@ export const Services = () => {
             <Header title="Serviços" />
             <div>
                 <div className="flex flex-col items-center gap-5">
-                    {loading ? <Skeleton className="z-0 h-8 w-48 gap-y-12 rounded-md" /> : <h2 className="text-center max-sm:mt-8 max-sm:text-3xl">Profissionais</h2>}
+                    {loading ? (
+                        <Skeleton className="z-0 h-8 w-48 gap-y-12 rounded-md" />
+                    ) : (
+                        <h2 className="text-center max-sm:mt-8 max-sm:text-3xl">Profissionais</h2>
+                    )}
 
-                    {loading ? <Skeleton className="z-0 h-8 w-48 gap-y-12 rounded-md" /> : <Search placeholder="Busque por um serviço ou profissional" />}
+                    {loading ? (
+                        <Skeleton className="z-0 h-8 w-48 gap-y-12 rounded-md" />
+                    ) : (
+                        <Search placeholder="Busque por um serviço ou profissional" />
+                    )}
                 </div>
                 <div className="mt-10 flex flex-wrap items-center justify-center gap-10">
                     {categoriesMock.map((categorie) => {

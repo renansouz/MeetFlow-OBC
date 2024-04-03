@@ -1,6 +1,9 @@
 import { forwardRef } from 'react';
 
-export const InputPassword = forwardRef<HTMLInputElement, { passwordAppearence: string; placeholder: string }>(({ passwordAppearence, placeholder, ...rest }, ref) => {
+export const InputPassword = forwardRef<
+    HTMLInputElement,
+    { passwordAppearence: string; placeholder: string }
+>(({ passwordAppearence, placeholder, ...rest }, ref) => {
     return (
         <input
             ref={ref}

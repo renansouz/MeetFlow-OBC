@@ -26,7 +26,9 @@ export const DashboardLayout = ({ userType }: UserTypesProps) => {
         <div className="flex">
             {renderAside()}
 
-            <div className={`h-screen w-full overflow-hidden overflow-y-scroll ${backgroundToggle}`}>
+            <div
+                className={`h-screen w-full overflow-hidden overflow-y-scroll ${backgroundToggle}`}
+            >
                 <Outlet />
             </div>
         </div>

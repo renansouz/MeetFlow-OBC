@@ -36,9 +36,12 @@ export const ServicesCard = () => {
                                 <span className="font-extralight">(10)</span>
                             </div>
                         </div>
-                        <CardDescription className="w-[80%] text-base text-primary-foreground">Agendamento com: Renan de Souza Silva</CardDescription>
+                        <CardDescription className="w-[80%] text-base text-primary-foreground">
+                            Agendamento com: Renan de Souza Silva
+                        </CardDescription>
                         <CardDescription className="w-[80%]">
-                            especialista em Tailwind. Entre em contato para agendar sua primeira aula e leve seus projetos web para o próximo nível
+                            especialista em Tailwind. Entre em contato para agendar sua primeira
+                            aula e leve seus projetos web para o próximo nível
                         </CardDescription>
                     </CardHeader>
                     <CardContent className="mt-10 flex justify-between">
@@ -54,7 +57,11 @@ export const ServicesCard = () => {
                                 <Clock className="text-indigo-500" /> 10:00h ás 12:00h
                             </Card>
                         </div>
-                        <Button asChild className="hover:bg-indigo-80 max-mlg:text-base font-liht bg-indigo-700  text-lg" variant={'default'}>
+                        <Button
+                            asChild
+                            className="hover:bg-indigo-80 max-mlg:text-base font-liht bg-indigo-700  text-lg"
+                            variant={'default'}
+                        >
                             <Link to={''} className="px-6 max-xl:ml-2 max-xl:mt-16 max-xl:px-2">
                                 Entrar na reunião
                             </Link>

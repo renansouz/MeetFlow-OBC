@@ -29,7 +29,9 @@ export const Step1 = ({ setCurrentStepState }: stepProps) => {
             name: z.string(),
             email: z.string().email({ message: 'Digite um e-mail válido' }),
             password: z.string().min(5, { message: 'A senha deve possuir no mínimo 5 caracteres' }),
-            passwordConfirmation: z.string().min(5, { message: 'A senha deve possuir no mínimo 5 caracteres' }),
+            passwordConfirmation: z
+                .string()
+                .min(5, { message: 'A senha deve possuir no mínimo 5 caracteres' }),
         })
         .refine((data) => data.password === data.passwordConfirmation, {
             message: 'As senhas não coincidem',
@@ -51,7 +53,13 @@ export const Step1 = ({ setCurrentStepState }: stepProps) => {
 
     async function handleSignUp(userData: RegisterFormData) {
         try {
-            await authenticate({ email: userData.email, password: userData.password, passwordConfirmation: userData.passwordConfirmation, name: userData.name, role: 'professional' });
+            await authenticate({
+                email: userData.email,
+                password: userData.password,
+                passwordConfirmation: userData.passwordConfirmation,
+                name: userData.name,
+                role: 'professional',
+            });
             setCurrentStepState(2);
         } catch (error) {
             if (error instanceof AxiosError) {
@@ -67,7 +75,10 @@ export const Step1 = ({ setCurrentStepState }: stepProps) => {
 
     return (
         <div className="flex p-5">
-            <form className="flex h-full flex-col items-center justify-center gap-5 px-10" onSubmit={handleSubmit(handleSignUp)}>
+            <form
+                className="flex h-full flex-col items-center justify-center gap-5 px-10"
+                onSubmit={handleSubmit(handleSignUp)}
+            >
                 <section className="w-ful">
                     <label htmlFor="name" className="block py-1 font-bold text-foreground">
                         Nome
@@ -91,7 +102,9 @@ export const Step1 = ({ setCurrentStepState }: stepProps) => {
                         id="email"
                         {...register('email')}
                     />
-                    {errors.email && <p className="py-0.5 text-sm text-red-500">{errors.email.message}</p>}
+                    {errors.email && (
+                        <p className="py-0.5 text-sm text-red-500">{errors.email.message}</p>
+                    )}
                 </section>
 
                 <section>
@@ -105,10 +118,15 @@ export const Step1 = ({ setCurrentStepState }: stepProps) => {
                         type={showPassword ? 'text' : 'password'}
                         {...register('password', { required: true })}
                     />
-                    {errors.password && <p className="py-0.5 text-sm text-red-500">{errors.password.message}</p>}
+                    {errors.password && (
+                        <p className="py-0.5 text-sm text-red-500">{errors.password.message}</p>
+                    )}
                 </section>
                 <section>
-                    <label htmlFor="passwordConfirmation" className="block py-1 font-bold text-foreground">
+                    <label
+                        htmlFor="passwordConfirmation"
+                        className="block py-1 font-bold text-foreground"
+                    >
                         Confirme sua senha
                     </label>
                     <Input
@@ -118,7 +136,11 @@ export const Step1 = ({ setCurrentStepState }: stepProps) => {
                         type={showPassword ? 'text' : 'password'}
                         {...register('passwordConfirmation')}
                     />
-                    {errors.passwordConfirmation && <p className="py-0.5 text-sm text-red-500">{errors.passwordConfirmation.message}</p>}
+                    {errors.passwordConfirmation && (
+                        <p className="py-0.5 text-sm text-red-500">
+                            {errors.passwordConfirmation.message}
+                        </p>
+                    )}
                 </section>
                 <section className="flex items-center justify-center gap-3 ">
                     <input

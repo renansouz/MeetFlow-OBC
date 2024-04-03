@@ -18,7 +18,12 @@ type AlertDialogContainerProps = {
     callback: () => void;
 };
 
-export const AlertDialogContainer = ({ triger, alertMessage, description, callback }: AlertDialogContainerProps) => {
+export const AlertDialogContainer = ({
+    triger,
+    alertMessage,
+    description,
+    callback,
+}: AlertDialogContainerProps) => {
     return (
         <AlertDialog>
             <AlertDialogTrigger asChild className="w-full">

@@ -3,7 +3,13 @@ import { Link } from 'react-router-dom';
 
 //import { useAuth } from '@/context/auth-provider';
 import { useTheme } from '@/components/theme/theme-provider';
-import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from '@/components/ui/navigation-menu';
+import {
+    NavigationMenu,
+    NavigationMenuItem,
+    NavigationMenuLink,
+    NavigationMenuList,
+    navigationMenuTriggerStyle,
+} from '@/components/ui/navigation-menu';
 import { Separator } from '@/components/ui/separator';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import Logo from '@/public/Logo.svg';
@@ -26,22 +32,34 @@ export const NotAuthenticated = () => {
                         <NavigationMenu>
                             <NavigationMenuList>
                                 <NavigationMenuItem>
-                                    <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                                    <NavigationMenuLink
+                                        asChild
+                                        className={navigationMenuTriggerStyle()}
+                                    >
                                         <Link to={'/'}>Início</Link>
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
                                 <NavigationMenuItem>
-                                    <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                                    <NavigationMenuLink
+                                        asChild
+                                        className={navigationMenuTriggerStyle()}
+                                    >
                                         <Link to={'/about'}>Sobre</Link>
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
                                 <NavigationMenuItem>
-                                    <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                                    <NavigationMenuLink
+                                        asChild
+                                        className={navigationMenuTriggerStyle()}
+                                    >
                                         <Link to={'/login'}>Profissional</Link>
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
                                 <NavigationMenuItem>
-                                    <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                                    <NavigationMenuLink
+                                        asChild
+                                        className={navigationMenuTriggerStyle()}
+                                    >
                                         <Link to={'/login'}>Entrar</Link>
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
@@ -67,19 +85,31 @@ export const NotAuthenticated = () => {
                             </SheetTrigger>
                             <SheetContent className="fixed">
                                 <div className="mt-20 flex flex-col items-center ">
-                                    <Link to={'/'} className="w-full rounded-md border-solid p-4 text-center hover:bg-accent">
+                                    <Link
+                                        to={'/'}
+                                        className="w-full rounded-md border-solid p-4 text-center hover:bg-accent"
+                                    >
                                         Início
                                     </Link>
                                     <Separator />
-                                    <Link to={'/about'} className="w-full rounded-md border-solid p-4 text-center hover:bg-accent ">
+                                    <Link
+                                        to={'/about'}
+                                        className="w-full rounded-md border-solid p-4 text-center hover:bg-accent "
+                                    >
                                         Sobre
                                     </Link>
                                     <Separator />
-                                    <Link to={'/login'} className="w-full rounded-md border-solid p-4 text-center hover:bg-accent ">
+                                    <Link
+                                        to={'/login'}
+                                        className="w-full rounded-md border-solid p-4 text-center hover:bg-accent "
+                                    >
                                         Área do Profissional
                                     </Link>
                                     <Separator />
-                                    <Link to={'/register'} className="mt-10 w-full rounded-md border-solid bg-indigo-700 p-4 text-center hover:bg-indigo-800 ">
+                                    <Link
+                                        to={'/register'}
+                                        className="mt-10 w-full rounded-md border-solid bg-indigo-700 p-4 text-center hover:bg-indigo-800 "
+                                    >
                                         Agende Agora!
                                     </Link>
                                 </div>

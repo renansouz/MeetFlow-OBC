@@ -24,8 +24,14 @@ export function AppLayout() {
                 <div className="w-5/6 max-xl:w-full">
                     <div className="flex w-full flex-wrap items-start justify-evenly gap-32 max-xl:gap-0 max-xl:text-xs lg:text-base">
                         <div className="bg-blue flex w-2/12 flex-col items-center justify-center max-xl:mb-9 max-xl:w-full max-xl:items-center">
-                            <img src={theme === 'dark' ? OnlyLightLogo : OnlyDarkLogo} alt="" className="w-2/4 text-center max-xl:w-20 " />
-                            <p className="text-center max-xl:text-sm lg:text-base">Organize. Agende. Conecte-se. MeetFlow.</p>
+                            <img
+                                src={theme === 'dark' ? OnlyLightLogo : OnlyDarkLogo}
+                                alt=""
+                                className="w-2/4 text-center max-xl:w-20 "
+                            />
+                            <p className="text-center max-xl:text-sm lg:text-base">
+                                Organize. Agende. Conecte-se. MeetFlow.
+                            </p>
                         </div>
                         <div className="flex flex-col gap-4">
                             <h2 className="mb-2 text-xl font-medium max-xl:text-sm">Recursos</h2>
@@ -50,7 +56,9 @@ export function AppLayout() {
                     </div>
                     <Separator orientation="horizontal" className="my-10 h-0.5 w-full" />
                     <div className="flex justify-between pb-5 max-xl:mx-10 max-sm:flex-col max-sm:items-center">
-                        <p className="text-sm">Copyright &copy; 2024 MeetFlow. All Rights Reserved.</p>
+                        <p className="text-sm">
+                            Copyright &copy; 2024 MeetFlow. All Rights Reserved.
+                        </p>
                         <div className="flex gap-5 max-sm:my-5">
                             <Instagram />
                             <Github />

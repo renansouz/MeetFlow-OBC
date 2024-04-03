@@ -9,7 +9,13 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
 
-export const ProfessionalCard = ({ photoUrl, headLine, name, occupationArea, _id }: Professional) => {
+export const ProfessionalCard = ({
+    photoUrl,
+    headLine,
+    name,
+    occupationArea,
+    _id,
+}: Professional) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -30,21 +36,35 @@ export const ProfessionalCard = ({ photoUrl, headLine, name, occupationArea, _id
                             {photoUrl ? (
                                 <AvatarImage src={photoUrl} className="w-24 rounded-full" />
                             ) : (
-                                <AvatarFallback className="h-24 w-24 rounded-full">{name.slice(0, 1).toUpperCase()}</AvatarFallback>
+                                <AvatarFallback className="h-24 w-24 rounded-full">
+                                    {name.slice(0, 1).toUpperCase()}
+                                </AvatarFallback>
                             )}
                         </Avatar>
                     </CardHeader>
                     <div className="flex-col text-center">
                         <CardContent className="flex flex-col items-center">
-                            <p className="max-w-full overflow-hidden overflow-ellipsis whitespace-nowrap text-center font-bold max-sm:w-40" style={{ maxWidth: '200px' }}>
+                            <p
+                                className="max-w-full overflow-hidden overflow-ellipsis whitespace-nowrap text-center font-bold max-sm:w-40"
+                                style={{ maxWidth: '200px' }}
+                            >
                                 {name}
                             </p>
-                            <span className="max-w-full overflow-hidden overflow-ellipsis whitespace-nowrap text-sm font-light max-sm:w-40" style={{ maxWidth: '200px' }}>
+                            <span
+                                className="max-w-full overflow-hidden overflow-ellipsis whitespace-nowrap text-sm font-light max-sm:w-40"
+                                style={{ maxWidth: '200px' }}
+                            >
                                 {headLine}
                             </span>
-                            <span className="mt-6 max-sm:mt-2 max-sm:text-base">{occupationArea}</span>
+                            <span className="mt-6 max-sm:mt-2 max-sm:text-base">
+                                {occupationArea}
+                            </span>
                         </CardContent>
-                        <Button asChild className="mb-10 bg-primary text-lg font-light text-foreground hover:bg-primary/80 max-sm:mb-5" variant={'default'}>
+                        <Button
+                            asChild
+                            className="mb-10 bg-primary text-lg font-light text-foreground hover:bg-primary/80 max-sm:mb-5"
+                            variant={'default'}
+                        >
                             <Link to={`/dashboard/profile/${_id}`} className="px-6">
                                 <LucideCalendarPlus className="mr-3 h-5 w-5" />
                                 Agendar

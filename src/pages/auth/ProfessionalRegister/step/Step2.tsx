@@ -8,7 +8,13 @@ import { z } from 'zod';
 
 import { createSchedule } from '@/api/schedule';
 import { Button } from '@/components/ui/button';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from '@/components/ui/select';
 import { dayHours } from '@/utils/dayHours';
 
 type stepProps = {
@@ -80,13 +86,22 @@ export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
                         control={control}
                         render={({ field: { name, onChange, value, disabled } }) => {
                             return (
-                                <Select name={name} onValueChange={onChange} value={value} disabled={disabled}>
+                                <Select
+                                    name={name}
+                                    onValueChange={onChange}
+                                    value={value}
+                                    disabled={disabled}
+                                >
                                     <SelectTrigger className="w-[180px] bg-card text-foreground">
                                         <SelectValue placeholder="00:00" />
                                     </SelectTrigger>
                                     <SelectContent className="w-[180px] bg-card text-foreground">
                                         {dayHours.map((hourStart) => (
-                                            <SelectItem key={hourStart} value={hourStart} {...register('hourStart1')}>
+                                            <SelectItem
+                                                key={hourStart}
+                                                value={hourStart}
+                                                {...register('hourStart1')}
+                                            >
                                                 {hourStart}
                                             </SelectItem>
                                         ))}
@@ -103,7 +118,12 @@ export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
                         control={control}
                         render={({ field: { name, onChange, value, disabled } }) => {
                             return (
-                                <Select name={name} onValueChange={onChange} value={value} disabled={disabled}>
+                                <Select
+                                    name={name}
+                                    onValueChange={onChange}
+                                    value={value}
+                                    disabled={disabled}
+                                >
                                     <SelectTrigger className="w-[180px] bg-card text-foreground">
                                         <SelectValue placeholder="00:00" />
                                     </SelectTrigger>
@@ -120,13 +140,20 @@ export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
                         rules={{ required: 'Campo obrigatório' }}
                     ></Controller>
                 </div>
-                <div className="flex gap-x-12">{errors.hourEnd1 && <p className="text-red-600">{errors.hourEnd1.message}</p>}</div>
+                <div className="flex gap-x-12">
+                    {errors.hourEnd1 && <p className="text-red-600">{errors.hourEnd1.message}</p>}
+                </div>
             </div>
             <div className="flex flex-col">
-                <span className="items-center justify-center text-center text-4xl text-foreground">Dias disponiveis</span>
+                <span className="items-center justify-center text-center text-4xl text-foreground">
+                    Dias disponiveis
+                </span>
                 <div className="mt-5 flex flex-wrap justify-center gap-1">
                     {Object.entries(dayNames).map(([key, value]) => (
-                        <div key={key} className="flex flex-col items-center justify-center gap-2 border-2 bg-card p-4">
+                        <div
+                            key={key}
+                            className="flex flex-col items-center justify-center gap-2 border-2 bg-card p-4"
+                        >
                             <input
                                 className="h-6 w-6 appearance-none rounded-md border-2 border-indigo-800 checked:border-indigo-800 checked:bg-indigo-600"
                                 type="checkbox"

@@ -9,5 +9,9 @@ type ProtectedRouteType = {
 
 export const ProtectedRoute = ({ particular, fallbackRoute = '/login' }: ProtectedRouteType) => {
     const { user } = useAuth();
-    return user === null || user?.role === particular ? <Navigate to={fallbackRoute} replace /> : <Outlet />;
+    return user === null || user?.role === particular ? (
+        <Navigate to={fallbackRoute} replace />
+    ) : (
+        <Outlet />
+    );
 };

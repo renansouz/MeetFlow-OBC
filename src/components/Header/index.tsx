@@ -3,14 +3,27 @@ import { Link } from 'react-router-dom';
 
 import { useTheme } from '@/components/theme/theme-provider';
 import { Button } from '@/components/ui/button';
-import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from '@/components/ui/navigation-menu';
+import {
+    NavigationMenu,
+    NavigationMenuItem,
+    NavigationMenuLink,
+    NavigationMenuList,
+    navigationMenuTriggerStyle,
+} from '@/components/ui/navigation-menu';
 import { Separator } from '@/components/ui/separator';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import Logo from '@/public/Logo.svg';
 import LightLogo from '@/public/Logo-light.svg';
 
 import { ThemeToggle } from '../theme/theme-toggle';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog';
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from '../ui/dialog';
 import { Select, SelectContent, SelectTrigger, SelectValue } from '../ui/select';
 
 export const Header = () => {
@@ -23,46 +36,68 @@ export const Header = () => {
                 <div className="absolute left-0 top-11 h-5 w-full bg-card bg-gradient-to-b from-transparent to-card opacity-70 blur"></div>
                 <div className="z-10">
                     <Link to={'/'}>
-                        <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="max-h-20" />
+                        <img
+                            src={theme === 'dark' ? Logo : LightLogo}
+                            alt=""
+                            className="max-h-20"
+                        />
                     </Link>
                 </div>
                 <div className="mr-8 flex gap-5 text-xl max-lg:hidden">
                     <NavigationMenu>
                         <NavigationMenuList>
                             <NavigationMenuItem>
-                                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                                <NavigationMenuLink
+                                    asChild
+                                    className={navigationMenuTriggerStyle()}
+                                >
                                     <a href="/#hero-section">Início</a>
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
                             <NavigationMenuItem>
-                                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                                <NavigationMenuLink
+                                    asChild
+                                    className={navigationMenuTriggerStyle()}
+                                >
                                     <a href="/#about-section">Sobre</a>
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
                             <NavigationMenuItem>
-                                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                                <NavigationMenuLink
+                                    asChild
+                                    className={navigationMenuTriggerStyle()}
+                                >
                                     <a href="/#professional-section">Profissional</a>
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
                             <NavigationMenuItem>
-                                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                                <NavigationMenuLink
+                                    asChild
+                                    className={navigationMenuTriggerStyle()}
+                                >
                                     <Link to={'/login'}>Entrar</Link>
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
                             <Dialog>
                                 <DialogTrigger>
                                     <NavigationMenuItem>
-                                        <NavigationMenuLink asChild className="group ml-10 inline-flex h-10 w-max items-center justify-center rounded-md bg-indigo-600 px-6 py-2 text-white">
+                                        <NavigationMenuLink
+                                            asChild
+                                            className="group ml-10 inline-flex h-10 w-max items-center justify-center rounded-md bg-indigo-600 px-6 py-2 text-white"
+                                        >
                                             <Button>Agendar</Button>
                                         </NavigationMenuLink>
                                     </NavigationMenuItem>
                                 </DialogTrigger>
                                 <DialogContent className="gap-6 p-12">
                                     <DialogHeader className="flex">
-                                        <DialogTitle className="mb-2 items-center justify-center text-center font-bold">Seja bem-vindo ao MeetFLow!</DialogTitle>
+                                        <DialogTitle className="mb-2 items-center justify-center text-center font-bold">
+                                            Seja bem-vindo ao MeetFLow!
+                                        </DialogTitle>
                                         <DialogDescription className="text-center">
-                                            Estamos felizes por você estar aqui. Para desfrutar ao máximo de nossos serviços, recomendamos criar uma conta. Se preferir, vocês também pode
-                                            entrar sem fazer login.
+                                            Estamos felizes por você estar aqui. Para desfrutar ao
+                                            máximo de nossos serviços, recomendamos criar uma conta.
+                                            Se preferir, vocês também pode entrar sem fazer login.
                                         </DialogDescription>
                                     </DialogHeader>
 
@@ -97,18 +132,27 @@ export const Header = () => {
                         </SheetTrigger>
                         <SheetContent className="fixed">
                             <div className="mt-20 flex flex-col items-center ">
-                                <Link to={'/'} className="w-full rounded-md border-solid p-4 text-center hover:bg-accent">
+                                <Link
+                                    to={'/'}
+                                    className="w-full rounded-md border-solid p-4 text-center hover:bg-accent"
+                                >
                                     Início
                                 </Link>
                                 <Separator />
                                 <Separator />
 
-                                <Link to={'/'} className="w-full rounded-md border-solid p-4 text-center hover:bg-accent ">
+                                <Link
+                                    to={'/'}
+                                    className="w-full rounded-md border-solid p-4 text-center hover:bg-accent "
+                                >
                                     Sobre
                                 </Link>
                                 <Separator />
                                 <Separator />
-                                <Link to={'/'} className="w-full rounded-md border-solid p-4 text-center hover:bg-accent ">
+                                <Link
+                                    to={'/'}
+                                    className="w-full rounded-md border-solid p-4 text-center hover:bg-accent "
+                                >
                                     Área do Profissional
                                 </Link>
                                 <Separator />
@@ -137,14 +181,22 @@ export const Header = () => {
                                 </Select>
                                 <Separator />
 
-                                <Link to={'/login'} className="w-full rounded-md border-solid p-4 text-center hover:bg-accent">
-                                    <span className="hover:text-indigo-600 hover:underline">Entrar</span>
+                                <Link
+                                    to={'/login'}
+                                    className="w-full rounded-md border-solid p-4 text-center hover:bg-accent"
+                                >
+                                    <span className="hover:text-indigo-600 hover:underline">
+                                        Entrar
+                                    </span>
                                 </Link>
                                 <Separator />
                                 <Separator />
 
                                 <Button asChild>
-                                    <Link to={'/register'} className="mt-10 w-full rounded-md border-solid bg-indigo-700 p-4 text-center hover:bg-indigo-800 ">
+                                    <Link
+                                        to={'/register'}
+                                        className="mt-10 w-full rounded-md border-solid bg-indigo-700 p-4 text-center hover:bg-indigo-800 "
+                                    >
                                         Agende Agora!
                                     </Link>
                                 </Button>

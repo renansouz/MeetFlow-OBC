@@ -13,16 +13,40 @@ export const ProfessionalRegister = () => {
         <div className="flex h-full w-full bg-card">
             <div className="flex w-1/2 flex-col items-center justify-center max-xl:w-full">
                 <div className="flex flex-col  items-center justify-center rounded-xl border-2 border-slate-800 bg-card p-20">
-                    <MultiStep size={3} $currentStep={currentStepState} text={['Conta', 'Disponibilidade', 'Serviços']} />
-                    {currentStepState === 1 ? <Step1 setCurrentStepState={setCurrentStepState} currentStepState={currentStepState} key={'1'} /> : null}
-                    {currentStepState === 2 ? <Step2 setCurrentStepState={setCurrentStepState} currentStepState={currentStepState} key={'2'} /> : null}
-                    {currentStepState === 3 ? <Step3 setCurrentStepState={setCurrentStepState} currentStepState={currentStepState} key={'3'} /> : null}
+                    <MultiStep
+                        size={3}
+                        $currentStep={currentStepState}
+                        text={['Conta', 'Disponibilidade', 'Serviços']}
+                    />
+                    {currentStepState === 1 ? (
+                        <Step1
+                            setCurrentStepState={setCurrentStepState}
+                            currentStepState={currentStepState}
+                            key={'1'}
+                        />
+                    ) : null}
+                    {currentStepState === 2 ? (
+                        <Step2
+                            setCurrentStepState={setCurrentStepState}
+                            currentStepState={currentStepState}
+                            key={'2'}
+                        />
+                    ) : null}
+                    {currentStepState === 3 ? (
+                        <Step3
+                            setCurrentStepState={setCurrentStepState}
+                            currentStepState={currentStepState}
+                            key={'3'}
+                        />
+                    ) : null}
                 </div>
             </div>
             <div className="flex h-screen w-1/2 items-center justify-center gap-20 max-xl:hidden">
                 <BackGroundDiv>
                     <img src={LightLogo} />
-                    <h1 className="text-center font-semibold text-white">Junte-se à comunidade MeetFlow</h1>
+                    <h1 className="text-center font-semibold text-white">
+                        Junte-se à comunidade MeetFlow
+                    </h1>
                 </BackGroundDiv>
             </div>
         </div>

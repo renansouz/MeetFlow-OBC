@@ -16,9 +16,15 @@ export function MultiStep({ size, $currentStep = 1, text }: MultiStepProps) {
                     {Array.from({ length: size }, (_, i) => i + 1).map((step, index) => {
                         return (
                             <DivRepeat key={index}>
-                                <Step $active={$currentStep >= step} $stepcontent={step} $currentStep={$currentStep} />
+                                <Step
+                                    $active={$currentStep >= step}
+                                    $stepcontent={step}
+                                    $currentStep={$currentStep}
+                                />
                                 <Label $active={$currentStep >= step}>{text[step - 1]}</Label>
-                                {step !== size && <ChevronRight className="h-8 w-8 text-foreground" />}
+                                {step !== size && (
+                                    <ChevronRight className="h-8 w-8 text-foreground" />
+                                )}
                             </DivRepeat>
                         );
                     })}
