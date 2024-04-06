@@ -25,10 +25,12 @@ export interface UpdateProfileResponse {
 
 export async function updateProfile(data: UpdateProfileBody) {
     const user = Cookies.get('meetFlow.user');
+    console.log('user', user);
     const parsedId = user ? JSON.parse(user) : null;
+    console.log('parsedId', parsedId);
     const token = Cookies.get('meetFlow.token');
 
-    const response = await api.patch<UpdateProfileResponse>(`/user/update?_id=${parsedId._id}`, {
+    const response = await api.patch<UpdateProfileResponse>(`/user/update?_id=${parsedId}`, {
         data,
         headers: { Authorization: `Bearer ${token}` },
     });

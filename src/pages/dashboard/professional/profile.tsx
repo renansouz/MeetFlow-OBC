@@ -33,6 +33,7 @@ import {
 } from '@/components/ui/form';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useAuth } from '@/context/auth-provider';
+import { env } from '@/env';
 import { queryClient } from '@/lib/react-query';
 import { ProfessionalService } from '@/pages/dashboard/client/ProfessionalProfile/ProfessionalService';
 
@@ -126,7 +127,7 @@ export function Profile() {
                                 <Avatar>
                                     {profile?.photoUrl ? (
                                         <AvatarImage
-                                            src={profile.photoUrl}
+                                            src={`${env.VITE_URL_R2CLOUDFLARE}${profile.photoUrl}`}
                                             className="ml-5 w-36 rounded-full border-4 border-background"
                                         />
                                     ) : (

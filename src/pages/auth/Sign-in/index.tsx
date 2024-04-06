@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { AxiosError } from 'axios';
 import { Lock, User } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -17,7 +17,7 @@ import LightLogo from '@/public/Logo-light.svg';
 
 import { BackGroundDiv, Logo } from './styles';
 
-type passwordAppearenceType = 'text' | 'password';
+type passwordAppearanceType = 'text' | 'password';
 
 const createUserSchema = z.object({
     email: z.string().email({ message: 'Digite um e-mail válido' }),
@@ -28,16 +28,22 @@ type LoginFormData = z.infer<typeof createUserSchema>;
 
 export const ClientLogin = () => {
     const { login } = useAuth();
-    // const { login, user } = useAuth();
     const { theme } = useTheme();
     const navigate = useNavigate();
 
-    const [passswordAppearenceState, setpasswordAppearenceState] =
-        useState<passwordAppearenceType>('password');
-    const handlePasswordAppearence = () =>
-        passswordAppearenceState === 'password'
-            ? setpasswordAppearenceState('text')
-            : setpasswordAppearenceState('password');
+    const { isAuthenticated } = useAuth();
+    useEffect(() => {
+        if (isAuthenticated) {
+            navigate('/dashboard/services');
+        }
+    }, [isAuthenticated]);
+
+    const [passwordAppearanceState, setPasswordAppearanceState] =
+        useState<passwordAppearanceType>('password');
+    const handlePasswordAppearance = () =>
+        passwordAppearanceState === 'password'
+            ? setPasswordAppearanceState('text')
+            : setPasswordAppearanceState('password');
 
     const {
         register,
@@ -111,7 +117,7 @@ export const ClientLogin = () => {
                         <div className="group flex w-[20rem] items-center justify-between gap-2 rounded-lg border border-foreground px-3 py-2 shadow-sm focus-within:border-primary focus:border-primary max-sm:w-[20rem]">
                             <Lock className="w-[16rem] text-foreground/90" />
                             <Input
-                                type={passswordAppearenceState}
+                                type={passwordAppearanceState}
                                 className="w-[16rem] flex-1 border-0 bg-transparent p-0 text-foreground placeholder-zinc-600 focus:border-primary"
                                 placeholder="Digite sua senha"
                                 id="password"
@@ -128,7 +134,7 @@ export const ClientLogin = () => {
                             type="checkbox"
                             name=""
                             id=""
-                            onClick={handlePasswordAppearence}
+                            onClick={handlePasswordAppearance}
                         />
                         <label htmlFor="">Mostrar senha</label>
                     </section>

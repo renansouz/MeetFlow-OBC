@@ -13,15 +13,16 @@ import {
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { useAuth } from '@/context/auth-provider';
+import { env } from '@/env';
 
 import { AlertDialogContainer } from './AlertDialogContainer';
 
 export const ClientMenu = () => {
     const navigate = useNavigate();
-    const { signOut } = useAuth();
+    const { logout } = useAuth();
 
     const handleLogout = () => {
-        signOut();
+        logout();
         navigate('/');
     };
 
@@ -42,7 +43,10 @@ export const ClientMenu = () => {
                 >
                     <Avatar>
                         {profile?.user.photoUrl ? (
-                            <AvatarImage src={profile?.user.photoUrl} className="w-10" />
+                            <AvatarImage
+                                src={`${env.VITE_URL_R2CLOUDFLARE}${profile?.user.photoUrl}`}
+                                className="w-10"
+                            />
                         ) : (
                             <AvatarFallback>
                                 {profile?.user?.name?.slice(0, 1).toUpperCase()}

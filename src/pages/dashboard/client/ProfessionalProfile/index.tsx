@@ -1,4 +1,4 @@
-import { AxiosError } from 'axios';
+import { useQuery } from '@tanstack/react-query';
 import dayjs from 'dayjs';
 import {
     BriefcaseBusiness,
@@ -10,7 +10,7 @@ import {
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { getProfile } from '@/api/user/get-profile';
+import { getProfile, GetProfileResponse } from '@/api/user/get-profile';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -23,6 +23,7 @@ import {
     DialogTrigger,
 } from '@/components/ui/dialog';
 import { Skeleton } from '@/components/ui/skeleton';
+import { env } from '@/env';
 
 import { CalendarProfessional } from './Calendar';
 import { ProfessionalService } from './ProfessionalService';
@@ -67,39 +68,29 @@ export function ProfessionalProfile() {
         };
     };
 
-    const [professional, setProfessional] = useState<GetProfileResponse>();
+    const { data: professional, isLoading: isLoadingProfile } = useQuery({
+        queryKey: ['profile', _id],
+        queryFn: () => getProfile({ _id }),
+        staleTime: Infinity,
+        enabled: !!_id,
+    });
 
-    useEffect(() => {
-        async function getProfileData() {
-            try {
-                const res = await getProfile(_id);
-                console.log('res', res);
-                // const data = await getProfile(_id);
-                // console.log(data);
-                // setProfessional(data);
-            } catch (error) {
-                if (error instanceof AxiosError) {
-                    console.log(error.message);
-                }
-            }
-        }
-
-        getProfileData();
-    }, []);
-
-    const [showContent, setShowContent] = useState(false);
+    const [showContent, setShowContent] = useState(true);
 
     return (
         <Card className="my-16 ml-[6%] w-[70%] min-w-[20rem] pb-10 max-xl:m-0 max-xl:w-full">
             <CardHeader className="h-32 w-full rounded-tl-md rounded-tr-md bg-indigo-300 pt-14 max-lg:rounded-none">
                 <Avatar className="h-36 w-full rounded-full">
-                    <AvatarImage
-                        src="https://github.com/renansouz.png"
-                        className="ml-5 w-36 rounded-full border-4 border-background"
-                    />
-                    <AvatarFallback className="ml-5 w-36 rounded-full border-4 border-background">
-                        {professional?.name.slice(0, 1)}
-                    </AvatarFallback>
+                    {professional?.photoUrl ? (
+                        <AvatarImage
+                            src={`${env.VITE_URL_R2CLOUDFLARE}${professional?.photoUrl}`}
+                            className="ml-5 w-36 rounded-full border-4 border-background"
+                        />
+                    ) : (
+                        <AvatarFallback className="ml-5 w-36 rounded-full border-4 border-background">
+                            {professional?.name.slice(0, 1)}
+                        </AvatarFallback>
+                    )}
                 </Avatar>
             </CardHeader>
             <CardContent className="mt-20 flex w-full flex-col gap-y-2 border-b-2">
@@ -107,21 +98,23 @@ export function ProfessionalProfile() {
                     className="ml-6 text-left text-xl font-bold "
                     style={{ maxWidth: '600px' }}
                 >
-                    {/* {professional?.name} */}
-                    Renan Silva
+                    {professional?.name}
                 </CardTitle>
                 <CardDescription className="ml-6 w-full font-light">
-                    {' '}
-                    Desenvolvimento, Inovação
+                    {professional?.headLine}
                 </CardDescription>
-                <span className="ml-5 mt-3 font-bold text-indigo-600/90">+ 11 agendamentos</span>
+                <span className="ml-5 mt-3 font-bold text-indigo-600/90">
+                    + {professional?.appointmentsTotal} agendamentos
+                </span>
+
                 {/* SERVIÇOS */}
                 <h2 className=" ml-10 mt-10 flex items-center justify-start text-3xl font-light max-md:mx-10">
-                    Serviços de Renan
+                    Serviços de {professional?.name}
                 </h2>
                 <ProfessionalService onServiceClick={() => setShowContent(true)} />
             </CardContent>
-            {/* calendário */}
+
+            {/* CALENDÁRIO */}
             {showContent && (
                 <>
                     <h2 className="mb-10 mt-10 flex items-center justify-center text-3xl font-light max-md:mx-10">

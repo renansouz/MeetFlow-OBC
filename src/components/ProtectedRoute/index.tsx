@@ -1,17 +1,20 @@
-import { Navigate, Outlet } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { useAuth } from '@/context/auth-provider';
 
 type ProtectedRouteType = {
+    component: React.FC;
     particular?: 'client' | 'professional';
-    fallbackRoute?: string;
 };
 
-export const ProtectedRoute = ({ particular, fallbackRoute = '/login' }: ProtectedRouteType) => {
-    const { user } = useAuth();
-    return user === null || user?.role === particular ? (
-        <Navigate to={fallbackRoute} replace />
-    ) : (
-        <Outlet />
-    );
+export const ProtectedRoute = ({ component: Component, particular }: ProtectedRouteType) => {
+    const { user, isAuthenticated } = useAuth();
+    const navigate = useNavigate();
+
+    if (!isAuthenticated || user?.role === particular) {
+        navigate('/login');
+        return null;
+    }
+
+    return <Component />;
 };

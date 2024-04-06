@@ -4,6 +4,7 @@ export interface GetServiceByPageParams {
     page?: number;
     sortBy?: string;
     typeSort?: string;
+    limit?: number;
     userId?: string;
 }
 
@@ -31,6 +32,7 @@ export async function getServiceByPage({ userId, page }: GetServiceByPageParams)
             page,
             sortBy: 'createdAt',
             typeSort: 'desc',
+            limit: 10,
         },
     });
 

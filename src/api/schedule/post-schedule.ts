@@ -3,8 +3,8 @@ import Cookies from 'js-cookie';
 import { api } from '@/lib/axios';
 
 export interface ScheduleInBody {
-    name?: string;
-    description?: string;
+    name: string;
+    description: string;
     days1: {
         sunday1: boolean;
         monday1: boolean;
@@ -14,6 +14,7 @@ export interface ScheduleInBody {
         friday1: boolean;
         saturday1: boolean;
     };
+    minimumTimeForReSchedule?: number;
     hourStart1: string;
     hourEnd1: string;
     hourLunchStart1?: string;
