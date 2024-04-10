@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 export function DashboardProfessional() {
   return (
     <div>

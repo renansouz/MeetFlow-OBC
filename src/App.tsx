@@ -13,32 +13,32 @@ import { RouterWrapper } from './router';
 import { GlobalStyles } from './styles/global';
 
 function App() {
-    const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        setTimeout(() => {
-            setLoading(false);
-        }, 1500);
-    }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+  }, []);
 
-    return (
-        <>
-            {loading ? (
-                <Preloader />
-            ) : (
-                <AuthProvider>
-                    <ThemeProvider storageKey="MeetFlow-theme" defaultTheme="dark">
-                        <GlobalStyles />
+  return (
+    <>
+      {loading ? (
+        <Preloader />
+      ) : (
+        <AuthProvider>
+          <ThemeProvider storageKey="MeetFlow-theme" defaultTheme="dark">
+            <GlobalStyles />
 
-                        <Toaster richColors />
-                        <QueryClientProvider client={queryClient}>
-                            <RouterProvider router={RouterWrapper()} />
-                            {process.env.NODE_ENV !== 'production' && <ReactQueryDevtools />}
-                        </QueryClientProvider>
-                    </ThemeProvider>
-                </AuthProvider>
-            )}
-        </>
-    );
+            <Toaster richColors />
+            <QueryClientProvider client={queryClient}>
+              <RouterProvider router={RouterWrapper()} />
+              {process.env.NODE_ENV !== 'production' && <ReactQueryDevtools />}
+            </QueryClientProvider>
+          </ThemeProvider>
+        </AuthProvider>
+      )}
+    </>
+  );
 }
 export default App;
