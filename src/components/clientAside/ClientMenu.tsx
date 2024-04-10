@@ -12,6 +12,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { Skeleton } from '@/components/ui/skeleton';
 import { useAuth } from '@/context/auth-provider';
 import { env } from '@/env';
 
@@ -32,8 +33,6 @@ export const ClientMenu = () => {
         staleTime: Infinity,
     });
 
-    console.log('profile', profile);
-
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -42,7 +41,9 @@ export const ClientMenu = () => {
                     className="flex h-11 w-full items-center justify-start gap-3 px-8 py-7 max-lg:justify-center max-lg:px-0"
                 >
                     <Avatar>
-                        {profile?.user.photoUrl ? (
+                        {isLoadingProfile ? (
+                            <Skeleton className="h-10 w-10" />
+                        ) : profile?.user.photoUrl ? (
                             <AvatarImage
                                 src={`${env.VITE_URL_R2CLOUDFLARE}${profile?.user.photoUrl}`}
                                 className="w-10"
@@ -54,15 +55,23 @@ export const ClientMenu = () => {
                         )}
                     </Avatar>
                     <div className="flex w-44 flex-col justify-start max-sm:visible sm:hidden lg:block">
-                        {profile && (
-                            <h2 className="overflow-hidden overflow-ellipsis whitespace-nowrap text-left text-sm">
-                                {profile.user.name}
-                            </h2>
+                        {isLoadingProfile ? (
+                            <Skeleton className="20px w-full" />
+                        ) : (
+                            profile && (
+                                <h2 className="overflow-hidden overflow-ellipsis whitespace-nowrap text-left text-sm">
+                                    {profile.user.name}
+                                </h2>
+                            )
                         )}
-                        {profile && (
-                            <p className="overflow-hidden overflow-ellipsis whitespace-nowrap text-left text-xs">
-                                {profile.user.email}
-                            </p>
+                        {isLoadingProfile ? (
+                            <Skeleton className="20px w-full" />
+                        ) : (
+                            profile && (
+                                <p className="overflow-hidden overflow-ellipsis whitespace-nowrap text-left text-xs">
+                                    {profile.user.email}
+                                </p>
+                            )
                         )}
                     </div>
                 </Button>

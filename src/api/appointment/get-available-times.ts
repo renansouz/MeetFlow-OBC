@@ -3,7 +3,7 @@ import { api } from '@/lib/axios';
 export interface GetAppointmentLoadAvailableTimesParams {
     serviceId: string;
     scheduleId: string;
-    date: string;
+    date: string | Date;
 }
 
 export interface GetAppointmentLoadAvailableTimesResponse {

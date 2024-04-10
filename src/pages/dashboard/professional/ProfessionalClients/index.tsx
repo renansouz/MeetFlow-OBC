@@ -10,7 +10,7 @@ export function Clients() {
                 <h1 className="text-center">Você ainda não possui clientes</h1>
             </div> */}
 
-            <Card className="m-[5%] p-5 ">
+            <Card className="m-[3%] p-5 ">
                 <CardHeader>
                     <CardTitle>Agendamentos Pendentes</CardTitle>
                     <CardDescription>

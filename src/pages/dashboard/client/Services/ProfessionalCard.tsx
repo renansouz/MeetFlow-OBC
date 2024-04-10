@@ -16,13 +16,14 @@ export const ProfessionalCard = ({
     name,
     occupationArea,
     _id,
+    myScheduleId,
 }: Professional) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const timeout = setTimeout(() => {
             setLoading(false);
-        }, 2000);
+        }, 1000);
 
         return () => clearTimeout(timeout);
     }, []);
@@ -69,7 +70,7 @@ export const ProfessionalCard = ({
                             className="mb-10 bg-primary text-lg font-light text-foreground hover:bg-primary/80 max-sm:mb-5"
                             variant={'default'}
                         >
-                            <Link to={`/dashboard/profile/${_id}`} className="px-6">
+                            <Link to={`/dashboard/profile/${_id}/${myScheduleId}`} className="px-6">
                                 <LucideCalendarPlus className="mr-3 h-5 w-5" />
                                 Agendar
                             </Link>

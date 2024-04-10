@@ -1,8 +1,8 @@
 import { Outlet } from 'react-router';
 
+import { ClientAside } from '@/components/clientAside';
+import { ProfessionalAside } from '@/components/ProfessionalAside';
 import { useTheme } from '@/components/theme/theme-provider';
-import { ClientAside } from '@/pages/dashboard/client/components/ClientAside';
-import { ProfessionalAside } from '@/pages/dashboard/professional/components/ProfessionalAside';
 
 interface UserTypesProps {
     userType: 'professional' | 'client';

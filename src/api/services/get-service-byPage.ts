@@ -32,7 +32,6 @@ export async function getServiceByPage({ userId, page }: GetServiceByPageParams)
             page,
             sortBy: 'createdAt',
             typeSort: 'desc',
-            limit: 10,
         },
     });
 

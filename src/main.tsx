@@ -1,4 +1,5 @@
 import './global.css';
+import '@/lib/dayjs.ts';
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';

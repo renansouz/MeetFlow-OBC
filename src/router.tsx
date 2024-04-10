@@ -47,7 +47,7 @@ const clientRoutes = [
         element: <ProtectedRoute component={MySchedules} />,
     },
     {
-        path: '/dashboard/profile/:_id',
+        path: '/dashboard/profile/:_id/:scheduleId',
         element: <ProtectedRoute component={ProfessionalProfile} />,
     },
 ];

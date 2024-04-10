@@ -1,7 +1,10 @@
+import { useQuery } from '@tanstack/react-query';
 import dayjs from 'dayjs';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
+import { getSchedule } from '@/api';
 import { getWeekDays } from '@/utils/get-week-day';
 
 import {
@@ -34,9 +37,10 @@ interface CalendarProps {
 }
 
 export function CalendarProfessional({ selectedDate, onDateSelected }: CalendarProps) {
+    const { scheduleId } = useParams();
     const [blockedDates, setBlockedDates] = useState<BlockedDates>({
-        blockedWeekDays: [1, 2],
-        blockedDates: [1, 2],
+        blockedWeekDays: [],
+        blockedDates: [], // Bloquear dias específicos
     });
 
     // Referente aos meses do ano
@@ -61,19 +65,37 @@ export function CalendarProfessional({ selectedDate, onDateSelected }: CalendarP
     const currentMonth = currentDate.format('MMMM');
     const currentYear = currentDate.format('YYYY');
 
-    //   const { data: blockedDates } = useQuery<BlockedDates>({ // Chamada que bloqueia os dias da semana
-    //     queryKey: ['blocked-dates', currentDate.get('year'), currentDate.get('month')],
-    //     queryFn: async () => {
-    //       const response = await api.get(`/users/${username}/blocked-dates`, {
-    //         params: {
-    //           year: currentDate.get('year'),
-    //           month: currentDate.get('month') + 1,
-    //         },
-    //       })
+    const { data: schedule, isLoading: isLoadingSchedule } = useQuery({
+        queryKey: ['schedule', scheduleId],
+        queryFn: () => getSchedule({ _id: scheduleId }),
+        staleTime: Infinity,
+        enabled: !!scheduleId,
+    });
 
-    //       return response.data
-    //     },
-    //     })
+    console.log('schedule', schedule);
+
+    function mapDaysToBlockedWeekDays(schedule: any): number[] {
+        const weekDays = [
+            'sunday',
+            'monday',
+            'tuesday',
+            'wednesday',
+            'thursday',
+            'friday',
+            'saturday',
+        ];
+        const blockedWeekDays: number[] = [];
+
+        const days1 = schedule.days1;
+        for (let i = 0; i < weekDays.length; i++) {
+            const day = weekDays[i] + '1';
+            if (days1[day] === false) {
+                blockedWeekDays.push(i);
+            }
+        }
+
+        return blockedWeekDays;
+    }
 
     // Referente aos dias da semana
     const calendarWeeks = useMemo(() => {
@@ -82,8 +104,6 @@ export function CalendarProfessional({ selectedDate, onDateSelected }: CalendarP
             return [];
         }
 
-        console.log('calendarWeeks ~ blockedDates', blockedDates);
-
         const daysInMonthArray = Array.from({
             length: currentDate.daysInMonth(), // daysInMonth() retorna o número de dias do mês
         }).map((_, i) => {
@@ -91,7 +111,6 @@ export function CalendarProfessional({ selectedDate, onDateSelected }: CalendarP
         });
 
         const firstWeekDay = currentDate.get('day');
-
         const previousMonthFillArray = Array.from({
             // O dia da semana sempre me retorna o que falta para preencher a linha
             length: firstWeekDay,
@@ -150,6 +169,12 @@ export function CalendarProfessional({ selectedDate, onDateSelected }: CalendarP
         return calendarWeeks;
     }, [currentDate, blockedDates]);
 
+    useEffect(() => {
+        if (schedule) {
+            const blockedWeekDays = mapDaysToBlockedWeekDays(schedule);
+            setBlockedDates({ ...blockedDates, blockedWeekDays });
+        }
+    }, [schedule]);
     return (
         <CalendarContainer>
             <CalendarHeader>

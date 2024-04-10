@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CalendarContainer = styled.div<{ isTimePickerOpen: boolean }>`
+export const CalendarContainer = styled.div`
     display: flex;
     flex-direction: column;
     box-shadow: 0 0 2px #1f2937;
@@ -9,7 +9,6 @@ export const CalendarContainer = styled.div<{ isTimePickerOpen: boolean }>`
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     margin-left: 1rem;
-    width: ${(props) => (props.isTimePickerOpen ? '0' : '40rem')};
     @media (max-width: 1024px) {
         margin-left: 0;
     }

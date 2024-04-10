@@ -1,11 +1,11 @@
 import Cookies from 'js-cookie';
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import { api } from '@/lib/axios';
 
 type User = {
     email: string;
+    name: string;
     role: string;
     _id: string;
 };

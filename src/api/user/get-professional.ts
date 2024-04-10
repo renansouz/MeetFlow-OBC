@@ -13,6 +13,7 @@ export interface Professional {
     photoUrl?: string | null;
     serviceIds?: string[];
     createdAt?: Date | null;
+    isLoadingProfessional?: boolean;
 }
 
 export interface GetProfessionalResponse {

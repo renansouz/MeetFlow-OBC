@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import { z } from 'zod';
 
-import { signIn } from '@/api/user/sign-in';
+import { signIn } from '@/api';
 import { Input } from '@/components/Input';
 import { useTheme } from '@/components/theme/theme-provider';
 import { Button } from '@/components/ui/button';

@@ -35,7 +35,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { useAuth } from '@/context/auth-provider';
 import { env } from '@/env';
 import { queryClient } from '@/lib/react-query';
-import { ProfessionalService } from '@/pages/dashboard/client/ProfessionalProfile/ProfessionalService';
+import { ProfessionalService } from '@/components/professionalService';
 
 const UserProfileSchema = z.object({
     name: z.string(),
