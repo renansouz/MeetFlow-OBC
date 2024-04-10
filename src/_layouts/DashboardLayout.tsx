@@ -5,32 +5,30 @@ import { ProfessionalAside } from '@/components/ProfessionalAside';
 import { useTheme } from '@/components/theme/theme-provider';
 
 interface UserTypesProps {
-    userType: 'professional' | 'client';
+  userType: 'professional' | 'client';
 }
 
 export const DashboardLayout = ({ userType }: UserTypesProps) => {
-    const { theme } = useTheme();
-    const backgroundToggle = theme === 'dark' ? 'bg-background' : 'bg-[#fff]';
+  const { theme } = useTheme();
+  const backgroundToggle = theme === 'dark' ? 'bg-background' : 'bg-[#fff]';
 
-    const renderAside = () => {
-        if (userType === 'professional') {
-            return <ProfessionalAside />;
-        } else if (userType === 'client') {
-            return <ClientAside />;
-        } else {
-            return null;
-        }
-    };
+  const renderAside = () => {
+    if (userType === 'professional') {
+      return <ProfessionalAside />;
+    } else if (userType === 'client') {
+      return <ClientAside />;
+    } else {
+      return null;
+    }
+  };
 
-    return (
-        <div className="flex">
-            {renderAside()}
+  return (
+    <div className="flex">
+      {renderAside()}
 
-            <div
-                className={`h-screen w-full overflow-hidden overflow-y-scroll ${backgroundToggle}`}
-            >
-                <Outlet />
-            </div>
-        </div>
-    );
+      <div className={`h-screen w-full overflow-hidden overflow-y-scroll ${backgroundToggle}`}>
+        <Outlet />
+      </div>
+    </div>
+  );
 };

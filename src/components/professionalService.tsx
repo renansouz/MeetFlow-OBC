@@ -1,9 +1,9 @@
-/* eslint-disable prettier/prettier */
-import { DollarSign, Hourglass, LucideCalendarPlus, Star } from 'lucide-react';
+import { Hourglass, Trash, WalletMinimal } from 'lucide-react';
 
 import { GetServiceByPageResponse } from '@/api';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+
+import { CarouselItem } from './ui/carousel';
 
 interface ProfessionalServiceProps {
   services?: GetServiceByPageResponse;
@@ -15,42 +15,31 @@ export const ProfessionalService = ({ services, onServiceClick }: ProfessionalSe
     <>
       {services &&
         services?.services.map((service) => (
-          <Card className="m-10 p-3 border-indigo-900">
-            <CardHeader>
-              <div className="flex items-center justify-between gap-x-3">
-                <CardTitle>{service.name}</CardTitle>
-                <div className="flex items-center justify-center">
-                  <Star className="text-yellow-500" />
-                  <Star className="text-yellow-500" />
-                  <Star className="text-yellow-500" />
-                  <Star className="text-yellow-500" />
-                  <Star className="text-yellow-500" />
-                  <span className="font-extralight">(10)</span>
+          <CarouselItem className="basis-1/3 max-xl:basis-2/3 max-md:basis-full">
+            <Card className="group m-1 border-indigo-900 hover:opacity-80">
+              <CardHeader>
+                <div className="flex items-center justify-between gap-x-3">
+                  <CardTitle>{service.name}</CardTitle>
+                  <div className="cursor-pointer items-center justify-center rounded-full bg-red-400 p-2 opacity-0 group-hover:opacity-100">
+                    <Trash className="text-red-950" />
+                  </div>
                 </div>
-              </div>
-              <CardDescription>{service.description}</CardDescription>
-            </CardHeader>
-            <CardContent className="my-4 flex justify-between">
-              <div className="flex gap-3">
-                <p className="flex items-center justify-center gap-2 rounded-full border-2 px-4 py-3 border-indigo-900">
-                  <Hourglass className="text-foreground" />
-                  {service.duration} horas
-                </p>
-                <p className="flex items-center justify-center gap-2 rounded-full border-2 px-4 py-3 border-indigo-900">
-                  <DollarSign className="text-foreground" /> R${service.price}
-                </p>
-              </div>
-            </CardContent>
-
-            <div className="flex justify-end">
-              <Button onClick={() => onServiceClick && onServiceClick(service)} className="text-lg font-light" variant={'outline'}>
-                <LucideCalendarPlus className="mr-3 h-5 w-5" />
-                Agendar
-              </Button>
-            </div>
-          </Card>
-        ))
-      }
+                <CardDescription>{service.description}</CardDescription>
+              </CardHeader>
+              <CardContent className="my-4 flex justify-between">
+                <div className="flex gap-3">
+                  <p className="flex items-center justify-center gap-2 rounded-md border-2 border-indigo-900 px-3 py-2">
+                    <Hourglass className="text-foreground" />
+                    {service.duration} horas
+                  </p>
+                  <p className="flex items-center justify-center gap-2 rounded-md border-2 border-indigo-900 px-3 py-2">
+                    <WalletMinimal className="text-foreground" /> R${service.price}
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </CarouselItem>
+        ))}
     </>
   );
 };

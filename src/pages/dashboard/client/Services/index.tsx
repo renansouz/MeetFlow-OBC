@@ -8,119 +8,117 @@ import { Separator } from '@/components/ui/separator';
 import { ProfessionalCard } from './ProfessionalCard';
 
 type categories = {
-    title: string;
-    id: number;
+  title: string;
+  id: number;
 };
 
 export const Services = () => {
-    const [searchTerm, setSearchTerm] = useState('');
-    const [categories, setCategories] = useState<string[]>([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [categories, setCategories] = useState<string[]>([]);
 
-    const { data: professionals } = useQuery({
-        queryKey: ['professionals'],
-        queryFn: getProfessional,
-        staleTime: Infinity,
-    });
+  const { data: professionals } = useQuery({
+    queryKey: ['professionals'],
+    queryFn: getProfessional,
+    staleTime: Infinity,
+  });
 
-    const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchTerm(event.target.value);
-    };
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value);
+  };
 
-    const handleSearchCategoryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const { value } = event.target;
+  const handleSearchCategoryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
 
-        if (categories.includes(value)) {
-            setCategories(categories.filter((category) => category !== value));
-        } else {
-            setCategories([...categories, value]);
-        }
-    };
+    if (categories.includes(value)) {
+      setCategories(categories.filter((category) => category !== value));
+    } else {
+      setCategories([...categories, value]);
+    }
+  };
 
-    const removeAccents = (str: string) => {
-        return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-    };
+  const removeAccents = (str: string) => {
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  };
 
-    const filteredProfessionals = professionals?.data.filter((professional) => {
-        const lowerCaseSearchTerm = removeAccents(searchTerm.toLowerCase());
+  const filteredProfessionals = professionals?.data.filter((professional) => {
+    const lowerCaseSearchTerm = removeAccents(searchTerm.toLowerCase());
 
-        if (categories.length) {
-            return categories
-                .map((category) => removeAccents(category.toLowerCase()))
-                .includes(removeAccents(professional?.occupationArea?.toLowerCase() ?? ''));
-        }
+    if (categories.length) {
+      return categories
+        .map((category) => removeAccents(category.toLowerCase()))
+        .includes(removeAccents(professional?.occupationArea?.toLowerCase() ?? ''));
+    }
 
-        if (!searchTerm) {
-            return true;
-        }
-
-        return (
-            removeAccents(professional?.name.toLowerCase()).includes(lowerCaseSearchTerm) ||
-            removeAccents(professional?.occupationArea?.toLowerCase() ?? '').includes(
-                lowerCaseSearchTerm
-            )
-        );
-    });
-
-    const categoriesMock: categories[] = [
-        { title: 'Saúde', id: 1 },
-        { title: 'Advocacia', id: 2 },
-        { title: 'Design', id: 3 },
-        { title: 'Tecnologia', id: 4 },
-        { title: 'Coach', id: 5 },
-    ];
+    if (!searchTerm) {
+      return true;
+    }
 
     return (
-        <div className="w-full max-sm:mt-10">
-            <h1 className="mt-[2%] pl-10">Serviços</h1>
-            <Separator orientation="horizontal" className="mb-8 h-1 w-full max-xl:mb-7" />
-
-            <div>
-                <div className="flex flex-col items-center gap-5">
-                    <h2 className="text-center max-sm:mt-8 max-sm:text-3xl">Profissionais</h2>
-                    <Search
-                        placeholder="Busque por um serviço ou profissional"
-                        onChange={handleSearchChange}
-                    />
-                </div>
-
-                <div className="mt-10 flex flex-wrap items-center justify-center gap-10">
-                    {categoriesMock.map((categorie) => {
-                        return (
-                            <div className="flex items-center gap-2" key={categorie.id}>
-                                <input
-                                    type="checkbox"
-                                    className="h-6 w-6 appearance-none rounded-md border-2 border-indigo-800 checked:border-indigo-800 checked:bg-indigo-600"
-                                    name="category"
-                                    id={categorie.title}
-                                    value={categorie.title}
-                                    onChange={handleSearchCategoryChange}
-                                />
-
-                                <label htmlFor={categorie.title} id={categorie.title}>
-                                    {categorie.title}
-                                </label>
-                            </div>
-                        );
-                    })}
-                </div>
-
-                <div className="flex">
-                    <div className="flex flex-wrap justify-center gap-10 px-16 py-16 max-lg:gap-2 max-sm:gap-1 ">
-                        {filteredProfessionals &&
-                            filteredProfessionals.map((professional) => (
-                                <ProfessionalCard
-                                    name={professional.name}
-                                    occupationArea={professional.occupationArea}
-                                    headLine={professional.headLine}
-                                    photoUrl={professional.photoUrl}
-                                    _id={professional._id}
-                                    key={professional._id}
-                                    myScheduleId={professional.myScheduleId}
-                                />
-                            ))}
-                    </div>
-                </div>
-            </div>
-        </div>
+      removeAccents(professional?.name.toLowerCase()).includes(lowerCaseSearchTerm) ||
+      removeAccents(professional?.occupationArea?.toLowerCase() ?? '').includes(lowerCaseSearchTerm)
     );
+  });
+
+  const categoriesMock: categories[] = [
+    { title: 'Saúde', id: 1 },
+    { title: 'Advocacia', id: 2 },
+    { title: 'Design', id: 3 },
+    { title: 'Tecnologia', id: 4 },
+    { title: 'Coach', id: 5 },
+  ];
+
+  return (
+    <div className="w-full max-sm:mt-10">
+      <h1 className="mt-[2%] pl-10">Serviços</h1>
+      <Separator orientation="horizontal" className="mb-8 h-1 w-full max-xl:mb-7" />
+
+      <div>
+        <div className="flex flex-col items-center gap-5">
+          <h2 className="text-center max-sm:mt-8 max-sm:text-3xl">Profissionais</h2>
+          <Search
+            placeholder="Busque por um serviço ou profissional"
+            onChange={handleSearchChange}
+          />
+        </div>
+
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-10">
+          {categoriesMock.map((categorie) => {
+            return (
+              <div className="flex items-center gap-2" key={categorie.id}>
+                <input
+                  type="checkbox"
+                  className="h-6 w-6 appearance-none rounded-md border-2 border-indigo-800 checked:border-indigo-800 checked:bg-indigo-600"
+                  name="category"
+                  id={categorie.title}
+                  value={categorie.title}
+                  onChange={handleSearchCategoryChange}
+                />
+
+                <label htmlFor={categorie.title} id={categorie.title}>
+                  {categorie.title}
+                </label>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="flex">
+          <div className="flex flex-wrap justify-center gap-10 px-16 py-16 max-lg:gap-2 max-sm:gap-1 ">
+            {filteredProfessionals &&
+              filteredProfessionals.map((professional) => (
+                <ProfessionalCard
+                  name={professional.name}
+                  occupationArea={professional.occupationArea}
+                  headLine={professional.headLine}
+                  photoUrl={professional.photoUrl}
+                  _id={professional._id}
+                  key={professional._id}
+                  myScheduleId={professional.myScheduleId}
+                />
+              ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };

@@ -1,40 +1,40 @@
 import { api } from '@/lib/axios';
 
 export interface UpdateRequestBody {
-    status?: string;
-    message?: string;
-    active?: boolean;
-    haveRecurrence?: boolean;
+  status?: string;
+  message?: string;
+  active?: boolean;
+  haveRecurrence?: boolean;
 }
 
 export interface UpdateRequestRequest {
-    _id: string;
-    data: UpdateRequestBody;
+  _id: string;
+  data: UpdateRequestBody;
 }
 
 export interface UpdateRequestResponse {
-    _id: string;
-    message: string;
-    duration: number;
-    serviceId: string;
-    scheduleId: string;
-    clientId: string;
-    initDate: string;
-    endDate: string;
-    status: string;
-    active: boolean;
-    haveRecurrence: boolean;
-    createdById: string;
-    createdAt: string;
+  _id: string;
+  message: string;
+  duration: number;
+  serviceId: string;
+  scheduleId: string;
+  clientId: string;
+  initDate: string;
+  endDate: string;
+  status: string;
+  active: boolean;
+  haveRecurrence: boolean;
+  createdById: string;
+  createdAt: string;
 }
 
 export async function updateRequest({ _id, data }: UpdateRequestRequest) {
-    const response = await api.patch<UpdateRequestResponse>('/request/update', {
-        params: {
-            _id,
-        },
-        data,
-    });
+  const response = await api.patch<UpdateRequestResponse>('/request/update', {
+    params: {
+      _id,
+    },
+    data,
+  });
 
-    return response.data;
+  return response.data;
 }

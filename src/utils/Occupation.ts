@@ -1,8 +1,8 @@
 export const Ocuppations: string[] = [
-    'Advocacia',
-    'Saúde',
-    'Design',
-    'Tecnologia',
-    'Logística',
-    'Construção',
+  'Advocacia',
+  'Saúde',
+  'Design',
+  'Tecnologia',
+  'Logística',
+  'Construção',
 ];
