@@ -11,6 +11,7 @@ export interface RequestInBody {
   duration: number;
   initDate: string | Date;
   endDate: string | Date;
+
   haveRecurrence?: boolean | null;
   status?: string | null;
   active: boolean;
@@ -27,6 +28,7 @@ export interface RequestInResponse {
   duration: number;
   initDate: string | Date;
   endDate: string | Date;
+
   status: string;
   active: boolean;
   haveRecurrence: boolean;

@@ -4,12 +4,12 @@ import { useParams } from 'react-router-dom';
 
 import { getServiceByPage, ServiceInResponse } from '@/api';
 import { getProfile } from '@/api/user/get-profile';
+import { ProfessionalService } from '@/components/professionalService';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
 import { env } from '@/env';
 
-import { ProfessionalService } from '../../../../components/professionalService';
 import { ScheduleForm } from './ScheduleForm';
 
 export function ProfessionalProfile() {

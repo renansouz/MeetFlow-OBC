@@ -64,7 +64,7 @@ export const ClientRegister = () => {
         role: 'client',
       });
       toast.success('Conta criada com sucesso', {
-        className: 'w-full h-20 flex items-center justify-center gap-x-2 ',
+        className: 'w-full text-xl h-20 flex items-center justify-center gap-x-2 ',
         position: 'top-right',
         action: {
           label: 'Ir para login',
@@ -74,7 +74,7 @@ export const ClientRegister = () => {
     } catch (error) {
       if (error instanceof AxiosError) {
         toast.error(error.response?.data.message, {
-          className: 'w-full h-20 flex items-center justify-center gap-x-2 ',
+          className: 'w-full text-xl h-20 flex items-center justify-center gap-x-2 ',
           position: 'top-right',
         });
       }

@@ -25,16 +25,13 @@ export const LandingPage = () => {
     <div className="p-0">
       <section id="hero-section" className="h-screen min-h-lvh p-0 text-center">
         <BackGroundImage>
-          <div className="flex flex-col items-center justify-center gap-2">
-            <h1 className="text-center font-bold text-indigo-100  max-sm:text-3xl">
-              <span className="font-poppins-end text-[2.5rem] font-extrabold text-indigo-500 max-sm:text-3xl">
-                Simplifique{' '}
-              </span>{' '}
-              seus agendamentos
-              <div>otimize seu tempo</div>
+          <div className="flex flex-col items-start justify-start gap-2">
+            <h1 className="text-start font-bold text-indigo-100  max-sm:text-3xl">
+              Otimize sua Gestão de Agendamentos e Impulsione seu Negócio.
             </h1>
-            <p className="mb-8 text-center text-xl font-light text-indigo-100 max-lg:text-base max-sm:mb-10 max-sm:mt-0 max-sm:text-lg">
-              Conectando você aos melhores profissionais, <br /> sem complicações.
+            <p className="mb-8 text-start text-xl font-light text-indigo-100 max-lg:text-base max-sm:mb-10 max-sm:mt-0 max-sm:text-lg">
+              Descubra uma nova maneira de agendar compromissos. Conectamos você aos profissionais
+              certos, permitindo que você foque no crescimento da sua empresa.
             </p>
             <Dialog>
               <DialogTrigger>

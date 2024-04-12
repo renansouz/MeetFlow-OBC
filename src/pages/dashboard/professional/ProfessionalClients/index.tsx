@@ -18,6 +18,7 @@ export function Clients() {
   });
 
   const myScheduleId = profile?.myScheduleId;
+
   return (
     <>
       {/* <div className="flex h-lvh w-full items-center justify-center">
@@ -30,6 +31,7 @@ export function Clients() {
           <CardDescription>Verifique todos os seus agendamentos pendentes</CardDescription>
         </CardHeader>
         <ClientsPending scheduleId={myScheduleId || ''} />
+
         <CardHeader>
           <CardTitle>Clientes Confirmados</CardTitle>
           <CardDescription>Verifique todos os seus agendamentos confirmados</CardDescription>

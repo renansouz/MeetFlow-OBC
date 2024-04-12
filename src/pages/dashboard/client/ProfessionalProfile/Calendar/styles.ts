@@ -75,13 +75,6 @@ export const CalendarBody = styled.table`
     font-size: 0.75rem;
   }
 
-  tbody:before {
-    line-height: 0.75rem;
-    content: '.';
-    display: block;
-    color: #0f172a;
-  }
-
   tbody td {
     box-sizing: border-box;
   }

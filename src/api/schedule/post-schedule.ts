@@ -6,15 +6,14 @@ export interface ScheduleInBody {
   name: string;
   description: string;
   days1: {
-    sunday1: boolean;
     monday1: boolean;
     tuesday1: boolean;
     wednesday1: boolean;
     thursday1: boolean;
     friday1: boolean;
     saturday1: boolean;
+    sunday1: boolean;
   };
-  minimumTimeForReSchedule?: number;
   hourStart1: string;
   hourEnd1: string;
   hourLunchStart1?: string;
