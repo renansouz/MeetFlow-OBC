@@ -86,25 +86,31 @@ export function ConfirmStep({
   async function handleConfirmRequest({
     message,
     serviceId,
+    serviceName,
     scheduleId,
     clientId,
+    clientName,
     professionalId,
     duration,
     initDate,
     endDate,
+    active,
   }: RequestInBody) {
     try {
       await request({
         message,
         serviceId,
+        serviceName,
         scheduleId,
         clientId,
+        clientName,
         professionalId,
         duration,
         initDate,
         endDate,
         haveRecurrence: false,
         status: 'solicitado',
+        active,
       });
 
       await toast.success('Agendamento realizado com sucesso', {
@@ -228,12 +234,15 @@ export function ConfirmStep({
               handleConfirmRequest({
                 message: formData?.mensagem,
                 serviceId: serviceSelected._id,
+                serviceName: serviceSelected.name,
                 scheduleId: scheduleId ?? '',
                 clientId: clientId ?? '',
+                clientName: formData?.name,
                 professionalId: scheduleId ?? '',
                 initDate,
                 endDate,
                 duration: serviceSelected.duration,
+                active: true,
               })
             }
           >

@@ -1,9 +1,23 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { useQuery } from '@tanstack/react-query';
 
-import { ClientsCard } from './ClientsCard';
-import { ScheduleCard } from './ScheduleCard';
+import { getProfile } from '@/api';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { useAuth } from '@/context/auth-provider';
+
+import { ClientsConfirmed } from './clientsConfirmed';
+import { ClientsPending } from './clientsPending';
 
 export function Clients() {
+  const { user } = useAuth();
+
+  const { data: profile, isLoading: isLoadingProfile } = useQuery({
+    queryKey: ['profile'],
+    queryFn: () => getProfile({ _id: user?._id }),
+    staleTime: Infinity,
+    enabled: !!user,
+  });
+
+  const myScheduleId = profile?.myScheduleId;
   return (
     <>
       {/* <div className="flex h-lvh w-full items-center justify-center">
@@ -15,14 +29,13 @@ export function Clients() {
           <CardTitle>Agendamentos Pendentes</CardTitle>
           <CardDescription>Verifique todos os seus agendamentos pendentes</CardDescription>
         </CardHeader>
-        <ScheduleCard />
-        <ScheduleCard />
+        <ClientsPending scheduleId={myScheduleId || ''} />
         <CardHeader>
           <CardTitle>Clientes Confirmados</CardTitle>
           <CardDescription>Verifique todos os seus agendamentos confirmados</CardDescription>
         </CardHeader>
         <CardContent>
-          <ClientsCard />
+          <ClientsConfirmed scheduleId={myScheduleId || ''} />
         </CardContent>
       </Card>
     </>

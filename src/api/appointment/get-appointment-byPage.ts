@@ -6,12 +6,14 @@ export interface GetAppointmentByPageParams {
   limit?: number;
   typeSort?: string;
   userId?: string;
+  status?: string;
 }
 
 export interface GetAppointment {
   _id: string;
   message: string;
   serviceId: string;
+  serviceName: string;
   scheduleId: string;
   clientId: string;
   requestId: string;
@@ -35,7 +37,7 @@ export async function getAppointmentByPage({ userId, page }: GetAppointmentByPag
       page,
       sortBy: 'createdAt',
       typeSort: 'desc',
-      limit: 10,
+      status: 'confirmado',
     },
   });
 

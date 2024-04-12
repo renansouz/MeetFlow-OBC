@@ -4,6 +4,7 @@ export interface UpdateAppointmentBody {
   status?: string;
   message?: string;
   active?: boolean;
+  cancelled?: boolean;
   haveRecurrence?: boolean;
 }
 
@@ -29,12 +30,10 @@ export interface UpdateAppointmentResponse {
 }
 
 export async function updateAppointment({ _id, data }: UpdateAppointmentRequest) {
-  const response = await api.patch<UpdateAppointmentResponse>('/appointment/update', {
-    params: {
-      _id,
-    },
-    data,
-  });
+  const response = await api.patch<UpdateAppointmentResponse>(
+    `/appointment/update?_id=${_id}`,
+    data
+  );
 
   return response.data;
 }
