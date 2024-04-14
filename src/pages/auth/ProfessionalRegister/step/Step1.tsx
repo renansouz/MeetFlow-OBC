@@ -74,7 +74,7 @@ export const Step1 = ({ setCurrentStepState }: stepProps) => {
   }
 
   return (
-    <div className="my-24 mt-44 flex p-5">
+    <div className="my-24 flex p-5">
       <form
         className="flex h-full flex-col items-center justify-center gap-5 px-10"
         onSubmit={handleSubmit(handleSignUp)}
@@ -144,7 +144,7 @@ export const Step1 = ({ setCurrentStepState }: stepProps) => {
           />
           <label htmlFor="checkbox">Mostrar senha</label>
         </section>
-        <div className="mb-10 flex w-full justify-center">
+        <div className="flex w-full justify-center">
           <p className="text-foreground">
             Já possui uma conta?{' '}
             <Link to={'/login'} className="text-blue-700 hover:underline">

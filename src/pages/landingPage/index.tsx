@@ -22,13 +22,14 @@ import { BackGroundImage, ProfessionalImage, SobreImage } from './styles';
 
 export const LandingPage = () => {
   return (
-    <div className="p-0">
+    <div className="gap-0 p-0">
       {/* HERO */}
       <section id="hero-section" className="h-screen min-h-lvh p-0 text-center">
         <BackGroundImage>
           <div className="-ml-36 flex w-3/4 flex-col flex-wrap items-start justify-start gap-2 max-md:mx-10 max-md:w-full max-md:items-center max-md:justify-center">
             <h1 className="text-start font-bold  text-white max-xl:text-4xl max-md:text-center max-sm:mb-8 max-sm:text-3xl">
-              Otimize sua Gestão de Agendamentos e<br /> Impulsione seu Negócio.
+              Otimize sua Gestão de Agendamentos e<br className="max-xl:hidden" /> Impulsione seu
+              Negócio.
             </h1>
             <p className="mb-8 w-7/12 text-start text-xl font-light text-white max-xl:text-lg max-md:w-full max-md:text-center max-sm:mb-10 max-sm:mt-0 max-sm:hidden max-sm:text-lg">
               Descubra uma nova maneira de agendar compromissos. Conectamos você aos profissionais
@@ -72,7 +73,7 @@ export const LandingPage = () => {
         </BackGroundImage>
       </section>
       {/* CARDS */}
-      <section className="mx-10 my-16 flex flex-wrap items-start justify-center gap-10 ">
+      <section className="mx-5 my-16 flex flex-wrap items-start justify-center max-xl:gap-10 xl:gap-36">
         <div className="mt-10 max-xl:mt-0">
           <Card
             Icon={Star}
@@ -96,9 +97,9 @@ export const LandingPage = () => {
       {/*  ABOUT */}
       <section
         id="about-section"
-        className="flex h-screen items-center justify-center max-xl:my-24 max-xl:h-auto max-xl:flex-col "
+        className="flex h-screen items-center justify-center max-xl:my-10 max-xl:h-auto max-xl:flex-col "
       >
-        <div className="flex h-full w-6/12 items-center justify-start">
+        <div className="flex h-full w-6/12 items-center justify-start max-xl:w-10/12 max-xl:justify-center">
           <SobreImage />
         </div>
         <div className="flex flex-col items-center justify-center text-center">
@@ -123,7 +124,7 @@ export const LandingPage = () => {
         </div>
       </section>
       {/* PROFESSIONAL */}
-      <section className="flex h-screen items-center justify-center bg-card max-xl:my-24 max-xl:mb-[10%] max-xl:grid max-xl:h-auto max-xl:place-items-center max-lg:mb-0 max-sm:mb-14 2xl:p-0">
+      <section className="flex h-screen items-center justify-center bg-card max-xl:my-24 max-xl:h-auto max-xl:flex-col">
         <div className="flex flex-col items-center justify-center text-center max-xl:order-2">
           <div className="flex w-8/12 flex-col items-center justify-center">
             <h1 className="text-4xl font-semibold max-xl:mt-10 max-xl:w-lvw">
@@ -143,12 +144,12 @@ export const LandingPage = () => {
             </div>
           </div>
         </div>
-        <div className="flex h-full w-6/12 items-center justify-end max-xl:order-1">
+        <div className="flex h-full w-6/12 items-center justify-end max-xl:w-10/12 max-xl:justify-center">
           <ProfessionalImage />
         </div>
       </section>
       {/* DOUBTS */}
-      <section className="my-40  flex min-h-lvh flex-col items-center justify-center">
+      <section className="my-0 flex min-h-lvh flex-col items-center justify-center">
         <h1 className="text-center font-semibold">Dúvidas Frequentes</h1>
         <p className="my-6 mb-10 text-center text-xl font-extralight max-xl:text-lg max-sm:text-base">
           Veja as respostas para as perguntas mais frequentes{' '}

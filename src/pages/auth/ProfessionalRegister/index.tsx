@@ -14,7 +14,7 @@ export const ProfessionalRegister = () => {
         <BackGroundDiv></BackGroundDiv>
       </div>
       <div className="flex w-1/2 flex-col items-center justify-center max-xl:h-[100vh] max-xl:w-[100%]">
-        <div className="relative flex h-[80%] w-[75%] flex-col items-center justify-center rounded-xl border-2 border-slate-800 bg-card py-10 max-xl:w-[46rem] max-lg:border-none">
+        <div className="relative my-10 flex h-full w-[75%] flex-col items-center justify-center rounded-xl border-2 border-slate-800 bg-card py-10 max-xl:w-[46rem] max-lg:border-none">
           <MultiStep
             size={3}
             $currentStep={currentStepState}

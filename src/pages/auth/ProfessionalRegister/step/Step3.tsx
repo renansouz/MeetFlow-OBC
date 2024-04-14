@@ -96,7 +96,7 @@ export const Step3 = ({ setCurrentStepState, currentStepState }: stepProps) => {
         />
         {errors.headLine && <p className="text-red-500">{errors.headLine.message}</p>}
       </div>
-      <div className="absolute bottom-10 flex w-full items-center justify-center">
+      <div className="absolute bottom-10 left-0 flex w-full items-center justify-center">
         <Button className="h-12 w-40" variant={'success'} type="submit">
           Concluir
         </Button>

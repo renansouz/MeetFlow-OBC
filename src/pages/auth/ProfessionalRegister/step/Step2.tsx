@@ -2,6 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 import { MoveRight } from 'lucide-react';
+import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { z } from 'zod';
@@ -76,11 +77,13 @@ export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
     }
   }
 
+  const [showLunchTime, setShowLunchTime] = useState(false);
+
   return (
     <form onSubmit={handleSubmit(createNewSchedule)}>
       <div className="flex flex-col items-center justify-start">
         <span className="text-foreground">Horários disponíveis</span>
-        <div className="flex items-center justify-center gap-10 py-10 ">
+        <div className="flex items-center justify-center gap-10 py-5 ">
           <Controller
             name="hourStart1"
             control={control}
@@ -125,6 +128,69 @@ export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
             rules={{ required: 'Campo obrigatório' }}
           ></Controller>
         </div>
+        <div className="mb-10 flex flex-col ">
+          <div className="flex items-center justify-center gap-4">
+            <input
+              className="h-5 w-5 appearance-none rounded-md border-2 border-indigo-800 checked:border-indigo-800 checked:bg-indigo-600"
+              type="checkbox"
+              id="checkbox"
+              onChange={(e) => setShowLunchTime(e.target.checked)}
+            />
+            <label className="text-sm" htmlFor="checkbox">
+              Adicionar horário de almoço
+            </label>
+          </div>
+          <div
+            className={`flex flex-col items-center justify-center ${showLunchTime ? 'flex' : 'hidden'}`}
+          >
+            <span className="mt-10 text-foreground">Horário de almoço</span>
+            <div className="flex items-center justify-center gap-10 py-5 ">
+              <Controller
+                name="hourStart1"
+                control={control}
+                render={({ field: { name, onChange, value, disabled } }) => {
+                  return (
+                    <Select name={name} onValueChange={onChange} value={value} disabled={disabled}>
+                      <SelectTrigger className="w-[180px] bg-card text-foreground">
+                        <SelectValue placeholder="00:00" />
+                      </SelectTrigger>
+                      <SelectContent className="w-[180px] bg-card text-foreground">
+                        {dayHours.map((hourStart) => (
+                          <SelectItem key={hourStart} value={hourStart} {...register('hourStart1')}>
+                            {hourStart}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  );
+                }}
+                rules={{ required: 'Campo obrigatório' }}
+              ></Controller>
+              <p className="text-foreground">até</p>
+              <Controller
+                name="hourEnd1"
+                control={control}
+                render={({ field: { name, onChange, value, disabled } }) => {
+                  return (
+                    <Select name={name} onValueChange={onChange} value={value} disabled={disabled}>
+                      <SelectTrigger className="w-[180px] bg-card text-foreground">
+                        <SelectValue placeholder="00:00" />
+                      </SelectTrigger>
+                      <SelectContent className="w-[180px] bg-card text-foreground">
+                        {dayHours.map((hourEnd) => (
+                          <SelectItem key={hourEnd} value={hourEnd}>
+                            {hourEnd}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  );
+                }}
+                rules={{ required: 'Campo obrigatório' }}
+              ></Controller>
+            </div>
+          </div>
+        </div>
         <div className="flex gap-x-12">
           {errors.hourEnd1 && <p className="text-red-600">{errors.hourEnd1.message}</p>}
         </div>
@@ -150,7 +216,7 @@ export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
         </div>
         {errors.days1 && <p className="text-red-600">{errors.days1.message}</p>}
 
-        <div className="absolute bottom-10 flex w-full justify-center">
+        <div className="absolute bottom-10 left-0 flex w-full justify-center">
           <Button type="submit">
             Continuar
             <MoveRight className="ml-3" />

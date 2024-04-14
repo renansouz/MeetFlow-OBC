@@ -12,15 +12,15 @@ import {
 export function DashboardProfessional() {
   return (
     <div className="flex h-full items-center justify-center">
-      <Card className="p-6">
+      <Card className="w-5/6 p-6 max-lg:h-full max-lg:w-full">
         <CardHeader>
           <CardTitle>
             <h1>Bem Vindo Fulano</h1>
           </CardTitle>
           <CardDescription>Veja os status do seu perfil</CardDescription>
         </CardHeader>
-        <CardContent className="flex gap-12">
-          <Card className="w-2/6 bg-background">
+        <CardContent className="flex flex-wrap items-center justify-center gap-12">
+          <Card className="w-80 bg-background">
             <CardHeader className="flex h-16 flex-row justify-between">
               <CardTitle className="text-base">Agendamentos feitos</CardTitle>
               <User className="h-5" />
@@ -32,7 +32,7 @@ export function DashboardProfessional() {
               </CardDescription>
             </CardContent>
           </Card>
-          <Card className="w-2/6 bg-background">
+          <Card className="w-80 bg-background">
             <CardHeader className="flex h-16 flex-row justify-between">
               <CardTitle className="text-base">visualizacões de perfil</CardTitle>
               <User className="h-5" />
@@ -42,7 +42,7 @@ export function DashboardProfessional() {
               <CardDescription className="italic text-red-200">-2% do mês passado</CardDescription>
             </CardContent>
           </Card>
-          <Card className="w-2/6 bg-background">
+          <Card className="w-80 bg-background">
             <CardHeader className="flex h-16 flex-row justify-between">
               <CardTitle className="text-base">Rendimento</CardTitle>
               <Wallet className="h-5" />

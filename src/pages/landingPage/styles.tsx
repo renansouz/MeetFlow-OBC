@@ -5,7 +5,7 @@ import pageBackground from '@/public/page-background.svg';
 import sobreImage from '@/public/sobre-nos.jpg';
 
 export const BackGroundImage = styled.div`
-  background-image: linear-gradient(140deg, rgba(0, 0, 1, 0.6) 40%, rgba(26, 30, 95, 0.6) 95%),
+  background-image: linear-gradient(140deg, rgba(0, 0, 1, 0.65) 40%, rgba(26, 30, 95, 0.65) 95%),
     url(${pageBackground});
   background-size: cover;
   background-repeat: no-repeat;
@@ -27,6 +27,12 @@ export const SobreImage = styled.div`
   @media (max-width: 1287px) {
     border-radius: 10px;
   }
+  @media (max-width: 697px) {
+    height: 30rem;
+  }
+  @media (max-width: 515px) {
+    height: 20rem;
+  }
 `;
 
 export const ProfessionalImage = styled.div`
@@ -36,5 +42,11 @@ export const ProfessionalImage = styled.div`
   background-size: cover;
   @media (max-width: 1287px) {
     border-radius: 10px;
+  }
+  @media (max-width: 697px) {
+    height: 30rem;
+  }
+  @media (max-width: 515px) {
+    height: 20rem;
   }
 `;
