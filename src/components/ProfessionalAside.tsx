@@ -15,8 +15,9 @@ import {
   User,
   Users,
 } from 'lucide-react';
-import { useForm } from 'react-hook-form';
-import InputMask from 'react-input-mask';
+import { useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import { IMaskInput } from 'react-imask';
 import { Link } from 'react-router-dom';
 import { toast } from 'sonner';
 import { z } from 'zod';
@@ -53,7 +54,7 @@ const createUserSchema = z.object({
   name: z.string(),
   description: z.string().min(5, { message: 'descrição pequena' }),
   duration: z.coerce.number().min(15, { message: 'tempo mínimo 15 minutos' }),
-  price: z.coerce.number(),
+  price: z.string().transform((value) => parseFloat(value.replace('R$ ', '').replace(',', '.'))),
 });
 
 type LoginFormData = z.infer<typeof createUserSchema>;
@@ -62,11 +63,14 @@ export const ProfessionalAside = () => {
   const { setTheme, theme } = useTheme();
   const { logout } = useAuth();
   const queryClient = useQueryClient();
+  const [isCustomDuration, setIsCustomDuration] = useState(false);
 
   const {
     register,
     handleSubmit,
+    control,
     reset,
+    setValue,
     formState: { errors },
   } = useForm<LoginFormData>({ resolver: zodResolver(createUserSchema) });
 
@@ -86,6 +90,7 @@ export const ProfessionalAside = () => {
         duration: userData.duration,
         price: userData.price,
       });
+
       toast.success('Serviço criado com sucesso!', {
         className: 'w-full text-xl h-20 flex items-center justify-center gap-x-2 ',
         position: 'top-right',
@@ -174,25 +179,54 @@ export const ProfessionalAside = () => {
                     </div>
                   </section>
                   <section className="flex flex-col py-2">
-                    <div className="flex justify-between ">
+                    <div className="flex flex-wrap justify-between ">
                       <label htmlFor="" className="block py-1 font-bold text-black">
                         <span className="text-foreground">Duração:</span>
                       </label>
-                      <Select>
-                        <SelectTrigger
-                          className=" w-[70%] text-muted-foreground"
-                          id="user"
-                          {...register('duration')}
-                        >
-                          <SelectValue placeholder="Duração deste serviço" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="15m">15 minutos</SelectItem>
-                          <SelectItem value="30m">30 minutos</SelectItem>
-                          <SelectItem value="1h">1 hora</SelectItem>
-                          <SelectItem value="2h">2 horas</SelectItem>
-                        </SelectContent>
-                      </Select>
+
+                      <Controller
+                        name="duration"
+                        control={control}
+                        render={({ field: { name, onChange, value, disabled } }) => {
+                          return (
+                            <>
+                              <Select
+                                name={name}
+                                onValueChange={(val) => {
+                                  if (val === 'custom') {
+                                    setIsCustomDuration(true);
+                                  } else {
+                                    setIsCustomDuration(false);
+                                    onChange(val);
+                                  }
+                                }}
+                                value={isCustomDuration ? 'custom' : value}
+                                disabled={disabled}
+                              >
+                                <SelectTrigger className=" w-[70%] text-muted-foreground" id="user">
+                                  <SelectValue placeholder="Duração deste serviço" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                  <SelectItem value="15">15 minutos</SelectItem>
+                                  <SelectItem value="30">30 minutos</SelectItem>
+                                  <SelectItem value="60">1 hora</SelectItem>
+                                  <SelectItem value="120">2 horas</SelectItem>
+                                  <SelectItem value="custom">Personalizado</SelectItem>
+                                </SelectContent>
+                              </Select>
+                              {isCustomDuration && (
+                                <Input
+                                  className="ml-auto mt-3 w-[70%]"
+                                  type="number"
+                                  min="1"
+                                  onChange={(e) => onChange(e.target.value)}
+                                  placeholder="Duração em minutos"
+                                />
+                              )}
+                            </>
+                          );
+                        }}
+                      ></Controller>
                     </div>
                     <div className="flex items-center justify-center">
                       {errors.duration && (
@@ -203,22 +237,22 @@ export const ProfessionalAside = () => {
                   <section className="flex flex-col py-2">
                     <div className="flex justify-between ">
                       <label htmlFor="" className="block py-1 font-bold text-black">
-                        <span className="text-foreground">Presço:</span>
+                        <span className="text-foreground">Preço:</span>
                       </label>
-                      <InputMask
-                        mask="R$ 999,99"
+                      <IMaskInput
+                        mask="R$ num"
+                        blocks={{
+                          num: {
+                            mask: Number,
+                            scale: 2,
+                            thousandsSeparator: '.',
+                            padFractionalZeros: true,
+                          },
+                        }}
                         className="flex h-10 w-[70%] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                         placeholder="Adicione um valor para este serviço"
                         id="price"
-                        {...register('price')}
-                        beforeMaskedStateChange={({ nextState }) => {
-                          let { value } = nextState;
-                          value = value.replace(/^R$ /, '').replace(/(\d)(\d{2})$/, 'R$ $1,$2');
-                          return {
-                            ...nextState,
-                            value,
-                          };
-                        }}
+                        onAccept={(value) => setValue('price', value)} // Atualiza o valor do campo de preço sempre que ele muda
                       />
                     </div>
                     <div className="flex items-center justify-center">

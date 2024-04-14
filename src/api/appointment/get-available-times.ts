@@ -22,6 +22,7 @@ export async function getAppointmentLoadAvailableTimes({
       params: {
         serviceId,
         scheduleId,
+        professionalId: scheduleId,
         date,
       },
     }

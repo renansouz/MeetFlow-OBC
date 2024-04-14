@@ -1,11 +1,13 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useMutation, useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { AxiosError } from 'axios';
 import { Pencil } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { z } from 'zod';
 
 import {
+  addPhoto,
   getProfile,
   getServiceByPage,
   updateProfile,
@@ -17,13 +19,6 @@ import { ProfessionalService } from '@/components/professionalService';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel';
 import {
   Dialog,
   DialogContent,
@@ -43,7 +38,6 @@ import { Label } from '@/components/ui/label';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useAuth } from '@/context/auth-provider';
 import { env } from '@/env';
-import { queryClient } from '@/lib/react-query';
 
 const UserProfileSchema = z.object({
   name: z.string(),
@@ -57,6 +51,7 @@ type UpdatedProfileSchema = z.infer<typeof UserProfileSchema>;
 
 export function Profile() {
   const { user } = useAuth();
+  const queryClient = useQueryClient();
 
   const { data: services, isLoading: isLoadingService } = useQuery({
     queryKey: ['servicesProfile'],
@@ -103,6 +98,37 @@ export function Profile() {
     },
   });
 
+  const { mutateAsync: addPhotoFn } = useMutation({
+    mutationFn: addPhoto,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['profile'] });
+    },
+  });
+
+  const handleAddPhoto = async (event: any) => {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+
+      try {
+        const response = await addPhotoFn(file);
+
+        toast.success('Foto adicionada com sucesso!', {
+          className: 'w-full text-xl h-20 flex items-center justify-center gap-x-2 ',
+          position: 'top-right',
+        });
+
+        return response;
+      } catch (error) {
+        if (error instanceof AxiosError) {
+          toast.error(`Erro ao adicionar foto, motivo: ${error.response?.data}`, {
+            className: 'w-full text-xl h-20 flex items-center justify-center gap-x-2 ',
+            position: 'top-right',
+          });
+        }
+      }
+    }
+  };
+
   const form = useForm<UpdatedProfileSchema>({
     resolver: zodResolver(UserProfileSchema),
     values: {
@@ -118,6 +144,7 @@ export function Profile() {
     try {
       console.log('Update profile data', data);
       await updateProfileFn(data);
+
       toast.success('Perfil atualizado com sucesso!', {
         className: 'w-full text-xl h-20 flex items-center justify-center gap-x-2 ',
         position: 'top-right',
@@ -138,7 +165,7 @@ export function Profile() {
           ) : (
             <Card>
               <CardHeader className="h-32 rounded-tl-md rounded-tr-md bg-indigo-300  pt-14 max-lg:rounded-none">
-                <div className="relative ">
+                <div className="relative">
                   <Avatar className="h-32 w-32 cursor-pointer rounded-full">
                     {profile?.photoUrl ? (
                       <AvatarImage src={`${env.VITE_URL_R2CLOUDFLARE}${profile.photoUrl}`} />
@@ -149,17 +176,20 @@ export function Profile() {
                     )}
                   </Avatar>
 
-                  <Label
-                    htmlFor="fileInput"
-                    className="absolute bottom-0 left-0 flex h-32 w-32 cursor-pointer items-end justify-center rounded-full bg-black pb-5 text-sm text-white opacity-0 transition-opacity duration-300 hover:opacity-50"
-                  >
-                    Editar Perfil
-                  </Label>
-                  <Input
-                    id="fileInput"
-                    className="hidden w-full rounded-md border-2 border-border bg-background p-2 focus:border-slate-300"
-                    type="file"
-                  />
+                  <form encType="multipart/form-data">
+                    <Label
+                      htmlFor="fileInput"
+                      className="absolute bottom-0 left-0 flex h-32 w-32 cursor-pointer items-end justify-center rounded-full bg-black pb-5 text-sm text-white opacity-0 transition-opacity duration-300 hover:opacity-50"
+                    >
+                      Editar Perfil
+                    </Label>
+                    <Input
+                      id="fileInput"
+                      className="hidden w-full rounded-md border-2 border-border bg-background p-2 focus:border-slate-300"
+                      type="file"
+                      onChange={handleAddPhoto}
+                    />
+                  </form>
                 </div>
               </CardHeader>
               <CardContent className="mt-20 flex flex-col  gap-y-2">
@@ -263,23 +293,6 @@ export function Profile() {
                                   </FormItem>
                                 )}
                               />
-                              <FormField
-                                control={form.control}
-                                name="photoUrl"
-                                render={({ field }) => (
-                                  <FormItem>
-                                    <FormLabel>Photo</FormLabel>
-                                    <FormControl>
-                                      <Input
-                                        className="w-full rounded-md border-2 border-border bg-background p-2 focus:border-slate-300"
-                                        type="file"
-                                        {...field}
-                                      />
-                                    </FormControl>
-                                    <FormMessage />
-                                  </FormItem>
-                                )}
-                              />
                               <Button
                                 className="flex w-full items-center justify-center rounded-lg px-10 text-lg"
                                 type="submit"
@@ -303,17 +316,12 @@ export function Profile() {
               <CardTitle>Meus serviços</CardTitle>
               <CardDescription>Aqui esta todos os seus serviços criados</CardDescription>
             </CardHeader>
-            <CardContent className="flex items-center justify-center">
+
+            <CardContent>
               {isLoadingService ? (
                 <Skeleton className="m-10 h-64 w-[90%] p-3" />
               ) : (
-                <Carousel className="w-10/12">
-                  <CarouselContent>
-                    <ProfessionalService services={services} />
-                  </CarouselContent>
-                  <CarouselPrevious />
-                  <CarouselNext />
-                </Carousel>
+                <ProfessionalService services={services} />
               )}
             </CardContent>
           </Card>

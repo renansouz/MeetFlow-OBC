@@ -4,6 +4,7 @@ export interface UpdateRequestBody {
   status?: string;
   message?: string;
   active?: boolean;
+  cancelled?: boolean;
   haveRecurrence?: boolean;
 }
 
@@ -29,12 +30,7 @@ export interface UpdateRequestResponse {
 }
 
 export async function updateRequest({ _id, data }: UpdateRequestRequest) {
-  const response = await api.patch<UpdateRequestResponse>('/request/update', {
-    params: {
-      _id,
-    },
-    data,
-  });
+  const response = await api.patch<UpdateRequestResponse>(`/request/update?_id=${_id}`, data);
 
   return response.data;
 }

@@ -16,5 +16,6 @@ export interface ClientInResponse {
 }
 
 export async function createClient({ name, phone, email }: ClientInBody) {
-  await api.post<ClientInResponse>('client/add', { name, phone, email });
+  const response = await api.post<ClientInResponse>('client/add', { name, phone, email });
+  return response.data;
 }

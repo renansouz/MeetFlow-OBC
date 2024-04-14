@@ -6,6 +6,7 @@ export interface GetRequestByPageParams {
   limit?: number;
   typeSort?: string;
   userId?: string;
+  status?: string;
 }
 
 export interface GetRequest {
@@ -13,8 +14,10 @@ export interface GetRequest {
   message: string;
   duration: number;
   serviceId: string;
-  scheduleId: number;
-  clientId: number;
+  serviceName: string;
+  scheduleId: string;
+  clientId: string;
+  clientName: string;
   initDate: string;
   endDate: string;
   status: string;
@@ -36,7 +39,7 @@ export async function getRequestByPage({ userId, page }: GetRequestByPageParams)
       page,
       sortBy: 'createdAt',
       typeSort: 'desc',
-      limit: 10,
+      status: 'solicitado',
     },
   });
 

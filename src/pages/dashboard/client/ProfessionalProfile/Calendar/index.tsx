@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { getSchedule } from '@/api';
+import { Skeleton } from '@/components/ui/skeleton';
 import { getWeekDays } from '@/utils/get-week-day';
 
 import {
@@ -169,49 +170,55 @@ export function CalendarProfessional({ selectedDate, onDateSelected }: CalendarP
   }, [schedule]);
   return (
     <CalendarContainer>
-      <CalendarHeader>
-        <CalendarActions>
-          <button onClick={handlePreviousMonth} title="Previous month">
-            <ChevronLeft />
-          </button>
-          <CalendarTitle>
-            {currentMonth} <span>{currentYear}</span>
-          </CalendarTitle>
-          <button onClick={handleNextMonth} title="Next month" className="border-2">
-            <ChevronRight />
-          </button>
-        </CalendarActions>
-      </CalendarHeader>
+      {isLoadingSchedule ? (
+        <Skeleton className="h-80 w-80" />
+      ) : (
+        <>
+          <CalendarHeader>
+            <CalendarActions>
+              <button onClick={handlePreviousMonth} title="Previous month">
+                <ChevronLeft />
+              </button>
+              <CalendarTitle>
+                {currentMonth} <span>{currentYear}</span>
+              </CalendarTitle>
+              <button onClick={handleNextMonth} title="Next month" className="border-2">
+                <ChevronRight />
+              </button>
+            </CalendarActions>
+          </CalendarHeader>
 
-      <CalendarBody>
-        <thead>
-          <tr>
-            {shortWeekDays.map((weekDay) => (
-              <th key={weekDay}>{weekDay}.</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {calendarWeeks.map(({ week, days }) => {
-            return (
-              <tr key={week}>
-                {days.map(({ date, disabled }) => {
-                  return (
-                    <td key={date.toString()}>
-                      <CalendarDay
-                        onClick={() => onDateSelected(date.toDate())}
-                        disabled={disabled}
-                      >
-                        {date.get('date')}
-                      </CalendarDay>
-                    </td>
-                  );
-                })}
+          <CalendarBody>
+            <thead>
+              <tr>
+                {shortWeekDays.map((weekDay) => (
+                  <th key={weekDay}>{weekDay}.</th>
+                ))}
               </tr>
-            );
-          })}
-        </tbody>
-      </CalendarBody>
+            </thead>
+            <tbody>
+              {calendarWeeks.map(({ week, days }) => {
+                return (
+                  <tr key={week}>
+                    {days.map(({ date, disabled }) => {
+                      return (
+                        <td key={date.toString()}>
+                          <CalendarDay
+                            onClick={() => onDateSelected(date.toDate())}
+                            disabled={disabled}
+                          >
+                            {date.get('date')}
+                          </CalendarDay>
+                        </td>
+                      );
+                    })}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </CalendarBody>
+        </>
+      )}
     </CalendarContainer>
   );
 }

@@ -5,6 +5,7 @@ export interface ServiceInBody {
   description: string;
   price: number;
   duration: number;
+  active?: boolean;
 }
 export interface ServiceInResponse {
   _id: string;
@@ -18,6 +19,12 @@ export interface ServiceInResponse {
   createById: string;
 }
 
-export async function createService({ name, description, price, duration }: ServiceInBody) {
-  await api.post<ServiceInResponse>('service/add', { name, description, price, duration });
+export async function createService({ name, description, price, duration, active }: ServiceInBody) {
+  await api.post<ServiceInResponse>('service/add', {
+    name,
+    description,
+    price,
+    duration,
+    active: active || true,
+  });
 }

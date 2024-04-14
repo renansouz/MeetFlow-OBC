@@ -32,7 +32,7 @@ export const Header = () => {
 
   return (
     <div className="h-[10%] ">
-      <div className=" fixed z-10 flex max-h-[7%]  w-screen items-center justify-between border-b bg-card px-6">
+      <div className=" fixed z-10 flex max-h-[10%]  w-screen items-center justify-between border-b bg-card px-6">
         <div className="z-10">
           <Link to={'/'}>
             <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="max-h-20" />

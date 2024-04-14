@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { useState } from 'react';
 
 import { ServiceInResponse } from '@/api';
@@ -13,17 +12,24 @@ interface ScheduleFormProps {
 export const ScheduleForm = ({ selectedService }: ScheduleFormProps) => {
   const [selectedDateTime, setSelectedDateTime] = useState<Date | null>();
 
-
   function handleClearSelectedDateTime() {
     setSelectedDateTime(null);
   }
 
   if (selectedDateTime) {
-    return <ConfirmStep
-      serviceSelected={selectedService!} // Serviço que vem do ProfessionalProfile
-      schedulingDate={selectedDateTime} // Data que vem do CalendarStep
-      onCancelConfirmation={handleClearSelectedDateTime} />;
+    return (
+      <ConfirmStep
+        serviceSelected={selectedService!} // Serviço que vem do ProfessionalProfile
+        schedulingDate={selectedDateTime} // Data que vem do CalendarStep
+        onCancelConfirmation={handleClearSelectedDateTime}
+      />
+    );
   }
 
-  return <CalendarStep onSelectDateTime={setSelectedDateTime} />;
-}
+  return (
+    <CalendarStep
+      serviceSelected={selectedService!} // Serviço que vem do ProfessionalProfile
+      onSelectDateTime={setSelectedDateTime}
+    />
+  );
+};

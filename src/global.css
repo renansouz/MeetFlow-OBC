@@ -5,9 +5,9 @@
 @layer base {
     @layer base {
         :root {
-            --background: 240 2.4% 100%; /* branco */
+            --background: 0 0% 97.3%; /* branco */
             --foreground: 40 20% 10%; /* cinza escuro */
-            --card: 220 10% 94%;; /* branco */
+            --card: 220 10% 98%;; /* branco */
             --card-foreground: 40 20% 10%; /* cinza escuro */
             --popover: 240 2.4% 100%; /* branco */
             --popover-foreground: 40 20% 10%; /* cinza escuro */
