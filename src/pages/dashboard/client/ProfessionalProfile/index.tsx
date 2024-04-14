@@ -40,7 +40,7 @@ export function ProfessionalProfile() {
   console.log('services', services);
 
   return (
-    <Card className="my-14 ml-[3%] w-[80%] min-w-[20rem] pb-10 max-xl:m-0 max-xl:w-full">
+    <Card className="mx-auto my-14  w-[80%] min-w-[20rem] pb-10 max-xl:m-0 max-xl:w-full">
       <CardHeader className="h-32 w-full rounded-tl-md rounded-tr-md bg-indigo-300 pt-14 max-lg:rounded-none">
         <Avatar className="h-36 w-full rounded-full">
           {isLoadingProfile ? (
