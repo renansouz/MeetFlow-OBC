@@ -18,113 +18,87 @@ import { Clients } from '@/pages/dashboard/professional/ProfessionalClients';
 import { AppLayout } from './_layouts/AppLayout';
 import { ProtectedRoute } from './components/ProtectedRoute';
 
-export const RouterWrapper = (): any => {
-    const router = createBrowserRouter([
-        {
-            path: '/',
-            element: <AppLayout />,
-            children: [
-                {
-                    path: '/',
-                    element: <LandingPage />,
-                },
-            ],
-        },
-        {
-            path: '/',
-            element: <AuthLayout />,
-            children: [
-                {
-                    path: '/professional/register',
-                    element: <ProfessionalRegister />,
-                },
-            ],
-        },
-        {
-            path: '/',
-            element: <AuthLayout />,
-            children: [
-                {
-                    path: 'client/register',
-                    element: <ClientRegister />,
-                },
-            ],
-        },
-        {
-            path: '/',
-            element: <AuthLayout />,
-            children: [
-                {
-                    path: '/login',
-                    element: <ClientLogin />,
-                },
-            ],
-        },
-        {
-            path: '/',
-            element: <DashboardLayout userType="client" />,
-            children: [
-                {
-                    path: '/dashboard',
-                    element: <DashboardClient />,
-                },
-            ],
-        },
-        {
-            path: '/',
-            element: <DashboardLayout userType="client" />,
-            children: [{ path: '/dashboard/services', element: <Services /> }],
-        },
-        {
-            path: '/',
-            element: <DashboardLayout userType="client" />,
-            children: [
-                {
-                    path: '/dashboard/myschedules',
-                    element: <MySchedules />,
-                },
-            ],
-        },
-        {
-            path: '/',
-            element: <DashboardLayout userType="client" />,
-            children: [{ path: '/dashboard/profile/:_id', element: <ProfessionalProfile /> }],
-        },
-        {
-            path: '/',
-            element: <DashboardLayout userType="professional" />,
-            children: [
-                {
-                    path: '/professional/dashboard',
-                    element: <DashboardProfessional />,
-                },
-            ],
-        },
-        {
-            path: '/',
-            element: <DashboardLayout userType="professional" />,
-            children: [
-                {
-                    path: '/professional/profile',
-                    element: <Profile />,
-                },
-            ],
-        },
-        {
-            path: '/',
-            element: <DashboardLayout userType="professional" />,
-            children: [
-                {
-                    path: '/professional/myschedules',
-                    element: <Clients />,
-                },
-            ],
-        },
-        {
-            path: '*',
-            element: <NotFound />,
-        },
-    ]);
+const authRoutes = [
+  {
+    path: '/professional/register',
+    element: <ProfessionalRegister />,
+  },
+  {
+    path: 'client/register',
+    element: <ClientRegister />,
+  },
+  {
+    path: '/login',
+    element: <ClientLogin />,
+  },
+];
 
-    return router;
+const clientRoutes = [
+  {
+    path: '/dashboard',
+    element: <ProtectedRoute component={DashboardClient} />,
+  },
+  {
+    path: '/dashboard/services',
+    element: <ProtectedRoute component={Services} />,
+  },
+  {
+    path: '/dashboard/myschedules',
+    element: <ProtectedRoute component={MySchedules} />,
+  },
+  {
+    path: '/dashboard/profile/:_id/:scheduleId',
+    element: <ProtectedRoute component={ProfessionalProfile} />,
+  },
+];
+
+const professionalRoutes = [
+  {
+    path: '/professional/dashboard',
+    element: <ProtectedRoute component={DashboardProfessional} />,
+  },
+  {
+    path: '/professional/profile',
+    element: <ProtectedRoute component={Profile} />,
+  },
+  {
+    path: '/professional/myschedules',
+    element: <ProtectedRoute component={Clients} />,
+  },
+];
+
+export const RouterWrapper = (): any => {
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <AppLayout />,
+      children: [
+        {
+          path: '/',
+          element: <LandingPage />,
+        },
+      ],
+    },
+    {
+      path: '/',
+      element: <AuthLayout />,
+      children: authRoutes,
+    },
+    {
+      path: '/',
+      element: <DashboardLayout userType="client" />,
+      children: clientRoutes,
+    },
+    {
+      path: '/',
+      element: <DashboardLayout userType="professional" />,
+      children: professionalRoutes,
+    },
+    {
+      path: '*',
+      element: <NotFound />,
+    },
+  ]);
+
+  return router;
 };

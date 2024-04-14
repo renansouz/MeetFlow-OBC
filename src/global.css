@@ -5,9 +5,9 @@
 @layer base {
     @layer base {
         :root {
-            --background: 240 2.4% 100%; /* branco */
+            --background: 0 0% 97.3%; /* branco */
             --foreground: 40 20% 10%; /* cinza escuro */
-            --card: 220 10% 94%;; /* branco */
+            --card: 220 10% 96%;; /* branco */
             --card-foreground: 40 20% 10%; /* cinza escuro */
             --popover: 240 2.4% 100%; /* branco */
             --popover-foreground: 40 20% 10%; /* cinza escuro */
@@ -28,9 +28,9 @@
         }
 
         .dark {
-            --background: 210 23% 7%; /* slate-900 */
+            --background: 210 80% 3%; /* slate-900 */
             --foreground: 210 20% 98%; /* indigo-100 */
-            --card: 210 80% 3%; /* slate-900 */
+            --card: 210 23% 7%; /* slate-900 */
             --card-foreground: 210 20% 98%; /* indigo-100 */
             --popover: 215 27.9% 10.8%; /* slate-900 */
             --popover-foreground: 210 20% 98%; /* indigo-100 */
@@ -44,7 +44,7 @@
             --accent-foreground: 210 20% 98%; /* indigo-100 */
             --destructive: 0 62.8% 30.6%; /* red-600 */
             --destructive-foreground: 210 20% 98%; /* indigo-100 */
-            --border: 215 27.9% 10.8%; /* slate-900 */
+            --border: 215 27.9% 12.8%; /* slate-900 */
             --input: 215 27.9% 10.8%; /* slate-900 */
             --ring: 240 82.6% 5.1%; /* indigo-900 */
         }
