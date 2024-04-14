@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 import { MultiStep } from '@/components/multiStep';
-import LightLogo from '@/public/only-logo-white.svg';
 
 import { Step1, Step2, Step3 } from './step';
 import { BackGroundDiv } from './styles';
@@ -11,8 +10,11 @@ export const ProfessionalRegister = () => {
 
   return (
     <div className="flex h-full w-full bg-card">
-      <div className="flex w-1/2 flex-col items-center justify-center max-xl:w-full">
-        <div className="flex flex-col  items-center justify-center rounded-xl border-2 border-slate-800 bg-card p-20">
+      <div className="flex h-screen w-1/2 max-xl:hidden">
+        <BackGroundDiv></BackGroundDiv>
+      </div>
+      <div className="flex w-1/2 flex-col items-center justify-center max-xl:h-[100vh] max-xl:w-[100%]">
+        <div className="relative flex h-[80%] w-[75%] flex-col items-center justify-center rounded-xl border-2 border-slate-800 bg-card py-10 max-xl:w-[46rem] max-lg:border-none">
           <MultiStep
             size={3}
             $currentStep={currentStepState}
@@ -40,12 +42,6 @@ export const ProfessionalRegister = () => {
             />
           ) : null}
         </div>
-      </div>
-      <div className="flex h-screen w-1/2 items-center justify-center gap-20 max-xl:hidden">
-        <BackGroundDiv>
-          <img src={LightLogo} />
-          <h1 className="text-center font-semibold text-white">Junte-se à comunidade MeetFlow</h1>
-        </BackGroundDiv>
       </div>
     </div>
   );

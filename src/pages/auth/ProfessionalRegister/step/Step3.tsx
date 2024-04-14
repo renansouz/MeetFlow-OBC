@@ -1,6 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { AxiosError } from 'axios';
-import { MoveLeft } from 'lucide-react';
 import { Controller, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
@@ -61,7 +60,7 @@ export const Step3 = ({ setCurrentStepState, currentStepState }: stepProps) => {
   return (
     <form onSubmit={handleSubmit(updateUser)}>
       <div className="flex flex-col items-center gap-5">
-        <label htmlFor="" className="text-2xl text-foreground">
+        <label htmlFor="" className="text-xl text-foreground">
           Selecione sua área de atuação
         </label>
         <Controller
@@ -70,10 +69,10 @@ export const Step3 = ({ setCurrentStepState, currentStepState }: stepProps) => {
           render={({ field: { name, onChange, value, disabled } }) => {
             return (
               <Select name={name} onValueChange={onChange} value={value} disabled={disabled}>
-                <SelectTrigger className="h-14 w-[90%] rounded-lg bg-card text-xl hover:border-indigo-400">
+                <SelectTrigger className="h-10 w-[90%] rounded-lg bg-card hover:border-indigo-400">
                   <SelectValue placeholder="Selecione" />
                 </SelectTrigger>
-                <SelectContent className="rounded-lg bg-card  text-xl">
+                <SelectContent className="rounded-lg bg-card">
                   {Ocuppations.map((ocupattion) => {
                     return (
                       <SelectItem value={ocupattion} {...register('occupationArea')}>
@@ -87,22 +86,18 @@ export const Step3 = ({ setCurrentStepState, currentStepState }: stepProps) => {
           }}
         ></Controller>
         {errors.occupationArea && <p className="text-red-500">{errors.occupationArea.message}</p>}
-        <label htmlFor="" className="text-2xl text-foreground">
+        <label htmlFor="" className="text-xl text-foreground">
           Escreva palavras chaves sobre seu serviço
         </label>
         <Input
           {...register('headLine')}
-          className="h-14 w-[90%] rounded-lg bg-card py-2 text-xl focus:border-indigo-400"
+          className="h-10 w-[90%] rounded-lg bg-card py-2 focus:border-indigo-400"
           placeholder="Ex: Legislação, Direito"
         />
         {errors.headLine && <p className="text-red-500">{errors.headLine.message}</p>}
       </div>
-      <div className="mt-20  flex w-full justify-center gap-40">
-        <Button onClick={() => setCurrentStepState(currentStepState - 1)}>
-          <MoveLeft className="mr-3" />
-          Voltar
-        </Button>
-        <Button variant={'success'} type="submit">
+      <div className="absolute bottom-10 flex w-full items-center justify-center">
+        <Button className="h-12 w-40" variant={'success'} type="submit">
           Concluir
         </Button>
       </div>
