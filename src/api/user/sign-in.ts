@@ -28,11 +28,8 @@ export async function signIn({ name, email, password, passwordConfirmation, role
     role,
   });
 
-  const {
-    accessToken,
-    user: { _id },
-  } = response.data;
+  const { accessToken, user } = response.data;
   Cookies.set('meetFlow.token', accessToken, { expires: 30, path: '/' });
-  Cookies.set('meetFlow.user', JSON.stringify(_id), { expires: 30, path: '/' });
+  Cookies.set('meetFlow.user', JSON.stringify(user), { expires: 30, path: '/' });
   return response.data;
 }

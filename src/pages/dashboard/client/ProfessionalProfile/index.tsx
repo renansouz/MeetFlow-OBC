@@ -46,10 +46,17 @@ export function ProfessionalProfile() {
           {isLoadingProfile ? (
             <Skeleton className="h-36 w-36 rounded-full" />
           ) : professional?.photoUrl ? (
-            <AvatarImage
-              src={`${env.VITE_URL_R2CLOUDFLARE}${professional?.photoUrl}`}
-              className="ml-5 w-36 rounded-full border-4 border-background"
-            />
+            professional?.photoUrl.includes('lh3.googleusercontent.com') ? (
+              <AvatarImage
+                className="ml-5 w-36 rounded-full border-4 border-background"
+                src={professional.photoUrl}
+              />
+            ) : (
+              <AvatarImage
+                className="ml-5 w-36 rounded-full border-4 border-background"
+                src={`${env.VITE_URL_R2CLOUDFLARE}${professional.photoUrl}`}
+              />
+            )
           ) : (
             <AvatarFallback className="ml-5 w-36 rounded-full border-4 border-background">
               {professional?.name.slice(0, 1)}

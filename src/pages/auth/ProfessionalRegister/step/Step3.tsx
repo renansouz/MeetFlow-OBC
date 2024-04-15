@@ -16,6 +16,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { cn } from '@/lib/utils';
 import { Ocuppations } from '@/utils/Occupation';
 
 type stepProps = {
@@ -70,7 +71,11 @@ export const Step3 = ({ setCurrentStepState, currentStepState }: stepProps) => {
           render={({ field: { name, onChange, value, disabled } }) => {
             return (
               <Select name={name} onValueChange={onChange} value={value} disabled={disabled}>
-                <SelectTrigger className="h-14 w-[90%] rounded-lg bg-card text-xl hover:border-indigo-400">
+                <SelectTrigger
+                  className={cn(
+                    'h-14 w-[90%] rounded-lg bg-card hover:border-indigo-400 data-[placeholder]:text-muted-foreground'
+                  )}
+                >
                   <SelectValue placeholder="Selecione" />
                 </SelectTrigger>
                 <SelectContent className="rounded-lg bg-card  text-xl">

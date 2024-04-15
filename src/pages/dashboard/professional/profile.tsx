@@ -168,7 +168,11 @@ export function Profile() {
                 <div className="relative">
                   <Avatar className="h-32 w-32 cursor-pointer rounded-full">
                     {profile?.photoUrl ? (
-                      <AvatarImage src={`${env.VITE_URL_R2CLOUDFLARE}${profile.photoUrl}`} />
+                      profile?.photoUrl.includes('lh3.googleusercontent.com') ? (
+                        <AvatarImage src={profile.photoUrl} />
+                      ) : (
+                        <AvatarImage src={`${env.VITE_URL_R2CLOUDFLARE}${profile.photoUrl}`} />
+                      )
                     ) : (
                       <AvatarFallback>
                         {profile?.name[0].toUpperCase() + '' + profile?.name[1].toUpperCase()}
