@@ -2,13 +2,10 @@ import styled from 'styled-components';
 
 export const CalendarContainer = styled.div`
   display: flex;
+  width: 100%;
+  padding: 1rem;
   flex-direction: column;
-  box-shadow: 0 0 2px #1f2937;
-  background-color: rgba(165, 180, 252, 0);
-  min-width: 20rem;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  margin-left: 1rem;
+  background-color: rgba(165, 180, 252, 0.4);
   @media (max-width: 1024px) {
     margin-left: 0;
   }
@@ -16,11 +13,11 @@ export const CalendarContainer = styled.div`
 
 export const CalendarHeader = styled.div`
   display: flex;
-  background-color: rgba(165, 180, 252, 0.1);
+  background-color: rgba(165, 180, 252, 0);
   align-items: center;
-  padding: 1rem;
-  border-top-left-radius: 20px;
+  padding: 1.2rem;
   border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
   justify-content: space-evenly;
   padding-bottom: 1.5rem;
 `;
@@ -30,7 +27,6 @@ export const CalendarActions = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  gap: 0.5rem;
 
   button {
     all: unset;
@@ -46,7 +42,7 @@ export const CalendarActions = styled.div`
     }
 
     &:hover {
-      background-color: #7c3aed;
+      background-color: #918cff;
       color: #dcdce6;
     }
   }
@@ -58,13 +54,13 @@ export const CalendarTitle = styled.span`
   font-size: 1.5rem;
   flex-grow: 1;
   text-align: center;
+
   span {
     font-size: 1.5rem;
   }
 `;
 
 export const CalendarBody = styled.table`
-  background-color: rgba(165, 180, 252, 0.1);
   width: 100%;
   font-family: 'Space Grotesk', inherit;
   border-spacing: 0.25rem;
@@ -73,26 +69,33 @@ export const CalendarBody = styled.table`
   thead th {
     font-weight: 500;
     font-size: 0.75rem;
+    width: 100%;
+    padding: 1rem;
   }
 
   tbody td {
     box-sizing: border-box;
+    width: 100%;
   }
 `;
 
 export const CalendarDay = styled.button`
   all: unset;
-  width: 100%;
+  width: 90%;
+  margin: 0.2rem;
   aspect-ratio: 1 / 1;
-  background: #818cf8;
+  background: #918cff;
+  color: #ffffff;
   text-align: center;
   cursor: pointer;
-  border-radius: 0.1rem;
+  font-weight: bold;
+  border-radius: 0.2rem;
 
   &:disabled {
     background: none;
     cursor: default;
-    opacity: 0.4;
+    color: rgba(165, 180, 252, 0.9);
+    opacity: 1;
     background-color: rgba(165, 180, 252, 0.1);
   }
 
@@ -103,7 +106,7 @@ export const CalendarDay = styled.button`
 
   &:focus {
     box-shadow: 0 0 0 2px #312e81;
-    background: #312e81;
+    background: #818cf8;
     opacity: 90%;
   }
 `;

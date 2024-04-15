@@ -74,7 +74,7 @@ export const Step1 = ({ setCurrentStepState }: stepProps) => {
   }
 
   return (
-    <div className="flex p-5">
+    <div className="flex ">
       <form
         className="flex h-full flex-col items-center justify-center gap-5 px-10"
         onSubmit={handleSubmit(handleSignUp)}
@@ -84,7 +84,7 @@ export const Step1 = ({ setCurrentStepState }: stepProps) => {
             Nome
           </label>
           <Input
-            className="w-[20rem] rounded-xl border-2 border-slate-700 bg-card py-4 pl-4 text-foreground focus:border-indigo-300"
+            className="w-[20rem] rounded-md border-2 border-slate-700 bg-card py-2 pl-4 text-sm text-foreground focus:border-indigo-300"
             placeholder="Digite seu nome"
             id="name"
             {...register('name')}
@@ -97,7 +97,7 @@ export const Step1 = ({ setCurrentStepState }: stepProps) => {
           </label>
 
           <Input
-            className="w-[20rem] rounded-xl border-2 border-slate-700 bg-card py-4 pl-4 text-foreground focus:border-indigo-300"
+            className="w-[20rem] rounded-md border-2 border-slate-700 bg-card py-2 pl-4 text-sm text-foreground focus:border-indigo-300"
             placeholder="Digite seu e-mail"
             id="email"
             {...register('email')}
@@ -110,7 +110,7 @@ export const Step1 = ({ setCurrentStepState }: stepProps) => {
             Senha
           </label>
           <Input
-            className="w-[20rem] rounded-xl border-2 border-slate-700 bg-card py-4 pl-4 text-foreground focus:border-indigo-300"
+            className="w-[20rem] rounded-md border-2 border-slate-700 bg-card py-2 pl-4 text-sm text-foreground focus:border-indigo-300"
             id="password"
             placeholder="Digite sua senha"
             type={showPassword ? 'text' : 'password'}
@@ -120,12 +120,13 @@ export const Step1 = ({ setCurrentStepState }: stepProps) => {
             <p className="py-0.5 text-sm text-red-500">{errors.password.message}</p>
           )}
         </section>
+
         <section>
           <label htmlFor="passwordConfirmation" className="block py-1 font-bold text-foreground">
             Confirme sua senha
           </label>
           <Input
-            className="w-[20rem] rounded-xl border-2 border-slate-700 bg-card py-4 pl-4 text-foreground focus:border-indigo-300"
+            className="w-[20rem] rounded-md border-2 border-slate-700 bg-card py-2 pl-4 text-sm text-foreground focus:border-indigo-300"
             id="passwordConfirmation"
             placeholder="Digite sua senha novamente"
             type={showPassword ? 'text' : 'password'}
@@ -135,6 +136,7 @@ export const Step1 = ({ setCurrentStepState }: stepProps) => {
             <p className="py-0.5 text-sm text-red-500">{errors.passwordConfirmation.message}</p>
           )}
         </section>
+
         <section className="flex items-center justify-center gap-3 ">
           <input
             className="h-6 w-6 appearance-none rounded-md border-2 border-indigo-800 checked:border-indigo-800 checked:bg-indigo-600"
@@ -144,6 +146,7 @@ export const Step1 = ({ setCurrentStepState }: stepProps) => {
           />
           <label htmlFor="checkbox">Mostrar senha</label>
         </section>
+
         <div className="flex w-full justify-center">
           <p className="text-foreground">
             Já possui uma conta?{' '}
@@ -152,7 +155,8 @@ export const Step1 = ({ setCurrentStepState }: stepProps) => {
             </Link>
           </p>
         </div>
-        <div className="mt-5  flex justify-center gap-40">
+
+        <div className="flex w-full justify-center">
           <Button type="submit">
             Continuar
             <MoveRight className="ml-3" />

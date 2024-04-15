@@ -173,8 +173,8 @@ export const ClientsPending = ({ scheduleId }: ClientsPendingProps) => {
           </Card>
         ))
       ) : (
-        <div className="flex h-lvh w-full items-center justify-center">
-          <h1 className="text-center">Você ainda não possui clientes</h1>
+        <div className="flex h-48 w-full items-center justify-center">
+          <p className="text-center italic">Você ainda não possui clientes</p>
         </div>
       )}
     </div>
