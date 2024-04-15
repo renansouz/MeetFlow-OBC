@@ -50,7 +50,7 @@ export function CalendarStep({ onSelectDateTime, serviceSelected }: CalendarStep
       <CalendarProfessional selectedDate={selectedDate} onDateSelected={setSelectedDate} />
       {isDateSelected && (
         <TimePicker>
-          <TimePickerHeader>
+          <TimePickerHeader className="">
             {weekDay} {''} {describedDate}
           </TimePickerHeader>
 

@@ -170,11 +170,11 @@ export function CalendarProfessional({ selectedDate, onDateSelected }: CalendarP
     }
   }, [schedule]);
   return (
-    <div className="ml-5 flex w-full rounded-xl border bg-card shadow-xl">
-      <div className="ml-5 flex h-full w-1/3 flex-col">
-        <div className="mb-5 mt-10 flex items-center justify-start gap-3">
+    <div className="ml-5 flex w-4/5 rounded-3xl border bg-card shadow-xl">
+      <div className="ml-5 flex h-full min-w-[15rem] flex-col">
+        <div className="mb-5 mt-10 flex items-center justify-start gap-2">
           <Avatar>
-            <AvatarImage src={'https://github.com/renansouz.png'} className="w-10 rounded-full" />
+            <AvatarImage src={'https://github.com/renansouz.png'} className="w-9 rounded-full" />
           </Avatar>
           <span>Renan Souza</span>
         </div>
@@ -188,7 +188,7 @@ export function CalendarProfessional({ selectedDate, onDateSelected }: CalendarP
           <span className="text-sm">Cal Video</span>
         </div>
       </div>
-      <div className="flex h-full w-2/3 items-center justify-center">
+      <div className="flex h-full items-center justify-end">
         <CalendarContainer>
           {isLoadingSchedule ? (
             <Skeleton className="h-80 w-80" />
