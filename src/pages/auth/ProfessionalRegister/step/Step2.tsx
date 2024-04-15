@@ -45,11 +45,13 @@ const createScheduleSchema = z.object({
   }),
   hourStart1: z.string({ required_error: 'Campo obrigatório' }),
   hourEnd1: z.string({ required_error: 'Campo obrigatório' }),
+  hourLunchStart1: z.string(),
+  hourLunchEnd1: z.string(),
 });
 
 export type ScheduleFormData = z.infer<typeof createScheduleSchema>;
 
-export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
+export const Step2 = ({ setCurrentStepState }: stepProps) => {
   const {
     register,
     handleSubmit,
@@ -95,7 +97,7 @@ export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
                   </SelectTrigger>
                   <SelectContent className="w-[180px] bg-card text-foreground">
                     {dayHours.map((hourStart) => (
-                      <SelectItem key={hourStart} value={hourStart} {...register('hourStart1')}>
+                      <SelectItem key={hourStart} value={hourStart}>
                         {hourStart}
                       </SelectItem>
                     ))}
@@ -146,7 +148,7 @@ export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
             <span className="mt-10 text-foreground">Horário de almoço</span>
             <div className="flex items-center justify-center gap-10 py-5 ">
               <Controller
-                name="hourStart1"
+                name="hourLunchStart1"
                 control={control}
                 render={({ field: { name, onChange, value, disabled } }) => {
                   return (
@@ -156,7 +158,7 @@ export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
                       </SelectTrigger>
                       <SelectContent className="w-[180px] bg-card text-foreground">
                         {dayHours.map((hourStart) => (
-                          <SelectItem key={hourStart} value={hourStart} {...register('hourStart1')}>
+                          <SelectItem key={hourStart} value={hourStart}>
                             {hourStart}
                           </SelectItem>
                         ))}
@@ -168,7 +170,7 @@ export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
               ></Controller>
               <p className="text-foreground">até</p>
               <Controller
-                name="hourEnd1"
+                name="hourLunchEnd1"
                 control={control}
                 render={({ field: { name, onChange, value, disabled } }) => {
                   return (

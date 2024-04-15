@@ -17,11 +17,6 @@ import {
 } from '@/components/ui/select';
 import { Ocuppations } from '@/utils/Occupation';
 
-type stepProps = {
-  currentStepState: number;
-  setCurrentStepState: (int: number) => void;
-};
-
 const UpdateUserSchema = z.object({
   headLine: z.string({ required_error: 'Campo obrigatório' }),
   occupationArea: z.string({ required_error: 'Campo obrigatório' }),
@@ -29,7 +24,12 @@ const UpdateUserSchema = z.object({
 
 export type updateUserFormData = z.infer<typeof UpdateUserSchema>;
 
-export const Step3 = ({ setCurrentStepState, currentStepState }: stepProps) => {
+type stepProps = {
+  currentStepState: number;
+  setCurrentStepState: (int: number) => void;
+};
+
+export const Step3 = ({ }: stepProps) => {
   const navigate = useNavigate();
 
   const {
