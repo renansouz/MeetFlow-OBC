@@ -217,7 +217,7 @@ export const Step2 = ({ setCurrentStepState, currentStepState }: stepProps) => {
         {errors.days1 && <p className="text-red-600">{errors.days1.message}</p>}
 
         <div className="absolute bottom-10 left-0 flex w-full justify-center">
-          <Button type="submit">
+          <Button className="text-white" type="submit">
             Continuar
             <MoveRight className="ml-3" />
           </Button>

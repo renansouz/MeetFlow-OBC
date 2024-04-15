@@ -25,10 +25,10 @@ export const Steps = styled.div`
 `;
 
 export const Step = styled.div<StepProps>`
-  width: 35px;
+  width: 30px;
   margin-right: 1rem;
-  height: 35px;
-  padding: 1.25rem;
+  height: 30px;
+  padding: 1rem;
   border-radius: 50%;
   border: solid;
   border-color: ${(props) => {
@@ -51,7 +51,7 @@ export const Step = styled.div<StepProps>`
     justify-content: center;
     align-items: center;
     height: 100%;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bolder;
 
     content: '${(props) => {

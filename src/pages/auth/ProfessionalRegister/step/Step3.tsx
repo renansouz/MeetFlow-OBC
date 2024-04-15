@@ -69,7 +69,7 @@ export const Step3 = ({ setCurrentStepState, currentStepState }: stepProps) => {
           render={({ field: { name, onChange, value, disabled } }) => {
             return (
               <Select name={name} onValueChange={onChange} value={value} disabled={disabled}>
-                <SelectTrigger className="h-10 w-[90%] rounded-lg bg-card hover:border-indigo-400">
+                <SelectTrigger className="h-10 w-[90%] rounded-lg bg-card text-sm hover:border-indigo-400">
                   <SelectValue placeholder="Selecione" />
                 </SelectTrigger>
                 <SelectContent className="rounded-lg bg-card">

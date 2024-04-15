@@ -1,6 +1,7 @@
+import { Avatar, AvatarImage } from '@radix-ui/react-avatar';
 import { useQuery } from '@tanstack/react-query';
 import dayjs from 'dayjs';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Clock, Phone } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -169,56 +170,76 @@ export function CalendarProfessional({ selectedDate, onDateSelected }: CalendarP
     }
   }, [schedule]);
   return (
-    <CalendarContainer>
-      {isLoadingSchedule ? (
-        <Skeleton className="h-80 w-80" />
-      ) : (
-        <>
-          <CalendarHeader>
-            <CalendarActions>
-              <button onClick={handlePreviousMonth} title="Previous month">
-                <ChevronLeft />
-              </button>
-              <CalendarTitle>
-                {currentMonth} <span>{currentYear}</span>
-              </CalendarTitle>
-              <button onClick={handleNextMonth} title="Next month" className="border-2">
-                <ChevronRight />
-              </button>
-            </CalendarActions>
-          </CalendarHeader>
-
-          <CalendarBody>
-            <thead>
-              <tr>
-                {shortWeekDays.map((weekDay) => (
-                  <th key={weekDay}>{weekDay}.</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {calendarWeeks.map(({ week, days }) => {
-                return (
-                  <tr key={week}>
-                    {days.map(({ date, disabled }) => {
-                      return (
-                        <td key={date.toString()}>
-                          <CalendarDay
-                            onClick={() => onDateSelected(date.toDate())}
-                            disabled={disabled}
-                          >
-                            {date.get('date')}
-                          </CalendarDay>
-                        </td>
-                      );
-                    })}
+    <div className="ml-5 flex w-full rounded-xl border bg-card shadow-xl">
+      <div className="ml-5 flex h-full w-1/3 flex-col">
+        <div className="mb-5 mt-10 flex items-center justify-start gap-3">
+          <Avatar>
+            <AvatarImage src={'https://github.com/renansouz.png'} className="w-10 rounded-full" />
+          </Avatar>
+          <span>Renan Souza</span>
+        </div>
+        <span className="text-lg font-bold">Tailwind CSS Responsive</span>
+        <div className="my-5 flex items-center gap-3">
+          <Clock className="h-5 w-5" />
+          <span className="text-sm">15 mins</span>
+        </div>
+        <div className="flex items-center gap-3">
+          <Phone className="h-5 w-5" />
+          <span className="text-sm">Cal Video</span>
+        </div>
+      </div>
+      <div className="flex h-full w-2/3 items-center justify-center">
+        <CalendarContainer>
+          {isLoadingSchedule ? (
+            <Skeleton className="h-80 w-80" />
+          ) : (
+            <>
+              <CalendarHeader>
+                <CalendarActions>
+                  <button onClick={handlePreviousMonth} title="Previous month">
+                    <ChevronLeft />
+                  </button>
+                  <CalendarTitle>
+                    {currentMonth} <span>{currentYear}</span>
+                  </CalendarTitle>
+                  <button onClick={handleNextMonth} title="Next month" className="border-2">
+                    <ChevronRight />
+                  </button>
+                </CalendarActions>
+              </CalendarHeader>
+              <CalendarBody>
+                <thead>
+                  <tr>
+                    {shortWeekDays.map((weekDay) => (
+                      <th key={weekDay}>{weekDay}.</th>
+                    ))}
                   </tr>
-                );
-              })}
-            </tbody>
-          </CalendarBody>
-        </>
-      )}
-    </CalendarContainer>
+                </thead>
+                <tbody>
+                  {calendarWeeks.map(({ week, days }) => {
+                    return (
+                      <tr key={week}>
+                        {days.map(({ date, disabled }) => {
+                          return (
+                            <td key={date.toString()}>
+                              <CalendarDay
+                                onClick={() => onDateSelected(date.toDate())}
+                                disabled={disabled}
+                              >
+                                {date.get('date')}
+                              </CalendarDay>
+                            </td>
+                          );
+                        })}
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </CalendarBody>
+            </>
+          )}
+        </CalendarContainer>
+      </div>
+    </div>
   );
 }

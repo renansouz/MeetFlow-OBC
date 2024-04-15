@@ -21,8 +21,10 @@ export function MultiStep({ size, $currentStep = 1, text }: MultiStepProps) {
                   $stepcontent={step}
                   $currentStep={$currentStep}
                 />
-                <Label $active={$currentStep >= step}>{text[step - 1]}</Label>
-                {step !== size && <ChevronRight className="h-8 w-8 text-foreground" />}
+                <Label className="text-sm" $active={$currentStep >= step}>
+                  {text[step - 1]}
+                </Label>
+                {step !== size && <ChevronRight className="h-6 w-6 text-foreground" />}
               </DivRepeat>
             );
           })}
