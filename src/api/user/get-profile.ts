@@ -11,6 +11,7 @@ export interface GetProfileResponse {
   serviceIds: string[];
   scheduleId: string | null;
   myScheduleId: string | null;
+  role: string;
   photoUrl?: string;
   headLine: string;
   occupationArea: string;

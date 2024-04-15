@@ -12,6 +12,7 @@ import { signIn } from '@/api';
 import { Input } from '@/components/Input';
 import { useTheme } from '@/components/theme/theme-provider';
 import { Button } from '@/components/ui/button';
+import { useAuth } from '@/context/auth-provider';
 import DarkLogo from '@/public/only-logo-black.svg';
 import LightLogo from '@/public/only-logo-white.svg';
 
@@ -34,6 +35,7 @@ const createUserSchema = z
 export type RegisterFormData = z.infer<typeof createUserSchema>;
 
 export const ClientRegister = () => {
+  const { loginGoogle } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -86,7 +88,7 @@ export const ClientRegister = () => {
   return (
     <div className="flex h-full items-center justify-center bg-card">
       <div className=" max-h-screen w-1/2">
-        <FormDiv className="h-full " onSubmit={handleSubmit(handleSignUp)}>
+        <FormDiv className="h-full" onSubmit={handleSubmit(handleSignUp)}>
           <div className="flex h-full flex-col items-center justify-center gap-4">
             <Link to={'/'}>
               <img
@@ -176,6 +178,7 @@ export const ClientRegister = () => {
             </div>
           </div>
         </FormDiv>
+        <Button onClick={async () => loginGoogle()}>Entrar com Google</Button>
       </div>
       <div className="flex h-full w-1/2 items-center justify-center max-lg:hidden">
         <BackGroundDiv>

@@ -44,10 +44,14 @@ export const ClientMenu = () => {
             {isLoadingProfile ? (
               <Skeleton className="h-10 w-10" />
             ) : profile?.user.photoUrl ? (
-              <AvatarImage
-                src={`${env.VITE_URL_R2CLOUDFLARE}${profile?.user.photoUrl}`}
-                className="w-10"
-              />
+              profile?.user.photoUrl.includes('lh3.googleusercontent.com') ? (
+                <AvatarImage className="w-10" src={profile.user.photoUrl} />
+              ) : (
+                <AvatarImage
+                  className="w-10"
+                  src={`${env.VITE_URL_R2CLOUDFLARE}${profile.user.photoUrl}`}
+                />
+              )
             ) : (
               <AvatarFallback>{profile?.user?.name?.slice(0, 1).toUpperCase()}</AvatarFallback>
             )}

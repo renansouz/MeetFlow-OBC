@@ -1,6 +1,7 @@
 import Cookies from 'js-cookie';
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
+import { env } from '@/env';
 import { api } from '@/lib/axios';
 
 type User = {
@@ -12,6 +13,7 @@ type User = {
 
 type AuthContextData = {
   login(email: string, password: string): Promise<void>;
+  loginGoogle: () => void;
   isAuthenticated: boolean;
   user: User | null;
   logout: () => void;
@@ -61,8 +63,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   };
 
+  const loginGoogle = () => {
+    window.location.href = `${env.VITE_BASE_URL}/auth/google`;
+  };
+
   return (
-    <AuthContext.Provider value={{ login, isAuthenticated, user, logout }}>
+    <AuthContext.Provider value={{ login, loginGoogle, isAuthenticated, user, logout }}>
       {children}
     </AuthContext.Provider>
   );
@@ -74,4 +80,5 @@ export function signOut() {
   Cookies.remove('meetFlow.token');
   Cookies.remove('meetFlow.refreshToken');
   Cookies.remove('meetFlow.user');
+  Cookies.remove('session');
 }

@@ -36,10 +36,14 @@ export const ProfessionalCard = ({
           <CardHeader className="h-20 w-full items-center rounded-tl-md rounded-tr-md bg-indigo-300">
             <Avatar>
               {photoUrl ? (
-                <AvatarImage
-                  src={`${env.VITE_URL_R2CLOUDFLARE}${photoUrl}`}
-                  className="w-24 rounded-full"
-                />
+                photoUrl?.includes('lh3.googleusercontent.com') ? (
+                  <AvatarImage src={photoUrl} className="w-24 rounded-full" />
+                ) : (
+                  <AvatarImage
+                    src={`${env.VITE_URL_R2CLOUDFLARE}${photoUrl}`}
+                    className="w-24 rounded-full"
+                  />
+                )
               ) : (
                 <AvatarFallback className="h-24 w-24 rounded-full">
                   {name.slice(0, 1).toUpperCase()}

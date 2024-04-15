@@ -11,7 +11,7 @@ export const ProfessionalRegister = () => {
   return (
     <div className="flex h-full w-full bg-card">
       <div className="flex h-screen w-1/2 max-xl:hidden">
-        <BackGroundDiv></BackGroundDiv>
+        <BackGroundDiv />
       </div>
       <div className="flex w-1/2 flex-col items-center justify-center max-xl:h-[100vh] max-xl:w-[100%]">
         <div className="relative my-10 flex h-full w-[75%] flex-col items-center justify-center rounded-xl border-2 border-slate-800 bg-card py-10 max-xl:w-[46rem] max-lg:border-none">

@@ -137,7 +137,7 @@ export const ClientLogin = () => {
           </Button>
           <p className="flex w-[50vh] items-center justify-center">
             Não possui uma conta?{' '}
-            <Link to={'/register'} className="text-blue-700 hover:underline">
+            <Link to={'/client/register'} className="text-blue-700 hover:underline">
               Cadastre-se
             </Link>
           </p>
