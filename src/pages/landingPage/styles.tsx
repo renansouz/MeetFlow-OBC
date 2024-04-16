@@ -21,14 +21,24 @@ export const BackGroundImage = styled.div`
 
 export const SobreImage = styled.div`
   background-image: url(${sobreImage});
-  height: 80%;
+  height: 75%;
   width: 100%;
   background-size: cover;
+  background-position: center center;
+  @media (max-width: 1279px) {
+    height: 100%;
+    border-radius: 10px;
+  }
 `;
 
 export const ProfessionalImage = styled.div`
   background-image: url(${professionalImage});
-  height: 80%;
+  height: 75%;
   width: 100%;
   background-size: cover;
+  background-position: center center;
+  @media (max-width: 1276px) {
+    height: 100%;
+    border-radius: 10px;
+  }
 `;

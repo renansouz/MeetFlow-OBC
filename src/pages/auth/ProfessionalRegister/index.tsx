@@ -11,10 +11,14 @@ export const ProfessionalRegister = () => {
   return (
     <div className="flex h-full w-full bg-card">
       <div className="flex h-screen w-1/2 max-xl:hidden">
-        <BackGroundDiv />
+        <BackGroundDiv>
+          <h1 className="text-center text-5xl font-bold text-white">
+            SEJA BEM VINDO AO <br /> MEET FLOW
+          </h1>
+        </BackGroundDiv>
       </div>
-      <div className="flex w-1/2 flex-col items-center justify-center max-xl:h-[100vh] max-xl:w-[100%]">
-        <div className="relative my-10 flex h-full w-[75%] flex-col items-center justify-center rounded-xl border-2 border-slate-800 bg-card py-10 max-xl:w-[46rem] max-lg:border-none">
+      <div className="flex w-1/2 flex-col items-center justify-center max-xl:h-full max-xl:w-full">
+        <div className="my-5 flex w-[75%] flex-col items-center justify-center rounded-xl border border-border bg-card max-xl:w-[46rem] max-lg:border-none">
           <MultiStep
             size={3}
             $currentStep={currentStepState}

@@ -29,7 +29,7 @@ type stepProps = {
   setCurrentStepState: (int: number) => void;
 };
 
-export const Step3 = ({ }: stepProps) => {
+export const Step3 = ({}: stepProps) => {
   const navigate = useNavigate();
 
   const {
@@ -58,45 +58,55 @@ export const Step3 = ({ }: stepProps) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(updateUser)}>
-      <div className="flex flex-col items-center gap-5">
-        <label htmlFor="" className="text-xl text-foreground">
-          Selecione sua área de atuação
-        </label>
-        <Controller
-          name="occupationArea"
-          control={control}
-          render={({ field: { name, onChange, value, disabled } }) => {
-            return (
-              <Select name={name} onValueChange={onChange} value={value} disabled={disabled}>
-                <SelectTrigger className="h-10 w-[90%] rounded-lg bg-card text-sm hover:border-indigo-400">
-                  <SelectValue placeholder="Selecione" />
-                </SelectTrigger>
-                <SelectContent className="rounded-lg bg-card">
-                  {Ocuppations.map((ocupattion) => {
-                    return (
-                      <SelectItem value={ocupattion} {...register('occupationArea')}>
-                        {ocupattion}
-                      </SelectItem>
-                    );
-                  })}
-                </SelectContent>
-              </Select>
-            );
-          }}
-        ></Controller>
-        {errors.occupationArea && <p className="text-red-500">{errors.occupationArea.message}</p>}
-        <label htmlFor="" className="text-xl text-foreground">
-          Escreva palavras chaves sobre seu serviço
-        </label>
-        <Input
-          {...register('headLine')}
-          className="h-10 w-[90%] rounded-lg bg-card py-2 focus:border-indigo-400"
-          placeholder="Ex: Legislação, Direito"
-        />
-        {errors.headLine && <p className="text-red-500">{errors.headLine.message}</p>}
+    <form
+      className="my-5 flex h-full  flex-col items-center justify-center gap-y-8 pt-[15%]"
+      onSubmit={handleSubmit(updateUser)}
+    >
+      <div className="my-24 flex flex-col items-center justify-center">
+        <div className="flex w-4/5 flex-col items-center justify-center gap-y-8">
+          <label htmlFor="" className="text-xl text-foreground">
+            Selecione sua área de atuação
+          </label>
+          <Controller
+            name="occupationArea"
+            control={control}
+            render={({ field: { name, onChange, value, disabled } }) => {
+              return (
+                <Select name={name} onValueChange={onChange} value={value} disabled={disabled}>
+                  <SelectTrigger className="h-10 w-[90%] rounded-lg bg-card text-sm hover:border-indigo-400">
+                    <SelectValue placeholder="Selecione" />
+                  </SelectTrigger>
+                  <SelectContent className="rounded-lg bg-card">
+                    {Ocuppations.map((ocupattion) => {
+                      return (
+                        <SelectItem value={ocupattion} {...register('occupationArea')}>
+                          {ocupattion}
+                        </SelectItem>
+                      );
+                    })}
+                  </SelectContent>
+                </Select>
+              );
+            }}
+          ></Controller>
+          {!errors.occupationArea && <p className="text-sm text-card">.</p>}
+          {errors.occupationArea && (
+            <p className="text-sm text-red-500">{errors.occupationArea.message}</p>
+          )}
+        </div>
+        <div className="flex w-4/5 flex-col items-center justify-center gap-y-8">
+          <label htmlFor="" className="text-center text-xl text-foreground">
+            Escreva palavras chaves sobre seu serviço
+          </label>
+          <Input
+            {...register('headLine')}
+            className="h-10 w-[90%] rounded-lg bg-card py-2 focus:border-indigo-400"
+            placeholder="Ex: Legislação, Direito"
+          />
+          {errors.headLine && <p className="text-red-500">{errors.headLine.message}</p>}
+        </div>
       </div>
-      <div className="absolute bottom-10 left-0 flex w-full items-center justify-center">
+      <div className="flex w-full justify-center gap-y-8">
         <Button className="h-12 w-40" variant={'success'} type="submit">
           Concluir
         </Button>
