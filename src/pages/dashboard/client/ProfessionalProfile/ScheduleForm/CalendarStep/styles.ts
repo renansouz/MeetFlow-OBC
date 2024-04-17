@@ -2,16 +2,15 @@ import styled from 'styled-components';
 
 export const Container = styled.div<{ isTimePickerOpen: boolean }>`
   display: flex;
-  margin: 6px auto 0;
+  justify-content: center;
   padding: 0;
   //  width: ${(props) => (props.isTimePickerOpen ? '0' : '40rem')};
-  width: 100%;
+  width: 95%;
 `;
 
 export const TimePicker = styled.div`
-  padding-left: 20px;
   display: flex;
-  height: 30rem;
+  max-height: 60vh;
   overflow-y: scroll;
   flex-direction: column;
   text-align: center;

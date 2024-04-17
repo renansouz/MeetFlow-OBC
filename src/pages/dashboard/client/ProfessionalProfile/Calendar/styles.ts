@@ -2,13 +2,12 @@ import styled from 'styled-components';
 
 export const CalendarContainer = styled.div`
   display: flex;
-  width: 100%;
+  width: 95%;
   padding: 1rem;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
   flex-direction: column;
   background-color: rgba(165, 180, 252, 0.4);
-  @media (max-width: 1024px) {
-    margin-left: 0;
-  }
 `;
 
 export const CalendarHeader = styled.div`
@@ -34,11 +33,10 @@ export const CalendarActions = styled.div`
     line-height: 0;
     border-radius: 0.25rem;
     padding: 0.5rem;
-    box-shadow: 0 0 0 1px #1f2937;
 
     svg {
-      width: 1.25rem;
-      height: 1.25rem;
+      width: 1.5rem;
+      height: 1.5rem;
     }
 
     &:hover {

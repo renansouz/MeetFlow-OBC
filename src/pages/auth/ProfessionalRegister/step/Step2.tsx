@@ -82,10 +82,13 @@ export const Step2 = ({ setCurrentStepState }: stepProps) => {
   const [showLunchTime, setShowLunchTime] = useState(false);
 
   return (
-    <form onSubmit={handleSubmit(createNewSchedule)}>
-      <div className="flex flex-col items-center justify-start">
+    <form
+      className="my-5 flex h-full  flex-col items-center justify-center gap-y-8 pt-[15%]"
+      onSubmit={handleSubmit(createNewSchedule)}
+    >
+      <div className="flex flex-col items-center justify-center gap-y-8">
         <span className="text-foreground">Horários disponíveis</span>
-        <div className="flex items-center justify-center gap-10 py-5 ">
+        <div className="flex items-center justify-center gap-10">
           <Controller
             name="hourStart1"
             control={control}
@@ -130,8 +133,8 @@ export const Step2 = ({ setCurrentStepState }: stepProps) => {
             rules={{ required: 'Campo obrigatório' }}
           ></Controller>
         </div>
-        <div className="mb-10 flex flex-col ">
-          <div className="flex items-center justify-center gap-4">
+        <div className="flex flex-col ">
+          <div className="flex items-center justify-center gap-2">
             <input
               className="h-5 w-5 appearance-none rounded-md border-2 border-indigo-800 checked:border-indigo-800 checked:bg-indigo-600"
               type="checkbox"
@@ -143,10 +146,10 @@ export const Step2 = ({ setCurrentStepState }: stepProps) => {
             </label>
           </div>
           <div
-            className={`flex flex-col items-center justify-center ${showLunchTime ? 'flex' : 'hidden'}`}
+            className={`flex flex-col items-center justify-center gap-y-8 ${showLunchTime ? 'flex' : 'hidden'}`}
           >
             <span className="mt-10 text-foreground">Horário de almoço</span>
-            <div className="flex items-center justify-center gap-10 py-5 ">
+            <div className="flex items-center justify-center gap-10">
               <Controller
                 name="hourLunchStart1"
                 control={control}
@@ -197,18 +200,18 @@ export const Step2 = ({ setCurrentStepState }: stepProps) => {
           {errors.hourEnd1 && <p className="text-red-600">{errors.hourEnd1.message}</p>}
         </div>
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-y-8">
         <span className="items-center justify-center text-center text-foreground">
           Dias disponiveis
         </span>
-        <div className="mt-5 flex flex-wrap justify-center gap-1">
+        <div className="flex flex-wrap justify-center gap-2 ">
           {Object.entries(dayNames).map(([key, value]) => (
             <div
               key={key}
-              className="flex w-1/6 flex-col items-center justify-center gap-2 border-2 bg-card p-4"
+              className="flex w-1/6 flex-col items-center justify-center gap-2 border-2 bg-card p-2"
             >
               <input
-                className="h-6 w-6 appearance-none rounded-md border-2 border-indigo-800 checked:border-indigo-800 checked:bg-indigo-600"
+                className="h-5 w-5 appearance-none rounded-md border-2 border-indigo-800 checked:border-indigo-800 checked:bg-indigo-600"
                 type="checkbox"
                 {...register(`days1.${key}`)}
               />
@@ -217,13 +220,12 @@ export const Step2 = ({ setCurrentStepState }: stepProps) => {
           ))}
         </div>
         {errors.days1 && <p className="text-red-600">{errors.days1.message}</p>}
-
-        <div className="absolute bottom-10 left-0 flex w-full justify-center">
-          <Button className="text-white" type="submit">
-            Continuar
-            <MoveRight className="ml-3" />
-          </Button>
-        </div>
+      </div>
+      <div className="flex w-full justify-center gap-y-8">
+        <Button className="text-white" type="submit">
+          Continuar
+          <MoveRight className="ml-3" />
+        </Button>
       </div>
     </form>
   );

@@ -7,6 +7,7 @@ export interface GetScheduleParams {
 export interface GetScheduleResponse {
   _id: string;
   name: string;
+  createdById: string;
   description: string;
   days1: {
     sunday1: boolean;
@@ -22,6 +23,8 @@ export interface GetScheduleResponse {
   hourEnd1: string;
   hourLunchStart1?: string;
   hourLunchEnd1?: string;
+  active: boolean;
+  createdAt: Date;
 }
 
 export async function getSchedule(_id: GetScheduleParams) {

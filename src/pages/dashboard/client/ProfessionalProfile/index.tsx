@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom';
 
 import { getServiceByPage } from '@/api';
 import { getProfile } from '@/api/user/get-profile';
-import { ProfessionalService } from '@/components/professionalService';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -85,7 +84,7 @@ export function ProfessionalProfile() {
         </span>
 
         {/* SERVIÇOS */}
-        <h2 className=" ml-10 mt-10 flex items-center justify-start text-2xl font-light max-md:mx-10">
+        <h2 className=" ml-10 mt-10 flex items-center justify-start text-xl font-light max-md:mx-10">
           Serviços de {professional?.name}
         </h2>
         <div className="flex gap-x-5">
@@ -140,7 +139,7 @@ export function ProfessionalProfile() {
       {/* CALENDÁRIO */}
       {showCalendar && (
         <>
-          <h2 className="mb-10 mt-10 flex items-center justify-center text-3xl font-light max-md:mx-10">
+          <h2 className="mb-10 mt-10 flex items-center justify-center text-xl font-light max-md:mx-10">
             Escolha uma data para agendar com {professional?.name}
           </h2>
 

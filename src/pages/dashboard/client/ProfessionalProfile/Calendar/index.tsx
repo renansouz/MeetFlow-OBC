@@ -1,12 +1,14 @@
 import { Avatar, AvatarImage } from '@radix-ui/react-avatar';
 import { useQuery } from '@tanstack/react-query';
 import dayjs from 'dayjs';
-import { ChevronLeft, ChevronRight, Clock, Phone } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Clock, Phone, Wallet2 } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { getSchedule } from '@/api';
+import { getProfile, getSchedule, ServiceInResponse } from '@/api';
+import { AvatarFallback } from '@/components/ui/avatar';
 import { Skeleton } from '@/components/ui/skeleton';
+import { env } from '@/env';
 import { getWeekDays } from '@/utils/get-week-day';
 
 import {
@@ -35,10 +37,15 @@ interface BlockedDates {
 
 interface CalendarProps {
   selectedDate: Date | null;
+  serviceSelected: ServiceInResponse;
   onDateSelected: (date: Date) => void;
 }
 
-export function CalendarProfessional({ selectedDate, onDateSelected }: CalendarProps) {
+export function CalendarProfessional({
+  selectedDate,
+  onDateSelected,
+  serviceSelected,
+}: CalendarProps) {
   const { scheduleId } = useParams();
   const [blockedDates, setBlockedDates] = useState<BlockedDates>({
     blockedWeekDays: [],
@@ -72,6 +79,13 @@ export function CalendarProfessional({ selectedDate, onDateSelected }: CalendarP
     queryFn: () => getSchedule({ _id: scheduleId }),
     staleTime: Infinity,
     enabled: !!scheduleId,
+  });
+
+  const { data: professional, isLoading: isLoadingProfile } = useQuery({
+    queryKey: ['profile', schedule?.createdById],
+    queryFn: () => getProfile({ _id: schedule?.createdById }),
+    staleTime: Infinity,
+    enabled: !!schedule,
   });
 
   console.log('schedule', schedule);
@@ -170,25 +184,44 @@ export function CalendarProfessional({ selectedDate, onDateSelected }: CalendarP
     }
   }, [schedule]);
   return (
-    <div className="ml-5 flex w-full rounded-xl border bg-card shadow-xl">
-      <div className="ml-5 flex h-full w-1/3 flex-col">
-        <div className="mb-5 mt-10 flex items-center justify-start gap-3">
+    <div className="ml-5 flex w-4/5 rounded-3xl border bg-card shadow-xl">
+      <div className="ml-5 flex h-full min-w-[15rem] flex-col">
+        <div className="mb-5 mt-10 flex items-center justify-start gap-2">
           <Avatar>
-            <AvatarImage src={'https://github.com/renansouz.png'} className="w-10 rounded-full" />
+            {isLoadingProfile ? (
+              <Skeleton className="h-36 w-36 rounded-full" />
+            ) : professional?.photoUrl ? (
+              professional?.photoUrl.includes('lh3.googleusercontent.com') ? (
+                <AvatarImage className="w-9 rounded-full" src={professional.photoUrl} />
+              ) : (
+                <AvatarImage
+                  className="w-9 rounded-full"
+                  src={`${env.VITE_URL_R2CLOUDFLARE}${professional.photoUrl}`}
+                />
+              )
+            ) : (
+              <AvatarFallback className="w-9 rounded-full">
+                {professional?.name.slice(0, 1)}
+              </AvatarFallback>
+            )}
           </Avatar>
-          <span>Renan Souza</span>
+          <span>{professional?.name}</span>
         </div>
-        <span className="text-lg font-bold">Tailwind CSS Responsive</span>
+        <span className="text-lg font-bold">{serviceSelected.name}</span>
         <div className="my-5 flex items-center gap-3">
           <Clock className="h-5 w-5" />
-          <span className="text-sm">15 mins</span>
+          <span className="text-sm">{serviceSelected.duration} mins</span>
+        </div>
+        <div className="mb-5 flex items-center gap-3">
+          <Wallet2 className="h-5 w-5" />
+          <span className="text-sm">R$ {serviceSelected.price}</span>
         </div>
         <div className="flex items-center gap-3">
           <Phone className="h-5 w-5" />
           <span className="text-sm">Cal Video</span>
         </div>
       </div>
-      <div className="flex h-full w-2/3 items-center justify-center">
+      <div className="flex h-full items-center justify-end">
         <CalendarContainer>
           {isLoadingSchedule ? (
             <Skeleton className="h-80 w-80" />
@@ -202,7 +235,7 @@ export function CalendarProfessional({ selectedDate, onDateSelected }: CalendarP
                   <CalendarTitle>
                     {currentMonth} <span>{currentYear}</span>
                   </CalendarTitle>
-                  <button onClick={handleNextMonth} title="Next month" className="border-2">
+                  <button onClick={handleNextMonth} title="Next month">
                     <ChevronRight />
                   </button>
                 </CalendarActions>
