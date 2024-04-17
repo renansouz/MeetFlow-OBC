@@ -31,7 +31,7 @@ export const ClientsPending = ({ scheduleId }: ClientsPendingProps) => {
     refetch: refetchServicesRequest,
   } = useQuery({
     queryKey: ['servicesRequest', scheduleId],
-    queryFn: () => getRequestByPage({ userId: scheduleId, page: 1 }),
+    queryFn: () => getRequestByPage({ userId: scheduleId, page: 1, status: 'solicitado' }),
     staleTime: Infinity,
     enabled: !!scheduleId,
   });
