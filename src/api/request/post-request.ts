@@ -7,6 +7,7 @@ export interface RequestInBody {
   scheduleId: string;
   clientId: string;
   clientName?: string;
+  clientEmail?: string;
   professionalId: string;
   duration: number;
   initDate: string | Date;
@@ -24,6 +25,7 @@ export interface RequestInResponse {
   scheduleId: string;
   clientId: string;
   clientName?: string;
+  clientEmail?: string;
   professionalId: string;
   duration: number;
   initDate: string | Date;
@@ -43,6 +45,7 @@ export async function createRequest({
   scheduleId,
   clientId,
   clientName,
+  clientEmail,
   professionalId,
   duration,
   initDate,
@@ -58,6 +61,7 @@ export async function createRequest({
     scheduleId,
     clientId,
     clientName,
+    clientEmail,
     professionalId,
     duration,
     initDate,

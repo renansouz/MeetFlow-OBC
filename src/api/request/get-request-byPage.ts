@@ -18,6 +18,7 @@ export interface GetRequest {
   scheduleId: string;
   clientId: string;
   clientName: string;
+  clientEmail: string;
   initDate: string;
   endDate: string;
   status: string;
