@@ -10,7 +10,7 @@ export interface MultiStepProps {
 
 export function MultiStep({ size, $currentStep = 1, text }: MultiStepProps) {
   return (
-    <div className="absolute top-16 flex justify-start bg-card">
+    <div className="flex justify-start bg-card">
       <MultiStepContainer>
         <Steps>
           {Array.from({ length: size }, (_, i) => i + 1).map((step, index) => {

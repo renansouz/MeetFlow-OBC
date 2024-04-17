@@ -7,6 +7,7 @@ import { NotFound } from '@/pages/404';
 import { ClientRegister } from '@/pages/auth';
 import { ProfessionalRegister } from '@/pages/auth';
 import { ClientLogin } from '@/pages/auth';
+import { ProfessionalRegisterGoogle } from '@/pages/auth/ProfessionalRegisterGoogle';
 import { DashboardClient } from '@/pages/dashboard/client';
 import { MySchedules } from '@/pages/dashboard/client';
 import { ProfessionalProfile } from '@/pages/dashboard/client';
@@ -22,6 +23,10 @@ const authRoutes = [
   {
     path: '/professional/register',
     element: <ProfessionalRegister />,
+  },
+  {
+    path: '/professional/register/google',
+    element: <ProfessionalRegisterGoogle />,
   },
   {
     path: 'client/register',

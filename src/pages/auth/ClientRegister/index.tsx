@@ -96,121 +96,118 @@ export const ClientRegister = () => {
         </BackGroundDiv>
       </div>
       <div className="min-h-full w-1/2 max-lg:w-full">
-        <form
-          className="flex h-full flex-col items-center justify-center pb-10"
-          onSubmit={handleSubmit(handleSignUp)}
-        >
-          <div className="flex h-full flex-col items-center justify-center">
-            <Link to={'/'}>
-              <img src={theme === 'dark' ? LightLogo : DarkLogo} alt="" className="h-28" />
-            </Link>
-            <div className="flex flex-col items-center justify-center gap-y-4">
-              <h1 className="text-xl font-bold">Criar uma conta!</h1>
-              <div className="flex flex-col">
-                <section>
-                  <label className="block font-semibold" htmlFor="name">
-                    Nome
-                  </label>
-                  <Input
-                    className="w-[20rem] rounded-md border border-border bg-card py-3 pl-4 text-sm text-foreground focus:border-indigo-300"
-                    placeholder="Digite seu nome"
-                    id="name"
-                    {...register('name')}
-                  />
-                  <p className="text-card">.</p>
-                </section>
-                <section>
-                  <label className="block font-semibold" htmlFor="email">
-                    Endereço de e-mail
-                  </label>
-                  <Input
-                    className="w-[20rem] rounded-md border border-border bg-card py-3 pl-4 text-sm text-foreground focus:border-indigo-300"
-                    placeholder="Digite seu email"
-                    id="email"
-                    {...register('email')}
-                  />
-                  {!errors.email && <p className="py-0.5 text-sm text-card">.</p>}
-                  {errors.email && (
-                    <p className="py-0.5 text-sm text-red-500">{errors.email.message}</p>
-                  )}
-                </section>
-                <section>
-                  <label className="block font-semibold" htmlFor="password">
-                    Senha
-                  </label>
-                  <Input
-                    className="w-[20rem] rounded-md border border-border bg-card py-3 pl-4 text-sm text-foreground focus:border-indigo-300"
-                    placeholder="Digite sua senha"
-                    id="password"
-                    type={showPassword ? 'text' : 'password'}
-                    {...register('password')}
-                  />
-                  {!errors.password && <p className="py-0.5 text-sm text-card">.</p>}
-                  {errors.password && (
-                    <p className="py-0.5 text-sm text-red-500">{errors.password.message}</p>
-                  )}
-                </section>
-                <section>
-                  <label className="block font-semibold" htmlFor="passwordConfirmation">
-                    Confirme sua senha
-                  </label>
-                  <Input
-                    className="w-[20rem] rounded-md border border-border bg-card py-3 pl-4 text-sm text-foreground focus:border-indigo-300"
-                    placeholder="Digite sua senha novamente"
-                    id="passwordConfirmation"
-                    type={showPassword ? 'text' : 'password'}
-                    {...register('passwordConfirmation')}
-                  />
-                  {!errors.passwordConfirmation && <p className="py-0.5 text-sm text-card">.</p>}
-                  {errors.passwordConfirmation && (
-                    <p className="py-0.5 text-sm text-red-500">
-                      {errors.passwordConfirmation.message}
-                    </p>
-                  )}
-                </section>
-                <section className="flex items-center justify-center gap-2">
-                  <input
-                    className="h-5 w-5 appearance-none rounded-md border-2 border-indigo-800 checked:border-indigo-800 checked:bg-indigo-600"
-                    type="checkbox"
-                    id="checkbox"
-                    onClick={togglePasswordVisibility}
-                  />
-                  <label htmlFor="checkbox">Mostrar senha</label>
-                </section>
-              </div>
-
-              <div className="flex flex-col gap-y-1">
-                <Button className="w-[20rem]" type="submit" disabled={isSubmitting}>
-                  Cadastrar
-                </Button>
-                <div className="flex w-[20rem] flex-col items-center justify-center">
-                  <div className="my-2 flex items-center justify-center gap-2">
-                    <Separator className="w-1/3" />
-                    <span className="w-[19rem] text-center text-sm italic">ou se preferir</span>
-                    <Separator className="w-1/3" />
-                  </div>
+        <div className="flex h-full flex-col items-center justify-center border pb-10">
+          <form
+            className="flex flex-col items-center justify-center"
+            onSubmit={handleSubmit(handleSignUp)}
+          >
+            <div className="flex h-full flex-col items-center justify-center">
+              <Link to={'/'}>
+                <img src={theme === 'dark' ? LightLogo : DarkLogo} alt="" className="h-28" />
+              </Link>
+              <div className="flex flex-col items-center justify-center gap-y-4">
+                <h1 className="text-xl font-bold">Criar uma conta!</h1>
+                <div className="flex flex-col">
+                  <section>
+                    <label className="block font-semibold" htmlFor="name">
+                      Nome
+                    </label>
+                    <Input
+                      className="w-[20rem] rounded-md border border-border bg-card py-3 pl-4 text-sm text-foreground focus:border-indigo-300"
+                      placeholder="Digite seu nome"
+                      id="name"
+                      {...register('name')}
+                    />
+                    <p className="text-card">.</p>
+                  </section>
+                  <section>
+                    <label className="block font-semibold" htmlFor="email">
+                      Endereço de e-mail
+                    </label>
+                    <Input
+                      className="w-[20rem] rounded-md border border-border bg-card py-3 pl-4 text-sm text-foreground focus:border-indigo-300"
+                      placeholder="Digite seu email"
+                      id="email"
+                      {...register('email')}
+                    />
+                    {!errors.email && <p className="py-0.5 text-sm text-card">.</p>}
+                    {errors.email && (
+                      <p className="py-0.5 text-sm text-red-500">{errors.email.message}</p>
+                    )}
+                  </section>
+                  <section>
+                    <label className="block font-semibold" htmlFor="password">
+                      Senha
+                    </label>
+                    <Input
+                      className="w-[20rem] rounded-md border border-border bg-card py-3 pl-4 text-sm text-foreground focus:border-indigo-300"
+                      placeholder="Digite sua senha"
+                      id="password"
+                      type={showPassword ? 'text' : 'password'}
+                      {...register('password')}
+                    />
+                    {!errors.password && <p className="py-0.5 text-sm text-card">.</p>}
+                    {errors.password && (
+                      <p className="py-0.5 text-sm text-red-500">{errors.password.message}</p>
+                    )}
+                  </section>
+                  <section>
+                    <label className="block font-semibold" htmlFor="passwordConfirmation">
+                      Confirme sua senha
+                    </label>
+                    <Input
+                      className="w-[20rem] rounded-md border border-border bg-card py-3 pl-4 text-sm text-foreground focus:border-indigo-300"
+                      placeholder="Digite sua senha novamente"
+                      id="passwordConfirmation"
+                      type={showPassword ? 'text' : 'password'}
+                      {...register('passwordConfirmation')}
+                    />
+                    {!errors.passwordConfirmation && <p className="py-0.5 text-sm text-card">.</p>}
+                    {errors.passwordConfirmation && (
+                      <p className="py-0.5 text-sm text-red-500">
+                        {errors.passwordConfirmation.message}
+                      </p>
+                    )}
+                  </section>
+                  <section className="flex items-center justify-center gap-2">
+                    <input
+                      className="h-5 w-5 appearance-none rounded-md border-2 border-indigo-800 checked:border-indigo-800 checked:bg-indigo-600"
+                      type="checkbox"
+                      id="checkbox"
+                      onClick={togglePasswordVisibility}
+                    />
+                    <label htmlFor="checkbox">Mostrar senha</label>
+                  </section>
                 </div>
-                <Button
-                  className="mb-5 flex w-[20rem] items-center justify-center gap-2 border bg-card text-foreground hover:bg-primary/10"
-                  onClick={async () => loginGoogle()}
-                >
-                  <img
-                    className="h-5 w-5"
-                    src="https://logopng.com.br/logos/google-37.svg"
-                    alt=""
-                  />
-                  Entre com Google
-                </Button>
-                <div className="flex items-center justify-center gap-2">
-                  <p className="text-base max-sm:text-sm">Já possui uma conta? </p>
-                  <Link to={'/login'} className="text-blue-700 hover:underline">
-                    Entrar
-                  </Link>
+                <div className="flex flex-col gap-y-1">
+                  <Button className="w-[20rem]" type="submit" disabled={isSubmitting}>
+                    Cadastrar
+                  </Button>
+                  <div className="flex w-[20rem] flex-col items-center justify-center">
+                    <div className="my-2 flex items-center justify-center gap-2">
+                      <Separator className="w-1/3" />
+                      <span className="w-[19rem] text-center text-sm italic">ou se preferir</span>
+                      <Separator className="w-1/3" />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
+          </form>
+          <Button
+            className="mb-5 flex w-[20rem] items-center justify-center gap-2 border bg-card text-foreground hover:bg-primary/10"
+            onClick={async () => loginGoogle()}
+          >
+            <img className="h-5 w-5" src="https://logopng.com.br/logos/google-37.svg" alt="" />
+            Entre com Google
+          </Button>
+          <div className="flex items-center justify-center gap-2">
+            <p className="text-base max-sm:text-sm">Já possui uma conta? </p>
+            <Link to={'/login'} className="text-blue-700 hover:underline">
+              Entrar
+            </Link>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import { Avatar, AvatarImage } from '@radix-ui/react-avatar';
 import { useQuery } from '@tanstack/react-query';
 import dayjs from 'dayjs';
-import { ChevronLeft, ChevronRight, Clock, Phone, Wallet2 } from 'lucide-react';
+import { ArrowLeft, ChevronLeft, ChevronRight, Clock, Phone, Wallet2 } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -187,25 +187,30 @@ export function CalendarProfessional({
     <div className="ml-5 flex w-4/5 rounded-3xl border bg-card shadow-xl">
       <div className="ml-5 flex h-full min-w-[15rem] flex-col">
         <div className="mb-5 mt-10 flex items-center justify-start gap-2">
-          <Avatar>
-            {isLoadingProfile ? (
-              <Skeleton className="h-36 w-36 rounded-full" />
-            ) : professional?.photoUrl ? (
-              professional?.photoUrl.includes('lh3.googleusercontent.com') ? (
-                <AvatarImage className="w-9 rounded-full" src={professional.photoUrl} />
+          <div className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-md p-2 hover:bg-primary/10">
+            <div>
+              <ArrowLeft />
+            </div>
+            <Avatar>
+              {isLoadingProfile ? (
+                <Skeleton className="h-36 w-36 rounded-full" />
+              ) : professional?.photoUrl ? (
+                professional?.photoUrl.includes('lh3.googleusercontent.com') ? (
+                  <AvatarImage className="w-9 rounded-full" src={professional.photoUrl} />
+                ) : (
+                  <AvatarImage
+                    className="w-9 rounded-full"
+                    src={`${env.VITE_URL_R2CLOUDFLARE}${professional.photoUrl}`}
+                  />
+                )
               ) : (
-                <AvatarImage
-                  className="w-9 rounded-full"
-                  src={`${env.VITE_URL_R2CLOUDFLARE}${professional.photoUrl}`}
-                />
-              )
-            ) : (
-              <AvatarFallback className="w-9 rounded-full">
-                {professional?.name.slice(0, 1)}
-              </AvatarFallback>
-            )}
-          </Avatar>
-          <span>{professional?.name}</span>
+                <AvatarFallback className="w-9 rounded-full">
+                  {professional?.name.slice(0, 1)}
+                </AvatarFallback>
+              )}
+            </Avatar>
+            <span>{professional?.name}</span>
+          </div>
         </div>
         <span className="text-lg font-bold">{serviceSelected.name}</span>
         <div className="my-5 flex items-center gap-3">

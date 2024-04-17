@@ -4,7 +4,7 @@ import { useTheme } from '@/components/theme/theme-provider';
 
 export function AuthLayout() {
   const { theme } = useTheme();
-  const backgroundToggle = theme === 'dark' ? 'bg-card' : 'bg-[#f00]';
+  const backgroundToggle = theme === 'dark' ? 'bg-card' : 'bg-card';
   return (
     <div className={`flex min-h-screen flex-col antialiased ${backgroundToggle}`}>
       <Outlet />

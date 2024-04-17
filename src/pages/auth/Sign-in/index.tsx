@@ -82,94 +82,98 @@ export const ClientLogin = () => {
         </BackGroundDiv>
       </div>
       <div className="my-10 flex min-h-full w-1/2 justify-center max-xl:w-full max-md:my-0">
-        <form
-          onSubmit={handleSubmit(handleLogin)}
-          className="flex w-2/3 flex-col items-center justify-center rounded-xl border bg-card pb-10 max-md:w-full max-md:border-none"
-        >
-          <div className="flex w-full flex-col items-center justify-center">
-            <Link to={'/'}>
-              <img src={theme === 'dark' ? DarkLogo : LightLogo} alt="" className="h-28" />
-            </Link>
-            <div className="flex w-full flex-col items-center justify-center gap-y-1">
-              <Button
-                className="mb-5 flex w-[20rem] items-center justify-center gap-2 border bg-card text-foreground hover:bg-primary/10"
-                onClick={async () => loginGoogle()}
-              >
-                <img className="h-5 w-5" src="https://logopng.com.br/logos/google-37.svg" alt="" />
-                Entre com Google
-              </Button>
-              <div className="flex items-center justify-center gap-2">
-                <Separator className="w-1/3" />
-                <span className="w-80 text-center text-sm italic">ou se preferir</span>
-                <Separator className="w-1/3" />
-              </div>
+        <div className="flex w-2/3 flex-col items-center justify-center rounded-xl border bg-card pb-10 max-md:w-full max-md:border-none">
+          <Link to={'/'}>
+            <img src={theme === 'dark' ? DarkLogo : LightLogo} alt="" className="h-28" />
+          </Link>
+          <Button
+            className="mb-5 flex w-[20rem] items-center justify-center gap-2 border bg-card text-foreground hover:bg-primary/10"
+            onClick={async () => loginGoogle()}
+          >
+            <img className="h-5 w-5" src="https://logopng.com.br/logos/google-37.svg" alt="" />
+            Entre com Google
+          </Button>
+          <div className="flex items-center justify-center gap-2">
+            <Separator className="w-1/3" />
+            <span className="w-80 text-center text-sm italic">ou se preferir</span>
+            <Separator className="w-1/3" />
+          </div>
+          <form
+            onSubmit={handleSubmit(handleLogin)}
+            className="flex w-2/3 flex-col items-center justify-center rounded-xl pb-10 max-md:w-full max-md:border-none"
+          >
+            <div className="flex w-full flex-col items-center justify-center">
               <h1 className="my-5 text-xl font-bold">Entrar na sua conta!</h1>
-              <div className="flex flex-col items-center">
-                <div className="flex flex-col gap-y-4 pb-5">
-                  <section>
-                    <label htmlFor="" className="block pb-2 font-bold ">
-                      Endereço de e-mail
-                    </label>
-                    <div
-                      tabIndex={0}
-                      className="group flex w-[20rem] gap-2 rounded-md border border-border bg-card py-3 pl-2 text-sm text-foreground focus:border-indigo-300"
-                    >
-                      <User className="h-5 w-5 text-muted-foreground" />
-                      <Input
-                        className="w-[16rem] flex-1 border-0 bg-transparent p-0 text-foreground placeholder-zinc-600 focus:border-primary"
-                        placeholder="Digite seu email"
-                        id="email"
-                        {...register('email')}
+              <div className="flex w-full flex-col items-center justify-center gap-y-1">
+                <div className="flex flex-col items-center">
+                  <div className="flex flex-col gap-y-4 pb-5">
+                    <section>
+                      <label htmlFor="" className="block pb-2 font-bold ">
+                        Endereço de e-mail
+                      </label>
+                      <div
+                        tabIndex={0}
+                        className="group flex w-[20rem] gap-2 rounded-md border border-border bg-card py-3 pl-2 text-sm text-foreground focus:border-indigo-300"
+                      >
+                        <User className="h-5 w-5 text-muted-foreground" />
+                        <Input
+                          className="w-[16rem] flex-1 border-0 bg-transparent p-0 text-foreground placeholder-zinc-600 focus:border-primary"
+                          placeholder="Digite seu email"
+                          id="email"
+                          {...register('email')}
+                        />
+                      </div>
+                      {!errors.email && <p className="text-sm text-card">.</p>}
+                      {errors.email && (
+                        <p className="text-sm text-red-500">{errors.email.message}</p>
+                      )}
+                    </section>
+                    <section>
+                      <label htmlFor="" className="block pb-2 font-bold ">
+                        Senha
+                      </label>
+                      <div className="group flex w-[20rem] gap-2 rounded-md border border-border bg-card py-3 pl-2 text-sm text-foreground focus:border-indigo-300">
+                        <Lock className="h-5 w-5 text-muted-foreground" />
+                        <Input
+                          type={passwordAppearanceState}
+                          className="w-[16rem] flex-1 border-0 bg-transparent p-0 text-foreground placeholder-zinc-600 focus:border-primary"
+                          placeholder="Digite sua senha"
+                          id="password"
+                          {...register('password')}
+                        />
+                      </div>
+                      {!errors.password && <p className="text-sm text-card">.</p>}
+                      {errors.password && (
+                        <p className="text-sm text-red-500">{errors.password.message}</p>
+                      )}
+                    </section>
+                    <section className="flex items-center justify-center gap-2">
+                      <input
+                        className="h-6 w-6 appearance-none rounded-md border-2 border-indigo-800 checked:border-indigo-800 checked:bg-indigo-600"
+                        type="checkbox"
+                        name=""
+                        id=""
+                        onClick={handlePasswordAppearance}
                       />
-                    </div>
-                    {!errors.email && <p className="text-sm text-card">.</p>}
-                    {errors.email && <p className="text-sm text-red-500">{errors.email.message}</p>}
-                  </section>
-                  <section>
-                    <label htmlFor="" className="block pb-2 font-bold ">
-                      Senha
-                    </label>
-                    <div className="group flex w-[20rem] gap-2 rounded-md border border-border bg-card py-3 pl-2 text-sm text-foreground focus:border-indigo-300">
-                      <Lock className="h-5 w-5 text-muted-foreground" />
-                      <Input
-                        type={passwordAppearanceState}
-                        className="w-[16rem] flex-1 border-0 bg-transparent p-0 text-foreground placeholder-zinc-600 focus:border-primary"
-                        placeholder="Digite sua senha"
-                        id="password"
-                        {...register('password')}
-                      />
-                    </div>
-                    {!errors.password && <p className="text-sm text-card">.</p>}
-                    {errors.password && (
-                      <p className="text-sm text-red-500">{errors.password.message}</p>
-                    )}
-                  </section>
-                  <section className="flex items-center justify-center gap-2">
-                    <input
-                      className="h-6 w-6 appearance-none rounded-md border-2 border-indigo-800 checked:border-indigo-800 checked:bg-indigo-600"
-                      type="checkbox"
-                      name=""
-                      id=""
-                      onClick={handlePasswordAppearance}
-                    />
-                    <label htmlFor="">Mostrar senha</label>
-                  </section>
+                      <label htmlFor="">Mostrar senha</label>
+                    </section>
+                  </div>
                 </div>
-              </div>
-              <div className="flex flex-col gap-y-1">
-                <Button className="max-sm:96 w-64w-[20rem] mt-0" type="submit">
-                  Entrar
-                </Button>
-                <div className="mt-2 flex items-center justify-center gap-2">
-                  <p className="text-base max-sm:text-sm">Não possui uma conta?</p>
-                  <Link to={'/client/register'} className="text-blue-700 hover:underline">
-                    Cadastre-se
-                  </Link>
+                <div className="flex flex-col gap-y-1">
+                  <Button className="max-sm:96 w-64w-[20rem] mt-0" type="submit">
+                    Entrar
+                  </Button>
+                  <div className="mt-2 flex items-center justify-center gap-2">
+                    <p className="text-base max-sm:text-sm">Não possui uma conta?</p>
+                    <Link to={'/client/register'} className="text-blue-700 hover:underline">
+                      Cadastre-se
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
   );
