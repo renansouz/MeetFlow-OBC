@@ -35,10 +35,11 @@ export const TimePickerList = styled.div`
 
 export const TimePickerItem = styled.button`
   border: 0;
-  background-color: #918cff;
+  background-color: #918cf1;
   padding: 2px 0;
   cursor: pointer;
   color: #ffffff;
+  font-weight: 800;
   border-radius: 3px;
   font-size: 1.25rem;
   line-height: 1.5;

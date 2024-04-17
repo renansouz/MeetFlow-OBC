@@ -143,7 +143,9 @@ export function ProfessionalProfile() {
             Escolha uma data para agendar com {professional?.name}
           </h2>
 
-          <ScheduleForm selectedService={selectedService} />
+          <div className="flex items-center justify-center">
+            <ScheduleForm selectedService={selectedService} />
+          </div>
         </>
       )}
     </Card>

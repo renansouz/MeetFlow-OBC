@@ -156,7 +156,8 @@ export const ProfessionalAside = () => {
                       />
                     </div>
                     <div className="flex items-center justify-center">
-                      {errors.name && <p className="py-2 text-red-500">{errors.name.message}</p>}
+                      {!errors.name && <p className=" text-sm text-card">.</p>}
+                      {errors.name && <p className="text-sm text-red-500">{errors.name.message}</p>}
                     </div>
                   </section>
                   <section className="flex flex-col py-2">
@@ -172,8 +173,9 @@ export const ProfessionalAside = () => {
                       />
                     </div>
                     <div className="flex items-center justify-center">
+                      {!errors.description && <p className="text-sm text-card">.</p>}
                       {errors.description && (
-                        <p className="py-2 text-red-500">{errors.description.message}</p>
+                        <p className="text-sm text-red-500">{errors.description.message}</p>
                       )}
                     </div>
                   </section>
@@ -228,8 +230,9 @@ export const ProfessionalAside = () => {
                       ></Controller>
                     </div>
                     <div className="flex items-center justify-center">
+                      {!errors.duration && <p className="text-sm text-card">.</p>}
                       {errors.duration && (
-                        <p className="py-2 text-red-500">{errors.duration.message}</p>
+                        <p className="text-sm text-red-500">{errors.duration.message}</p>
                       )}
                     </div>
                   </section>
@@ -255,7 +258,10 @@ export const ProfessionalAside = () => {
                       />
                     </div>
                     <div className="flex items-center justify-center">
-                      {errors.price && <p className="py-2 text-red-500">{errors.price.message}</p>}
+                      {!errors.price && <p className="text-sm text-card">.</p>}
+                      {errors.price && (
+                        <p className="text-sm text-red-500">{errors.price.message}</p>
+                      )}
                     </div>
                   </section>
                   <div className="mt-5 flex justify-end">
