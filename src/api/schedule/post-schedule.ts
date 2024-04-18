@@ -3,8 +3,6 @@ import Cookies from 'js-cookie';
 import { api } from '@/lib/axios';
 
 export interface ScheduleInBody {
-  name: string;
-  description: string;
   days1: {
     monday1: boolean;
     tuesday1: boolean;
@@ -21,8 +19,6 @@ export interface ScheduleInBody {
 }
 
 export async function createSchedule({
-  name,
-  description,
   days1,
   hourStart1,
   hourLunchStart1,
@@ -33,7 +29,7 @@ export async function createSchedule({
 
   await api.post(
     'schedule/add',
-    { name, description, days1, hourStart1, hourLunchStart1, hourLunchEnd1, hourEnd1 },
+    { days1, hourStart1, hourLunchStart1, hourLunchEnd1, hourEnd1 },
     { headers: { Authorization: `Bearer ${token}` } }
   );
 }

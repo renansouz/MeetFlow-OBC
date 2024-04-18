@@ -2,16 +2,16 @@ import styled from 'styled-components';
 
 export const Container = styled.div<{ isTimePickerOpen: boolean }>`
   display: flex;
-  margin: 6px auto 0;
+  justify-content: center;
   padding: 0;
-  max-width: 75rem;
   //  width: ${(props) => (props.isTimePickerOpen ? '0' : '40rem')};
-  width: 100%;
+  width: 95%;
 `;
 
 export const TimePicker = styled.div`
-  padding-left: 20px;
   display: flex;
+  max-height: 60vh;
+  overflow-y: scroll;
   flex-direction: column;
   text-align: center;
   gap: 10px;
@@ -35,10 +35,11 @@ export const TimePickerList = styled.div`
 
 export const TimePickerItem = styled.button`
   border: 0;
-  background-color: #64748b;
+  background-color: #918cf1;
   padding: 2px 0;
   cursor: pointer;
   color: #ffffff;
+  font-weight: 800;
   border-radius: 3px;
   font-size: 1.25rem;
   line-height: 1.5;

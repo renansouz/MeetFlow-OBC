@@ -7,11 +7,11 @@ import {
   Home,
   Layers,
   LifeBuoy,
-  LogOut,
   Menu,
   PersonStanding,
   Plus,
   Settings,
+  Timer,
   User,
   Users,
 } from 'lucide-react';
@@ -48,7 +48,6 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/comp
 import { useAuth } from '@/context/auth-provider';
 import Logo from '@/public/Logo.svg';
 import LightLogo from '@/public/Logo-light.svg';
-import LogoMenor from '@/public/only-logo-white.svg';
 
 const createUserSchema = z.object({
   name: z.string(),
@@ -109,29 +108,15 @@ export const ProfessionalAside = () => {
   };
 
   return (
-    <>
-      <aside className="bg-slate flex h-screen w-auto flex-col items-center justify-between border-r-2 bg-card py-8 max-lg:px-4 max-lg:py-4 max-sm:border-0 max-sm:px-0 ">
+    <div className="fixed h-screen">
+      <aside className="flex h-[90%] w-[16rem] flex-col items-center justify-between border-r-2 bg-card py-8 max-lg:px-4 max-lg:py-4 max-sm:border-0 max-sm:px-0 ">
         <div className=" flex flex-col gap-y-10 max-lg:gap-0 max-sm:hidden">
           <div className="flex flex-col gap-y-1">
-            <Link to={'/professional/dashboard'}>
-              <img
-                src={theme === 'dark' ? Logo : LightLogo}
-                alt=""
-                className="mb-0 h-20 max-lg:hidden"
-              />
-            </Link>
-            <Link to={'/professional/dashboard'}>
-              <img
-                src={theme === 'dark' ? LogoMenor : LightLogo}
-                alt=""
-                className="img mb-10 h-11 items-center lg:hidden"
-              />
-            </Link>
             <Dialog>
               <DialogTrigger>
                 <Button className="mx-2 mb-5 flex w-11/12 items-center justify-center rounded-full bg-indigo-700 px-5 hover:bg-indigo-800 max-lg:px-0">
-                  <Plus className="mr-2 text-indigo-100" />
-                  <p className="text-lg text-indigo-50 max-lg:hidden">Criar</p>
+                  <Plus className="mr-2 h-6 w-6 text-indigo-100" />
+                  <p className="text-base text-indigo-50 max-lg:hidden">Criar</p>
                 </Button>
               </DialogTrigger>
               <DialogContent className="p-6 ">
@@ -156,7 +141,8 @@ export const ProfessionalAside = () => {
                       />
                     </div>
                     <div className="flex items-center justify-center">
-                      {errors.name && <p className="py-2 text-red-500">{errors.name.message}</p>}
+                      {!errors.name && <p className=" text-sm text-card">.</p>}
+                      {errors.name && <p className="text-sm text-red-500">{errors.name.message}</p>}
                     </div>
                   </section>
                   <section className="flex flex-col py-2">
@@ -172,8 +158,9 @@ export const ProfessionalAside = () => {
                       />
                     </div>
                     <div className="flex items-center justify-center">
+                      {!errors.description && <p className="text-sm text-card">.</p>}
                       {errors.description && (
-                        <p className="py-2 text-red-500">{errors.description.message}</p>
+                        <p className="text-sm text-red-500">{errors.description.message}</p>
                       )}
                     </div>
                   </section>
@@ -182,7 +169,6 @@ export const ProfessionalAside = () => {
                       <label htmlFor="" className="block py-1 font-bold text-black">
                         <span className="text-foreground">Duração:</span>
                       </label>
-
                       <Controller
                         name="duration"
                         control={control}
@@ -228,8 +214,9 @@ export const ProfessionalAside = () => {
                       ></Controller>
                     </div>
                     <div className="flex items-center justify-center">
+                      {!errors.duration && <p className="text-sm text-card">.</p>}
                       {errors.duration && (
-                        <p className="py-2 text-red-500">{errors.duration.message}</p>
+                        <p className="text-sm text-red-500">{errors.duration.message}</p>
                       )}
                     </div>
                   </section>
@@ -255,7 +242,10 @@ export const ProfessionalAside = () => {
                       />
                     </div>
                     <div className="flex items-center justify-center">
-                      {errors.price && <p className="py-2 text-red-500">{errors.price.message}</p>}
+                      {!errors.price && <p className="text-sm text-card">.</p>}
+                      {errors.price && (
+                        <p className="text-sm text-red-500">{errors.price.message}</p>
+                      )}
                     </div>
                   </section>
                   <div className="mt-5 flex justify-end">
@@ -269,33 +259,26 @@ export const ProfessionalAside = () => {
                 </form>
               </DialogContent>
             </Dialog>
-
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger>
-                  <AsideItem link="/professional/profile" title="Perfil" icon={User} />
+                  <AsideItem link="/professional/services" title="Serviços" icon={Home} />
                 </TooltipTrigger>
                 <TooltipContent side="right">
-                  <p>Perfil</p>
+                  <p>Serviços</p>
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
-
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger>
-                  <AsideItem
-                    link="/professional/myschedules"
-                    title="Agendamentos"
-                    icon={PersonStanding}
-                  />
+                  <AsideItem link="/professional/myschedules" title="Solicitações" icon={Timer} />
                 </TooltipTrigger>
                 <TooltipContent side="right">
-                  <p>Agendamentos</p>
+                  <p>Solicitações</p>
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
-
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger>
@@ -306,7 +289,7 @@ export const ProfessionalAside = () => {
                   />
                 </TooltipTrigger>
                 <TooltipContent side="right">
-                  <p>disponibilidade</p>
+                  <p className="text-sm">disponibilidade</p>
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
@@ -316,14 +299,22 @@ export const ProfessionalAside = () => {
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger>
-                <AsideItem link="/register" title="Suporte" icon={LifeBuoy} />
+                <Button
+                  asChild
+                  variant={'ghost'}
+                  className="flex h-11 items-center justify-start gap-3 px-10 py-7 max-lg:justify-center max-lg:px-0"
+                >
+                  <div className="w-full">
+                    <LifeBuoy />
+                    <span className="max-lg:hidden">Suporte</span>
+                  </div>
+                </Button>
               </TooltipTrigger>
               <TooltipContent side="right">
-                <p>Suporte</p>
+                <p className="text-sm">Suporte</p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
-
           <Dialog>
             <DialogTrigger>
               <TooltipProvider>
@@ -338,7 +329,7 @@ export const ProfessionalAside = () => {
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent side="right">
-                    <p>Configurações</p>
+                    <p className="text-sm">Configurações</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
@@ -378,17 +369,6 @@ export const ProfessionalAside = () => {
               </Select>
             </DialogContent>
           </Dialog>
-
-          <Button
-            asChild
-            className="flex h-11 items-center justify-start gap-3 bg-inherit px-10 py-7 hover:bg-inherit max-lg:justify-center max-lg:px-0"
-            onClick={() => logout()}
-          >
-            <Link className="justify-center gap-x-5" to={'/'}>
-              <span className="text-lg text-red-500 max-lg:hidden">Sair</span>
-              <LogOut className="text-red-500" />
-            </Link>
-          </Button>
         </div>
       </aside>
       <div className="absolute left-2 top-1 h-10 items-center rounded-md bg-secondary sm:hidden">
@@ -427,6 +407,6 @@ export const ProfessionalAside = () => {
           </SheetContent>
         </Sheet>
       </div>
-    </>
+    </div>
   );
 };

@@ -47,8 +47,11 @@ export function CalendarStep({ onSelectDateTime, serviceSelected }: CalendarStep
 
   return (
     <Container isTimePickerOpen={isDateSelected}>
-      <CalendarProfessional selectedDate={selectedDate} onDateSelected={setSelectedDate} />
-
+      <CalendarProfessional
+        selectedDate={selectedDate}
+        onDateSelected={setSelectedDate}
+        serviceSelected={serviceSelected}
+      />
       {isDateSelected && (
         <TimePicker>
           <TimePickerHeader>

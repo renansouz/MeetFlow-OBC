@@ -36,10 +36,14 @@ export const ProfessionalCard = ({
           <CardHeader className="h-20 w-full items-center rounded-tl-md rounded-tr-md bg-indigo-300">
             <Avatar>
               {photoUrl ? (
-                <AvatarImage
-                  src={`${env.VITE_URL_R2CLOUDFLARE}${photoUrl}`}
-                  className="w-24 rounded-full"
-                />
+                photoUrl?.includes('lh3.googleusercontent.com') ? (
+                  <AvatarImage src={photoUrl} className="w-24 rounded-full" />
+                ) : (
+                  <AvatarImage
+                    src={`${env.VITE_URL_R2CLOUDFLARE}${photoUrl}`}
+                    className="w-24 rounded-full"
+                  />
+                )
               ) : (
                 <AvatarFallback className="h-24 w-24 rounded-full">
                   {name.slice(0, 1).toUpperCase()}
@@ -68,7 +72,7 @@ export const ProfessionalCard = ({
               className="mb-10 bg-primary text-lg font-light text-foreground hover:bg-primary/80 max-sm:mb-5"
               variant={'default'}
             >
-              <Link to={`/dashboard/profile/${_id}/${myScheduleId}`} className="px-6">
+              <Link to={`/dashboard/profile/${_id}/${myScheduleId}`} className="px-6 text-white">
                 <LucideCalendarPlus className="mr-3 h-5 w-5" />
                 Agendar
               </Link>

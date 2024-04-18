@@ -6,6 +6,8 @@ export interface AppointmentInBody {
   serviceName: string;
   scheduleId: string;
   clientId: string;
+  clientName: string;
+  clientEmail: string;
   professionalId: string;
   requestId: string;
   initDate: string;
@@ -21,6 +23,8 @@ export interface AppointmentInResponse {
   serviceName: string;
   scheduleId: string;
   clientId: string;
+  clientName: string;
+  clientEmail: string;
   professionalId: string;
   requestId: string;
   initDate: string;
@@ -38,6 +42,8 @@ export async function createAppointment({
   serviceName,
   scheduleId,
   clientId,
+  clientName,
+  clientEmail,
   professionalId,
   requestId,
   initDate,
@@ -53,6 +59,8 @@ export async function createAppointment({
     scheduleId,
     professionalId: professionalId || scheduleId,
     clientId,
+    clientName,
+    clientEmail,
     requestId,
     initDate,
     endDate,

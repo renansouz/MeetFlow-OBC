@@ -25,25 +25,28 @@ interface ClientsPendingProps {
 export const ClientsPending = ({ scheduleId }: ClientsPendingProps) => {
   const queryClient = useQueryClient();
 
-  const { data: servicesRequest, isLoading: isLoadingServiceRequest } = useQuery({
+  const {
+    data: servicesRequest,
+    isLoading: isLoadingServiceRequest,
+    refetch: refetchServicesRequest,
+  } = useQuery({
     queryKey: ['servicesRequest', scheduleId],
-    queryFn: () => getRequestByPage({ userId: scheduleId, page: 1 }),
+    queryFn: () => getRequestByPage({ userId: scheduleId, page: 1, status: 'solicitado' }),
     staleTime: Infinity,
     enabled: !!scheduleId,
   });
 
   const { mutateAsync: crateAppointmentFn } = useMutation({
     mutationFn: createAppointment,
-    // onSuccess: () => {
-    //   // Forçar a query 'servicesProfile' a ser recarregada
-    //   queryClient.invalidateQueries({ queryKey: ['servicesProfile'] });
-    // },
   });
 
   const { mutateAsync: updateRequestFn } = useMutation({
     mutationFn: updateRequest,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['servicesRequest'] });
+      queryClient.invalidateQueries({
+        queryKey: ['servicesScheduled'],
+      });
+      refetchServicesRequest();
     },
   });
 
@@ -112,6 +115,8 @@ export const ClientsPending = ({ scheduleId }: ClientsPendingProps) => {
                             scheduleId: scheduleId,
                             professionalId: scheduleId,
                             clientId: serviceRequest.clientId,
+                            clientName: serviceRequest.clientName,
+                            clientEmail: serviceRequest.clientEmail,
                             requestId: serviceRequest._id,
                             initDate: serviceRequest.initDate,
                             endDate: serviceRequest.endDate,

@@ -11,11 +11,12 @@ import { z } from 'zod';
 import { Input } from '@/components/Input';
 import { useTheme } from '@/components/theme/theme-provider';
 import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
 import { useAuth } from '@/context/auth-provider';
 import DarkLogo from '@/public/Logo.svg';
 import LightLogo from '@/public/Logo-light.svg';
 
-import { BackGroundDiv, Logo } from './styles';
+import { BackGroundDiv } from './styles';
 
 type passwordAppearanceType = 'text' | 'password';
 
@@ -27,6 +28,7 @@ const createUserSchema = z.object({
 type LoginFormData = z.infer<typeof createUserSchema>;
 
 export const ClientLogin = () => {
+  const { loginGoogle } = useAuth();
   const { login } = useAuth();
   const { theme } = useTheme();
   const navigate = useNavigate();
@@ -71,93 +73,106 @@ export const ClientLogin = () => {
   };
 
   return (
-    <div className="flex h-screen w-full bg-card max-xl:items-center max-xl:justify-center">
-      <div className="m-10 mt-[6%] w-2/6 px-10 max-xl:m-0 max-xl:flex max-xl:min-w-[30rem] max-xl:flex-col max-xl:items-center max-xl:justify-center max-xl:rounded-xl max-xl:border-2 max-xl:p-0 max-sm:h-full max-sm:w-full max-sm:border-0">
-        <div className=" flex flex-col items-center justify-center max-sm:mr-5">
-          <Link to={'/'}>
-            <img src={theme === 'dark' ? DarkLogo : LightLogo} alt="" className="w-96" />
-          </Link>
-          <h1 className="items-center justify-center text-center text-3xl font-bold max-md:text-2xl">
-            Entrar na sua conta!
+    <div className="flex min-h-screen w-full bg-card max-lg:items-center">
+      <div className="flex h-full w-1/2 items-center justify-center max-xl:hidden">
+        <BackGroundDiv>
+          <h1 className="text-center text-5xl font-bold text-white">
+            SEJA BEM VINDO AO <br /> MEET FLOW
           </h1>
-        </div>
-        <form
-          action=""
-          onSubmit={handleSubmit(handleLogin)}
-          className="flex flex-col items-center justify-center gap-8 px-10 py-10 max-md:px-0 max-sm:w-[70%]"
-        >
-          <section>
-            <label htmlFor="" className="block py-2 font-bold ">
-              Endereço de e-mail
-            </label>
-            <div
-              tabIndex={0}
-              className="group flex w-[20rem] items-center justify-between gap-2 rounded-lg border border-foreground px-3 py-2 shadow-sm focus-within:border-primary focus:border-primary max-sm:w-[20rem]"
-            >
-              <User className="text-foreground/90" />
-              <Input
-                className="w-[16rem] flex-1 border-0 bg-transparent p-0 text-foreground placeholder-zinc-600 focus:border-primary"
-                placeholder="Digite seu email"
-                id="email"
-                {...register('email')}
-              />
-            </div>
-            {errors.email && <p className="py-2 text-sm text-red-500">{errors.email.message}</p>}
-          </section>
-          <section>
-            <label htmlFor="" className="block py-2 font-bold ">
-              Senha
-            </label>
-            <div className="group flex w-[20rem] items-center justify-between gap-2 rounded-lg border border-foreground px-3 py-2 shadow-sm focus-within:border-primary focus:border-primary max-sm:w-[20rem]">
-              <Lock className="w-[16rem] text-foreground/90" />
-              <Input
-                type={passwordAppearanceState}
-                className="w-[16rem] flex-1 border-0 bg-transparent p-0 text-foreground placeholder-zinc-600 focus:border-primary"
-                placeholder="Digite sua senha"
-                id="password"
-                {...register('password')}
-              />
-            </div>
-            {errors.password && (
-              <p className="py-2 text-sm text-red-500">{errors.password.message}</p>
-            )}
-          </section>
-          <section className="flex items-center justify-center gap-2">
-            <input
-              className="h-6 w-6 appearance-none rounded-md border-2 border-indigo-800 checked:border-indigo-800 checked:bg-indigo-600"
-              type="checkbox"
-              name=""
-              id=""
-              onClick={handlePasswordAppearance}
-            />
-            <label htmlFor="">Mostrar senha</label>
-          </section>
-          <Button className="max-sm:96 mt-0 w-64" type="submit">
-            Entrar
-          </Button>
-          <p className="flex w-[50vh] items-center justify-center">
-            Não possui uma conta?{' '}
-            <Link to={'/register'} className="text-blue-700 hover:underline">
-              Cadastre-se
-            </Link>
-          </p>
-        </form>
+        </BackGroundDiv>
       </div>
-      <div className="flex h-full w-4/6 flex-col items-center justify-center max-xl:hidden">
-        <div className="flex h-full w-1/2 items-center justify-center max-lg:hidden">
-          <BackGroundDiv>
-            <div className="-mt-36 flex flex-col items-center justify-center">
-              <Logo />
-
-              <h1 className="text-center font-poppins-start font-bold text-white">
-                Facilite sua agenda com o MeetFlow
-              </h1>
-              <p className="w-2/3 text-center text-white">
-                Agende e organize com MeetFlow - conecte-se facilmente a serviços e profissionais.
-                Experimente!
-              </p>
+      <div className="my-10 flex min-h-full w-1/2 justify-center max-xl:w-full max-md:my-0">
+        <div className="flex w-2/3 flex-col items-center justify-center rounded-xl border bg-card pb-10 max-md:w-full max-md:border-none">
+          <Link to={'/'}>
+            <img src={theme === 'dark' ? DarkLogo : LightLogo} alt="" className="h-28" />
+          </Link>
+          <Button
+            className="mb-5 flex w-[20rem] items-center justify-center gap-2 border bg-card text-foreground hover:bg-primary/10"
+            onClick={async () => loginGoogle()}
+          >
+            <img className="h-5 w-5" src="https://logopng.com.br/logos/google-37.svg" alt="" />
+            Entre com Google
+          </Button>
+          <div className="flex items-center justify-center gap-2">
+            <Separator className="w-1/3" />
+            <span className="w-80 text-center text-sm italic">ou se preferir</span>
+            <Separator className="w-1/3" />
+          </div>
+          <form
+            onSubmit={handleSubmit(handleLogin)}
+            className="flex w-2/3 flex-col items-center justify-center rounded-xl pb-10 max-md:w-full max-md:border-none"
+          >
+            <div className="flex w-full flex-col items-center justify-center">
+              <h1 className="my-5 text-xl font-bold">Entrar na sua conta!</h1>
+              <div className="flex w-full flex-col items-center justify-center gap-y-1">
+                <div className="flex flex-col items-center">
+                  <div className="flex flex-col gap-y-4 pb-5">
+                    <section>
+                      <label htmlFor="" className="block pb-2 font-bold ">
+                        Endereço de e-mail
+                      </label>
+                      <div
+                        tabIndex={0}
+                        className="group flex w-[20rem] gap-2 rounded-md border border-border bg-card py-3 pl-2 text-sm text-foreground focus:border-indigo-300"
+                      >
+                        <User className="h-5 w-5 text-muted-foreground" />
+                        <Input
+                          className="w-[16rem] flex-1 border-0 bg-transparent p-0 text-foreground placeholder-zinc-600 focus:border-primary"
+                          placeholder="Digite seu email"
+                          id="email"
+                          {...register('email')}
+                        />
+                      </div>
+                      {!errors.email && <p className="text-sm text-card">.</p>}
+                      {errors.email && (
+                        <p className="text-sm text-red-500">{errors.email.message}</p>
+                      )}
+                    </section>
+                    <section>
+                      <label htmlFor="" className="block pb-2 font-bold ">
+                        Senha
+                      </label>
+                      <div className="group flex w-[20rem] gap-2 rounded-md border border-border bg-card py-3 pl-2 text-sm text-foreground focus:border-indigo-300">
+                        <Lock className="h-5 w-5 text-muted-foreground" />
+                        <Input
+                          type={passwordAppearanceState}
+                          className="w-[16rem] flex-1 border-0 bg-transparent p-0 text-foreground placeholder-zinc-600 focus:border-primary"
+                          placeholder="Digite sua senha"
+                          id="password"
+                          {...register('password')}
+                        />
+                      </div>
+                      {!errors.password && <p className="text-sm text-card">.</p>}
+                      {errors.password && (
+                        <p className="text-sm text-red-500">{errors.password.message}</p>
+                      )}
+                    </section>
+                    <section className="flex items-center justify-center gap-2">
+                      <input
+                        className="h-6 w-6 appearance-none rounded-md border-2 border-indigo-800 checked:border-indigo-800 checked:bg-indigo-600"
+                        type="checkbox"
+                        name=""
+                        id=""
+                        onClick={handlePasswordAppearance}
+                      />
+                      <label htmlFor="">Mostrar senha</label>
+                    </section>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-y-1">
+                  <Button className="max-sm:96 w-64w-[20rem] mt-0" type="submit">
+                    Entrar
+                  </Button>
+                  <div className="mt-2 flex items-center justify-center gap-2">
+                    <p className="text-base max-sm:text-sm">Não possui uma conta?</p>
+                    <Link to={'/client/register'} className="text-blue-700 hover:underline">
+                      Cadastre-se
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </div>
-          </BackGroundDiv>
+          </form>
         </div>
       </div>
     </div>

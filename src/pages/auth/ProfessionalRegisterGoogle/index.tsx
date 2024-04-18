@@ -5,8 +5,8 @@ import { MultiStep } from '@/components/multiStep';
 import { Step1, Step2, Step3 } from './step';
 import { BackGroundDiv } from './styles';
 
-export const ProfessionalRegister = () => {
-  const [currentStepState, setCurrentStepState] = useState(1);
+export const ProfessionalRegisterGoogle = () => {
+  const [currentStepState, setCurrentStepState] = useState(2);
 
   return (
     <div className="flex h-full w-full bg-card">

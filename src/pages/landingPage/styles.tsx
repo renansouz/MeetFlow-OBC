@@ -21,32 +21,24 @@ export const BackGroundImage = styled.div`
 
 export const SobreImage = styled.div`
   background-image: url(${sobreImage});
-  height: 40rem;
-  width: 50rem;
+  height: 75%;
+  width: 100%;
   background-size: cover;
-  @media (max-width: 1287px) {
+  background-position: center center;
+  @media (max-width: 1279px) {
+    height: 100%;
     border-radius: 10px;
-  }
-  @media (max-width: 697px) {
-    height: 30rem;
-  }
-  @media (max-width: 515px) {
-    height: 20rem;
   }
 `;
 
 export const ProfessionalImage = styled.div`
   background-image: url(${professionalImage});
-  height: 40rem;
-  width: 50rem;
+  height: 75%;
+  width: 100%;
   background-size: cover;
-  @media (max-width: 1287px) {
+  background-position: center center;
+  @media (max-width: 1276px) {
+    height: 100%;
     border-radius: 10px;
-  }
-  @media (max-width: 697px) {
-    height: 30rem;
-  }
-  @media (max-width: 515px) {
-    height: 20rem;
   }
 `;

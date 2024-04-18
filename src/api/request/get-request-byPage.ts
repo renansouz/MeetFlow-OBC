@@ -7,6 +7,7 @@ export interface GetRequestByPageParams {
   typeSort?: string;
   userId?: string;
   status?: string;
+  createdById?: string;
 }
 
 export interface GetRequest {
@@ -18,6 +19,7 @@ export interface GetRequest {
   scheduleId: string;
   clientId: string;
   clientName: string;
+  clientEmail: string;
   initDate: string;
   endDate: string;
   status: string;
@@ -32,14 +34,20 @@ export interface GetRequestByPageResponse {
   total: number;
 }
 
-export async function getRequestByPage({ userId, page }: GetRequestByPageParams) {
+export async function getRequestByPage({
+  userId,
+  page,
+  status,
+  createdById,
+}: GetRequestByPageParams) {
   const response = await api.get<GetRequestByPageResponse>('/request/loadByPage', {
     params: {
       userId,
       page,
+      status,
+      createdById,
       sortBy: 'createdAt',
       typeSort: 'desc',
-      status: 'solicitado',
     },
   });
 

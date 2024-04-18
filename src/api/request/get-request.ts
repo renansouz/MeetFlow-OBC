@@ -9,8 +9,11 @@ export interface GetRequestResponse {
   message: string;
   duration: number;
   serviceId: string;
+  serviceName: string;
   scheduleId: number;
   clientId: number;
+  clientName: string;
+  clientEmail: string;
   initDate: string;
   endDate: string;
   status: string;
