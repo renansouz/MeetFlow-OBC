@@ -72,7 +72,7 @@ export const ProfessionalCard = ({
               className="mb-10 bg-primary text-lg font-light text-foreground hover:bg-primary/80 max-sm:mb-5"
               variant={'default'}
             >
-              <Link to={`/dashboard/profile/${_id}/${myScheduleId}`} className="px-6">
+              <Link to={`/dashboard/profile/${_id}/${myScheduleId}`} className="px-6 text-white">
                 <LucideCalendarPlus className="mr-3 h-5 w-5" />
                 Agendar
               </Link>

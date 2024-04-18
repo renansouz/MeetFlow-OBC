@@ -2,7 +2,7 @@ export const DashboardClient = () => {
   return (
     <div>
       <div className="flex">
-        <div></div>
+        <div>Esta tela precisa ser apagada</div>
       </div>
     </div>
   );

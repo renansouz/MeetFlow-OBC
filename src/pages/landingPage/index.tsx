@@ -73,22 +73,22 @@ export const LandingPage = () => {
         </BackGroundImage>
       </section>
       {/* CARDS */}
-      <section className="mx-5 my-16 flex flex-wrap items-start justify-center max-xl:gap-10 xl:gap-16">
-        <div className="mt-10 h-64 w-[22rem] max-xl:mt-0">
+      <section className="mx-5 my-16 flex flex-wrap items-start justify-center max-xl:gap-6 2xl:gap-8">
+        <div className="mt-10 h-64 min-w-[22rem] max-2xl:mt-7">
           <Card
             Icon={Star}
             title="Facilidade de Uso"
             label="Navegue e agende serviços sem complicações."
           />
         </div>
-        <div className="h-64 w-[22rem] ">
+        <div className="h-64 min-w-[22rem] max-2xl:mt-7">
           <Card
             Icon={ShieldCheck}
             title="conexões direta"
             label="Conecte-se diretamente com profissionais qualificados."
           />
         </div>
-        <div className="mt-10 h-64 w-[22rem]  max-xl:mt-0">
+        <div className="mt-10 h-64 min-w-[22rem]  max-2xl:mt-7">
           <Card
             Icon={FolderSync}
             title="gerenciamento simples"

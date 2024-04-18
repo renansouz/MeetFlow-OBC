@@ -69,12 +69,9 @@ export const Services = () => {
 
   return (
     <div className="w-full max-sm:mt-10">
-      <h1 className="mt-[2%] pl-10">Serviços</h1>
-      <Separator orientation="horizontal" className="mb-8 h-1 w-full max-xl:mb-7" />
-
+      <h1 className="my-10 text-center">Serviços</h1>
       <div>
         <div className="flex flex-col items-center gap-5">
-          <h2 className="text-center max-sm:mt-8 max-sm:text-3xl">Profissionais</h2>
           <Search
             placeholder="Busque por um serviço ou profissional"
             onChange={handleSearchChange}
@@ -87,7 +84,7 @@ export const Services = () => {
               <div className="flex items-center gap-2" key={categorie.id}>
                 <input
                   type="checkbox"
-                  className="h-6 w-6 appearance-none rounded-md border-2 border-indigo-800 checked:border-indigo-800 checked:bg-indigo-600"
+                  className="h-6 w-6 appearance-none rounded-md border-2 border-primary checked:border-primary checked:bg-primary"
                   name="category"
                   id={categorie.title}
                   value={categorie.title}

@@ -11,7 +11,7 @@ import {
 
 export function DashboardProfessional() {
   return (
-    <div className="flex h-full items-center justify-center">
+    <div className="flex h-full items-center justify-center py-10">
       <Card className="w-5/6 p-6 max-lg:h-full max-lg:w-full">
         <CardHeader>
           <CardTitle>
@@ -27,7 +27,7 @@ export function DashboardProfessional() {
             </CardHeader>
             <CardContent>
               <p className="text-3xl font-bold">50</p>
-              <CardDescription className="italic text-green-200">
+              <CardDescription className="italic text-green-500">
                 +10% do mês passado
               </CardDescription>
             </CardContent>
@@ -39,7 +39,7 @@ export function DashboardProfessional() {
             </CardHeader>
             <CardContent>
               <p className="text-3xl font-bold">2.862</p>
-              <CardDescription className="italic text-red-200">-2% do mês passado</CardDescription>
+              <CardDescription className="italic text-red-500">-2% do mês passado</CardDescription>
             </CardContent>
           </Card>
           <Card className="w-80 bg-background">
@@ -49,7 +49,7 @@ export function DashboardProfessional() {
             </CardHeader>
             <CardContent>
               <p className="text-3xl font-bold">+R$20,00</p>
-              <CardDescription className="italic text-green-200">
+              <CardDescription className="italic text-green-500">
                 +10% do mês passado
               </CardDescription>
             </CardContent>

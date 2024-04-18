@@ -187,7 +187,7 @@ export function CalendarProfessional({
     <div className="ml-5 flex w-4/5 rounded-3xl border bg-card shadow-xl">
       <div className="ml-5 flex h-full min-w-[15rem] flex-col">
         <div className="mb-5 mt-10 flex items-center justify-start gap-2">
-          <div className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-md p-2 hover:bg-primary/10">
+          <div className="flex w-full cursor-pointer items-center justify-start gap-2 rounded-md p-2 hover:bg-primary/10">
             <div>
               <ArrowLeft />
             </div>

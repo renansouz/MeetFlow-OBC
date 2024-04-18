@@ -2,12 +2,12 @@ import styled from 'styled-components';
 
 export const CalendarContainer = styled.div`
   display: flex;
-  width: 95%;
+  width: 90%;
   padding: 1rem;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   flex-direction: column;
-  background-color: rgba(165, 180, 252, 0.4);
+  background-color: rgba(165, 180, 252, 0.06);
 `;
 
 export const CalendarHeader = styled.div`
