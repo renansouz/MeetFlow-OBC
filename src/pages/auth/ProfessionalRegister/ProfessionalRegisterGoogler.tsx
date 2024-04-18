@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { MultiStep } from '@/components/multiStep';
 
-import { Step1, Step2, Step3 } from './step';
+import { Step2, Step3 } from './step';
 import { BackGroundDiv } from './styles';
 
 export const ProfessionalRegisterGoogle = () => {
@@ -24,13 +24,6 @@ export const ProfessionalRegisterGoogle = () => {
             $currentStep={currentStepState}
             text={['Conta', 'Disponibilidade', 'Serviços']}
           />
-          {currentStepState === 1 ? (
-            <Step1
-              setCurrentStepState={setCurrentStepState}
-              currentStepState={currentStepState}
-              key={'1'}
-            />
-          ) : null}
           {currentStepState === 2 ? (
             <Step2
               setCurrentStepState={setCurrentStepState}
