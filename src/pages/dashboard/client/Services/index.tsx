@@ -3,7 +3,6 @@ import { useState } from 'react';
 
 import { getProfessional } from '@/api/user/get-professional';
 import { Search } from '@/components/search';
-import { Separator } from '@/components/ui/separator';
 
 import { ProfessionalCard } from './ProfessionalCard';
 
@@ -100,7 +99,7 @@ export const Services = () => {
         </div>
 
         <div className="flex">
-          <div className="flex flex-wrap justify-center gap-10 px-16 py-16 max-lg:gap-2 max-sm:gap-1 ">
+          <div className="flex flex-wrap justify-center gap-10 px-16 py-16 max-lg:gap-2 max-lg:px-0 max-sm:gap-1 ">
             {filteredProfessionals &&
               filteredProfessionals.map((professional) => (
                 <ProfessionalCard

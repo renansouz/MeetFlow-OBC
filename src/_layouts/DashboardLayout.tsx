@@ -29,7 +29,7 @@ export const DashboardLayout = ({ userType }: UserTypesProps) => {
     if (userType === 'professional') {
       return 'ml-[16rem]';
     }
-    return 'ml-[20rem]';
+    return 'ml-[20rem] max-lg:ml-20 max-sm:ml-0';
   };
 
   const renderMainContentPadding = () => {

@@ -37,7 +37,7 @@ export const LandingPage = () => {
             </p>
             <Dialog>
               <DialogTrigger>
-                <Button className="items-center justify-center gap-2 rounded-md bg-indigo-600 px-2 py-5 pl-4 text-white">
+                <Button className="items-center justify-center gap-2 rounded-md px-2 py-5 pl-4 text-white hover:bg-primary">
                   Agendar agora!
                   <ArrowRight className="h-4" />
                 </Button>
@@ -55,14 +55,14 @@ export const LandingPage = () => {
                 </DialogHeader>
                 <div className="mt-10 flex flex-col items-center justify-center gap-6">
                   <Link
-                    className="item-center flex  w-full justify-center rounded-2xl border-2 border-indigo-800 bg-indigo-900 bg-opacity-20 p-4 text-xl hover:bg-indigo-500 hover:bg-opacity-30 "
+                    className="item-center flex  w-full justify-center rounded-2xl border border-primary bg-primary bg-opacity-20 p-4 text-xl hover:bg-primary/90 hover:bg-opacity-30 "
                     to={'/login'}
                   >
-                    <span className="font-medium">Fazer LogIn</span>
+                    <span className="font-medium text-white">Fazer LogIn</span>
                   </Link>
                   <Link
                     to={'/dashboard/services'}
-                    className=" item-center flex w-full justify-center p-4 font-medium text-foreground hover:text-indigo-600 hover:underline"
+                    className=" item-center flex w-full justify-center p-4 font-medium text-foreground hover:text-primary hover:underline"
                   >
                     <span>Entrar sem Login</span>
                   </Link>
@@ -116,7 +116,7 @@ export const LandingPage = () => {
             </p>
             <div className="flex h-14 w-80 items-center justify-center max-lg:mb-[20%]">
               <Link to={'/dashboard/services'} className="mr-5">
-                <Button className="items-center justify-center gap-2 rounded-md bg-indigo-600 px-2 py-5 pl-4 text-white">
+                <Button className="items-center justify-center gap-2 rounded-md px-2 py-5 pl-4 text-white">
                   Encontre um serviço
                   <ArrowRight className="h-5" />
                 </Button>
@@ -138,7 +138,7 @@ export const LandingPage = () => {
             </p>
             <div className="flex h-14 w-80 items-center justify-center max-lg:mb-[20%]">
               <Link to={'/professional/register'}>
-                <Button className="items-center justify-center gap-2 rounded-md bg-indigo-600 px-2 py-5 pl-4 text-white">
+                <Button className="items-center justify-center gap-2 rounded-md px-2 py-5 pl-4 text-white">
                   Comece agora
                   <ArrowRight className="h-5" />
                 </Button>
