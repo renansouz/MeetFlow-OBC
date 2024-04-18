@@ -13,7 +13,7 @@ type User = {
 
 type AuthContextData = {
   login(email: string, password: string): Promise<void>;
-  loginGoogle: () => void;
+  loginGoogle: (role: 'client' | 'professional' | '') => void;
   isAuthenticated: boolean;
   user: User | null;
   logout: () => void;
@@ -63,8 +63,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   };
 
-  const loginGoogle = () => {
-    window.location.href = `${env.VITE_BASE_URL}/auth/google`;
+  const loginGoogle = (role: 'client' | 'professional' | '') => {
+    window.location.href = `${env.VITE_BASE_URL}/auth/google?role=${role}`;
   };
 
   return (

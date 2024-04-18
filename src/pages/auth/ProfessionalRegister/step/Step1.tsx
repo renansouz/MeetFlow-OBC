@@ -81,7 +81,7 @@ export const Step1 = ({ setCurrentStepState }: stepProps) => {
     <div className="mb-5 flex w-full flex-col items-center justify-center pt-5 max-xl:pt-[9%] max-sm:w-11/12 max-sm:pt-10">
       <Button
         className="my-5 flex w-[21rem] items-center justify-center gap-2 border bg-card text-foreground hover:bg-primary/10"
-        onClick={async () => loginGoogle()}
+        onClick={async () => loginGoogle('professional')}
       >
         <img className="h-5 w-5" src="https://logopng.com.br/logos/google-37.svg" alt="" />
         Entre com Google
