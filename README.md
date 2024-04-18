@@ -1,4 +1,4 @@
-<img src="https://i.imgur.com/ykeDmPr.png" alt="MeetFlow Logo" width="1000">
+<img src="https://i.imgur.com/bNdsByk.png" alt="MeetFlow Logo" width="1000">
 
 # 🚀 MeetFlow - Simplifique seus Agendamentos 📅
 
