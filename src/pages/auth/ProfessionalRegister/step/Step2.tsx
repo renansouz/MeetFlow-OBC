@@ -45,8 +45,8 @@ const createScheduleSchema = z.object({
   }),
   hourStart1: z.string({ required_error: 'Campo obrigatório' }),
   hourEnd1: z.string({ required_error: 'Campo obrigatório' }),
-  hourLunchStart1: z.string(),
-  hourLunchEnd1: z.string(),
+  hourLunchStart1: z.string().optional(),
+  hourLunchEnd1: z.string().optional(),
 });
 
 export type ScheduleFormData = z.infer<typeof createScheduleSchema>;
@@ -213,7 +213,7 @@ export const Step2 = ({ setCurrentStepState }: stepProps) => {
               <input
                 className="h-5 w-5 appearance-none rounded-md border-2 border-indigo-800 checked:border-indigo-800 checked:bg-indigo-600"
                 type="checkbox"
-                {...register(`days1.${key}`)}
+                {...register(`days1.${key}` as any)}
               />
               <label className="block text-foreground">{value}</label>
             </div>

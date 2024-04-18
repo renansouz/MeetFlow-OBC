@@ -66,7 +66,7 @@ export const Header = () => {
                   <NavigationMenuItem>
                     <NavigationMenuLink
                       asChild
-                      className="group ml-10 inline-flex h-10 w-max items-center justify-center rounded-md bg-indigo-600 px-6 py-2 text-white"
+                      className="group ml-10 inline-flex h-10 w-max items-center justify-center rounded-md px-6 py-2"
                     >
                       <Button>Agendar</Button>
                     </NavigationMenuLink>
@@ -86,14 +86,14 @@ export const Header = () => {
 
                   <div className="mt-10 flex flex-col items-center justify-center gap-6">
                     <Link
-                      className="item-center flex  w-full justify-center rounded-2xl border-2 border-indigo-800 bg-indigo-400 p-4 text-xl text-background hover:bg-indigo-500 "
+                      className="item-center flex  w-full justify-center rounded-2xl border-2 border-primary bg-primary p-4 text-xl text-background hover:bg-primary/90"
                       to={'/login'}
                     >
                       <span className="font-medium">Fazer LogIn</span>
                     </Link>
                     <Link
                       to={'/dashboard/services'}
-                      className=" item-center flex w-full justify-center p-4 font-medium text-foreground hover:text-indigo-600 hover:underline"
+                      className=" item-center flex w-full justify-center p-4 font-medium text-foreground hover:text-primary hover:underline"
                     >
                       <span>Entrar sem Login</span>
                     </Link>
@@ -176,7 +176,7 @@ export const Header = () => {
                 <Button asChild>
                   <Link
                     to={'/register'}
-                    className="mt-10 w-full rounded-md border-solid bg-indigo-700 p-4 text-center hover:bg-indigo-800 "
+                    className="mt-10 w-full rounded-md border-solid bg-primary p-4 text-center hover:bg-primary/90"
                   >
                     Agende Agora!
                   </Link>

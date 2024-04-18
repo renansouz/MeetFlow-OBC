@@ -114,7 +114,7 @@ export const ProfessionalAside = () => {
           <div className="flex flex-col gap-y-1">
             <Dialog>
               <DialogTrigger>
-                <Button className="mx-2 mb-5 flex w-11/12 items-center justify-center rounded-full bg-indigo-700 px-5 hover:bg-indigo-800 max-lg:px-0">
+                <Button className="mx-2 mb-5 flex w-11/12 items-center justify-center rounded-full bg-primary px-5 hover:bg-primary/90 max-lg:px-0">
                   <Plus className="mr-2 h-6 w-6 text-indigo-100" />
                   <p className="text-base text-indigo-50 max-lg:hidden">Criar</p>
                 </Button>
@@ -249,10 +249,7 @@ export const ProfessionalAside = () => {
                     </div>
                   </section>
                   <div className="mt-5 flex justify-end">
-                    <Button
-                      type="submit"
-                      className=" flex w-32 items-center justify-center bg-indigo-700 text-indigo-50 hover:bg-indigo-800"
-                    >
+                    <Button type="submit" className=" flex w-32 items-center justify-center">
                       Continuar
                     </Button>
                   </div>
@@ -296,25 +293,6 @@ export const ProfessionalAside = () => {
           </div>
         </div>
         <div className="mt-[10%] flex w-full flex-col gap-y-1 max-lg:gap-0 max-sm:hidden">
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger>
-                <Button
-                  asChild
-                  variant={'ghost'}
-                  className="flex h-11 items-center justify-start gap-3 px-10 py-7 max-lg:justify-center max-lg:px-0"
-                >
-                  <div className="w-full">
-                    <LifeBuoy />
-                    <span className="max-lg:hidden">Suporte</span>
-                  </div>
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent side="right">
-                <p className="text-sm">Suporte</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
           <Dialog>
             <DialogTrigger>
               <TooltipProvider>

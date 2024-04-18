@@ -32,7 +32,7 @@ export const ProfessionalCard = ({
       {loading ? (
         <Skeleton className="z-0 h-80 w-64 gap-y-12 rounded-md" />
       ) : (
-        <Card className="flex w-64 flex-col items-center gap-y-12 rounded-md shadow-2xl max-sm:h-72 max-sm:w-44">
+        <Card className="flex w-64 flex-col items-center gap-y-12 rounded-md shadow-2xl max-lg:h-72 max-lg:w-44">
           <CardHeader className="h-20 w-full items-center rounded-tl-md rounded-tr-md bg-indigo-300">
             <Avatar>
               {photoUrl ? (
@@ -69,11 +69,11 @@ export const ProfessionalCard = ({
             </CardContent>
             <Button
               asChild
-              className="mb-10 bg-primary text-lg font-light text-foreground hover:bg-primary/80 max-sm:mb-5"
+              className="mb-10 bg-primary text-lg font-light text-foreground hover:bg-primary/80 max-lg:mb-5 max-lg:text-sm"
               variant={'default'}
             >
               <Link to={`/dashboard/profile/${_id}/${myScheduleId}`} className="px-6 text-white">
-                <LucideCalendarPlus className="mr-3 h-5 w-5" />
+                <LucideCalendarPlus className="mr-3 h-5 w-5 max-lg:w-4" />
                 Agendar
               </Link>
             </Button>

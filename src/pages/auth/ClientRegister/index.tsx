@@ -196,7 +196,7 @@ export const ClientRegister = () => {
           </form>
           <Button
             className="mb-5 flex w-[20rem] items-center justify-center gap-2 border bg-card text-foreground hover:bg-primary/10"
-            onClick={async () => loginGoogle()}
+            onClick={async () => loginGoogle('client')}
           >
             <img className="h-5 w-5" src="https://logopng.com.br/logos/google-37.svg" alt="" />
             Entre com Google

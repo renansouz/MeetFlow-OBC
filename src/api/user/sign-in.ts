@@ -7,7 +7,7 @@ export interface SignInBody {
   email: string;
   password: string;
   passwordConfirmation: string;
-  role: 'client' | 'professional';
+  role: 'client' | 'professional' | 'admin';
 }
 
 interface SignUpResponse {

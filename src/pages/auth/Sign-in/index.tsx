@@ -28,12 +28,10 @@ const createUserSchema = z.object({
 type LoginFormData = z.infer<typeof createUserSchema>;
 
 export const ClientLogin = () => {
-  const { loginGoogle } = useAuth();
-  const { login } = useAuth();
+  const { loginGoogle, login, isAuthenticated } = useAuth();
   const { theme } = useTheme();
   const navigate = useNavigate();
 
-  const { isAuthenticated } = useAuth();
   useEffect(() => {
     if (isAuthenticated) {
       navigate('/dashboard/services');
@@ -88,7 +86,7 @@ export const ClientLogin = () => {
           </Link>
           <Button
             className="mb-5 flex w-[20rem] items-center justify-center gap-2 border bg-card text-foreground hover:bg-primary/10"
-            onClick={async () => loginGoogle()}
+            onClick={async () => loginGoogle('')}
           >
             <img className="h-5 w-5" src="https://logopng.com.br/logos/google-37.svg" alt="" />
             Entre com Google

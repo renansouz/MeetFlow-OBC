@@ -29,7 +29,7 @@ export const ClientAside = () => {
 
   return (
     <>
-      <aside className="fixed flex h-screen w-[20rem]  flex-col items-center justify-between border-r-2 bg-card py-8 max-lg:px-4 max-lg:py-4 max-sm:border-0 max-sm:px-0 ">
+      <aside className="fixed flex h-screen w-[20rem] flex-col items-center justify-between border-r-2 bg-card py-8 max-lg:w-20 max-lg:px-4 max-lg:py-4 max-sm:hidden max-sm:border-0 max-sm:px-0 ">
         <div className=" flex flex-col gap-y-10 max-lg:gap-0 max-sm:hidden">
           <div className="flex flex-col gap-y-1">
             <img
