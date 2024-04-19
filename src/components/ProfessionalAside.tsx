@@ -8,7 +8,6 @@ import {
   Layers,
   LifeBuoy,
   Menu,
-  PersonStanding,
   Plus,
   Settings,
   Timer,
@@ -45,7 +44,6 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Textarea } from '@/components/ui/textarea';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { useAuth } from '@/context/auth-provider';
 import Logo from '@/public/Logo.svg';
 import LightLogo from '@/public/Logo-light.svg';
 
@@ -60,7 +58,6 @@ type LoginFormData = z.infer<typeof createUserSchema>;
 
 export const ProfessionalAside = () => {
   const { setTheme, theme } = useTheme();
-  const { logout } = useAuth();
   const queryClient = useQueryClient();
   const [isCustomDuration, setIsCustomDuration] = useState(false);
 
@@ -185,7 +182,7 @@ export const ProfessionalAside = () => {
                                     onChange(val);
                                   }
                                 }}
-                                value={isCustomDuration ? 'custom' : value}
+                                value={isCustomDuration ? 'custom' : value.toString()}
                                 disabled={disabled}
                               >
                                 <SelectTrigger className=" w-[70%] text-muted-foreground" id="user">
@@ -238,7 +235,7 @@ export const ProfessionalAside = () => {
                         className="flex h-10 w-[70%] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                         placeholder="Adicione um valor para este serviço"
                         id="price"
-                        onAccept={(value) => setValue('price', value)} // Atualiza o valor do campo de preço sempre que ele muda
+                        onAccept={(value) => setValue('price', value as any)} // Atualiza o valor do campo de preço sempre que ele muda
                       />
                     </div>
                     <div className="flex items-center justify-center">

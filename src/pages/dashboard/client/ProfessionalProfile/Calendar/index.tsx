@@ -41,11 +41,7 @@ interface CalendarProps {
   onDateSelected: (date: Date) => void;
 }
 
-export function CalendarProfessional({
-  selectedDate,
-  onDateSelected,
-  serviceSelected,
-}: CalendarProps) {
+export function CalendarProfessional({ onDateSelected, serviceSelected }: CalendarProps) {
   const { scheduleId } = useParams();
   const [blockedDates, setBlockedDates] = useState<BlockedDates>({
     blockedWeekDays: [],

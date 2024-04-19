@@ -3,7 +3,6 @@ import { useState } from 'react';
 
 import { getProfessional } from '@/api/user/get-professional';
 import { Search } from '@/components/search';
-import { Separator } from '@/components/ui/separator';
 
 import { ProfessionalCard } from './ProfessionalCard';
 

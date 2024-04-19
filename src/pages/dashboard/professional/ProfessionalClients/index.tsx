@@ -10,7 +10,7 @@ import { ClientsPending } from './clientsPending';
 export function Clients() {
   const { user } = useAuth();
 
-  const { data: profile, isLoading: isLoadingProfile } = useQuery({
+  const { data: profile } = useQuery({
     queryKey: ['profile'],
     queryFn: () => getProfile({ _id: user?._id }),
     staleTime: Infinity,
@@ -21,10 +21,6 @@ export function Clients() {
 
   return (
     <>
-      {/* <div className="flex h-lvh w-full items-center justify-center">
-                <h1 className="text-center">Você ainda não possui clientes</h1>
-            </div> */}
-
       <Card className="mx-[5%] mt-10 p-5 ">
         <CardHeader>
           <CardTitle>Solicitações Pendentes</CardTitle>

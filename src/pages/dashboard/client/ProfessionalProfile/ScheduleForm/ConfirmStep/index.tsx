@@ -170,9 +170,7 @@ export function ConfirmStep({
         <label>
           <p>Telefone</p>
           <InputMask mask="(99) 99999-9999" placeholder="31 91111-1111" {...register('phone')}>
-            {(inputProps: any) => {
-              return <Input {...inputProps} />;
-            }}
+            <Input />
           </InputMask>
           {errors.phone && <FormError>{errors.phone.message}</FormError>}
         </label>
