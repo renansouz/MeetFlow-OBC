@@ -189,7 +189,7 @@ export function Profile() {
                     </Label>
                     <Input
                       id="fileInput"
-                      className="hidden w-full rounded-md border-2 border-border bg-background p-2 focus:border-slate-300"
+                      className="hidden w-full rounded-md border border-border bg-background p-2 focus:border-primary"
                       type="file"
                       onChange={handleAddPhoto}
                     />
@@ -205,15 +205,15 @@ export function Profile() {
                     <CardDescription className="ml-6  font-light">
                       {profile?.headLine}
                     </CardDescription>
-                    <span className="ml-5 mt-3 font-bold text-indigo-600/90">
+                    <span className="ml-5 mt-3 font-bold text-primary">
                       {profile?.appointmentsTotal} agendamentos
                     </span>
                   </div>
                   <div>
                     <Dialog>
                       <DialogTrigger className="flex">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full hover:bg-indigo-500">
-                          <Pencil className=" flex text-indigo-600/90" />
+                        <div className="flex h-10 w-10 items-center justify-center rounded-full hover:bg-primary/20">
+                          <Pencil className=" flex text-primary" />
                         </div>
                       </DialogTrigger>
                       <DialogContent>
@@ -235,7 +235,7 @@ export function Profile() {
                                     <FormLabel>Nome</FormLabel>
                                     <FormControl>
                                       <Input
-                                        className="w-full rounded-md border-2 border-border bg-background p-2 focus:border-slate-300"
+                                        className="w-full rounded-md border border-border bg-background p-2 focus:border-primary"
                                         placeholder="Editar nome"
                                         {...field}
                                       />
@@ -252,7 +252,7 @@ export function Profile() {
                                     <FormLabel>Título</FormLabel>
                                     <FormControl>
                                       <Input
-                                        className="w-full rounded-md border-2 border-border bg-background p-2 focus:border-slate-300"
+                                        className="w-full rounded-md border border-border bg-background p-2 focus:border-primary"
                                         placeholder="Editar Título"
                                         {...field}
                                       />
@@ -269,7 +269,7 @@ export function Profile() {
                                     <FormLabel>Email</FormLabel>
                                     <FormControl>
                                       <Input
-                                        className="w-full rounded-md border-2 border-border bg-background p-2 focus:border-slate-300"
+                                        className="w-full rounded-md border border-border bg-background p-2 focus:border-primary"
                                         type="email"
                                         placeholder="Mudar e-mail"
                                         {...field}
@@ -287,7 +287,7 @@ export function Profile() {
                                     <FormLabel>Password</FormLabel>
                                     <FormControl>
                                       <Input
-                                        className="w-full rounded-md border-2 border-border bg-background p-2 focus:border-slate-300"
+                                        className="w-full rounded-md border border-border bg-background p-2 focus:border-primary"
                                         type="password"
                                         placeholder="Inserir nova senha"
                                         {...field}

@@ -64,11 +64,18 @@ export function CalendarStep({ onSelectDateTime, serviceSelected }: CalendarStep
               const hour = dayjs(item.time).hour();
               const minute = time.minute();
               const key = `${hour}:${minute}`;
-              return (
-                <TimePickerItem key={key} onClick={() => handleSelectTime(hour)}>
-                  {String(hour).padStart(2, '0')}:{String(minute).padStart(2, '0')}h
-                </TimePickerItem>
-              );
+              const currentTime = dayjs();
+              const selectedDateTime = dayjs(selectedDate).set('hour', hour).set('minute', minute);
+
+              if (selectedDateTime.isAfter(currentTime, 'minute')) {
+                return (
+                  <TimePickerItem key={key} onClick={() => handleSelectTime(hour)}>
+                    {String(hour).padStart(2, '0')}:{String(minute).padStart(2, '0')}h
+                  </TimePickerItem>
+                );
+              } else {
+                return null;
+              }
             })}
           </TimePickerList>
         </TimePicker>

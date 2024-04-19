@@ -84,15 +84,13 @@ export function ProfessionalSchedule() {
                     <CardDescription className="ml-6  font-light">
                       Olá me chamo Renan, caso queira aprender tailwind, agende uma reunião comigo!
                     </CardDescription>
-                    <span className="ml-5 mt-3 font-bold text-indigo-600/90">
-                      + 10 agendamentos
-                    </span>
+                    <span className="ml-5 mt-3 font-bold text-primary">+ 10 agendamentos</span>
                   </div>
                   <div>
                     <Dialog>
                       <DialogTrigger className="flex">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full hover:bg-indigo-500">
-                          <Pencil className=" flex text-indigo-600/90" />
+                        <div className="flex h-10 w-10 items-center justify-center rounded-full hover:bg-primary/90">
+                          <Pencil className=" flex text-primary" />
                         </div>
                       </DialogTrigger>
                       <DialogContent>

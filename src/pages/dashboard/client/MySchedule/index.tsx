@@ -13,7 +13,7 @@ export function MySchedules() {
         </CardContent>
       </Card>
 
-      <Card className="m-[5%] p-5 max-sm:m-0 max-sm:p-0 max-sm:pt-10">
+      <Card className="mx-[5%] mt-10 p-5 max-sm:m-0 max-sm:p-0 max-sm:pt-10">
         <CardHeader>
           <CardTitle>Meus agendamentos</CardTitle>
           <CardDescription>Verifique todos os seus agendamentos pendentes</CardDescription>

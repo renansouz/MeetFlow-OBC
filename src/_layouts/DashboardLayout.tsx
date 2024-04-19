@@ -1,17 +1,14 @@
 import { Outlet } from 'react-router';
 
 import { ClientAside } from '@/components/clientAside';
+import { HeaderAside } from '@/components/headerAside';
 import { ProfessionalAside } from '@/components/ProfessionalAside';
-import { useTheme } from '@/components/theme/theme-provider';
 
 interface UserTypesProps {
   userType: 'professional' | 'client';
 }
 
 export const DashboardLayout = ({ userType }: UserTypesProps) => {
-  const { theme } = useTheme();
-  const backgroundToggle = theme === 'dark' ? 'bg-background' : 'bg-[#fff]';
-
   const renderAside = () => {
     if (userType === 'professional') {
       return <ProfessionalAside />;
@@ -21,13 +18,37 @@ export const DashboardLayout = ({ userType }: UserTypesProps) => {
       return null;
     }
   };
+  const renderHeaderAside = () => {
+    if (userType === 'professional') {
+      return <HeaderAside />;
+    }
+    return null;
+  };
+
+  const renderMainContentClass = () => {
+    if (userType === 'professional') {
+      return 'ml-[16rem]';
+    }
+    return 'ml-[20rem] max-lg:ml-20 max-sm:ml-0';
+  };
+
+  const renderMainContentPadding = () => {
+    if (userType === 'professional') {
+      return 'pt-20';
+    }
+    return '';
+  };
 
   return (
-    <div className="flex">
-      {renderAside()}
-
-      <div className={`h-screen w-full overflow-hidden overflow-y-scroll ${backgroundToggle}`}>
-        <Outlet />
+    <div>
+      {renderHeaderAside()}
+      <div className={`flex ${renderMainContentPadding()}`}>
+        {renderAside()}
+        <div
+          className={`h-full w-full overflow-hidden overflow-y-scroll ${renderMainContentClass()}`}
+        >
+          <Outlet />
+        </div>
       </div>
     </div>
   );

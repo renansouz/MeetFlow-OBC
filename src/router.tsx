@@ -70,6 +70,10 @@ const professionalRoutes = [
     path: '/professional/myschedules',
     element: <ProtectedRoute component={Clients} />,
   },
+  {
+    path: '/professional/services',
+    element: <ProtectedRoute component={Services} />,
+  },
 ];
 
 export const RouterWrapper = (): any => {

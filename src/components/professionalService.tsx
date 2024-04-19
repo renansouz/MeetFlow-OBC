@@ -23,9 +23,9 @@ export const ProfessionalService = ({ services, onServiceClick }: ProfessionalSe
         <CarouselContent>
           {services &&
             services?.services.map((service) => (
-              <CarouselItem className="basis-1/3 max-xl:basis-2/3 max-md:basis-full">
+              <CarouselItem className="max-xl:basis-2/3 max-md:basis-full">
                 <Card
-                  className="group m-1 cursor-pointer border-indigo-900 hover:opacity-80"
+                  className="group m-1 cursor-pointer border-primary hover:opacity-80"
                   onClick={() => onServiceClick && onServiceClick(service)}
                 >
                   <CardHeader>
@@ -39,11 +39,11 @@ export const ProfessionalService = ({ services, onServiceClick }: ProfessionalSe
                   </CardHeader>
                   <CardContent className="my-4 flex justify-between">
                     <div className="flex gap-3">
-                      <p className="flex items-center justify-center gap-2 rounded-md border-2 border-indigo-900 px-3 py-2">
+                      <p className="flex items-center justify-center gap-2 rounded-md border border-primary px-3 py-2">
                         <Hourglass className="text-foreground" />
-                        {service.duration} horas
+                        {service.duration} mins
                       </p>
-                      <p className="flex items-center justify-center gap-2 rounded-md border-2 border-indigo-900 px-3 py-2">
+                      <p className="flex items-center justify-center gap-2 rounded-md border border-primary px-3 py-2">
                         <WalletMinimal className="text-foreground" /> R${service.price}
                       </p>
                     </div>
