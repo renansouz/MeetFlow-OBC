@@ -44,9 +44,7 @@ export const DashboardLayout = ({ userType }: UserTypesProps) => {
       {renderHeaderAside()}
       <div className={`flex ${renderMainContentPadding()}`}>
         {renderAside()}
-        <div
-          className={`h-full w-full overflow-hidden overflow-y-scroll ${renderMainContentClass()}`}
-        >
+        <div className={`h-full w-full ${renderMainContentClass()}`}>
           <Outlet />
         </div>
       </div>
