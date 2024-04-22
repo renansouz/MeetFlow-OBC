@@ -1,4 +1,4 @@
-import { parse } from 'cookie';
+import Cookies from 'js-cookie';
 
 import { api } from '@/lib/axios';
 
@@ -25,12 +25,8 @@ export async function createSchedule({
   hourLunchEnd1,
   hourEnd1,
 }: ScheduleInBody) {
-  const cookies = parse(document.cookie);
-  console.log('cookies', cookies);
-  const token = cookies['meetFlow.token'];
+  const token = Cookies.get('meetFlow.token');
   console.log('token createSchedule', token);
 
-  // Configura o Axios para incluir o token no cabeçalho de autorização
-  api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
   await api.post('schedule/add', { days1, hourStart1, hourLunchStart1, hourLunchEnd1, hourEnd1 });
 }
