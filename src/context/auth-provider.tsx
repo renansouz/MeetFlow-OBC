@@ -2,7 +2,7 @@ import Cookies from 'js-cookie';
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
 import { env } from '@/env';
-import { api } from '@/lib/axios';
+import { api, updateToken } from '@/lib/axios';
 
 type User = {
   email: string;
@@ -65,6 +65,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const loginGoogle = (role: 'client' | 'professional' | '') => {
     window.location.href = `${env.VITE_BASE_URL}/auth/google?role=${role}`;
+    updateToken(); // Atualize o token no cliente axios após o login com o Google
   };
 
   return (
