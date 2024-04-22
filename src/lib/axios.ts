@@ -8,6 +8,7 @@ export function setupAPIClient() {
   const api = axios.create({
     baseURL: env.VITE_BASE_URL,
     headers: { authorization: `Bearer ${token}` },
+    withCredentials: true,
   });
   return api;
 }

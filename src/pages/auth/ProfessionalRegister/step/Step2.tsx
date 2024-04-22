@@ -67,6 +67,7 @@ export const Step2 = ({ setCurrentStepState }: stepProps) => {
 
   async function createNewSchedule(scheduleData: ScheduleFormData) {
     try {
+      console.log('scheduleData', scheduleData);
       await createScheduleFn(scheduleData);
       setCurrentStepState(3);
     } catch (error) {
