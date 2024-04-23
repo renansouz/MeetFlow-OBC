@@ -27,6 +27,9 @@ export async function createSchedule({
 }: ScheduleInBody) {
   const token = Cookies.get('meetFlow.token');
   console.log('token createSchedule', token);
-
-  await api.post('schedule/add', { days1, hourStart1, hourLunchStart1, hourLunchEnd1, hourEnd1 });
+  await api.post(
+    'schedule/add',
+    { days1, hourStart1, hourLunchStart1, hourLunchEnd1, hourEnd1 },
+    { headers: { Authorization: `Bearer ${token}` } }
+  );
 }
