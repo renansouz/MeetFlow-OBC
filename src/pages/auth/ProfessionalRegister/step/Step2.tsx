@@ -1,12 +1,15 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
+import Cookies from 'js-cookie';
 import { MoveRight } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
+import { useLocation } from 'react-router-dom';
 import { toast } from 'sonner';
 import { z } from 'zod';
 
+import { getProfile, getUser } from '@/api';
 import { createSchedule } from '@/api/schedule';
 import { Button } from '@/components/ui/button';
 import {
@@ -64,6 +67,47 @@ export const Step2 = ({ setCurrentStepState }: stepProps) => {
   const { mutateAsync: createScheduleFn } = useMutation({
     mutationFn: createSchedule,
   });
+
+  // Pegar o token do usuário da URL
+  const location = useLocation();
+  console.log('location', location);
+  const userId = new URLSearchParams(location.search).get('userId');
+  const refreshToken = new URLSearchParams(location.search).get('refreshToken');
+  console.log('userId', userId, 'refreshToken', refreshToken);
+
+  // Set the refreshToken in cookies if it is not null
+  if (refreshToken) {
+    Cookies.set('meetFlow.refreshToken', refreshToken, { expires: 30, path: '/' });
+  }
+
+  // Buscar os dados do usuário
+  const { data: user } = useQuery({
+    queryKey: ['user', userId],
+    queryFn: () => getProfile({ _id: userId ?? '' }),
+    staleTime: Infinity,
+    enabled: !!userId,
+  });
+
+  // Atualizar os tokens
+  const { data: tokens } = useQuery({
+    queryKey: ['tokens'],
+    queryFn: () => getUser(),
+    staleTime: Infinity,
+    enabled: !!refreshToken,
+  });
+
+  useEffect(() => {
+    console.log('user useEffect', user);
+    console.log('tokens useEffect', tokens);
+    if (user && tokens) {
+      // Definir os cookies
+      Cookies.set('meetFlow.user', JSON.stringify(user), { expires: 30, path: '/' });
+      Cookies.set('meetFlow.token', tokens.accessToken, { expires: 30, path: '/' });
+      if (refreshToken) {
+        Cookies.set('meetFlow.refreshToken', refreshToken, { expires: 30, path: '/' });
+      }
+    }
+  }, [user, tokens]);
 
   async function createNewSchedule(scheduleData: ScheduleFormData) {
     try {
