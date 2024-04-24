@@ -1,8 +1,11 @@
+import { useQuery } from '@tanstack/react-query';
 import { LucideMessageCircleQuestion } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+import { getProfile } from '@/api';
 import { useTheme } from '@/components/theme/theme-provider';
 import { useAuth } from '@/context/auth-provider';
+import { env } from '@/env';
 import Logo from '@/public/Logo.svg';
 import LightLogo from '@/public/Logo-light.svg';
 
@@ -24,17 +27,28 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from './ui/dropdown-menu';
+import { Skeleton } from './ui/skeleton';
 
 export const HeaderAside = () => {
-  const { logout } = useAuth();
+  const { logout, user } = useAuth();
   const { theme } = useTheme();
+
+  const { data: profile, isLoading: isLoadingProfile } = useQuery({
+    queryKey: ['profileAside', user?._id],
+    queryFn: () => getProfile({ _id: user?._id }),
+    staleTime: Infinity,
+    enabled: !!user?._id,
+  });
+
+  console.log('profile', profile);
+
   return (
     <div className="fixed flex h-20 w-full items-center justify-between border-b bg-card p-2">
       <div className="ml-10 flex items-center">
         <Dialog>
           <DialogTrigger>
             <Button className="bg-inherit hover:bg-inherit">
-              <LucideMessageCircleQuestion className="h-11 w-11 rounded-md bg-accent/20 p-2 text-foreground hover:bg-primary/90" />
+              <LucideMessageCircleQuestion className="h-11 w-11 rounded-md bg-accent/10 p-2 text-foreground hover:bg-primary/90" />
             </Button>
           </DialogTrigger>
           <DialogContent className="h-2/3  overflow-y-auto">
@@ -102,18 +116,7 @@ export const HeaderAside = () => {
       </div>
       <div>
         <Link to={'/professional/dashboard'}>
-          <img
-            src={theme === 'dark' ? Logo : LightLogo}
-            alt=""
-            className="mb-0 h-14 max-lg:hidden"
-          />
-        </Link>
-        <Link to={'/professional/dashboard'}>
-          <img
-            src={theme === 'dark' ? Logo : LightLogo}
-            alt=""
-            className="img mb-10 h-11 items-center lg:hidden"
-          />
+          <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="h-14 max-md:hidden" />
         </Link>
       </div>
       <div className="mr-10 flex items-center justify-center">
@@ -121,11 +124,22 @@ export const HeaderAside = () => {
           <DropdownMenuTrigger asChild>
             <Button className="h-11 w-11 rounded-lg">
               <Avatar className="h-11 w-11 rounded-lg">
-                <AvatarImage
-                  className="border-background"
-                  src={'https://github.com/renansouz.png'}
-                />
-                <AvatarFallback className="rounded-md border-4 border-background"></AvatarFallback>
+                {isLoadingProfile ? (
+                  <Skeleton className="h-11 w-11 rounded-lg" />
+                ) : profile?.photoUrl ? (
+                  profile?.photoUrl.includes('lh3.googleusercontent.com') ? (
+                    <AvatarImage className="border-background" src={profile.photoUrl} />
+                  ) : (
+                    <AvatarImage
+                      className="border-background"
+                      src={`${env.VITE_URL_R2CLOUDFLARE}${profile.photoUrl}`}
+                    />
+                  )
+                ) : (
+                  <AvatarFallback className="rounded-md border-4 border-background">
+                    {profile?.name.slice(0, 1)}
+                  </AvatarFallback>
+                )}
               </Avatar>
             </Button>
           </DropdownMenuTrigger>

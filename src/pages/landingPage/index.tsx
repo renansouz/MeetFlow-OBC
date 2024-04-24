@@ -60,12 +60,12 @@ export const LandingPage = () => {
                   >
                     <span className="font-medium text-white">Fazer LogIn</span>
                   </Link>
-                  <Link
+                  {/* <Link
                     to={'/dashboard/services'}
                     className=" item-center flex w-full justify-center p-4 font-medium text-foreground hover:text-primary hover:underline"
                   >
                     <span>Entrar sem Login</span>
-                  </Link>
+                  </Link> */}
                 </div>
               </DialogContent>
             </Dialog>
@@ -126,7 +126,10 @@ export const LandingPage = () => {
         </div>
       </section>
       {/* PROFESSIONAL */}
-      <section id="professional-section" className="flex h-screen items-center justify-center bg-card max-xl:my-24 max-xl:h-auto max-xl:flex-col">
+      <section
+        id="professional-section"
+        className="flex h-screen items-center justify-center bg-card max-xl:my-24 max-xl:h-auto max-xl:flex-col"
+      >
         <div className="flex w-full flex-col items-center justify-center text-center max-xl:order-2">
           <div className="flex w-8/12 flex-col items-center justify-center">
             <h1 className="text-3xl font-semibold max-xl:mt-10 max-xl:w-lvw max-md:text-2xl">

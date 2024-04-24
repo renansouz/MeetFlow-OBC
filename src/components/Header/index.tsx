@@ -89,14 +89,14 @@ export const Header = () => {
                       className="item-center flex  w-full justify-center rounded-2xl border-2 border-primary bg-primary p-4 text-xl text-background hover:bg-primary/90"
                       to={'/login'}
                     >
-                      <span className="font-medium">Fazer LogIn</span>
+                      <span className="font-medium text-white">Fazer LogIn</span>
                     </Link>
-                    <Link
+                    {/* <Link
                       to={'/dashboard/services'}
                       className=" item-center flex w-full justify-center p-4 font-medium text-foreground hover:text-primary hover:underline"
                     >
                       <span>Entrar sem Login</span>
-                    </Link>
+                    </Link> */}
                   </div>
                 </DialogContent>
               </Dialog>

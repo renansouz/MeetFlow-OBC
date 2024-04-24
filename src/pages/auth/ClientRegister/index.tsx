@@ -69,11 +69,8 @@ export const ClientRegister = () => {
       toast.success('Conta criada com sucesso', {
         className: 'w-full text-xl h-20 flex items-center justify-center gap-x-2 ',
         position: 'top-right',
-        action: {
-          label: 'Ir para login',
-          onClick: () => navigate('/login'),
-        },
       });
+      navigate('/login');
     } catch (error) {
       if (error instanceof AxiosError) {
         toast.error(error.response?.data.message, {
@@ -199,7 +196,7 @@ export const ClientRegister = () => {
             onClick={async () => loginGoogle('client')}
           >
             <img className="h-5 w-5" src="https://logopng.com.br/logos/google-37.svg" alt="" />
-            Entre com Google
+            Crie com Google
           </Button>
           <div className="flex items-center justify-center gap-2">
             <p className="text-base max-sm:text-sm">Já possui uma conta? </p>

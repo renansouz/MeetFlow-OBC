@@ -157,7 +157,7 @@ export function Profile() {
     }
   }
   return (
-    <div>
+    <div className="mt-10 w-full">
       <Card className="my-16 ml-[5%] mr-[15%]">
         <CardHeader>
           {isLoadingProfile ? (
