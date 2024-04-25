@@ -33,7 +33,7 @@ export const ProfessionalCard = ({
       {loading ? (
         <Skeleton className="z-0 h-80 w-64 gap-y-12 rounded-md max-lg:h-72 max-lg:w-44" />
       ) : (
-        <Card className="flex w-64 flex-col items-center gap-y-12 rounded-md shadow-2xl hover:border-primary max-lg:h-72 max-lg:w-44 max-sm:h-64">
+        <Card className="flex w-64 flex-col items-center gap-y-12 rounded-md shadow-2xl hover:border-primary max-lg:h-72 max-lg:w-44 ">
           <CardHeader className="h-20 w-full items-center rounded-tl-md rounded-tr-md bg-indigo-300">
             <Avatar>
               {photoUrl ? (
