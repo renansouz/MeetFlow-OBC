@@ -31,7 +31,7 @@ export const LandingPage = () => {
               Otimize sua Gestão de Agendamentos e<br className="max-xl:hidden" /> Impulsione seu
               Negócio.
             </h1>
-            <p className="mb-8 w-7/12 text-start text-xl font-light text-white max-xl:text-lg max-md:w-full max-md:text-center max-sm:mb-10 max-sm:mt-0 max-sm:hidden max-sm:text-lg max-sm:text-sm">
+            <p className="mb-8 w-7/12 text-start text-xl font-light text-white max-xl:text-lg max-md:w-full max-md:text-center max-sm:mb-10 max-sm:mt-0 max-sm:hidden max-sm:text-sm">
               Descubra uma nova maneira de agendar compromissos. Conectamos você aos profissionais
               certos, permitindo que você foque no crescimento da sua empresa.
             </p>
@@ -101,7 +101,7 @@ export const LandingPage = () => {
         id="about-section"
         className="flex h-screen items-center justify-center max-xl:my-10 max-xl:h-auto max-xl:flex-col"
       >
-        <div className="flex h-full w-full items-center justify-start max-xl:h-[30rem] max-xl:w-[30rem] max-xl:justify-center">
+        <div className="flex h-full w-full items-center justify-start max-xl:h-[30rem] max-xl:w-[30rem] max-xl:justify-center max-sm:w-full">
           <SobreImage />
         </div>
         <div className="flex w-full flex-col items-center justify-center text-center">
@@ -132,7 +132,7 @@ export const LandingPage = () => {
       >
         <div className="flex w-full flex-col items-center justify-center text-center max-xl:order-2">
           <div className="flex w-8/12 flex-col items-center justify-center">
-            <h1 className="text-3xl font-semibold max-xl:mt-10 max-xl:w-lvw max-md:text-2xl">
+            <h1 className="text-3xl font-semibold max-xl:mt-10 max-xl:w-lvw max-md:text-2xl max-sm:w-full">
               Seja um Profissional MeetFlow
             </h1>
             <p className="my-5 w-full text-base font-extralight max-xl:px-56 max-lg:px-[5%] max-sm:mt-0 max-sm:text-sm">
@@ -149,14 +149,14 @@ export const LandingPage = () => {
             </div>
           </div>
         </div>
-        <div className="flex h-full w-full items-center justify-start max-xl:h-[30rem] max-xl:w-[30rem] max-xl:justify-center">
+        <div className="flex h-full w-full items-center justify-start max-xl:h-[30rem] max-xl:w-[30rem] max-xl:justify-center max-sm:w-full">
           <ProfessionalImage />
         </div>
       </section>
       {/* DOUBTS */}
       <section className="my-0 flex min-h-lvh flex-col items-center justify-center">
         <h1 className="text-center font-semibold">Dúvidas Frequentes</h1>
-        <p className="my-6 mb-10 text-center text-xl font-extralight max-xl:text-lg max-sm:text-base max-sm:text-sm">
+        <p className="my-6 mb-10 text-center text-xl font-extralight max-xl:text-lg max-sm:w-11/12 max-sm:text-sm">
           Veja as respostas para as perguntas mais frequentes{' '}
         </p>
         <div className=" max-h-[80%] w-[90%] max-sm:mb-[10%] max-sm:h-full sm:h-full xl:w-[70%]">

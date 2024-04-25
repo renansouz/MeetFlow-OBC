@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
-import { Calendar, ChevronDown, Home, Menu, Plus, Settings, Timer } from 'lucide-react';
+import { ChevronDown, Home, Menu, Plus, Settings, Timer } from 'lucide-react';
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { IMaskInput } from 'react-imask';
@@ -260,7 +260,7 @@ export const ProfessionalAside = () => {
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
-            <TooltipProvider>
+            {/* <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger className="flex w-full">
                   <AsideItem
@@ -273,7 +273,7 @@ export const ProfessionalAside = () => {
                   <p className="text-sm">disponibilidade</p>
                 </TooltipContent>
               </Tooltip>
-            </TooltipProvider>
+            </TooltipProvider> */}
           </div>
         </div>
         <div className="mt-[10%] flex w-full flex-col gap-y-1 max-lg:gap-0 max-sm:hidden">
@@ -300,9 +300,9 @@ export const ProfessionalAside = () => {
               <DialogHeader>
                 <DialogTitle>Configurações</DialogTitle>
                 <DialogDescription>
-                  Personalize a aparência da página de acordo com seu gosto visual. Escolha entre
-                  uma variedade de temas cuidadosamente criados para tornar sua experiência de
-                  navegação mais agradável e personalizada.
+                  Personalize a aparência da página de acordo com seu gosto visual. Escolha entre um
+                  dos nossos temas cuidadosamente criados para tornar sua experiência de navegação
+                  mais agradável e personalizada.
                 </DialogDescription>
               </DialogHeader>
               <label htmlFor="theme-select">Escolha o Tema:</label>
@@ -333,205 +333,261 @@ export const ProfessionalAside = () => {
           </Dialog>
         </div>
       </aside>
-      <div className="absolute -top-16 left-2 h-10 items-center rounded-md bg-secondary sm:hidden">
+      <div className="absolute -top-16 left-2 h-10  rounded-md bg-secondary sm:hidden">
         <Sheet>
           <SheetTrigger>
-            <Menu className="h-10 w-10" />
+            <Menu className="h-10 w-10 bg-card text-foreground" />
           </SheetTrigger>
           <SheetContent side={'left'} className="fixed">
-            <div className=" mt-20 flex flex-col gap-y-10">
-              <div className="flex flex-col items-center justify-center gap-y-1">
-                <Dialog>
-                  <DialogTrigger>
-                    <Button className="mx-2.5 mb-5 flex w-60 items-center justify-center rounded-full bg-primary px-5 hover:bg-primary/90">
-                      <Plus className="mr-2 h-6 w-6 text-indigo-100 " />
-                      <p className="text-base text-indigo-50">Criar</p>
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="p-6 ">
-                    <DialogHeader className="gap-3">
-                      <DialogTitle>Crie um novo serviço</DialogTitle>
-                      <DialogDescription className="mb-10">
-                        Preencha todos os campos abaixo para criar um novo serviço. Clique em
-                        'Salvar' quando estiver pronto.
-                      </DialogDescription>
-                    </DialogHeader>
-                    <form action="" onSubmit={handleSubmit(handleCreateService)} className="">
-                      <section className="flex  flex-col py-2">
-                        <div className=" flex justify-between">
-                          <label htmlFor="" className="block py-1 font-bold text-black">
-                            <span className="text-foreground">Nome:</span>
-                          </label>
-                          <Input
-                            className=" w-[70%]"
-                            placeholder="Insira o nome do serviço"
-                            id="user"
-                            {...register('name')}
-                          />
-                        </div>
-                        <div className="flex items-center justify-center">
-                          {!errors.name && <p className=" text-sm text-card">.</p>}
-                          {errors.name && (
-                            <p className="text-sm text-red-500">{errors.name.message}</p>
-                          )}
-                        </div>
-                      </section>
-                      <section className="flex flex-col py-2">
-                        <div className="flex justify-between ">
-                          <label htmlFor="" className="block py-1 font-bold text-black">
-                            <span className="text-foreground">Descrinção:</span>
-                          </label>
-                          <Textarea
-                            className="row-span-30 w-[70%]  resize-none"
-                            placeholder="Insira uma descrinção para este serviço"
-                            id="user"
-                            {...register('description')}
-                          />
-                        </div>
-                        <div className="flex items-center justify-center">
-                          {!errors.description && <p className="text-sm text-card">.</p>}
-                          {errors.description && (
-                            <p className="text-sm text-red-500">{errors.description.message}</p>
-                          )}
-                        </div>
-                      </section>
-                      <section className="flex flex-col py-2">
-                        <div className="flex flex-wrap justify-between ">
-                          <label htmlFor="" className="block py-1 font-bold text-black">
-                            <span className="text-foreground">Duração:</span>
-                          </label>
-                          <Controller
-                            name="duration"
-                            control={control}
-                            render={({ field: { name, onChange, value, disabled } }) => {
-                              return (
-                                <>
-                                  <Select
-                                    name={name}
-                                    onValueChange={(val) => {
-                                      if (val === 'custom') {
-                                        setIsCustomDuration(true);
-                                      } else {
-                                        setIsCustomDuration(false);
-                                        onChange(Number(val));
-                                      }
-                                    }}
-                                    value={isCustomDuration ? 'custom' : String(value)} // Converta o valor para string aqui
-                                    disabled={disabled}
-                                  >
-                                    <SelectTrigger
-                                      className=" w-[70%] text-muted-foreground"
-                                      id="user"
+            <div className="flex h-full flex-col justify-between">
+              <div className=" mt-20 flex flex-col gap-y-10">
+                <div className="flex flex-col items-center justify-center gap-y-1">
+                  <Dialog>
+                    <DialogTrigger>
+                      <Button className="mx-2.5 mb-5 flex w-60 items-center justify-center rounded-full bg-primary px-5 hover:bg-primary/90">
+                        <Plus className="mr-2 h-6 w-6 text-indigo-100 " />
+                        <p className="text-base text-indigo-50">Criar</p>
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="p-6 ">
+                      <DialogHeader className="gap-3">
+                        <DialogTitle>Crie um novo serviço</DialogTitle>
+                        <DialogDescription className="mb-10">
+                          Preencha todos os campos abaixo para criar um novo serviço. Clique em
+                          'Salvar' quando estiver pronto.
+                        </DialogDescription>
+                      </DialogHeader>
+                      <form action="" onSubmit={handleSubmit(handleCreateService)} className="">
+                        <section className="flex  flex-col py-2">
+                          <div className=" flex justify-between">
+                            <label htmlFor="" className="block py-1 font-bold text-black">
+                              <span className="text-foreground">Nome:</span>
+                            </label>
+                            <Input
+                              className=" w-[70%]"
+                              placeholder="Insira o nome do serviço"
+                              id="user"
+                              {...register('name')}
+                            />
+                          </div>
+                          <div className="flex items-center justify-center">
+                            {!errors.name && <p className=" text-sm text-card">.</p>}
+                            {errors.name && (
+                              <p className="text-sm text-red-500">{errors.name.message}</p>
+                            )}
+                          </div>
+                        </section>
+                        <section className="flex flex-col py-2">
+                          <div className="flex justify-between ">
+                            <label htmlFor="" className="block py-1 font-bold text-black">
+                              <span className="text-foreground">Descrinção:</span>
+                            </label>
+                            <Textarea
+                              className="row-span-30 w-[70%]  resize-none"
+                              placeholder="Insira uma descrinção para este serviço"
+                              id="user"
+                              {...register('description')}
+                            />
+                          </div>
+                          <div className="flex items-center justify-center">
+                            {!errors.description && <p className="text-sm text-card">.</p>}
+                            {errors.description && (
+                              <p className="text-sm text-red-500">{errors.description.message}</p>
+                            )}
+                          </div>
+                        </section>
+                        <section className="flex flex-col py-2">
+                          <div className="flex flex-wrap justify-between ">
+                            <label htmlFor="" className="block py-1 font-bold text-black">
+                              <span className="text-foreground">Duração:</span>
+                            </label>
+                            <Controller
+                              name="duration"
+                              control={control}
+                              render={({ field: { name, onChange, value, disabled } }) => {
+                                return (
+                                  <>
+                                    <Select
+                                      name={name}
+                                      onValueChange={(val) => {
+                                        if (val === 'custom') {
+                                          setIsCustomDuration(true);
+                                        } else {
+                                          setIsCustomDuration(false);
+                                          onChange(Number(val));
+                                        }
+                                      }}
+                                      value={isCustomDuration ? 'custom' : String(value)} // Converta o valor para string aqui
+                                      disabled={disabled}
                                     >
-                                      <SelectValue placeholder="Duração deste serviço" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                      <SelectItem value="15">15 minutos</SelectItem>
-                                      <SelectItem value="30">30 minutos</SelectItem>
-                                      <SelectItem value="60">1 hora</SelectItem>
-                                      <SelectItem value="120">2 horas</SelectItem>
-                                      <SelectItem value="custom">Personalizado</SelectItem>
-                                    </SelectContent>
-                                  </Select>
-                                  {isCustomDuration && (
-                                    <Input
-                                      className="ml-auto mt-3 w-[70%]"
-                                      type="number"
-                                      min="1"
-                                      onChange={(e) => onChange(e.target.value)}
-                                      placeholder="Duração em minutos"
-                                    />
-                                  )}
-                                </>
-                              );
-                            }}
-                          ></Controller>
+                                      <SelectTrigger
+                                        className=" w-[70%] text-muted-foreground"
+                                        id="user"
+                                      >
+                                        <SelectValue placeholder="Duração deste serviço" />
+                                      </SelectTrigger>
+                                      <SelectContent>
+                                        <SelectItem value="15">15 minutos</SelectItem>
+                                        <SelectItem value="30">30 minutos</SelectItem>
+                                        <SelectItem value="60">1 hora</SelectItem>
+                                        <SelectItem value="120">2 horas</SelectItem>
+                                        <SelectItem value="custom">Personalizado</SelectItem>
+                                      </SelectContent>
+                                    </Select>
+                                    {isCustomDuration && (
+                                      <Input
+                                        className="ml-auto mt-3 w-[70%]"
+                                        type="number"
+                                        min="1"
+                                        onChange={(e) => onChange(e.target.value)}
+                                        placeholder="Duração em minutos"
+                                      />
+                                    )}
+                                  </>
+                                );
+                              }}
+                            ></Controller>
+                          </div>
+                          <div className="flex items-center justify-center">
+                            {!errors.duration && <p className="text-sm text-card">.</p>}
+                            {errors.duration && (
+                              <p className="text-sm text-red-500">{errors.duration.message}</p>
+                            )}
+                          </div>
+                        </section>
+                        <section className="flex flex-col py-2">
+                          <div className="flex justify-between ">
+                            <label htmlFor="" className="block py-1 font-bold text-black">
+                              <span className="text-foreground">Preço:</span>
+                            </label>
+                            <IMaskInput
+                              mask="R$ num"
+                              blocks={{
+                                num: {
+                                  mask: Number,
+                                  scale: 2,
+                                  thousandsSeparator: '.',
+                                  padFractionalZeros: true,
+                                },
+                              }}
+                              className="flex h-10 w-[70%] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                              placeholder="Adicione um valor para este serviço"
+                              id="price"
+                              onAccept={(value) => setValue('price', value as any)} // Atualiza o valor do campo de preço sempre que ele muda
+                            />
+                          </div>
+                          <div className="flex items-center justify-center">
+                            {!errors.price && <p className="text-sm text-card">.</p>}
+                            {errors.price && (
+                              <p className="text-sm text-red-500">{errors.price.message}</p>
+                            )}
+                          </div>
+                        </section>
+                        <div className="mt-5 flex justify-end">
+                          <Button type="submit" className=" flex w-32 items-center justify-center">
+                            Continuar
+                          </Button>
                         </div>
-                        <div className="flex items-center justify-center">
-                          {!errors.duration && <p className="text-sm text-card">.</p>}
-                          {errors.duration && (
-                            <p className="text-sm text-red-500">{errors.duration.message}</p>
-                          )}
-                        </div>
-                      </section>
-                      <section className="flex flex-col py-2">
-                        <div className="flex justify-between ">
-                          <label htmlFor="" className="block py-1 font-bold text-black">
-                            <span className="text-foreground">Preço:</span>
-                          </label>
-                          <IMaskInput
-                            mask="R$ num"
-                            blocks={{
-                              num: {
-                                mask: Number,
-                                scale: 2,
-                                thousandsSeparator: '.',
-                                padFractionalZeros: true,
-                              },
-                            }}
-                            className="flex h-10 w-[70%] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                            placeholder="Adicione um valor para este serviço"
-                            id="price"
-                            onAccept={(value) => setValue('price', value as any)} // Atualiza o valor do campo de preço sempre que ele muda
-                          />
-                        </div>
-                        <div className="flex items-center justify-center">
-                          {!errors.price && <p className="text-sm text-card">.</p>}
-                          {errors.price && (
-                            <p className="text-sm text-red-500">{errors.price.message}</p>
-                          )}
-                        </div>
-                      </section>
-                      <div className="mt-5 flex justify-end">
-                        <Button type="submit" className=" flex w-32 items-center justify-center">
-                          Continuar
-                        </Button>
-                      </div>
-                    </form>
-                  </DialogContent>
-                </Dialog>
-                <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger className="flex w-10 items-center justify-center gap-2 ">
-                      <AsideItem link="/professional/services" title="Serviços" icon={Home} />
-                      Serviços
-                    </TooltipTrigger>
-                    <TooltipContent side="right">
-                      <p>Serviços</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-                <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger className="flex w-10 items-center justify-center gap-2">
-                      <AsideItem
-                        link="/professional/myschedules"
-                        title="Solicitações"
-                        icon={Timer}
-                      />
-                      Solicitações
-                    </TooltipTrigger>
-                    <TooltipContent side="right">
-                      <p>Solicitações</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-                <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger className="flex w-10 items-center justify-center gap-2">
-                      <AsideItem
-                        link="/professional/disponibilidade"
-                        title="Disponibilidade"
-                        icon={Calendar}
-                      />
-                      Disponibilidade
-                    </TooltipTrigger>
-                    <TooltipContent side="right">
-                      <p className="text-sm">disponibilidade</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
+                      </form>
+                    </DialogContent>
+                  </Dialog>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger className="flex w-10 items-center justify-center gap-2 ">
+                        <AsideItem link="/professional/services" title="Serviços" icon={Home} />
+                        Serviços
+                      </TooltipTrigger>
+                      <TooltipContent side="right">
+                        <p>Serviços</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger className="flex w-10 items-center justify-center gap-2">
+                        <AsideItem
+                          link="/professional/myschedules"
+                          title="Solicitações"
+                          icon={Timer}
+                        />
+                        Solicitações
+                      </TooltipTrigger>
+                      <TooltipContent side="right">
+                        <p>Solicitações</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                  {/* <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger className="flex w-10 items-center justify-center gap-2">
+                        <AsideItem
+                          link="/professional/disponibilidade"
+                          title="Disponibilidade"
+                          icon={Calendar}
+                        />
+                        Disponibilidade
+                      </TooltipTrigger>
+                      <TooltipContent side="right">
+                        <p className="text-sm">disponibilidade</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider> */}
+                </div>
               </div>
+              <Dialog>
+                <DialogTrigger>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Button
+                          variant={'ghost'}
+                          className="flex w-full items-center justify-start gap-1 px-10 py-7"
+                        >
+                          <Settings className="min-w-8 text-primary-foreground" />
+                          <p className="text-primary-foreground">Configurações</p>
+                        </Button>
+                      </TooltipTrigger>
+                      <TooltipContent side="right">
+                        <p className="text-sm">Configurações</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Configurações</DialogTitle>
+                    <DialogDescription>
+                      Personalize a aparência da página de acordo com seu gosto visual. Escolha
+                      entre um dos nossos temas cuidadosamente criados para tornar sua experiência
+                      de navegação mais agradável e personalizada.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <label htmlFor="theme-select">Escolha o Tema:</label>
+                  <Select>
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Tema" />
+                    </SelectTrigger>
+                    <SelectContent className="flex flex-col">
+                      <Button
+                        className="w-full items-start justify-between bg-background p-2 text-lg text-foreground hover:bg-primary"
+                        onClick={() => setTheme('light')}
+                        value={'light'}
+                      >
+                        Claro
+                        <ChevronDown />
+                      </Button>
+                      <Button
+                        className="w-full items-start justify-between bg-background p-2 text-lg text-foreground hover:bg-primary"
+                        onClick={() => setTheme('dark')}
+                        value={'dark'}
+                      >
+                        Escuro
+                        <ChevronDown />
+                      </Button>
+                    </SelectContent>
+                  </Select>
+                </DialogContent>
+              </Dialog>
             </div>
           </SheetContent>
         </Sheet>

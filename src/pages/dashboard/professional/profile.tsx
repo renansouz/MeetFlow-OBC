@@ -157,14 +157,14 @@ export function Profile() {
     }
   }
   return (
-    <div className="mt-10 w-full">
-      <Card className="my-16 ml-[5%] mr-[15%]">
-        <CardHeader>
+    <div className="mt-10 w-full max-sm:mt-0">
+      <Card className="my-16 ml-[5%] mr-[15%] max-sm:mx-0 max-sm:my-0">
+        <CardHeader className="max-sm:p-0">
           {isLoadingProfile ? (
             <Skeleton className="z-0 h-80 w-full gap-y-12 rounded-md" />
           ) : (
-            <Card>
-              <CardHeader className="h-32 rounded-tl-md rounded-tr-md bg-indigo-300  pt-14 max-lg:rounded-none">
+            <Card className="max-sm:w-full max-sm:rounded-none max-sm:p-0">
+              <CardHeader className="h-32 rounded-tl-md rounded-tr-md bg-indigo-300 pt-14 max-lg:rounded-none max-sm:rounded-none">
                 <div className="relative">
                   <Avatar className="h-32 w-32 cursor-pointer rounded-full">
                     {profile?.photoUrl ? (
@@ -196,7 +196,7 @@ export function Profile() {
                   </form>
                 </div>
               </CardHeader>
-              <CardContent className="mt-20 flex flex-col  gap-y-2">
+              <CardContent className="mt-20 flex flex-col gap-y-2">
                 <div className="flex justify-between">
                   <div>
                     <CardTitle className="ml-6 text-left font-bold " style={{ maxWidth: '600px' }}>
@@ -314,8 +314,8 @@ export function Profile() {
             </Card>
           )}
         </CardHeader>
-        <CardContent>
-          <Card>
+        <CardContent className="max-sm:p-0">
+          <Card className="max-sm:w-full max-sm:rounded-none max-sm:p-0">
             <CardHeader>
               <CardTitle>Meus serviços</CardTitle>
               <CardDescription>Aqui esta todos os seus serviços criados</CardDescription>

@@ -116,7 +116,7 @@ export const Header = () => {
             <SheetContent className="fixed">
               <div className="mt-20 flex flex-col items-center ">
                 <Link
-                  to={'/'}
+                  to={'/#hero-section'}
                   className="w-full rounded-md border-solid p-4 text-center hover:bg-accent"
                 >
                   Início
@@ -125,7 +125,7 @@ export const Header = () => {
                 <Separator />
 
                 <Link
-                  to={'/'}
+                  to={'/#about-section'}
                   className="w-full rounded-md border-solid p-4 text-center hover:bg-accent "
                 >
                   Sobre
@@ -133,7 +133,7 @@ export const Header = () => {
                 <Separator />
                 <Separator />
                 <Link
-                  to={'/'}
+                  to={'/#professional-section'}
                   className="w-full rounded-md border-solid p-4 text-center hover:bg-accent "
                 >
                   Área do Profissional

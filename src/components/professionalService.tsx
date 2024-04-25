@@ -19,7 +19,7 @@ interface ProfessionalServiceProps {
 export const ProfessionalService = ({ services, onServiceClick }: ProfessionalServiceProps) => {
   return (
     <>
-      <Carousel className="mx-auto w-11/12">
+      <Carousel className="mx-auto w-11/12 max-sm:mx-0">
         <CarouselContent>
           {services &&
             services?.services.map((service) => (
@@ -52,7 +52,7 @@ export const ProfessionalService = ({ services, onServiceClick }: ProfessionalSe
               </CarouselItem>
             ))}
         </CarouselContent>
-        <CarouselPrevious />
+        <CarouselPrevious className="max-sm:hidden" />
         <CarouselNext />
       </Carousel>
     </>

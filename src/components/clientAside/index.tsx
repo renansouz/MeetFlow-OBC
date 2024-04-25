@@ -133,43 +133,48 @@ export const ClientAside = () => {
                 </Tooltip>
               </TooltipProvider>
             </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle className="tex-xl text-primary">
-                  Bem-vindo ao Suporte MeetFlow!
+            <DialogContent className="h-2/3  overflow-y-auto">
+              <DialogHeader className="my-5 flex items-center rounded-md bg-primary/40 p-10 text-center">
+                <DialogTitle className="text-center text-2xl font-bold">
+                  Bem-vindo ao <br /> Suporte MeetFlow!
                 </DialogTitle>
-                <DialogDescription className="pb-3 text-base">
-                  Estamos aqui para ajudar você a aproveitar ao máximo a plataforma MeetFlow. Se
-                  surgirem dúvidas ou problemas, nossa equipe está pronta para auxiliar.
+                <DialogDescription className="text-base">
+                  Estamos sempre presentes para te ajudar
                 </DialogDescription>
               </DialogHeader>
               <div className="flex flex-col gap-3">
-                <div className="flex flex-col gap-2">
-                  <h2 className="text-xl text-primary">Como Podemos Ajudar?</h2>
+                <div className="mb-5 flex  flex-col gap-2">
+                  <h2 className="text-center text-2xl">Seções e Acessibilidade</h2>
+                  <h3 className="mb-3 text-xl font-semibold">Aside</h3>
                   <p>
-                    <span className="text-gray-500">FAQ:</span> Encontre respostas rápidas para suas
-                    perguntas mais comuns.
+                    <span className="font-bold">Serviços:</span> Todos profissionais disponiveis na
+                    plataforma
                   </p>
                   <p>
-                    <span className="text-gray-500">Tutoriais e Guias:</span> Explore nossos guias
-                    passo a passo para dominar a plataforma.
+                    <span className="font-bold">Meus Agendamentos:</span> Confirme a data de seus
+                    agendamentos marcados.
                   </p>
                   <p>
-                    <span className="text-gray-500">Suporte Direto: </span>Entre em contato conosco
-                    para assistência personalizada.
+                    <span className="font-bold">Configurações: </span>Mude seu tema para claro ou
+                    escuro de acordo com sua preferênciaz
+                  </p>
+                </div>
+                <div className="mb-5 flex  flex-col gap-2">
+                  <h3 className="mb-3 text-xl font-semibold">Opções perfil</h3>
+                  <p>
+                    <span className="font-bold">Sair: </span>Sair da sua conta
                   </p>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <h2 className="text-xl text-primary">Entre em Contato</h2>
+                  <h2 className="text-center text-2xl font-bold">Entre em Contato</h2>
                   <p>
-                    <span className="text-gray-500">E-mail:</span> Envie suas dúvidas para
-                    support@meetflow.com.
+                    <span className="font-bold">E-mail:</span> support@meetflow.com.
                   </p>
                   <p>
-                    <span className="text-gray-500">Telefone: </span> Ligue para (+55) 9945-6162
-                    durante o horário comercial.
+                    <span className="font-bold">Telefone: </span> Ligue para (+55) 9945-6162 durante
+                    o horário comercial.
                   </p>
-                  <h2 className="text-xl text-primary">Nosso Compromisso</h2>
+                  <h2 className="my-5 text-center text-2xl font-bold">Nosso Compromisso</h2>
                   <p>
                     Sua satisfação é nossa prioridade. Estamos aqui para garantir que sua
                     experiência com o MeetFlow seja suave e produtiva.
@@ -219,9 +224,9 @@ export const ClientAside = () => {
               <DialogHeader>
                 <DialogTitle>Configurações</DialogTitle>
                 <DialogDescription>
-                  Personalize a aparência da página de acordo com seu gosto visual. Escolha entre
-                  uma variedade de temas cuidadosamente criados para tornar sua experiência de
-                  navegação mais agradável e personalizada.
+                  Personalize a aparência da página de acordo com seu gosto visual. Escolha entre um
+                  dos nossos temas cuidadosamente criados para tornar sua experiência de navegação
+                  mais agradável e personalizada.
                 </DialogDescription>
               </DialogHeader>
               <label htmlFor="theme-select">Escolha o Tema:</label>
@@ -467,8 +472,8 @@ export const ClientAside = () => {
                     <DialogTitle>Configurações</DialogTitle>
                     <DialogDescription>
                       Personalize a aparência da página de acordo com seu gosto visual. Escolha
-                      entre uma variedade de temas cuidadosamente criados para tornar sua
-                      experiência de navegação mais agradável e personalizada.
+                      entre um dos nossos temas cuidadosamente criados para tornar sua experiência
+                      de navegação mais agradável e personalizada.
                     </DialogDescription>
                   </DialogHeader>
                   <label htmlFor="theme-select">Escolha o Tema:</label>
