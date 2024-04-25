@@ -29,7 +29,7 @@ type stepProps = {
   setCurrentStepState: (int: number) => void;
 };
 
-export const Step3 = ({}: stepProps) => {
+export const Step3 = ({ }: stepProps) => {
   const navigate = useNavigate();
 
   const {

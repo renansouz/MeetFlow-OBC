@@ -79,24 +79,23 @@ export const Header = () => {
                     </DialogTitle>
                     <DialogDescription className="text-center">
                       Estamos felizes por você estar aqui. Para desfrutar ao máximo de nossos
-                      serviços, recomendamos criar uma conta. Se preferir, vocês também pode entrar
-                      sem fazer login.
+                      serviços, recomendamos criar uma conta.
                     </DialogDescription>
                   </DialogHeader>
 
                   <div className="mt-10 flex flex-col items-center justify-center gap-6">
                     <Link
                       className="item-center flex  w-full justify-center rounded-2xl border-2 border-primary bg-primary p-4 text-xl text-background hover:bg-primary/90"
-                      to={'/login'}
+                      to={'/client/register'}
                     >
-                      <span className="font-medium text-white">Fazer LogIn</span>
+                      <span className="font-medium text-white">Criar conta cliente</span>
                     </Link>
-                    {/* <Link
-                      to={'/dashboard/services'}
+                    <Link
+                      to={'/professional/register'}
                       className=" item-center flex w-full justify-center p-4 font-medium text-foreground hover:text-primary hover:underline"
                     >
-                      <span>Entrar sem Login</span>
-                    </Link> */}
+                      <span>Criar conta profissional</span>
+                    </Link>
                   </div>
                 </DialogContent>
               </Dialog>

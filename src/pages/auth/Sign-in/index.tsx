@@ -28,13 +28,18 @@ const createUserSchema = z.object({
 type LoginFormData = z.infer<typeof createUserSchema>;
 
 export const ClientLogin = () => {
-  const { loginGoogle, login, isAuthenticated } = useAuth();
+  const { loginGoogle, login, isAuthenticated, user } = useAuth();
   const { theme } = useTheme();
   const navigate = useNavigate();
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate('/dashboard/services');
+      console.log('user?.role', user?.role);
+      if (user?.role === 'professional') {
+        navigate('/professional/dashboard');
+      } else {
+        navigate('/dashboard/services');
+      }
     }
   }, [isAuthenticated]);
 

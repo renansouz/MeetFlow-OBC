@@ -115,7 +115,7 @@ export const LandingPage = () => {
               suas necessidades.
             </p>
             <div className="flex h-14 w-80 items-center justify-center max-lg:mb-[20%]">
-              <Link to={'/dashboard/services'} className="mr-5">
+              <Link to={'/client/register'} className="mr-5">
                 <Button className="items-center justify-center gap-2 rounded-md px-2 py-5 pl-4 text-white">
                   Encontre um serviço
                   <ArrowRight className="h-5" />
