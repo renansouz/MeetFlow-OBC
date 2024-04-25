@@ -8,7 +8,6 @@ import { ClientRegister } from '@/pages/auth';
 import { ProfessionalRegister } from '@/pages/auth';
 import { ClientLogin } from '@/pages/auth';
 import { ProfessionalRegisterGoogle } from '@/pages/auth/ProfessionalRegister/ProfessionalRegisterGoogler';
-import { DashboardClient } from '@/pages/dashboard/client';
 import { MySchedules } from '@/pages/dashboard/client';
 import { ProfessionalProfile } from '@/pages/dashboard/client';
 import { Services } from '@/pages/dashboard/client';
@@ -39,10 +38,6 @@ const authRoutes = [
 ];
 
 const clientRoutes = [
-  {
-    path: '/dashboard',
-    element: <ProtectedRoute component={DashboardClient} />,
-  },
   {
     path: '/dashboard/services',
     element: <ProtectedRoute component={Services} />,
