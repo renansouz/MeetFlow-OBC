@@ -81,10 +81,9 @@ export function signOut() {
   Cookies.remove('meetFlow.token');
   Cookies.remove('meetFlow.refreshToken');
   Cookies.remove('meetFlow.user');
-  Cookies.remove('session');
+  Cookies.remove('session', { domain: '.meetflow.tech' });
 
-  Cookies.remove('meetFlow.token', { domain: 'api.meetflow.tech' });
-  Cookies.remove('meetFlow.refreshToken', { domain: 'api.meetflow.tech' });
+  Cookies.remove('meetFlow.token', { domain: '.meetflow.tech' });
+  Cookies.remove('meetFlow.refreshToken', { domain: '.meetflow.tech' });
   Cookies.remove('meetFlow.user', { domain: '.meetflow.tech' });
-  Cookies.remove('session', { domain: 'api.meetflow.tec' });
 }
