@@ -54,10 +54,12 @@ export const ClientLogin = () => {
 
   const handleLogin = async (userData: LoginFormData) => {
     try {
-      await login(userData.email, userData.password);
-      navigate('/dashboard/services');
-      // console.log(user);
-      // user?.role === 'professional' ? navigate('/professional/dashboard') : navigate('/dashboard/services');
+      const user = await login(userData.email, userData.password);
+      if (user?.role === 'professional') {
+        navigate('/professional/dashboard');
+      } else {
+        navigate('/dashboard/services');
+      }
     } catch (error) {
       if (error instanceof AxiosError) {
         toast.error(error.response?.data.message, {

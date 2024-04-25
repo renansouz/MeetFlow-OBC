@@ -4,7 +4,7 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 import { env } from '@/env';
 import { api, updateToken } from '@/lib/axios';
 
-type User = {
+export type User = {
   email: string;
   name: string;
   role: string;
@@ -12,7 +12,7 @@ type User = {
 };
 
 type AuthContextData = {
-  login(email: string, password: string): Promise<void>;
+  login(email: string, password: string): Promise<User>;
   loginGoogle: (role: 'client' | 'professional' | '') => void;
   isAuthenticated: boolean;
   user: User | null;
@@ -58,6 +58,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setUser(userComing);
       api.defaults.timeout = 3000;
       api.defaults.headers['authorization'] = `Bearer ${token}`;
+
+      return userComing;
     } catch (error) {
       throw error;
     }

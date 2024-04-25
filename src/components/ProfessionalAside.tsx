@@ -51,7 +51,9 @@ const createUserSchema = z.object({
   name: z.string(),
   description: z.string().min(5, { message: 'descrição pequena' }),
   duration: z.coerce.number().min(15, { message: 'tempo mínimo 15 minutos' }),
-  price: z.string().transform((value) => parseFloat(value.replace('R$ ', '').replace(',', '.'))),
+  price: z
+    .string()
+    .transform((value) => parseFloat(value.replace('R$ ', '').replace('.', '').replace(',', '.'))),
 });
 
 type LoginFormData = z.infer<typeof createUserSchema>;
@@ -179,10 +181,10 @@ export const ProfessionalAside = () => {
                                     setIsCustomDuration(true);
                                   } else {
                                     setIsCustomDuration(false);
-                                    onChange(val);
+                                    onChange(Number(val));
                                   }
                                 }}
-                                value={isCustomDuration ? 'custom' : value.toString()}
+                                value={isCustomDuration ? 'custom' : String(value)} // Converta o valor para string aqui
                                 disabled={disabled}
                               >
                                 <SelectTrigger className=" w-[70%] text-muted-foreground" id="user">
