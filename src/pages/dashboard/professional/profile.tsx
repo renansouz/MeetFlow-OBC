@@ -61,10 +61,10 @@ export function Profile() {
   });
 
   const { data: profile, isLoading: isLoadingProfile } = useQuery({
-    queryKey: ['profile'],
+    queryKey: ['profile', user?._id],
     queryFn: () => getProfile({ _id: user?._id }),
     staleTime: Infinity,
-    enabled: !!user,
+    enabled: !!user?._id,
   });
 
   function updateProfileCache({ headLine, name, email, password, photoUrl }: UpdateProfileBody) {

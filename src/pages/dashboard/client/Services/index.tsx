@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 import { getProfessional } from '@/api/user/get-professional';
 import { Search } from '@/components/search';
+import { useAuth } from '@/context/auth-provider';
 
 import { ProfessionalCard } from './ProfessionalCard';
 
@@ -14,6 +15,7 @@ type categories = {
 export const Services = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [categories, setCategories] = useState<string[]>([]);
+  const { user } = useAuth();
 
   const { data: professionals } = useQuery({
     queryKey: ['professionals'],
@@ -110,6 +112,7 @@ export const Services = () => {
                   _id={professional._id}
                   key={professional._id}
                   myScheduleId={professional.myScheduleId}
+                  role={user?.role}
                 />
               ))}
           </div>

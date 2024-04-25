@@ -11,10 +11,10 @@ export function Clients() {
   const { user } = useAuth();
 
   const { data: profile } = useQuery({
-    queryKey: ['profile'],
+    queryKey: ['profile', user?._id],
     queryFn: () => getProfile({ _id: user?._id }),
     staleTime: Infinity,
-    enabled: !!user,
+    enabled: !!user?._id,
   });
 
   const myScheduleId = profile?.myScheduleId;

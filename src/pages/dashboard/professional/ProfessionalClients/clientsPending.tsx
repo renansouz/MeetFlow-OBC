@@ -17,6 +17,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
+import { convertMinutesToHours } from '@/utils/convertMinutesToHours';
 
 interface ClientsPendingProps {
   scheduleId: string;
@@ -78,7 +79,7 @@ export const ClientsPending = ({ scheduleId }: ClientsPendingProps) => {
               <div className="flex flex-wrap gap-3">
                 <Card className="flex h-12 items-center justify-center gap-2 rounded-md border-2 border-border px-4">
                   <Hourglass className="text-indigo-500" />
-                  {serviceRequest?.duration} minutos
+                  {convertMinutesToHours(serviceRequest?.duration)}
                 </Card>
 
                 <Card className="flex h-12 items-center justify-center gap-2 rounded-md border-2 border-border px-4">

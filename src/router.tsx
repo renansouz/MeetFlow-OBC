@@ -52,7 +52,7 @@ const clientRoutes = [
     element: <ProtectedRoute component={MySchedules} />,
   },
   {
-    path: '/dashboard/profile/:_id/:scheduleId',
+    path: '/client/dashboard/profile/:_id/:scheduleId',
     element: <ProtectedRoute component={ProfessionalProfile} />,
   },
 ];
@@ -73,6 +73,10 @@ const professionalRoutes = [
   {
     path: '/professional/services',
     element: <ProtectedRoute component={Services} />,
+  },
+  {
+    path: '/professional/dashboard/profile/:_id/:scheduleId',
+    element: <ProtectedRoute component={ProfessionalProfile} />,
   },
 ];
 

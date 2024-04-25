@@ -32,7 +32,7 @@ export function ProfessionalProfile() {
   const { _id } = useParams();
 
   const { data: professional, isLoading: isLoadingProfile } = useQuery({
-    queryKey: ['profile', _id],
+    queryKey: ['profileProfessional', _id],
     queryFn: () => getProfile({ _id }),
     staleTime: Infinity,
     enabled: !!_id,
@@ -44,8 +44,6 @@ export function ProfessionalProfile() {
     staleTime: Infinity,
     enabled: !!_id,
   });
-
-  console.log('services', services);
 
   return (
     <Card className="mx-auto my-14  w-[90%] min-w-[20rem] pb-10 max-xl:m-0 max-xl:w-full">

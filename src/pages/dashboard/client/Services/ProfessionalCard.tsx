@@ -17,6 +17,7 @@ export const ProfessionalCard = ({
   occupationArea,
   _id,
   myScheduleId,
+  role,
 }: Professional) => {
   const [loading, setLoading] = useState(true);
 
@@ -72,7 +73,10 @@ export const ProfessionalCard = ({
               className="mb-10 bg-primary text-lg font-light text-foreground hover:bg-primary/80 max-lg:mb-5 max-lg:text-sm"
               variant={'default'}
             >
-              <Link to={`/dashboard/profile/${_id}/${myScheduleId}`} className="px-6 text-white">
+              <Link
+                to={`/${role}/dashboard/profile/${_id}/${myScheduleId}`}
+                className="px-6 text-white"
+              >
                 <LucideCalendarPlus className="mr-3 h-5 w-5 max-lg:w-4" />
                 Agendar
               </Link>
