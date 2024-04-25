@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 import {
   AlertDialog,
   AlertDialogAction,
@@ -12,7 +14,7 @@ import {
 import { Button } from '@/components/ui/button';
 
 type AlertDialogContainerProps = {
-  triger: string;
+  triger: string | ReactNode;
   alertMessage: string;
   description: string;
   callback: () => void;

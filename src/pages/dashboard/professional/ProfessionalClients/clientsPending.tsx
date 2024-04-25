@@ -17,6 +17,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
+import { convertMinutesToHours } from '@/utils/convertMinutesToHours';
 
 interface ClientsPendingProps {
   scheduleId: string;
@@ -56,7 +57,10 @@ export const ClientsPending = ({ scheduleId }: ClientsPendingProps) => {
         <Skeleton className="m-10 h-[247px] w-[60%] p-3" />
       ) : (servicesRequest?.requests?.length ?? 0) > 0 ? (
         servicesRequest?.requests?.map((serviceRequest) => (
-          <Card key={serviceRequest._id} className="m-10 w-[60%] bg-background p-3">
+          <Card
+            key={serviceRequest._id}
+            className="m-10 w-[65%] bg-background p-3 max-md:m-0 max-md:w-[95%]"
+          >
             <CardHeader>
               <CardTitle>{serviceRequest.serviceName}</CardTitle>
               <div className="text-base text-indigo-400/80">
@@ -72,10 +76,10 @@ export const ClientsPending = ({ scheduleId }: ClientsPendingProps) => {
             </CardHeader>
 
             <CardContent className="flex justify-between">
-              <div className="flex gap-3">
+              <div className="flex flex-wrap gap-3">
                 <Card className="flex h-12 items-center justify-center gap-2 rounded-md border-2 border-border px-4">
                   <Hourglass className="text-indigo-500" />
-                  {serviceRequest?.duration} minutos
+                  {convertMinutesToHours(serviceRequest?.duration)}
                 </Card>
 
                 <Card className="flex h-12 items-center justify-center gap-2 rounded-md border-2 border-border px-4">
@@ -89,7 +93,7 @@ export const ClientsPending = ({ scheduleId }: ClientsPendingProps) => {
                 </Card>
               </div>
 
-              <div className="flex items-center gap-x-3">
+              <div className="flex flex-col items-center gap-y-2">
                 <AlertDialog>
                   <AlertDialogTrigger asChild className="w-full">
                     <Button variant={'success'} className="">

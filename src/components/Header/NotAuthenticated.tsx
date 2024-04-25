@@ -96,7 +96,7 @@ export const NotAuthenticated = () => {
                   <Separator />
                   <Link
                     to={'/register'}
-                    className="mt-10 w-full rounded-md border-solid bg-indigo-700 p-4 text-center hover:bg-indigo-800 "
+                    className="mt-10 w-full rounded-md border-solid bg-primary p-4 text-center hover:bg-primary/90 "
                   >
                     Agende Agora!
                   </Link>

@@ -28,9 +28,9 @@
         }
 
         .dark {
-            --background: 210 80% 3%; /* slate-900 */
+            --background: 210 23% 7%; /* slate-900 */
             --foreground: 210 20% 98%; /* indigo-100 */
-            --card: 210 23% 7%; /* slate-900 */
+            --card:  210 80% 3% ; /* slate-900 */
             --card-foreground: 210 20% 98%; /* indigo-100 */
             --popover: 215 27.9% 10.8%; /* slate-900 */
             --popover-foreground: 210 20% 98%; /* indigo-100 */
@@ -40,7 +40,7 @@
             --secondary-foreground: 210 20% 98%; /* indigo-100 */
             --muted: 215 27.9% 10.8%; /* slate-900 */
             --muted-foreground: 210 20% 98%; /* indigo-100 */
-            --accent: 215 27.9% 10.8%; /* slate-900 */
+            --accent: 215 27.9% 60.8%; /* slate-900 */
             --accent-foreground: 210 20% 98%; /* indigo-100 */
             --destructive: 0 62.8% 30.6%; /* red-600 */
             --destructive-foreground: 210 20% 98%; /* indigo-100 */

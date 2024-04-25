@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 import { getProfessional } from '@/api/user/get-professional';
 import { Search } from '@/components/search';
+import { useAuth } from '@/context/auth-provider';
 
 import { ProfessionalCard } from './ProfessionalCard';
 
@@ -14,6 +15,7 @@ type categories = {
 export const Services = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [categories, setCategories] = useState<string[]>([]);
+  const { user } = useAuth();
 
   const { data: professionals } = useQuery({
     queryKey: ['professionals'],
@@ -99,7 +101,7 @@ export const Services = () => {
         </div>
 
         <div className="flex">
-          <div className="flex flex-wrap justify-center gap-10 px-16 py-16 max-lg:gap-2 max-sm:gap-1 ">
+          <div className="flex flex-wrap justify-center gap-10 px-16 py-16 max-lg:gap-2 max-lg:px-0 max-sm:gap-1 ">
             {filteredProfessionals &&
               filteredProfessionals.map((professional) => (
                 <ProfessionalCard
@@ -110,6 +112,7 @@ export const Services = () => {
                   _id={professional._id}
                   key={professional._id}
                   myScheduleId={professional.myScheduleId}
+                  role={user?.role}
                 />
               ))}
           </div>

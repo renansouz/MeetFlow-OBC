@@ -11,17 +11,17 @@ export function Clients() {
   const { user } = useAuth();
 
   const { data: profile } = useQuery({
-    queryKey: ['profile'],
+    queryKey: ['profile', user?._id],
     queryFn: () => getProfile({ _id: user?._id }),
     staleTime: Infinity,
-    enabled: !!user,
+    enabled: !!user?._id,
   });
 
   const myScheduleId = profile?.myScheduleId;
 
   return (
     <>
-      <Card className="mx-[5%] mt-10 p-5 ">
+      <Card className="mx-[5%] mt-10 p-5 max-lg:mx-0 max-lg:mt-0 max-lg:rounded-none">
         <CardHeader>
           <CardTitle>Solicitações Pendentes</CardTitle>
           <CardDescription>Verifique todos os seus agendamentos pendentes</CardDescription>

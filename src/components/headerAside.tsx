@@ -116,7 +116,7 @@ export const HeaderAside = () => {
       </div>
       <div>
         <Link to={'/professional/dashboard'}>
-          <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="h-14 max-lg:hidden" />
+          <img src={theme === 'dark' ? Logo : LightLogo} alt="" className="h-14 max-md:hidden" />
         </Link>
       </div>
       <div className="mr-10 flex items-center justify-center">

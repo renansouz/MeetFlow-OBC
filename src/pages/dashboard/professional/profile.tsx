@@ -61,10 +61,10 @@ export function Profile() {
   });
 
   const { data: profile, isLoading: isLoadingProfile } = useQuery({
-    queryKey: ['profile'],
+    queryKey: ['profile', user?._id],
     queryFn: () => getProfile({ _id: user?._id }),
     staleTime: Infinity,
-    enabled: !!user,
+    enabled: !!user?._id,
   });
 
   function updateProfileCache({ headLine, name, email, password, photoUrl }: UpdateProfileBody) {
@@ -157,14 +157,14 @@ export function Profile() {
     }
   }
   return (
-    <div>
-      <Card className="my-16 ml-[5%] mr-[15%]">
-        <CardHeader>
+    <div className="mt-10 w-full max-sm:mt-0">
+      <Card className="my-16 ml-[5%] mr-[15%] max-sm:mx-0 max-sm:my-0">
+        <CardHeader className="max-sm:p-0">
           {isLoadingProfile ? (
             <Skeleton className="z-0 h-80 w-full gap-y-12 rounded-md" />
           ) : (
-            <Card>
-              <CardHeader className="h-32 rounded-tl-md rounded-tr-md bg-indigo-300  pt-14 max-lg:rounded-none">
+            <Card className="max-sm:w-full max-sm:rounded-none max-sm:p-0">
+              <CardHeader className="h-32 rounded-tl-md rounded-tr-md bg-indigo-300 pt-14 max-lg:rounded-none max-sm:rounded-none">
                 <div className="relative">
                   <Avatar className="h-32 w-32 cursor-pointer rounded-full">
                     {profile?.photoUrl ? (
@@ -189,14 +189,14 @@ export function Profile() {
                     </Label>
                     <Input
                       id="fileInput"
-                      className="hidden w-full rounded-md border-2 border-border bg-background p-2 focus:border-slate-300"
+                      className="hidden w-full rounded-md border border-border bg-background p-2 focus:border-primary"
                       type="file"
                       onChange={handleAddPhoto}
                     />
                   </form>
                 </div>
               </CardHeader>
-              <CardContent className="mt-20 flex flex-col  gap-y-2">
+              <CardContent className="mt-20 flex flex-col gap-y-2">
                 <div className="flex justify-between">
                   <div>
                     <CardTitle className="ml-6 text-left font-bold " style={{ maxWidth: '600px' }}>
@@ -205,15 +205,15 @@ export function Profile() {
                     <CardDescription className="ml-6  font-light">
                       {profile?.headLine}
                     </CardDescription>
-                    <span className="ml-5 mt-3 font-bold text-indigo-600/90">
+                    <span className="ml-5 mt-3 font-bold text-primary">
                       {profile?.appointmentsTotal} agendamentos
                     </span>
                   </div>
                   <div>
                     <Dialog>
                       <DialogTrigger className="flex">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full hover:bg-indigo-500">
-                          <Pencil className=" flex text-indigo-600/90" />
+                        <div className="flex h-10 w-10 items-center justify-center rounded-full hover:bg-primary/20">
+                          <Pencil className=" flex text-primary" />
                         </div>
                       </DialogTrigger>
                       <DialogContent>
@@ -235,7 +235,7 @@ export function Profile() {
                                     <FormLabel>Nome</FormLabel>
                                     <FormControl>
                                       <Input
-                                        className="w-full rounded-md border-2 border-border bg-background p-2 focus:border-slate-300"
+                                        className="w-full rounded-md border border-border bg-background p-2 focus:border-primary"
                                         placeholder="Editar nome"
                                         {...field}
                                       />
@@ -252,7 +252,7 @@ export function Profile() {
                                     <FormLabel>Título</FormLabel>
                                     <FormControl>
                                       <Input
-                                        className="w-full rounded-md border-2 border-border bg-background p-2 focus:border-slate-300"
+                                        className="w-full rounded-md border border-border bg-background p-2 focus:border-primary"
                                         placeholder="Editar Título"
                                         {...field}
                                       />
@@ -269,7 +269,7 @@ export function Profile() {
                                     <FormLabel>Email</FormLabel>
                                     <FormControl>
                                       <Input
-                                        className="w-full rounded-md border-2 border-border bg-background p-2 focus:border-slate-300"
+                                        className="w-full rounded-md border border-border bg-background p-2 focus:border-primary"
                                         type="email"
                                         placeholder="Mudar e-mail"
                                         {...field}
@@ -287,7 +287,7 @@ export function Profile() {
                                     <FormLabel>Password</FormLabel>
                                     <FormControl>
                                       <Input
-                                        className="w-full rounded-md border-2 border-border bg-background p-2 focus:border-slate-300"
+                                        className="w-full rounded-md border border-border bg-background p-2 focus:border-primary"
                                         type="password"
                                         placeholder="Inserir nova senha"
                                         {...field}
@@ -314,8 +314,8 @@ export function Profile() {
             </Card>
           )}
         </CardHeader>
-        <CardContent>
-          <Card>
+        <CardContent className="max-sm:p-0">
+          <Card className="max-sm:w-full max-sm:rounded-none max-sm:p-0">
             <CardHeader>
               <CardTitle>Meus serviços</CardTitle>
               <CardDescription>Aqui esta todos os seus serviços criados</CardDescription>
