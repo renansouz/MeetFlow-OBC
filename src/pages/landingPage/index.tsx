@@ -55,17 +55,17 @@ export const LandingPage = () => {
                 </DialogHeader>
                 <div className="mt-10 flex flex-col items-center justify-center gap-6">
                   <Link
-                    className="item-center flex  w-full justify-center rounded-2xl border border-primary bg-primary bg-opacity-20 p-4 text-xl hover:bg-primary/90 hover:bg-opacity-30 "
-                    to={'/login'}
+                    className="item-center flex  w-full justify-center rounded-2xl border-2 border-primary bg-primary p-4 text-xl text-background hover:bg-primary/90"
+                    to={'/client/register'}
                   >
-                    <span className="font-medium text-white">Fazer LogIn</span>
+                    <span className="font-medium text-white">Criar conta cliente</span>
                   </Link>
-                  {/* <Link
-                    to={'/dashboard/services'}
+                  <Link
+                    to={'/professional/register'}
                     className=" item-center flex w-full justify-center p-4 font-medium text-foreground hover:text-primary hover:underline"
                   >
-                    <span>Entrar sem Login</span>
-                  </Link> */}
+                    <span>Criar conta profissional</span>
+                  </Link>
                 </div>
               </DialogContent>
             </Dialog>
