@@ -2,7 +2,7 @@
 
 # 🚀 MeetFlow - Simplifique seus Agendamentos 📅
 
-Bem-vindo ao MeetFlow! Uma plataforma moderna de agendamento que conecta profissionais e clientes, facilitando o processo de agendamento de serviços de forma rápida e intuitiva.
+Bem-vindo(a) ao MeetFlow! Uma plataforma moderna de agendamento que conecta profissionais e clientes, facilitando o processo de agendamento de serviços de forma rápida e intuitiva.
 
 Vídeo da plataforma visão **profissional**: [Assistir ao Vídeo](https://drive.google.com/file/d/176Upf3WMI3PiflJgD6Lhm-wfl3LUvD-m/view?usp=sharing) <br/>
 Vídeo da plataforma visão **cliente**: [Assistir ao Vídeo](https://drive.google.com/file/d/1adJmAXXHEnM0ywajjvMDzHyRTJLXUlDq/view?usp=sharing) <br/><br/>
@@ -27,7 +27,7 @@ Teste da API via insomnia e amostra em banco de dados: [Assistir ao Vídeo](http
 ## 🤟Principais Recursos
 
 - **🖥️ Interface Responsiva**: Desfrute de uma experiência fluida em qualquer dispositivo, seja desktop, tablet ou smartphone.
-  
+
 - **🎨 Tema Claro e Escuro**: Escolha entre o tema claro ou escuro para personalizar sua experiência de acordo com suas preferências.
 
 - **📊 Dashboard do Profissional**: Os profissionais têm acesso a um dashboard completo onde podem gerenciar seus serviços, disponibilidade e agendamentos de forma eficiente.
