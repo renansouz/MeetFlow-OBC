@@ -14,7 +14,7 @@ export const ServicesCard = () => {
 
   const { data: servicesClientRequest, isLoading: isLoadingServiceClientRequest } = useQuery({
     queryKey: ['servicesRequest', user?._id],
-    queryFn: () => getRequestByPage({ createdById: user?._id, page: 1, status: 'solicitado' }),
+    queryFn: () => getRequestByPage({ createdById: user?._id, page: 1 }),
     staleTime: Infinity,
     enabled: !!user?._id,
   });

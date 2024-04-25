@@ -40,8 +40,6 @@ export const HeaderAside = () => {
     enabled: !!user?._id,
   });
 
-  console.log('profile', profile);
-
   return (
     <div className="fixed flex h-20 w-full items-center justify-between border-b bg-card p-2">
       <div className="ml-10 flex items-center">

@@ -59,7 +59,7 @@ export const ClientsPending = ({ scheduleId }: ClientsPendingProps) => {
         servicesRequest?.requests?.map((serviceRequest) => (
           <Card
             key={serviceRequest._id}
-            className="m-10 w-[65%] bg-background p-3 max-md:m-0 max-md:w-[95%]"
+            className="m-10 w-[80%] bg-background p-3 hover:border-primary max-md:m-0 max-md:w-[95%]  max-sm:mb-2"
           >
             <CardHeader>
               <CardTitle>{serviceRequest.serviceName}</CardTitle>
@@ -75,7 +75,7 @@ export const ClientsPending = ({ scheduleId }: ClientsPendingProps) => {
               </div>
             </CardHeader>
 
-            <CardContent className="flex justify-between">
+            <CardContent className="flex justify-between max-sm:flex-col max-sm:gap-y-2">
               <div className="flex flex-wrap gap-3">
                 <Card className="flex h-12 items-center justify-center gap-2 rounded-md border-2 border-border px-4">
                   <Hourglass className="text-indigo-500" />

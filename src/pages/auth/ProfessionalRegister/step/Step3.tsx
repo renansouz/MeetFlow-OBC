@@ -42,8 +42,8 @@ export const Step3 = ({}: stepProps) => {
 
   const updateUser = async (updateData: updateUserFormData) => {
     try {
-      const res = await updateProfile(updateData);
-      console.log(res);
+      await updateProfile(updateData);
+
       navigate('/login');
     } catch (error) {
       if (error instanceof AxiosError) {

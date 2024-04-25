@@ -18,12 +18,10 @@ export const ClientsConfirmed = ({ scheduleId }: ClientsConfirmedProps) => {
     staleTime: Infinity,
     enabled: !!scheduleId,
   });
-  console.log('servicesScheduled', servicesScheduled);
 
   const clientsId = servicesScheduled?.appointments?.map(
     (serviceScheduled) => serviceScheduled.clientId
   );
-  console.log('clientsId', clientsId);
 
   const clientQueries = useQueries({
     queries:
@@ -35,23 +33,21 @@ export const ClientsConfirmed = ({ scheduleId }: ClientsConfirmedProps) => {
       })) || [],
   });
 
-  console.log(
-    'clientQueries',
-    clientQueries.map((clientQuery) => clientQuery.data)
-  );
-
   return (
     <div>
       {isLoadingServiceAppointment ? (
         <Skeleton className="m-10 h-[247px] w-[60%] p-3" />
       ) : (servicesScheduled?.appointments?.length ?? 0) > 0 ? (
         servicesScheduled?.appointments?.map((serviceScheduled, index) => (
-          <Card key={serviceScheduled._id} className="m-10 w-[50%] cursor-pointer bg-background">
+          <Card
+            key={serviceScheduled._id}
+            className="m-10 w-[80%] bg-background p-3 hover:border-primary max-md:m-0 max-md:w-[95%] max-sm:mb-2"
+          >
             <CardHeader>
               <CardTitle>{serviceScheduled.serviceName}</CardTitle>
             </CardHeader>
 
-            <CardContent className="flex justify-between">
+            <CardContent className="flex justify-between max-sm:flex-col">
               <div className="flex flex-col items-start justify-center gap-3">
                 <Card className="flex h-12 items-center justify-center gap-2 rounded-md border-2 border-border px-4">
                   <CalendarDays className="text-indigo-500" />
@@ -66,21 +62,21 @@ export const ClientsConfirmed = ({ scheduleId }: ClientsConfirmedProps) => {
               </div>
 
               <div className="flex flex-col items-start justify-center">
-                <div className="flex items-center justify-center">
+                <div className="flex w-full items-center justify-start overflow-hidden">
                   <User2 className="m-2" />
-                  <span>{clientQueries[index].data?.name}</span>
+                  <span className="truncate">{clientQueries[index].data?.name}</span>
                 </div>
 
-                <div className="flex items-center justify-center">
+                <div className="flex w-full items-center justify-start overflow-hidden">
                   <Phone className="m-2" />
 
                   <span>{clientQueries[index].data?.phone}</span>
                 </div>
 
-                <div className="flex items-center justify-center">
+                <div className="flex w-full items-center justify-start overflow-hidden">
                   <Mail className="m-2" />
 
-                  <span>{clientQueries[index].data?.email}</span>
+                  <span className="truncate">{clientQueries[index].data?.email}</span>
                 </div>
               </div>
             </CardContent>

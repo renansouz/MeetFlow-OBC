@@ -70,10 +70,8 @@ export const Step2 = ({ setCurrentStepState }: stepProps) => {
 
   // Pegar o token do usuário da URL
   const location = useLocation();
-  console.log('location', location);
   const userId = new URLSearchParams(location.search).get('userId');
   const refreshToken = new URLSearchParams(location.search).get('refreshToken');
-  console.log('userId', userId, 'refreshToken', refreshToken);
 
   // Set the refreshToken in cookies if it is not null
   if (refreshToken) {
@@ -97,8 +95,6 @@ export const Step2 = ({ setCurrentStepState }: stepProps) => {
   });
 
   useEffect(() => {
-    console.log('user useEffect', user);
-    console.log('tokens useEffect', tokens);
     if (user && tokens) {
       // Definir os cookies
       Cookies.set('meetFlow.user', JSON.stringify(user), { expires: 30, path: '/' });
@@ -111,7 +107,6 @@ export const Step2 = ({ setCurrentStepState }: stepProps) => {
 
   async function createNewSchedule(scheduleData: ScheduleFormData) {
     try {
-      console.log('scheduleData', scheduleData);
       await createScheduleFn(scheduleData);
       setCurrentStepState(3);
     } catch (error) {

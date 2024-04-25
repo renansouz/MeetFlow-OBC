@@ -142,7 +142,6 @@ export function Profile() {
 
   async function handleUpdateProfile(data: UpdatedProfileSchema) {
     try {
-      console.log('Update profile data', data);
       await updateProfileFn(data);
 
       toast.success('Perfil atualizado com sucesso!', {

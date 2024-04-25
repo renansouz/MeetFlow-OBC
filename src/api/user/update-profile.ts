@@ -25,9 +25,7 @@ export interface UpdateProfileResponse {
 
 export async function updateProfile(data: UpdateProfileBody) {
   const user = Cookies.get('meetFlow.user');
-  console.log('user', user);
   const parsedUser = user ? JSON.parse(user) : null;
-  console.log('parsedId', parsedUser);
   const token = Cookies.get('meetFlow.token');
 
   const response = await api.patch<UpdateProfileResponse>(

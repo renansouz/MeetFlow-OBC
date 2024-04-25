@@ -71,7 +71,6 @@ export function ConfirmStep({
 
   async function handleConfirmScheduling(data: ConfirmFormData) {
     const clientResponse = await client(data);
-    console.log('response Client', clientResponse);
     const clientId = clientResponse?._id;
 
     setClientId(clientId);

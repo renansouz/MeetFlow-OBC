@@ -84,8 +84,6 @@ export function CalendarProfessional({ onDateSelected, serviceSelected }: Calend
     enabled: !!schedule,
   });
 
-  console.log('schedule', schedule);
-
   function mapDaysToBlockedWeekDays(schedule: any): number[] {
     const weekDays = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
     const blockedWeekDays: number[] = [];
