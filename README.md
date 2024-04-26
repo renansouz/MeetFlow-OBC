@@ -1,5 +1,7 @@
 <div align="center">
-  <img width="500px" src="https://i.imgur.com/oLCyMZ2.jpeg" />
+
+ ![MeetFlow - Imgur](https://github.com/renansouz/MeetFlow-OBC/assets/115756312/c4258b2a-a63f-4dcb-bbc8-e9ea5a16f9e2)
+
 </div>
 
 # 🚀 MeetFlow - Simplifique seus Agendamentos 📅
