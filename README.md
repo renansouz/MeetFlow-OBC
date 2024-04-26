@@ -1,11 +1,17 @@
-<img src="https://i.imgur.com/et4RQzD.jpeg" alt="MeetFlow Logo" width="1000">
+
+<div align="center">
+
+ ![MeetFlow - Imgur](https://github.com/renansouz/MeetFlow-OBC/assets/115756312/c4258b2a-a63f-4dcb-bbc8-e9ea5a16f9e2)
+
+</div>
 
 # 🚀 MeetFlow - Simplifique seus Agendamentos 📅
 
 Bem-vindo(a) ao MeetFlow - a revolução em agendamento online! Descubra como simplificar seus agendamentos de forma rápida, intuitiva e totalmente personalizada.
 
-Vídeo da plataforma visão **profissional**: [Assistir ao Vídeo](https://drive.google.com/file/d/1kJD4ce3_z2y0YR4rvLGYwIaQYLhl-NDd/view?usp=drivesdk) <br/>
-Vídeo da plataforma visão **cliente**: [Assistir ao Vídeo](https://drive.google.com/file/d/1adJmAXXHEnM0ywajjvMDzHyRTJLXUlDq/view?usp=sharing) <br/><br/>
+
+Vídeo da plataforma visão **profissional**: [Assistir ao Vídeo](https://drive.google.com/file/d/1JHy77S6143YvVVfh6O1YcEgPKBkcTOqw/view?usp=sharing) <br/>
+Vídeo da plataforma visão **cliente**: [Assistir ao Vídeo](https://drive.google.com/file/d/17N7H0Q7FM0NAguozGfd5DBo0JyY1USiX/view?usp=sharing) <br/><br/>
 
 ## 🛠️ Tecnologias Utilizadas
 
