@@ -87,16 +87,16 @@ export const Services = () => {
   }));
   return (
     <div className="w-full max-sm:mt-10">
-      <h1 className="my-10 text-center">Serviços</h1>
+      <h1 className="my-10 text-center max-md:my-5">Serviços</h1>
       <div>
-        <div className="flex items-center justify-center gap-5 px-16">
+        <div className="flex flex-wrap items-center justify-center gap-5 px-2 sm:px-16">
           <Search
             placeholder="Busque por um serviço ou profissional"
             onChange={handleSearchChange}
           />
-          <div className="w-52 rounded-md border border-primary">
+          <div className="flex w-72 rounded-md border border-primary sm:mt-0 sm:w-60">
             <Select onValueChange={handleSearchCategoryChange}>
-              <SelectTrigger>{selectValue}</SelectTrigger> {/* usa o valor do estado aqui */}
+              <SelectTrigger>{selectValue}</SelectTrigger>
               <SelectContent>
                 <SelectGroup>
                   {categoriesMock.map((categorie) => (
@@ -119,7 +119,7 @@ export const Services = () => {
         </div>
 
         <div className="flex">
-          <div className="flex flex-wrap justify-center gap-10 px-16 py-16 max-lg:gap-2 max-lg:px-0 max-sm:gap-1 ">
+          <div className="flex flex-wrap justify-center gap-4 px-4 py-16 sm:px-16">
             {filteredProfessionals &&
               filteredProfessionals.map((professional) => (
                 <ProfessionalCard
