@@ -7,9 +7,10 @@ import { ConfirmStep } from './ConfirmStep';
 
 interface ScheduleFormProps {
   selectedService: ServiceInResponse | null;
+  onBackClick: () => void;
 }
 
-export const ScheduleForm = ({ selectedService }: ScheduleFormProps) => {
+export const ScheduleForm = ({ selectedService, onBackClick }: ScheduleFormProps) => {
   const [selectedDateTime, setSelectedDateTime] = useState<Date | null>();
 
   function handleClearSelectedDateTime() {
@@ -30,6 +31,7 @@ export const ScheduleForm = ({ selectedService }: ScheduleFormProps) => {
     <CalendarStep
       serviceSelected={selectedService!} // Serviço que vem do ProfessionalProfile
       onSelectDateTime={setSelectedDateTime}
+      onBackClick={onBackClick}
     />
   );
 };

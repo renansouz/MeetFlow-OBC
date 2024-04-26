@@ -15,7 +15,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { Ocuppations } from '@/utils/Occupation';
+import { Occupations } from '@/utils/Occupation';
 
 const UpdateUserSchema = z.object({
   headLine: z.string({ required_error: 'Campo obrigatório' }),
@@ -77,7 +77,7 @@ export const Step3 = ({ }: stepProps) => {
                     <SelectValue placeholder="Selecione" />
                   </SelectTrigger>
                   <SelectContent className="rounded-lg bg-card">
-                    {Ocuppations.map((ocupattion) => {
+                    {Occupations.map((ocupattion) => {
                       return (
                         <SelectItem value={ocupattion} {...register('occupationArea')}>
                           {ocupattion}

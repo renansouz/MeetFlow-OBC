@@ -1,9 +1,19 @@
 import { useQuery } from '@tanstack/react-query';
+import { SearchX, X } from 'lucide-react';
 import { useState } from 'react';
 
 import { getProfessional } from '@/api/user/get-professional';
 import { Search } from '@/components/search';
+import { Button } from '@/components/ui/button';
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+} from '@/components/ui/select';
 import { useAuth } from '@/context/auth-provider';
+import { Occupations } from '@/utils/Occupation';
 
 import { ProfessionalCard } from './ProfessionalCard';
 
@@ -15,6 +25,8 @@ type categories = {
 export const Services = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [categories, setCategories] = useState<string[]>([]);
+  const [filteredCategories, setFilteredCategories] = useState<string[]>([]);
+  const [selectValue, setSelectValue] = useState('Filtrar por categoria');
   const { user } = useAuth();
 
   const { data: professionals } = useQuery({
@@ -25,16 +37,25 @@ export const Services = () => {
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
+    setSelectValue('Filtrar por categoria');
   };
 
-  const handleSearchCategoryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target;
-
+  const handleSearchCategoryChange = (value: string) => {
     if (categories.includes(value)) {
       setCategories(categories.filter((category) => category !== value));
     } else {
       setCategories([...categories, value]);
     }
+    setSelectValue(value);
+  };
+
+  const handleFilter = () => {
+    setFilteredCategories(categories);
+  };
+
+  const handleRemoveFilter = () => {
+    setFilteredCategories([]);
+    setSelectValue('Filtrar por categoria');
   };
 
   const removeAccents = (str: string) => {
@@ -44,8 +65,8 @@ export const Services = () => {
   const filteredProfessionals = professionals?.data.filter((professional) => {
     const lowerCaseSearchTerm = removeAccents(searchTerm.toLowerCase());
 
-    if (categories.length) {
-      return categories
+    if (filteredCategories.length) {
+      return filteredCategories
         .map((category) => removeAccents(category.toLowerCase()))
         .includes(removeAccents(professional?.occupationArea?.toLowerCase() ?? ''));
     }
@@ -60,44 +81,41 @@ export const Services = () => {
     );
   });
 
-  const categoriesMock: categories[] = [
-    { title: 'Saúde', id: 1 },
-    { title: 'Advocacia', id: 2 },
-    { title: 'Design', id: 3 },
-    { title: 'Tecnologia', id: 4 },
-    { title: 'Coach', id: 5 },
-  ];
-
+  const categoriesMock: categories[] = Occupations.map((occupation, index) => ({
+    title: occupation,
+    id: index + 1,
+  }));
   return (
     <div className="w-full max-sm:mt-10">
       <h1 className="my-10 text-center">Serviços</h1>
       <div>
-        <div className="flex flex-col items-center gap-5">
+        <div className="flex items-center justify-center gap-5 px-16">
           <Search
             placeholder="Busque por um serviço ou profissional"
             onChange={handleSearchChange}
           />
-        </div>
-
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-10">
-          {categoriesMock.map((categorie) => {
-            return (
-              <div className="flex items-center gap-2" key={categorie.id}>
-                <input
-                  type="checkbox"
-                  className="h-6 w-6 appearance-none rounded-md border-2 border-primary checked:border-primary checked:bg-primary"
-                  name="category"
-                  id={categorie.title}
-                  value={categorie.title}
-                  onChange={handleSearchCategoryChange}
-                />
-
-                <label htmlFor={categorie.title} id={categorie.title}>
-                  {categorie.title}
-                </label>
-              </div>
-            );
-          })}
+          <div className="w-52 rounded-md border border-primary">
+            <Select onValueChange={handleSearchCategoryChange}>
+              <SelectTrigger>{selectValue}</SelectTrigger> {/* usa o valor do estado aqui */}
+              <SelectContent>
+                <SelectGroup>
+                  {categoriesMock.map((categorie) => (
+                    <SelectItem key={categorie.id} value={categorie.title}>
+                      {categorie.title}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+          </div>
+          <Button onClick={handleFilter} variant={'ghost'}>
+            <SearchX className="mr-2 h-4 w-4" />
+            Filtrar
+          </Button>
+          <Button onClick={handleRemoveFilter} variant={'ghost'}>
+            <X className="mr-2 h-4 w-4" />
+            Remover filtro
+          </Button>
         </div>
 
         <div className="flex">

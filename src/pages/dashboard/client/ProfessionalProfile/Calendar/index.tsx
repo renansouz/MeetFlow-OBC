@@ -39,9 +39,14 @@ interface CalendarProps {
   selectedDate: Date | null;
   serviceSelected: ServiceInResponse;
   onDateSelected: (date: Date) => void;
+  onBackClick: () => void;
 }
 
-export function CalendarProfessional({ onDateSelected, serviceSelected }: CalendarProps) {
+export function CalendarProfessional({
+  onDateSelected,
+  serviceSelected,
+  onBackClick,
+}: CalendarProps) {
   const { scheduleId } = useParams();
   const [blockedDates, setBlockedDates] = useState<BlockedDates>({
     blockedWeekDays: [],
@@ -182,7 +187,7 @@ export function CalendarProfessional({ onDateSelected, serviceSelected }: Calend
       <div className="ml-5 flex h-full min-w-[15rem] flex-col">
         <div className="mb-5 mt-10 flex items-center justify-start gap-2">
           <div className="flex w-full cursor-pointer items-center justify-start gap-2 rounded-md p-2 hover:bg-primary/10">
-            <div>
+            <div onClick={onBackClick}>
               <ArrowLeft />
             </div>
             <Avatar>

@@ -13,9 +13,14 @@ dayjs.extend(utc);
 interface CalendarStepProps {
   onSelectDateTime: (date: Date) => void;
   serviceSelected: ServiceInResponse;
+  onBackClick: () => void;
 }
 
-export function CalendarStep({ onSelectDateTime, serviceSelected }: CalendarStepProps) {
+export function CalendarStep({
+  onSelectDateTime,
+  serviceSelected,
+  onBackClick,
+}: CalendarStepProps) {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const isDateSelected = !!selectedDate; // Aqui é utilizado para verificar se a data foi selecionada habilitando o TimePicker
 
@@ -51,6 +56,7 @@ export function CalendarStep({ onSelectDateTime, serviceSelected }: CalendarStep
         selectedDate={selectedDate}
         onDateSelected={setSelectedDate}
         serviceSelected={serviceSelected}
+        onBackClick={onBackClick}
       />
       {isDateSelected && (
         <TimePicker>
