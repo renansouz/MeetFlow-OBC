@@ -4,7 +4,7 @@
 
 Bem-vindo(a) ao MeetFlow - a revolução em agendamento online! Descubra como simplificar seus agendamentos de forma rápida, intuitiva e totalmente personalizada.
 
-Vídeo da plataforma visão **profissional**: [Assistir ao Vídeo](https://drive.google.com/file/d/176Upf3WMI3PiflJgD6Lhm-wfl3LUvD-m/view?usp=sharing) <br/>
+Vídeo da plataforma visão **profissional**: [Assistir ao Vídeo](https://drive.google.com/file/d/1JHy77S6143YvVVfh6O1YcEgPKBkcTOqw/view?usp=sharing) <br/>
 Vídeo da plataforma visão **cliente**: [Assistir ao Vídeo](https://drive.google.com/file/d/1adJmAXXHEnM0ywajjvMDzHyRTJLXUlDq/view?usp=sharing) <br/><br/>
 Teste da API via insomnia e amostra em banco de dados: [Assistir ao Vídeo](https://drive.google.com/file/d/1Cp4M27DTsNVO_Zt9YXxzdAll-G3jBjRm/view?usp=drive_link)   (vídeo longo, possibilidade de assistir em 2x)
 
