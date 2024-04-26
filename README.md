@@ -1,12 +1,13 @@
-<img src="https://i.imgur.com/bNdsByk.png" alt="MeetFlow Logo" width="1000">
+<div align="center">
+  <img width="500px" src="https://i.imgur.com/oLCyMZ2.jpeg" />
+</div>
 
 # 🚀 MeetFlow - Simplifique seus Agendamentos 📅
 
 Bem-vindo(a) ao MeetFlow - a revolução em agendamento online! Descubra como simplificar seus agendamentos de forma rápida, intuitiva e totalmente personalizada.
 
 Vídeo da plataforma visão **profissional**: [Assistir ao Vídeo](https://drive.google.com/file/d/1JHy77S6143YvVVfh6O1YcEgPKBkcTOqw/view?usp=sharing) <br/>
-Vídeo da plataforma visão **cliente**: [Assistir ao Vídeo](https://drive.google.com/file/d/1adJmAXXHEnM0ywajjvMDzHyRTJLXUlDq/view?usp=sharing) <br/><br/>
-Teste da API via insomnia e amostra em banco de dados: [Assistir ao Vídeo](https://drive.google.com/file/d/1Cp4M27DTsNVO_Zt9YXxzdAll-G3jBjRm/view?usp=drive_link)   (vídeo longo, possibilidade de assistir em 2x)
+Vídeo da plataforma visão **cliente**: [Assistir ao Vídeo](https://drive.google.com/file/d/17N7H0Q7FM0NAguozGfd5DBo0JyY1USiX/view?usp=sharing) <br/><br/>
 
 ## 🛠️ Tecnologias Utilizadas
 
