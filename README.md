@@ -41,9 +41,9 @@ Teste da API via insomnia e amostra em banco de dados: [Assistir ao Vídeo](http
 
 - **🔒 Segurança e Confiabilidade**: Utilizamos as mais recentes tecnologias e práticas de segurança para garantir a proteção dos dados dos usuários.
 
-- **☁️ Integração com Cloudflare: Para um gerenciamento eficiente e seguro de imagens.
+- **☁️ Integração com Cloudflare**: Para um gerenciamento eficiente e seguro de imagens.
 
-- **🔑 Integração com Google: Para autenticação de usuários e sincronização com o Google Agenda.
+- **🔑 Integração com Google**: Para autenticação de usuários e sincronização com o Google Agenda.
 
 ## 🚀 Como Instalar e Executar o Projeto
 1. Clone este repositório utilizando o comando:
