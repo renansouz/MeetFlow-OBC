@@ -132,11 +132,11 @@ export const ProfessionalAside = () => {
                   <section className="flex flex-col py-2">
                     <div className="flex justify-between ">
                       <label htmlFor="" className="block py-1 font-bold text-black">
-                        <span className="text-foreground">Descrinção:</span>
+                        <span className="text-foreground">Descrição:</span>
                       </label>
                       <Textarea
                         className="row-span-30 w-[70%]  resize-none"
-                        placeholder="Insira uma descrinção para este serviço"
+                        placeholder="Insira uma descrição para este serviço"
                         id="user"
                         {...register('description')}
                       />
@@ -380,11 +380,11 @@ export const ProfessionalAside = () => {
                         <section className="flex flex-col py-2">
                           <div className="flex justify-between ">
                             <label htmlFor="" className="block py-1 font-bold text-black">
-                              <span className="text-foreground">Descrinção:</span>
+                              <span className="text-foreground">Descrição:</span>
                             </label>
                             <Textarea
                               className="row-span-30 w-[70%]  resize-none"
-                              placeholder="Insira uma descrinção para este serviço"
+                              placeholder="Insira uma descrição para este serviço"
                               id="user"
                               {...register('description')}
                             />
