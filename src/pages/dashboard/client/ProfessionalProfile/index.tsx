@@ -29,6 +29,10 @@ export function ProfessionalProfile() {
     setShowCalendar(true);
   };
 
+  const handleBackClick = () => {
+    setShowCalendar(false);
+  };
+
   const { _id } = useParams();
 
   const { data: professional, isLoading: isLoadingProfile } = useQuery({
@@ -142,7 +146,7 @@ export function ProfessionalProfile() {
           </h2>
 
           <div className="flex items-center justify-center">
-            <ScheduleForm selectedService={selectedService} />
+            <ScheduleForm selectedService={selectedService} onBackClick={handleBackClick} />
           </div>
         </>
       )}
