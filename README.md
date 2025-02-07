@@ -5,69 +5,69 @@
 
 </div>
 
-# 🚀 MeetFlow - Simplifique seus Agendamentos 📅
+# 🚀 MeetFlow - Simplify Your Scheduling 📅
 
-Bem-vindo(a) ao MeetFlow - a revolução em agendamento online! Descubra como simplificar seus agendamentos de forma rápida, intuitiva e totalmente personalizada.
+Welcome to MeetFlow - the revolution in online scheduling! Discover how to streamline your appointments quickly, intuitively, and fully customized.
 
 
-Vídeo da plataforma visão **profissional**: [Assistir ao Vídeo](https://drive.google.com/file/d/1JHy77S6143YvVVfh6O1YcEgPKBkcTOqw/view?usp=sharing) <br/>
-Vídeo da plataforma visão **cliente**: [Assistir ao Vídeo](https://drive.google.com/file/d/17N7H0Q7FM0NAguozGfd5DBo0JyY1USiX/view?usp=sharing) <br/><br/>
+Video of the platform from the **professional's** perspective: [Watch the Video](https://drive.google.com/file/d/1JHy77S6143YvVVfh6O1YcEgPKBkcTOqw/view?usp=sharing) <br/>
+Video of the platform from the **client's** perspective: [Watch the Video](https://drive.google.com/file/d/17N7H0Q7FM0NAguozGfd5DBo0JyY1USiX/view?usp=sharing) <br/><br/>
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Technologies Used
 
-- **React**: Biblioteca JavaScript para criar interfaces de usuário.
-- **TypeScript**: Superset do JavaScript que adiciona tipagem estática.
-- **Vite**: Ferramenta de build rápida para projetos web modernos.
-- **Tailwind CSS**: Framework de CSS utilitário para desenvolvimento rápido.
-- **Styled Components**: Biblioteca para estilizar componentes React com CSS-in-JS.
-- **React Router DOM**: Roteamento de aplicativos web para React.
-- **Zod**: Biblioteca para validação de esquemas de dados.
-- **Shadcn-UI**: Componentes estilizados para uma experiência visualmente atraente.
-- **Sonner**: Biblioteca para exibição de notificações e toasts.
-- **Dayjs**: Biblioteca para manipulação de datas e horas.
-- **Tanstack/React-Query**: Biblioteca para gerenciamento de estado e chamadas à API.
-- **Axios**: Biblioteca para realizar requisições HTTP.
+- **React**: JavaScript library for building user interfaces.
+- **TypeScript**: A superset of JavaScript that adds static typing.
+- **Vite**: Fast build tool for modern web projects.
+- **Tailwind CSS**: Utility-first CSS framework for rapid development.
+- **Styled Components**: Library for styling React components using CSS-in-JS.
+- **React Router DOM**: Web application routing for React.
+- **Zod**: Library for data schema validation.
+- **Shadcn-UI**: Styled components for a visually appealing experience.
+- **Sonner**: Library for displaying notifications and toasts.
+- **Dayjs**: Library for date and time manipulation.
+- **Tanstack/React-Query**: State management and API call library.
+- **Axios**: Library for making HTTP requests.
 
-## ⚙️ Configurações do Projeto
+## ⚙️ Project Configuration
 
-- **ESLint**: Configurações padrão para garantir boas práticas de codificação.
-- **Prettier**: Configurações para manter uma formatação consistente do código.
-- **EditorConfig**: Configurações para manter a consistência de estilo do código entre diferentes editores.
+- **ESLint**: Standard settings to ensure coding best practices.
+- **Prettier**: Settings to maintain consistent code formatting.
+- **EditorConfig**: Configurations to ensure code style consistency across editors.
 
-## 🤟Principais Recursos
+## 🤟 Key Features
 
-- **🖥️ Interface Responsiva**: Desfrute de uma experiência fluida em qualquer dispositivo, seja desktop, tablet ou smartphone.
+- **🖥️ Responsive Interface**: Enjoy a smooth experience on any device, be it desktop, tablet, or smartphone.
 
-- **🎨 Tema Claro e Escuro**: Escolha entre o tema claro ou escuro para personalizar sua experiência de acordo com suas preferências.
+- **🎨 Light and Dark Themes**: Choose between light and dark themes to personalize your experience according to your preferences.
 
-- **📊 Dashboard do Profissional**: Os profissionais têm acesso a um dashboard completo onde podem gerenciar seus serviços, disponibilidade e agendamentos de forma eficiente.
+- **📊 Professional Dashboard**: Professionals have access to a complete dashboard where they can efficiently manage their services, availability, and appointments.
 
-- **🗓️ Agendamento Simples**: Agendar um serviço nunca foi tão fácil! Com MeetFlow, você pode agendar compromissos em poucos cliques, escolhendo o horário e o profissional disponível que mais lhe convém.
+- **🗓️ Simple Scheduling**: Scheduling a service has never been easier! With MeetFlow, you can book appointments in just a few clicks, selecting the time and available professional that suits you best.
 
-- **🔒 Segurança e Confiabilidade**: Utilizamos as mais recentes tecnologias e práticas de segurança para garantir a proteção dos dados dos usuários.
+- **🔒 Security and Reliability**: We use the latest technologies and security practices to ensure user data protection.
 
-- **☁️ Integração com Cloudflare**: Para um gerenciamento eficiente e seguro de imagens.
+- **☁️ Integration with Cloudflare**: For efficient and secure image management.
 
-- **🔑 Integração com Google**: Para autenticação de usuários e sincronização com o Google Agenda.
+- **🔑 Integration with Google**: For user authentication and synchronization with Google Calendar.
 
-## 🚀 Como Instalar e Executar o Projeto
-1. Clone este repositório utilizando o comando:
+## 🚀 How to Install and Run the Project
+1. Clone this repository using the command:
     ```bash
    git clone https://github.com/renansouz/MeetFlow-OBC.git
-2. Acesse o diretório do projeto:
+2. Navigate to the project directory:
    ```bash
    cd MeetFlow-OBC
-3. Instale as dependências utilizando o npm:
+3. Install the dependencies using npm:
    ```bash
    npm install
-4. Após a instalação das dependências, inicie o servidor de desenvolvimento:
+4. After installing the dependencies, start the development server:
    ```bash
-    npm run dev
-5. Abra o navegador e acesse `http://localhost:5173` para visualizar o MeetFlow em ação!
+   npm run dev
+5. Open your browser and go to `http://localhost:5173` to see MeetFlow in action!
 
-# Colaboradores 🤝🤝
+# Collaborators 🤝🤝
 
-| Foto                                                       | Nome                                                 |
+| Photo                                                      | Name                                                |
 | ---------------------------------------------------------- | ---------------------------------------------------- |
 | <img src="https://github.com/miqueiasmartinsf.png" width="100"> | [Miquéias Martins](https://github.com/miqueiasmartinsf) |
 | <img src="https://github.com/renansouz.png" width="100"> | [Renan Souza](https://github.com/renansouz) |
