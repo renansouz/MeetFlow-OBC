@@ -1,14 +1,25 @@
+# MeetFlow 📅
 
-<div align="center">
+<p align="left">
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
+  <img src="https://img.shields.io/badge/Styled_Components-DB7093?style=for-the-badge&logo=styledcomponents&logoColor=white" />
+  <img src="https://img.shields.io/badge/React_Query-FF4154?style=for-the-badge&logo=reactquery&logoColor=white" />
+  <img src="https://img.shields.io/badge/Zod-3068B7?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Shadcn_UI-000000?style=for-the-badge" />
+</p>
 
- ![MeetFlow - Imgur](https://github.com/renansouz/MeetFlow-OBC/assets/115756312/c4258b2a-a63f-4dcb-bbc8-e9ea5a16f9e2)
+Appointment scheduling platform with professional dashboards, calendar management, and booking workflows
 
-</div>
+![Project Preview](https://github.com/renansouz/MeetFlow-OBC/assets/115756312/c4258b2a-a63f-4dcb-bbc8-e9ea5a16f9e2)
 
-# 🚀 MeetFlow - Simplify Your Scheduling 📅
+## Introduction
 
-Welcome to MeetFlow - the revolution in online scheduling! Discover how to streamline your appointments quickly, intuitively, and fully customized.
+MeetFlow is a scheduling platform built for professionals and clients who need a structured appointment booking workflow. The application supports service management, availability control, appointment scheduling, and dashboard-based organization through a responsive React frontend.
 
+The project is designed for users searching for a React scheduling platform, appointment booking system, professional dashboard application, or calendar management interface built with TypeScript and modern frontend tooling.
 
 Video of the platform from the **professional's** perspective: [Watch the Video](https://drive.google.com/file/d/1JHy77S6143YvVVfh6O1YcEgPKBkcTOqw/view?usp=sharing) <br/>
 Video of the platform from the **client's** perspective: [Watch the Video](https://drive.google.com/file/d/17N7H0Q7FM0NAguozGfd5DBo0JyY1USiX/view?usp=sharing) <br/><br/>
